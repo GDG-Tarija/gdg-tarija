@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import IoNavbar from "../components/io/navbar/navbar.astro";
 import IoCta from "../components/io/cta/cta.astro";
+import Countdown from "../components/io2024/countdown/Countdown.astro";
+import Speakers from "../components/io/speakers/Speakers.astro";
 import InfoSection from "../components/io/info/InfoSection.astro";
 import StatsSection from "../components/io/info/StatsSection.astro";
 import OrganizersSection from "../components/io/organizers/OrganizersSection.astro";
@@ -15,8 +17,58 @@ import Footer from "components/main/footer/Footer.astro";
 >
   <IoNavbar />
   <IoCta />
+  <Countdown targetDate="2025-08-02T08:30:00" />
+  <Speakers />
   <StatsSection />
-  <InfoSection />
   <OrganizersSection />
-  <Footer />
+
+  <!-- Sección final con imagen y degradado -->
+  <section
+    class="relative overflow-hidden bg-[#BCE0F7] pt-32 border-b border-black"
+  >
+    <div class="relative flex items-end justify-center">
+      <!-- Imagen izquierda -->
+      <div class="absolute left-3 bottom-10 hidden lg:block z-30">
+        <img
+          src="https://res.cloudinary.com/dopkch3x9/image/upload/v1753809909/io25-community-gde-card_lci7xw.png"
+          alt="IO25 Community GDE"
+          class="h-auto bottom-10 pl-8 w-auto max-h-96 object-contain"
+        />
+      </div>
+
+      <!-- Bloque negro debajo de Casa Dorada -->
+      <div class="absolute bottom- z-20 flex justify-center w-full">
+        <div class="bg-black h-16 w-[100%]"></div>
+      </div>
+
+      <!-- Imagen central -->
+      <div class="flex justify-center z-10 pl-4">
+        <img
+          src="https://res.cloudinary.com/dopkch3x9/image/upload/v1753809557/CASA_DORADA_1_4_tn1zbc.png"
+          alt="Casa Dorada"
+          class="w-[100%] md:w-[85%] max-w-7xl h-auto object-contain"
+        />
+      </div>
+
+      <!-- Imagen derecha -->
+      <div class="absolute right-0 bottom-10 hidden lg:block z-30">
+        <img
+          src="https://res.cloudinary.com/dopkch3x9/image/upload/v1753809909/io25-stage-web_kgj8rs.png"
+          alt="IO25 Stage"
+          class="h-auto w-auto max-h-96 pr-5 object-contain"
+        />
+      </div>
+    </div>
+
+    <!-- Degradado negro al final -->
+    <div
+      class="absolute bottom-10 left-0 right-0 h-48 md:h-96 bg-gradient-to-t from-black to-transparent z-20"
+    >
+    </div>
+  </section>
+
+  <Footer
+    darkMode={true}
+    logo="https://res.cloudinary.com/dopkch3x9/image/upload/v1753813477/logowhiteGDG_jz2zj3.svg"
+  />
 </Layout>

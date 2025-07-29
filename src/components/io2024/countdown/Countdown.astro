@@ -1,50 +1,50 @@
-<div class="bg-Background mt-10">
-  <div
-    id="countdown"
-    class="text-center flex items-center justify-center bg-Background mx-6"
-  >
-    <div class="flex bg-Background">
-      <div
-        class="sm:text-3xl min-[190px]:text-xl lg:text-6xl font-bold sm:mx-5 min-[190px]:mx-2"
-      >
-        <div class="flex flex-col">
-          <span id="days">00</span>
-          <span class="sm:text-xl min-[190px]:text-lg lg:text-3xl">Días</span>
+---
+interface Props {
+  targetDate: string;
+}
+
+const { targetDate } = Astro.props;
+---
+
+<section class="py-16 bg-[#E4F3FC] border-y-2 border-[#E8EAEB]">
+  <div class="max-w-6xl mx-auto px-6">
+    <div
+      id="countdown"
+      class="text-center flex items-center justify-center"
+    >
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+        <div class="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
+          <div class="flex flex-col items-center">
+            <span id="days" class="text-2xl md:text-4xl lg:text-6xl font-bold text-blue-600">00</span>
+            <span class="text-sm md:text-lg lg:text-xl text-gray-600 mt-2">Días</span>
+          </div>
         </div>
-      </div>
-      <div
-        class="sm:text-3xl min-[190px]:text-xl lg:text-6xl font-bold sm:mx-5 min-[190px]:mx-2"
-      >
-        <div class="flex flex-col">
-          <span id="hours">00</span>
-          <span class="sm:text-xl min-[190px]:text-lg lg:text-3xl">Horas</span>
+        <div class="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
+          <div class="flex flex-col items-center">
+            <span id="hours" class="text-2xl md:text-4xl lg:text-6xl font-bold text-blue-600">00</span>
+            <span class="text-sm md:text-lg lg:text-xl text-gray-600 mt-2">Horas</span>
+          </div>
         </div>
-      <div
-        class="sm:text-3xl min-[190px]:text-xl lg:text-6xl font-bold sm:mx-5 min-[190px]:mx-2"
-      >
-        <div class="flex flex-col">
-          <span id="minutes">00</span>
-          <span class="sm:text-xl min-[190px]:text-lg lg:text-3xl">Minutos</span
-          >
+        <div class="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
+          <div class="flex flex-col items-center">
+            <span id="minutes" class="text-2xl md:text-4xl lg:text-6xl font-bold text-blue-600">00</span>
+            <span class="text-sm md:text-lg lg:text-xl text-gray-600 mt-2">Minutos</span>
+          </div>
         </div>
-      </div>
-      <div
-        class="sm:text-3xl min-[190px]:text-xl lg:text-6xl font-bold sm:mx-5 min-[190px]:mx-2"
-      >
-        <div class="flex flex-col">
-          <span id="seconds">00</span>
-          <span class="sm:text-xl min-[190px]:text-lg lg:text-3xl"
-            >Segundos</span
-          >
+        <div class="bg-white rounded-2xl p-4 md:p-6 shadow-lg">
+          <div class="flex flex-col items-center">
+            <span id="seconds" class="text-2xl md:text-4xl lg:text-6xl font-bold text-blue-600">00</span>
+            <span class="text-sm md:text-lg lg:text-xl text-gray-600 mt-2">Segundos</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<script is:inline>
+<script is:inline define:vars={{ targetDate }}>
   document.addEventListener("DOMContentLoaded", function () {
-    const endDate = new Date("2024-07-19T23:59:59").getTime();
+    const endDate = new Date(targetDate).getTime();
 
     const countdown = () => {
       const now = new Date().getTime();
@@ -64,7 +64,7 @@
 
       if (distance < 0) {
         clearInterval(interval);
-        document.getElementById("countdown").innerHTML = "EXPIRED";
+        document.getElementById("countdown").innerHTML = "¡El evento ha comenzado!";
       }
     };
 

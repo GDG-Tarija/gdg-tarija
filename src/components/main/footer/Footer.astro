@@ -1,10 +1,24 @@
 ---
 import redes_sociales from "./redes_sociales.json";
 import RedesSociales from "./RedesSociales.astro";
+
+interface Props {
+  darkMode?: boolean;
+  logo?: string;
+}
+
+const {
+  darkMode = false,
+  logo = "https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg",
+} = Astro.props;
 ---
 
 <footer
-  class="bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200"
+  class={`${
+    darkMode
+      ? "bg-gradient-to-b from-black to-gray-900 border-t border-black"
+      : "bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200"
+  }`}
 >
   <div class="container mx-auto px-6 py-6">
     <div
@@ -14,14 +28,18 @@ import RedesSociales from "./RedesSociales.astro";
       <div class="flex flex-col items-center lg:items-start space-y-2">
         <img
           class="h-10 sm:h-12 w-auto transition-transform duration-300 hover:scale-105"
-          src="https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg"
+          src={logo}
           alt="GDG Tarija Logo"
         />
       </div>
 
       <!-- Redes sociales -->
       <div class="flex flex-col items-center space-y-4">
-        <h3 class="text-gray-700 font-medium text-sm uppercase tracking-wide">
+        <h3
+          class={`${
+            darkMode ? "text-gray-300" : "text-gray-700"
+          } font-medium text-sm uppercase tracking-wide`}
+        >
           Síguenos
         </h3>
         <div class="flex space-x-2">
@@ -35,8 +53,16 @@ import RedesSociales from "./RedesSociales.astro";
     </div>
 
     <!-- Copyright -->
-    <div class="mt-8 pt-6 border-t border-gray-200">
-      <p class="text-center text-gray-500 text-sm">
+    <div
+      class={`mt-8 pt-6 ${
+        darkMode ? "border-t border-gray-700" : "border-t border-gray-200"
+      }`}
+    >
+      <p
+        class={`text-center text-sm ${
+          darkMode ? "text-gray-400" : "text-gray-500"
+        }`}
+      >
         © {new Date().getFullYear()} GDG Tarija. Todos los derechos reservados.
       </p>
     </div>

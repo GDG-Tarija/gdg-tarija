@@ -1,57 +1,118 @@
 ---
 // Componente para mostrar los logos de los organizadores del evento
+
+// Datos de sponsors
+const sponsors = [
+  {
+    name: "Takenos",
+    logo: "https://cdn.prod.website-files.com/63f4f355e9177eef33f5268f/65ba9f0bb1bbf6f851244b8b_6527eb442dddd2674a0dd8f7_takenos%20main%20logo.png",
+    url: "https://takenos.com/bolivia",
+  },
+  {
+    name: "UCB Tarija",
+    logo: "https://tja.ucb.edu.bo/wp-content/uploads/2023/06/logo_ucb_2023.png",
+    url: "https://tja.ucb.edu.bo/",
+  },
+  {
+    name: "Favorcito",
+    logo: "https://res.cloudinary.com/dwmmmdvdk/image/upload/v1750300047/svg-favorcito-dark_uvp4wn.svg",
+    url: "https://tufavorcito.com/",
+  },
+  {
+    name: "Navi",
+    logo: "https://res.cloudinary.com/dopkch3x9/image/upload/v1753814640/LOGO_NAVI_iutkiw.svg",
+    url: "https://isnavi.com/",
+  },
+];
 ---
 
-<section class="py-16 bg-white">
+<section class="bg-[#BCE0F7] relative overflow-hidden py-16">
   <div class="max-w-6xl mx-auto px-6">
-    <!-- Título -->
-    <div
-      class="text-center mb-12 animate-fade-up animate-duration-[1000ms] animate-ease-out"
-    >
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-        Organizadores del Evento
-      </h2>
+    <!-- Sección de Sponsors -->
+    <div class="mb-20">
+      <!-- Título de Sponsors -->
+      <div
+        class="text-center mb-12 animate-fade-up animate-duration-[1000ms] animate-ease-out"
+      >
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Nuestros Sponsors
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Gracias a nuestros patrocinadores que hacen posible este increíble
+          evento
+        </p>
+      </div>
+
+      <!-- Sponsors Grid -->
+      <div class="flex flex-wrap items-center justify-center gap-8">
+        {
+          sponsors.map((sponsor) => (
+            <a
+              href={sponsor.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group hover:scale-105 transition-transform duration-300"
+            >
+              <div class="p-6 transition-shadow duration-300">
+                <img
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  class="h-20 w-auto object-contain"
+                />
+              </div>
+            </a>
+          ))
+        }
+      </div>
     </div>
 
-    <!-- Logos de organizadores -->
-    <div
-      class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 animate-fade-up animate-duration-[1000ms] animate-delay-[200ms] animate-ease-out"
-    >
-      <!-- Logo 2 - Centro de Sistemas -->
-      <a
-        href="https://www.instagram.com/sistemas_ucbtja/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group flex flex-col items-center space-y-4 hover:scale-105 transition-transform duration-300"
+    <!-- Sección de Organizadores -->
+    <div>
+      <!-- Título de Organizadores -->
+      <div
+        class="text-center mb-12 animate-fade-up animate-duration-[1000ms] animate-ease-out"
       >
-        <div
-          class="bg-gray-50 p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300"
-        >
-          <img
-            src="https://res.cloudinary.com/dopkch3x9/image/upload/v1753129687/logo-centro-sistemas_qfoolj.png"
-            alt="Centro de Estudiantes de Ingenieria de Sistemas"
-            class="h-32 w-auto object-contain transition-opacity duration-300"
-          />
-        </div>
-      </a>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Organizadores del Evento
+        </h2>
+      </div>
 
-      <!-- Logo 1 - GDG Tarija -->
-      <a
-        href="https://gdgtarija.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="group flex flex-col items-center space-y-4 hover:scale-105 transition-transform duration-300"
+      <!-- Logos de organizadores -->
+      <div
+        class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 animate-fade-up animate-duration-[1000ms] animate-delay-[200ms] animate-ease-out"
       >
-        <div
-          class="bg-gray-50 p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-shadow duration-300"
+        <!-- Logo 2 - Centro de Sistemas -->
+        <a
+          href="https://www.instagram.com/sistemas_ucbtja/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col items-center space-y-4 hover:scale-105 transition-transform duration-300"
         >
-          <img
-            src="https://res.cloudinary.com/dopkch3x9/image/upload/v1753129644/logoGDGTarija_lyzyzo.svg"
-            alt="Google Developer Group Tarija"
-            class="h-32 w-auto object-contain transition-opacity duration-300"
-          />
-        </div>
-      </a>
+          <div class="p-8 transition-shadow duration-300">
+            <img
+              src="https://res.cloudinary.com/dopkch3x9/image/upload/v1753129687/logo-centro-sistemas_qfoolj.png"
+              alt="Centro de Estudiantes de Ingenieria de Sistemas"
+              class="h-32 w-auto object-contain transition-opacity duration-300"
+            />
+          </div>
+        </a>
+
+        <!-- Logo 1 - GDG Tarija -->
+        <a
+          href="https://gdgtarija.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col items-center space-y-4 hover:scale-105 transition-transform duration-300"
+        >
+          <div class="p-8 transition-shadow duration-300">
+            <img
+              src="https://res.cloudinary.com/dopkch3x9/image/upload/v1753129644/logoGDGTarija_lyzyzo.svg"
+              alt="Google Developer Group Tarija"
+              class="h-32 w-auto object-contain transition-opacity duration-300"
+            />
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>

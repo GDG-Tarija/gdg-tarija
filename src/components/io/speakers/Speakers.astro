@@ -1,0 +1,64 @@
+---
+import speakers from './speakers.json';
+---
+
+<section id="Speakers" class="relative pb-16 bg-io-extended min-h-screen">
+  <!-- Degradado transparente -->
+  <div class="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-white/80 via-white/40 to-transparent"></div>
+
+  <!-- Divider -->
+  <div class="relative w-full mb-8">
+    <img 
+      src="https://res.cloudinary.com/dopkch3x9/image/upload/v1753807517/background-speakers_u1mgyp.png" 
+      alt="Speakers divider" 
+      class="w-full h-auto"
+    />
+  </div>
+
+  <!-- Contenido -->
+  <div class="relative max-w-7xl mx-auto px-4">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">
+      Conoce a nuestros <span class="text-blue-600">Speakers</span>
+    </h2>
+    <p class="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+      Expertos y líderes de la industria tecnológica compartirán las últimas innovaciones de Google y el futuro del desarrollo.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+      {speakers.map((speaker) => (
+        <div class="overflow-hidden transition-all duration-300 transform hover:-translate-y-2 p-4">
+          <!-- Imagen -->
+          <div class="relative w-full aspect-square overflow-hidden mb-4">
+            <img
+              src={speaker.foto}
+              alt={speaker.nombre}
+              class="w-full h-full object-contain"
+            />
+          </div>
+
+          <!-- Contenido -->
+          <div class="text-center">
+            <h3 class="text-xl font-bold text-blue-600 mb-2">
+              {speaker.nombre}
+            </h3>
+
+            <p class="text-lg text-gray-800">
+              {speaker.charla}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-io-extended {
+    background-image: url("https://res.cloudinary.com/dopkch3x9/image/upload/v1751730524/back-io_a9qnzw.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+</style> 

@@ -1,0 +1,79 @@
+[
+  {
+    "nombre": "Brian Castillo",
+    "charla": "Firebase Studio: del prompt al deploy",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807516/brian_afduaf.png"
+  },
+  {
+    "nombre": "Lesly Zerna",
+    "charla": "Construye tu primer agente inteligente con ADK",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807518/Group_553_mird79.png"
+  },
+  {
+    "nombre": "Fermín Blanco",
+    "charla": "AI Agents",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807517/Fermin_qxgejp.png"
+  },
+  {
+    "nombre": "Sergio Balanza",
+    "charla": "Bolivia en Google Cloud Next 25",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807518/sergio_E_kvgypl.png"
+  },
+  {
+    "nombre": "Sebastián Gonzales Tito",
+    "charla": "¿Y si tu backend pensara? Bienvenido a GenKit.",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807518/Sebastian_Gonzales_Tito_3_ni9zp3.png"
+  },
+  {
+    "nombre": "Hansy Schmitt",
+    "charla": "This is not the droids you are looking for",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807517/Hansy_Schmitt_2_wijdzz.png"
+  },
+
+  {
+    "nombre": "Esther Romero",
+    "charla": "Conversando con tu Terminal: Gemini CLI",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807517/Esther_Romero_Aguilar_3_bajkoi.png"
+  },
+  {
+    "nombre": "Gabriel Pantoja",
+    "charla": "Conversando con tu Terminal: Gemini CLI",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807517/Gabriel_Pantoja_Bustamante_3_hrhzrg.png"
+  },
+
+  {
+    "nombre": "Kevin Brayan Gomez",
+    "charla": "De la Automatización a la Autonomía: Agentes DevOps con IA",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807516/brayan_gomez_2_ajf7k8.png"
+  },
+  {
+    "nombre": "Pedro Anze",
+    "charla": "Stitch y el futuro del diseño web automatizado",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807517/Pedro_Anze_2_qikhkl.png"
+  },
+  {
+    "nombre": "Vania Catorceno",
+    "charla": "Google I/O Recap & Angular in Action",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807519/Vania_Marisela_Catorceno_Carballo_2_lx2lti.png"
+  },
+  {
+    "nombre": "Silvana Gutierrez",
+    "charla": "Multiagentes Inteligentes con Google Cloud ADK",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807518/Silvana_Gutierrez2_1_oe99jv.png"
+  },
+  {
+    "nombre": "Irvin Cossio Chavalier",
+    "charla": "Animaciones en Android con Compose",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807518/Irvin_Cossio_Chavalier_2_zdxxuu.png"
+  },
+  {
+    "nombre": "Ronald Chipana",
+    "charla": "El nuevo Firebase",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807517/Ronald_Chipana_Wariste_3_imwrnh.png"
+  },
+  {
+    "nombre": "Marlene Choque",
+    "charla": "¿Y si no necesitas JavaScript?: el nuevo UI declarativo",
+    "foto": "https://res.cloudinary.com/dopkch3x9/image/upload/v1753807516/Marlene_Choque_Perez_1_1_f3gman.png"
+  }
+]
