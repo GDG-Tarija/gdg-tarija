@@ -9,6 +9,11 @@
         "href": "#paquetes",
         "color": ""
     },
+        {
+        "title": "Lugar del evento",
+        "href": "#Lugar",
+        "color": ""
+    },
     {
         "title": "Sponsors",
         "href": "#sponsors",
