@@ -1,0 +1,53 @@
+---
+import RedesSociales from 'components/main/footer/RedesSociales.astro';
+import redes_sociales from 'components/main/footer/redes_sociales.json'
+
+interface Props {
+	darkMode?: boolean;
+	logo?: string;
+}
+
+const {
+	darkMode = false,
+	logo = 'https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg',
+} = Astro.props;
+---
+
+<footer
+	class='bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200 pt-5'>
+	<div class='container mx-auto px-6 py-6'>
+		<div class='flex flex-col items-center space-y-6'>
+			<!-- Logo y texto -->
+			<div class='flex flex-col items-center lg:items-start space-y-2'>
+				<img
+					class='h-7 sm:h-9 w-auto transition-transform duration-300 hover:scale-105'
+					src={logo}
+					alt='GDG Tarija Logo'
+				/>
+			</div>
+
+			<!-- Redes sociales -->
+			<div class='flex flex-col items-center space-y-6'>
+				<h3 class='text-gray-700 flex flex-row items-center gap-4'>
+					Made with
+          <svg width="19" height="27" viewBox="0 0 159 167" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M108.154 81.5425C135.769 81.4329 158.916 100.127 159 124.077C159.083 148.026 136.084 166.891 108.456 167L108.441 163.082C134.713 162.978 155.242 145.175 155.169 124.092C155.096 103.009 134.427 85.3566 108.169 85.4608L108.154 81.5425Z" fill="#EA4335"/>
+            <path d="M107.853 0.000479392C135.468 -0.109114 158.616 18.5851 158.699 42.535C158.782 66.4845 135.783 85.3488 108.155 85.4584L108.141 81.5401C134.413 81.4357 154.942 63.6327 154.869 42.5496C154.795 21.4669 134.127 3.81462 107.868 3.91881L107.853 0.000479392Z" fill="#EA4335"/>
+            <path d="M74.1264 12.538L4.6236 83.619L74.1264 154.714L71.4181 157.485L0.561116 85.0049C0.201907 84.6375 -2.34373e-05 84.1386 2.04033e-09 83.619C0.000106474 83.0994 0.201948 82.6011 0.561116 82.2338L71.4181 9.76758L74.1264 12.538Z" fill="#EA4335"/>
+          </svg>
+
+				</h3>
+				<div class='flex space-x-2'>
+					{redes_sociales.map((red_social) => <RedesSociales {...red_social} />)}
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<!-- Copyright -->
+		<div class='mt-5 p-5 w-full h-full border-t border-azul-GDG bg-azul-GDG'>
+			<p class='text-center text-sm text-white'>
+				© {new Date().getFullYear()} GDG Tarija. Todos los derechos reservados.
+			</p>
+		</div>
+</footer>
