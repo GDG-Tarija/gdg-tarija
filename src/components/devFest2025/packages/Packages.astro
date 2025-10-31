@@ -1,63 +1,28 @@
 ---
-import image1 from "assets/devfest/package_1.png";
-import image2 from "assets/devfest/package_2.png";
-import image3 from "assets/devfest/package_3.png";
 import PackageCard from "./PackageCard.astro";
 
-const packages = [
-    {
-        name: "Byte Salvaje",
-        price: "45",
-        features: ["2 Stickers",
-"2 Pines",
-"1 Lápiz ecológico",
-"1 Cuaderno"],
-        image: image1,
-        bgColor: " bg-[#C3ECF6]",
-        textColor: "text-[#4285F4]"
-    },
-    {
-        name: "Kernel Rebelde",
-        price: "60",
-        features: ["2 Stickers",
-"2 Pines",
-"1 Lápiz ecológico",
-"1 Cuaderno",
-"1 Portalápiz"],
-        image: image2,
-         bgColor: "bg-[#CCF6C5]",
-         textColor: "text-[#34A853]"
-    },
-    {
-        name: "Overclock Extremo",
-        price: "75",
-        features: ["2 Stickers",
-"2 Pines",
-"1 Lápiz ecológico",
-"1 Cuaderno",
-"1 Portalápiz",
-"1 Pechera"],
-        image: image3,
-         bgColor: "bg-[#FFE7A5]"
-        ,textColor: "text-[#F9AB00]"
-    },
-];
+import packages from "./paquetes.json"
 ---
 
-<section class="flex flex-col items-center container mx-auto">
-    <h2 class="text-2xl font-bold mb-8">PAQUETES</h2>
-    <div class="grid grid-cols-3 justify-center items-center gap-8">
-
-    {packages.map(pkg => (
-        <PackageCard 
-            name={pkg.name}
-            price={pkg.price}
-            features={pkg.features}
-            image={pkg.image}
-            bgColor={pkg.bgColor}
-            textColor={pkg.textColor}
+<section class="bg-[#F0F0F0]">
+<div class="flex flex-col items-center container mx-auto mt-10 md:mt-20 pt-8 md:pt-14">
+  <h2 class="text-[2rem] font-bold mb-8">Adquiere tu paquete</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 w-full max-w-[1200px] justify-center items-center gap-8 px-4 md:px-0">
+    {
+      packages.map((pkg) => (
+        <PackageCard
+          name={pkg.name}
+          price={pkg.price}
+          features={pkg.features}
+          image={pkg.image}
+          bgColor={pkg.bgColor}
+          borderColor={pkg.borderColor}
+          textColor={pkg.textColor}
         />
-    ))}
-    </div>
-    <button class="bg-[#4285F4] text-white px-4 py-2 rounded-md">Adquiere tu paquete</button>
-</section>
+      ))
+    }
+  </div>
+  <a href="https://forms.gle/jXhjJ2P39KVACdpW9" target="_blank" class="bg-[#4285F4] text-white px-16 py-4 rounded-full my-10 hover:scale-150 transition-all duration-200"
+    >Adquiere tu paquete</a
+  >
+</div></section>
