@@ -3,7 +3,7 @@
     "name": "Byte Salvaje",
     "price": "45",
     "features": ["2 Stickers", "2 Pines", "1 Lápiz ecológico", "1 Cuaderno"],
-    "image": "/img/devfest2025/pack_1.png",
+    "image": "/img/devfest2025/package_1.png",
     "bgColor": " bg-[#C3ECF6]",
     "borderColor": "border-[#4285F4]",
     "textColor": "text-[#4285F4]"
@@ -18,7 +18,7 @@
       "1 Cuaderno",
       "1 Portalápiz"
     ],
-    "image": "/img/devfest2025/pack_2.png",
+    "image": "/img/devfest2025/package_2.png",
     "bgColor": "bg-[#CCF6C5]",
     "borderColor": "border-[#34A853]",
     "textColor": "text-[#34A853]"
@@ -34,7 +34,7 @@
       "1 Portalápiz",
       "1 Pechera"
     ],
-    "image": "/img/devfest2025/pack_3.png",
+    "image": "/img/devfest2025/package_3.png",
     "bgColor": "bg-[#FFE7A5]",
     "borderColor": "border-[#F9AB00]",
     "textColor": "text-[#F9AB00]"
