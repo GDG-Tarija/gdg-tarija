@@ -1,0 +1,28 @@
+---
+import PackageCard from "./PackageCard.astro";
+
+import packages from "./paquetes.json"
+---
+
+<section class="bg-[#F0F0F0]">
+<div class="flex flex-col items-center container mx-auto mt-10 md:mt-20 pt-8 md:pt-14">
+  <h2 class="text-[2rem] font-bold mb-8">Adquiere tu paquete</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 w-full max-w-[1200px] justify-center items-center gap-8 px-4 md:px-0">
+    {
+      packages.map((pkg) => (
+        <PackageCard
+          name={pkg.name}
+          price={pkg.price}
+          features={pkg.features}
+          image={pkg.image}
+          bgColor={pkg.bgColor}
+          borderColor={pkg.borderColor}
+          textColor={pkg.textColor}
+        />
+      ))
+    }
+  </div>
+  <a href="https://forms.gle/jXhjJ2P39KVACdpW9" target="_blank" class="bg-[#4285F4] text-white px-16 py-4 rounded-full my-10 hover:scale-150 transition-all duration-200"
+    >Adquiere tu paquete</a
+  >
+</div></section>

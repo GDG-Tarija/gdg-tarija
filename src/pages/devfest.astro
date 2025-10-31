@@ -4,11 +4,15 @@ import Map from 'components/devFest2025/map/map.astro';
 import Layout from 'layouts/Layout.astro';
 import Footer from 'components/devFest2025/footer/footer.astro';
 import Sponsors from 'components/devFest2025/sponsors/Sponsors.astro';
+import Hero from 'components/devFest2025/hero/hero.astro';
+import Packages from 'components/devFest2025/packages/Packages.astro';
 ---
 
 <Layout title='DevFest'>
 	<Navbar />
 	<div class='h-[64px] lg:h-[80px]'></div>
+	<Hero />
+	<Packages />
 	<Map />
 	<Sponsors />
 	<Footer	/>

@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  name: string;
+  price: string;
+  features: string[];
+  image: string ;
+  bgColor: string;
+  borderColor: string;
+  textColor: string;
+}
+
+const { name, price, features, image, bgColor, borderColor, textColor } = Astro.props;
+---
+
+<div
+  class=`h-full w-full border-2 ${borderColor} rounded-2xl p-4 flex flex-col max-w-[400px] mx-auto min-h-[380px] bg-white    `
+  >
+  <h1 class=`text-2xl font-bold ${textColor}`>Paquete <br /> {name}</h1>
+  <div class="relative h-full">
+      <div class="absolute bottom-0 right-0 w-full grid grid-cols-3">
+        <div class="col-span-1"></div>
+        <img class="col-span-2" src={image} alt={`Logo ${name}`} />
+      </div>
+      <div class="absolute z-10 h-full flex flex-col top-0 left-0">
+        <ul class="space-y-1 mt-4 flex-grow">
+          {features.map((feature) => <li>{feature}</li>)}
+        </ul>
+    </div>
+</div>
+<div class="flex justify-start">
+  <div
+    class=`py-2 px-4 ${bgColor} rounded-full border-black border-2 text-xl font-medium`
+  >
+    Bs. {price}
+  </div>
+</div>
