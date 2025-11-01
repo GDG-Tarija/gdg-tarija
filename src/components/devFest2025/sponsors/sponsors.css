@@ -1,0 +1,39 @@
+.sponsors-container {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #EFEFEF;
+}
+
+.sponsors-title {
+    margin: auto;
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
+}
+
+.sponsors-images {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.sponsors-images > a {
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+.sponsors-images > a:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(1px 3px 6px rgba(0, 0, 0, 0.3));
+}
+
+.sponsors-images > a > img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+}

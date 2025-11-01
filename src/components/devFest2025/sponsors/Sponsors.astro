@@ -1,0 +1,28 @@
+---
+import "./sponsors.css";
+import sponsors from "./sponsors.json";
+import collaborators from "./collaborators.json";
+---
+<section id="sponsors" class="sponsors-container">
+    <h1 class="sponsors-title">SPONSORS</h1>
+    <div class="sponsors-images">
+        {sponsors.map((item) =>
+                <a href={item.url}
+                   title={item.name}
+                   target="_blank">
+                    <img src={item.img_path} alt={item.name}/>
+                </a>
+        )}
+    </div>
+
+    <h1 class="sponsors-title">COLABORADORES</h1>
+    <div class="sponsors-images">
+        {collaborators.map((item) =>
+                <a href={item.url}
+                   title={item.name}
+                   target="_blank">
+                    <img src={item.img_path} alt={item.name}/>
+                </a>
+        )}
+    </div>
+</section>

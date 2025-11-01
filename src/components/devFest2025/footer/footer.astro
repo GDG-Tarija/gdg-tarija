@@ -1,0 +1,47 @@
+---
+import RedesSociales from 'components/main/footer/RedesSociales.astro';
+import redes_sociales from 'components/main/footer/redes_sociales.json'
+
+const {
+	logo = 'https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg',
+} = Astro.props;
+---
+
+<footer
+	class=" bg-[url('/img/devfest2025/footer_bg.png')] bg-cover bg-center border-t border-gray-200 pt-5 bg-[rgba(255,255,255,0.6)] bg-blend-lighten">
+	<div class="container mx-auto px-6 py-6">
+		<div class='flex flex-col items-center space-y-6'>
+			<!-- Logo y texto -->
+			<div class='flex flex-col items-center lg:items-start space-y-2'>
+				<img
+					class='h-7 sm:h-9 w-auto transition-transform duration-300 hover:scale-105'
+					src={logo}
+					alt='GDG Tarija Logo'
+				/>
+			</div>
+
+			<!-- Redes sociales -->
+			<div class='flex flex-col items-center space-y-6'>
+				<h3 class='text-gray-700 flex flex-row items-center gap-4'>
+					Made with
+					<svg width="17" height="18" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18.1166 13.8421C22.4575 13.8255 25.987 16.6875 25.9999 20.2336C26.0129 23.7798 22.5054 26.6676 18.1645 26.6842" stroke="#EA4335" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
+						<path d="M18.0687 1.00007C22.4096 0.983475 25.9391 3.84546 25.952 7.39159C25.9649 10.9377 22.4575 13.8255 18.1166 13.8421" stroke="#EA4335" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
+						<path d="M12.4148 25.2771L1 13.8606L12.4148 2.4458" stroke="#EA4335" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
+					</svg>
+
+				</h3>
+				<div class='flex space-x-2'>
+					{redes_sociales.map((red_social) => <RedesSociales {...red_social} />)}
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<!-- Copyright -->
+		<div class='mt-5 p-5 w-full h-full border-t border-azul-GDG bg-azul-GDG'>
+			<p class='text-center text-sm text-white'>
+				© {new Date().getFullYear()} GDG Tarija. Todos los derechos reservados.
+			</p>
+		</div>
+</footer>

@@ -1,0 +1,116 @@
+.bg-hero-devfest {
+    margin-top: 5rem;
+    background-image: url('../../../assets/devfest2025/hero_bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+    transition: background-color 0.5s ease;
+}
+
+.hero-devfest {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+}
+
+.svg {
+    transition: width 0.5s ease, height 0.5s ease;
+}
+
+.loader-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 4rem;
+    background: white;
+    display: flex;
+    padding: 0.15rem 8rem;
+    border-radius: 8rem;
+    border: 4px solid;
+    pointer-events: none;
+    user-select: none;
+    transition: all 0.5s ease;
+}
+
+
+.loader-devfest {
+    width: fit-content;
+    font-size: 10rem;
+    line-height: 1.5;
+    font-family: monospace;
+    font-weight: bold;
+    color: #0000;
+    -webkit-text-stroke: 0.15rem #000;
+    background: radial-gradient(1.13em at 50% 1.6em, #000 99%, #0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,
+    radial-gradient(1.13em at 50% -0.8em, #0000 99%, #000 101%) 50% .8em/3.2em 100% repeat-x text;
+    animation: waves-animation 2s linear infinite;
+    transition: all 0.5s ease;
+}
+
+.loader-devfest:before {
+    content: "DevFest";
+}
+
+@keyframes waves-animation {
+    to {
+        background-position: calc(50% + 1.6em) 0, calc(50% + 3.2em) .8em
+    }
+}
+
+.gdg-button {
+    margin-top: 4rem;
+    background-color: #4285f4;
+    color: white;
+    padding: 1rem 4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 100ms ease-in;
+}
+
+.gdg-button:hover {
+    transform: scale(1.4);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .bg-hero-devfest {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .svg {
+        width: 4rem;
+        height: 15rem;
+    }
+
+    .loader-devfest {
+        font-size: 6rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        padding: 0.15rem 6rem;
+        border-radius: 8rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .bg-hero-devfest {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .svg {
+        display: none;
+    }
+}

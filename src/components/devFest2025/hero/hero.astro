@@ -1,8 +1,7 @@
 ---
-import { Calendar, MapPin, Users, ArrowRight } from "lucide-astro";
-import "../devFest2025/hero/hero.css";
+import "./hero.css";
 ---
-<article id="devfest" class="bg-hero-devfest">
+<article id="hero" class="bg-hero-devfest">
     <section class="hero-devfest">
         <svg class="svg" width="100" height="300" viewBox="0 0 130 368">
             <path d="M117.801 4C122.329 4 126 7.67649 126 12.2117V62.7956C126 67.3308 122.329 71.0073 117.801 71.0073H87.629C83.8254 71.0073 80.7419 74.0956 80.7419 77.9051V290.095C80.7419 293.904 83.8254 296.993 87.629 296.993H117.801C122.329 296.993 126 300.669 126 305.204V355.788C126 360.324 122.329 364 117.801 364H85.9892C56.4658 364 32.5323 340.029 32.5323 310.46V227.029C32.5323 221.768 28.2741 217.504 23.0215 217.504H12.1989C7.67078 217.504 4 213.827 4 209.292V158.708C4 154.173 7.67078 150.496 12.1989 150.496H23.0215C28.2741 150.496 32.5323 146.232 32.5323 140.971V57.5401C32.5323 27.9707 56.4658 4 85.9892 4H117.801Z"
@@ -17,44 +16,5 @@ import "../devFest2025/hero/hero.css";
                   fill="#EA4335" stroke="#1E1E1E" stroke-width="4"/>
         </svg>
     </section>
-    <div class="grid md:grid-cols-2 gap-4 max-w-2xl mx-auto mt-6">
-      <!-- Fecha -->
-      <div class="flex items-center space-x-2 p-2 bg-white/70 backdrop-blur-sm rounded-lg border-2 border-gray-600 shadow-sm">
-        <div class="p-2 bg-azul-GDG/10 rounded-full">
-          <Calendar class="h-3 w-5 text-azul-GDG" />
-        </div>
-        <div class="text-left">
-          <p class="text-sm text-gray-500 font-medium">Fecha</p>
-          <p class="text-lg font-semibold text-gray-900">
-            Sábado 15 de noviembre
-          </p>
-        </div>
-      </div>
-
-      <!-- Lugar -->
-      <div class="flex items-center space-x-3 p-3 bg-white/70 backdrop-blur-sm rounded-lg border-2 border-gray-600 shadow-sm">
-        <div class="p-2 bg-verde-GDG/10 rounded-full">
-          <MapPin class="h-5 w-5 text-verde-GDG" />
-        </div>
-        <div class="text-left">
-          <p class="text-sm text-gray-500 font-medium">Lugar</p>
-          <p class="text-lg font-semibold text-gray-900">
-            UAJMS - Informática
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="flex justify-center items-center mt-8">
-      <a
-        href="/devfest"
-        class="group inline-flex items-center space-x-2 bg-azul-GDG hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-      >
-        <Users class="h-5 w-5" />
-        <span>Conoce Más</span>
-        <ArrowRight
-          class="h-5 w-5 group-hover:translate-x-1 transition-transform"
-        />
-      </a>
-    </div>
+    <a href="https://forms.gle/pcmHEB1aGWMDPGsa6" target="_blank" class="gdg-button">Regístrate aquí</a>
 </article>
-
