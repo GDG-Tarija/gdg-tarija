@@ -15,6 +15,10 @@
     color: black;
     font-weight: bold;
 }
+.speaker-title {
+    width: 10rem;
+    text-align: center;
+}
 
 .speakers-list {
     display: flex;
@@ -33,6 +37,7 @@
     gap: 1rem;
     box-sizing: content-box;
     flex-wrap: wrap;
+    height: 19rem;
 }
 
 .speaker-card-left {
@@ -56,13 +61,16 @@
 .speaker-photo > img {
     display: flex;
     width: 10rem;
-    object-fit: contain;
+    height: 10rem;
+    object-fit: cover;
     border: 1px solid black;
     border-radius: 0.5rem;
 }
 
 .speaker-name {
     font-weight: bold;
+    width: 10rem;
+    text-align: center;
 }
 
 .speaker-card-right {
@@ -94,7 +102,7 @@
 }
 
 .icon-social-media{
-   color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.3);
     transition: all 200ms;
 }
 
@@ -126,4 +134,11 @@
 
 .level-intermediate {
     background-color: #C3ECF6;
+}
+@media (max-width: 688px) {
+    .speaker-card {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
 }

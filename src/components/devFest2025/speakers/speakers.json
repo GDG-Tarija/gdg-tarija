@@ -9,7 +9,7 @@
       "linkedin": "https://www.linkedin.com/in/amilkar-dominguez",
       "website" : "https://amilkardominguez.com/"
     },
-    "title": "Web, AR y un Poco de Magia- Construye tu Propio Producto Digitals",
+    "title": "Web, AR y un Poco de Magia- Construye tu Propio Producto Digital",
     "description": "No más demos vacios, Aprende a desarrollar un producto web funcional e innovador utilizando Angular y Realidad Aumentada. Un taller 100 % práctico orientado a resultados reales para tu CV y portafolio."
   },
   {
@@ -58,7 +58,7 @@
     "links": {
       "linkedin": "https://www.linkedin.com/in/fernando-silva-48587613b/"
     },
-    "title": "Aplicaciones Inteligentes con Firebase, Integrando IA Generativa con Gemini y Genkit",
+    "title": "Fine-tuning de LLMs con QLoRA: entrena tu modelo con una sola GPU",
     "description": "Personaliza LLMs con pocos recursos usando QLoRA y PEFT, aplicando técnicas como cuantización a 4 bits y adaptadores LoRA para lograr fine-tuning eficiente en una sola GPU."
   },
   {
