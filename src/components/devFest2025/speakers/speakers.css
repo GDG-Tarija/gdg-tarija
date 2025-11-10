@@ -1,0 +1,144 @@
+.speakers-container {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: #EFEFEF;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.speakers-title {
+    margin: auto;
+    font-size: 2rem;
+    color: black;
+    font-weight: bold;
+}
+.speaker-title {
+    width: 10rem;
+    text-align: center;
+}
+
+.speakers-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.speaker-card {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    gap: 1rem;
+    box-sizing: content-box;
+    flex-wrap: wrap;
+    height: 19rem;
+}
+
+.speaker-card-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.speaker-card-category {
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 0.25rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+.speaker-photo > img {
+    display: flex;
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+.speaker-name {
+    font-weight: bold;
+    width: 10rem;
+    text-align: center;
+}
+
+.speaker-card-right {
+    max-width: 25rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.speaker-card-title {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.speaker-card-description{
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.speaker-social-media{
+    display: flex;
+    gap: 0.5rem;
+
+}
+
+.icon-social-media{
+    color: rgba(0, 0, 0, 0.3);
+    transition: all 200ms;
+}
+
+.icon-social-media:hover{
+    color: #000000;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.category-web {
+    background-color: #EA4335;
+}
+
+.category-ia {
+    background-color: #34A853;
+}
+
+.category-cloud {
+    background-color: #F9AB00;
+}
+
+.category-mobile {
+    background-color: #4285F4;
+}
+
+.level-basic {
+    background-color: #CCF6C5;
+}
+
+.level-intermediate {
+    background-color: #C3ECF6;
+}
+@media (max-width: 688px) {
+    .speaker-card {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+}

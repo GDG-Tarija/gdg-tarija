@@ -1,0 +1,77 @@
+[
+  {
+    "category": "web",
+    "level": "intermediate",
+    "name": "Amilkar Dominguez",
+    "profession": "Ing. en Sistemas",
+    "img_path": "/img/devfest2025/speakers/amilkar_dominguez.png",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/amilkar-dominguez",
+      "website" : "https://amilkardominguez.com/"
+    },
+    "title": "Web, AR y un Poco de Magia- Construye tu Propio Producto Digital",
+    "description": "No más demos vacios, Aprende a desarrollar un producto web funcional e innovador utilizando Angular y Realidad Aumentada. Un taller 100 % práctico orientado a resultados reales para tu CV y portafolio."
+  },
+  {
+    "category": "web",
+    "level": "basic",
+    "name": "Daniel Medrano",
+    "profession": "Estudiante de Ing. en Sistemas",
+    "img_path": "/img/devfest2025/speakers/daniel_medrano.png",
+    "links": {
+      "instagram": "https://www.instagram.com/danimedran0"
+    },
+    "title": "Diseño visual para desarrolladores web: cómo crear interfaces atractivas sin ser diseñador",
+    "description": "En el mundo del desarrollo web, la primera impresión importa tanto como el código. Aprenderás a transformar tus ideas o bocetos en layouts profesionales, exportar recursos para la web y mejorar la presentación de tus proyectos personales o académicos."
+  },
+  {
+    "category": "ia",
+    "level": "intermediate",
+    "name": "Ronald Chipana Wariste",
+    "profession": "Ing. Sistemas",
+    "img_path": "/img/devfest2025/speakers/ronald_chipana.png",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/ronald-chipana-w-63382688",
+      "facebook": "https://www.facebook.com/ronald.chipana.31"
+    },
+    "title": "Aplicaciones Inteligentes con Firebase, Integrando IA Generativa con Gemini y Genkit",
+    "description": "Descubre cómo usar Firebase AI Logic, Genkit y Firebase Studio para integrar IA generativa en tus apps. Aprende a invocar modelos como Gemini desde el frontend y a desarrollar con agentes inteligentes. Transforma tu app tradicional en una aplicación impulsada por IA."
+  },
+  {
+    "category": "ia",
+    "level": "basic",
+    "name": "Fabricio Sanchez",
+    "profession": "Desarrollador de Software",
+    "img_path": "/img/devfest2025/speakers/fabricio_sanchez.png",
+    "links": {
+      "web": "https://faadoge.site/"
+    },
+    "title": "Introducción al Machine Learning con Python: De datos a decisiones",
+    "description": "Taller práctico de introducción al Machine Learning con Python, usando Pandas, Scikit-learn y Matplotlib. Aprenderás a hacer análisis exploratorio de datos, entrenar modelos supervisados y evaluar su desempeño con métricas clave."
+  },
+  {
+    "category": "ia",
+    "level": "intermediate",
+    "name": "Fernando Silva",
+    "profession": "Ing. en Sistemas",
+    "img_path": "/img/devfest2025/speakers/fernando_silva.png",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/fernando-silva-48587613b/"
+    },
+    "title": "Fine-tuning de LLMs con QLoRA: entrena tu modelo con una sola GPU",
+    "description": "Personaliza LLMs con pocos recursos usando QLoRA y PEFT, aplicando técnicas como cuantización a 4 bits y adaptadores LoRA para lograr fine-tuning eficiente en una sola GPU."
+  },
+  {
+    "category": "web",
+    "level": "basic",
+    "name": "Paulo Tintaya",
+    "profession": "Desarrollador de Software",
+    "img_path": "/img/devfest2025/speakers/paulo_tintaya.jpg",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/paulotintaya",
+      "instagram": "https://www.instagram.com/pau.tintaya"
+    },
+    "title": "De idea a app en minutos: Angular + Google AI Studio + Cloud Run en acción",
+    "description": "¿Y si pudieras convertir una idea en una app web funcional en minutos con IA? Con Google AI Studio + Gemini, genera una base Angular, personalízala y despliega en Cloud Run. Aprende a construir con IA de forma responsable, entendiendo y mejorando el código generado. ¡Ideal para prototipos rápidos y hackathones!"
+  }
+]

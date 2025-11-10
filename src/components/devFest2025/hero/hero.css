@@ -21,6 +21,7 @@
 }
 
 .svg {
+    margin-top: 3.5rem;
     transition: width 0.5s ease, height 0.5s ease;
 }
 
@@ -92,6 +93,7 @@
     .svg {
         width: 4rem;
         height: 15rem;
+        margin-top: 0;
     }
 
     .loader-devfest {
@@ -106,6 +108,11 @@
 }
 
 @media (max-width: 640px) {
+    
+    .loader-devfest {
+        font-size: 4.5rem;
+        margin-bottom: 3rem;
+    }
     .bg-hero-devfest {
         background-color: rgba(255, 255, 255, 0.9);
     }

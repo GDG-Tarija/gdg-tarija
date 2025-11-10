@@ -1,0 +1,59 @@
+---
+import "./speakers.css";
+import {Facebook, Instagram, Linkedin, Globe} from "lucide-astro";
+import speakers from "./speakers.json";
+
+const IconMap = {
+    'facebook': Facebook,
+    'linkedin': Linkedin,
+    'instagram': Instagram,
+    'website': Globe,
+    'web': Globe,
+};
+---
+<section id="speakers" class="speakers-container">
+    <h1 class="speakers-title">TALLERES</h1>
+
+    <section class="speakers-list">
+
+        {speakers.map((item) =>
+
+                <section class={`speaker-card level-${item.level}`}>
+                    <section class="speaker-card-left">
+                        <div class={`speaker-card-category category-${item.category}`}>{item.category}</div>
+                        <div class="speaker-photo">
+                            <img src={item.img_path} alt={item.name}/>
+                        </div>
+                        <div class="speaker-name">{item.name}</div>
+                        <div class="speaker-title">{item.profession}</div>
+                        <div class="speaker-social-media">
+                            {Object.entries(item.links).map(([key, url]) => {
+
+                                const Icon = IconMap[key.toLowerCase()];
+
+                                if (!Icon) return null;
+
+                                return (
+                                        <a href={url}
+                                           title={key}
+                                           target="_blank"
+                                           rel="noopener noreferrer"
+                                           key={key}
+                                        >
+
+                                            <Icon class="icon-social-media"/>
+
+                                        </a>
+                                );
+                            })}
+                        </div>
+                    </section>
+                    <section class="speaker-card-right">
+                        <div class="speaker-card-title">{item.title}</div>
+                        <div class="speaker-card-description">{item.description}</div>
+                    </section>
+                </section>
+        )}
+    </section>
+
+</section>
