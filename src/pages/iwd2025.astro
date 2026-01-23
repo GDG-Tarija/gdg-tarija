@@ -1,19 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/iwd-2025/navbar/navbar.astro";
-import Cta from "../components/iwd-2025/cta/cta.astro";
-import Call4Speakers from "components/iwd-2025/call4speakers/call4speakers.astro";
-import Maps from "components/iwd-2025/maps/maps.astro";
-import Speakers from "components/iwd-2025/speakers/speakers.astro";
-import Sponsors from "components/iwd-2025/sponsors/sponsors.astro";
+import Navbar from "../components/iwd-2025/navbar/Navbar.astro";
+import Cta from "../components/iwd-2025/cta/Cta.astro";
+import Call4Speakers from "components/iwd-2025/call4speakers/Call4Speakers.astro";
+import Maps from "components/iwd-2025/maps/Maps.astro";
+import Speakers from "components/iwd-2025/speakers/Speakers.astro";
+import Sponsors from "components/iwd-2025/sponsors/Sponsors.astro";
 ---
 
 <Layout title="IWD 2025">
-<Navbar />
-<Cta />
-<div class="py-12 md:py-0  lg:py-32 bg-iwd-secondary"></div>
-<Speakers></Speakers>
-<Sponsors></Sponsors>
-<!-- <Call4Speakers /> -->
-<Maps/>
+  <Navbar />
+  <Cta />
+  <div class="py-12 md:py-0 lg:py-32 bg-iwd-secondary"></div>
+  <Speakers />
+  <Sponsors />
+  <!-- <Call4Speakers /> -->
+  <Maps />
 </Layout>

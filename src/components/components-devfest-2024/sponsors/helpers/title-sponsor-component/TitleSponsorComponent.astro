@@ -1,6 +1,6 @@
 ---
-import "./titleSponsorComponent.css";
-import type { TitleSponsorComponentProps } from "./titleSponsorComponentProps";
+import "./title-sponsor-component.css";
+import type { TitleSponsorComponentProps } from "./TitleSponsorComponentProps";
 
 const { title, color } = Astro.props as TitleSponsorComponentProps;
 ---
@@ -12,7 +12,7 @@ const { title, color } = Astro.props as TitleSponsorComponentProps;
         class="bg-slate-50 outline outline-black p-2 custom-height custom-width mb-3"
       >
         <h2 class="text-center text-xl sm:text-2xl font-bold py-1">
-          { title }
+          {title}
         </h2>
       </div>
     </div>

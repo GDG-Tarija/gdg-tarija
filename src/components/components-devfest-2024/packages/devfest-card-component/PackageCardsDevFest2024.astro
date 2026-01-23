@@ -1,10 +1,17 @@
 ---
-import "./packageCardsDevFest2024.css";
+import "./package-cards-devfest-2024.css";
 import { Image } from "astro:assets";
 
-import { CardDevFest2024 } from './../helpers/cardDevFest2024';
+import { CardDevFest2024 } from "./../helpers/CardDevFest2024";
 
-const { cardColor, title, link, content, cardImage, priceImage }: CardDevFest2024 = Astro.props.card;
+const {
+  cardColor,
+  title,
+  link,
+  content,
+  cardImage,
+  priceImage,
+}: CardDevFest2024 = Astro.props.card;
 
 const getColorClassForBackground = () => {
   const colors = {
@@ -15,26 +22,46 @@ const getColorClassForBackground = () => {
 };
 ---
 
-<div class={`packageCard bg-no-repeat bg-cover ${getColorClassForBackground()} p-4 sm:p-6 flex flex-col items-center`}>
+<div
+  class={`packageCard bg-no-repeat bg-cover ${getColorClassForBackground()} p-4 sm:p-6 flex flex-col items-center`}
+>
   <!-- Contenedor general con padding/margin -->
-  <div class="flex flex-col items-center ml-3 mb-4 sm:ml-6 sm:mb-8 mt-4 sm:mt-6">
+  <div
+    class="flex flex-col items-center ml-3 mb-4 sm:ml-6 sm:mb-8 mt-4 sm:mt-6"
+  >
     <!-- Título -->
-    <h2 class="text-black font-bold text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6">
+    <h2
+      class="text-black font-bold text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-6"
+    >
       {title}
     </h2>
 
-<!-- Imagen1-->
-<Image src={content} alt="Datos Paquetes" class="z-20 mt-[-30px] mb-[-60px] h-24 sm:h-32 md:h-36 w-auto" />
+    <!-- Imagen1-->
+    <Image
+      src={content}
+      alt="Datos Paquetes"
+      class="z-20 mt-[-30px] mb-[-60px] h-24 sm:h-32 md:h-36 w-auto"
+    />
 
-<!-- Imagen 2 -->
-<Image src={cardImage} alt="Paquete Gold DevFest" class="z-10 h-60 sm:h-64 md:h-96 w-auto" />
+    <!-- Imagen 2 -->
+    <Image
+      src={cardImage}
+      alt="Paquete Gold DevFest"
+      class="z-10 h-60 sm:h-64 md:h-96 w-auto"
+    />
 
-    <Image src={priceImage} alt="Paquete Gold DevFest" class=" h-8 sm:h-9 md:h-10 w-auto mb-1 sm:mb-2" />
+    <Image
+      src={priceImage}
+      alt="Paquete Gold DevFest"
+      class="h-8 sm:h-9 md:h-10 w-auto mb-1 sm:mb-2"
+    />
     <!-- Precio -->
     <!-- Botón -->
-    <a href={link} class="bg-[#f9ab00] border-[3px] lg:border-4 border-black text-white text-xl sm:text-2xl font-bold py-1 sm:py-3 px-6 sm:px-8 hover:scale-105 transition-transform duration-200 ease-in-out text-center">
+    <a
+      href={link}
+      class="bg-[#f9ab00] border-[3px] lg:border-4 border-black text-white text-xl sm:text-2xl font-bold py-1 sm:py-3 px-6 sm:px-8 hover:scale-105 transition-transform duration-200 ease-in-out text-center"
+    >
       ¡Quiero uno!
     </a>
   </div>
 </div>
-

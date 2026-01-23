@@ -1,5 +1,5 @@
 
-import type { CardDevFest2024 } from './cardDevFest2024';
+import type { CardDevFest2024 } from './CardDevFest2024';
 import PaqueteGoldDevFest from "./../../../../assets/devfest-2024/img/paqueteGoldImg.png";
 import PaqueteSilverDevFest from "./../../../../assets/devfest-2024/img/paqueteSilverImg.png";
 import ContentSilver from "./../../../../assets/devfest-2024/svg/contentSiver.svg"

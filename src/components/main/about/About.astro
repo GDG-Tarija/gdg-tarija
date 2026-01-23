@@ -1,5 +1,5 @@
 ---
-import info_about from "./info_about.json";
+import infoAbout from "./infoAbout.json";
 import Slide from "./Slide.astro";
 import ButtonsNavigate from "./ButtonsNavigate.astro";
 import { ChevronLeft, ChevronRight } from "lucide-astro";
@@ -11,11 +11,11 @@ import { ChevronLeft, ChevronRight } from "lucide-astro";
     <!-- Carousel wrapper -->
     <div class="overflow-hidden w-full md:w-9/12 relative h-96 rounded-xl sm:h-64 lg:h-48 mx-6 shadow-2xl">
       <!-- Slider items -->
-      {info_about.map((info) => <Slide {...info} />)}
+      {infoAbout.map((info) => <Slide {...info} />)}
       
       <!-- Slider indicators -->
       <div class="flex absolute bottom-4 left-1/2 z-30 space-x-2 -translate-x-1/2">
-        {info_about.map((info) => <ButtonsNavigate {...info} />)}
+        {infoAbout.map((info) => <ButtonsNavigate {...info} />)}
       </div>
       
       <!-- Slider controls -->

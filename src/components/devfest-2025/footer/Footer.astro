@@ -1,6 +1,6 @@
 ---
 import RedesSociales from 'components/main/footer/RedesSociales.astro';
-import redes_sociales from 'components/main/footer/redes_sociales.json'
+import redesSociales from 'components/main/footer/redesSociales.json'
 
 const {
 	logo = 'https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg',
@@ -32,7 +32,7 @@ const {
 
 				</h3>
 				<div class='flex space-x-2'>
-					{redes_sociales.map((red_social) => <RedesSociales {...red_social} />)}
+					{redesSociales.map((red_social) => <RedesSociales {...red_social} />)}
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,5 @@
 ---
-import redes_sociales from "./redes_sociales.json";
+import redesSociales from "./redesSociales.json";
 import RedesSociales from "./RedesSociales.astro";
 
 interface Props {
@@ -44,7 +44,7 @@ const {
         </h3>
         <div class="flex space-x-2">
           {
-            redes_sociales.map((red_social) => (
+            redesSociales.map((red_social) => (
               <RedesSociales {...red_social} />
             ))
           }
