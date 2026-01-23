@@ -10,9 +10,7 @@ import Button from "../../common/Button.astro";
   >
   </div>
   <div class="flex justify-center mt-8" id="load-more-container">
-    <Button id="load-more">
-      Ver Más
-    </Button>
+    <Button id="load-more"> Ver Más </Button>
   </div>
 </section>
 
@@ -65,7 +63,7 @@ import Button from "../../common/Button.astro";
         loadEvents(events);
       })
       .catch((error) =>
-        console.error("Error al cargar eventos desde JSON:", error),
+        console.error("Error al cargar eventos desde JSON:", error)
       );
   });
 </script>

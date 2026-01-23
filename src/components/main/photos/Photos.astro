@@ -10,7 +10,9 @@ import Button from "../../common/Button.astro";
   <div class="w-full max-w-6xl px-6">
     <!-- Título mejorado -->
     <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+      <h2
+        class="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+      >
         Fotos de nuestros eventos
       </h2>
     </div>
@@ -18,14 +20,18 @@ import Button from "../../common/Button.astro";
     <!-- Grid de fotos mejorado -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Foto 1 -->
-      <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300">
+      <div
+        class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300"
+      >
         <img
           class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
           src="/img/photos-comunity/1.png"
           alt="Comunidad GDG Tarija - Evento 1"
           onclick="openPhotoModal('modal-1', '/img/photos-comunity/1.png')"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
           <div class="absolute bottom-4 left-4 right-4">
             <div class="flex items-center justify-between">
               <span class="text-white font-medium">Talleres</span>
@@ -38,14 +44,18 @@ import Button from "../../common/Button.astro";
       </div>
 
       <!-- Foto 2 -->
-      <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300">
+      <div
+        class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300"
+      >
         <img
           class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
           src="/img/photos-comunity/2.png"
           alt="Comunidad GDG Tarija - Evento 2"
           onclick="openPhotoModal('modal-2', '/img/photos-comunity/2.png')"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
           <div class="absolute bottom-4 left-4 right-4">
             <div class="flex items-center justify-between">
               <span class="text-white font-medium">Google I/O Extended</span>
@@ -58,14 +68,18 @@ import Button from "../../common/Button.astro";
       </div>
 
       <!-- Foto 3 -->
-      <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300">
+      <div
+        class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300"
+      >
         <img
           class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
           src="/img/photos-comunity/3.png"
           alt="Comunidad GDG Tarija - Evento 3"
           onclick="openPhotoModal('modal-3', '/img/photos-comunity/3.png')"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        >
           <div class="absolute bottom-4 left-4 right-4">
             <div class="flex items-center justify-between">
               <span class="text-white font-medium">IWD</span>
@@ -87,7 +101,10 @@ import Button from "../../common/Button.astro";
         iconPosition="left"
         class="group"
       >
-        <ExternalLink slot="icon" class="w-5 h-5 group-hover:rotate-12 transition-transform" />
+        <ExternalLink
+          slot="icon"
+          class="w-5 h-5 group-hover:rotate-12 transition-transform"
+        />
         Ver Galería Completa
       </Button>
     </div>
@@ -99,7 +116,9 @@ import Button from "../../common/Button.astro";
   id="modal-1"
   class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
 >
-  <div class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden">
+  <div
+    class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden"
+  >
     <button
       class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white rounded-full flex items-center justify-center transition-colors duration-200"
       onclick="closePhotoModal('modal-1')"
@@ -119,7 +138,9 @@ import Button from "../../common/Button.astro";
   id="modal-2"
   class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
 >
-  <div class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden">
+  <div
+    class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden"
+  >
     <button
       class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white rounded-full flex items-center justify-center transition-colors duration-200"
       onclick="closePhotoModal('modal-2')"
@@ -139,7 +160,9 @@ import Button from "../../common/Button.astro";
   id="modal-3"
   class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
 >
-  <div class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden">
+  <div
+    class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden"
+  >
     <button
       class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white rounded-full flex items-center justify-center transition-colors duration-200"
       onclick="closePhotoModal('modal-3')"
@@ -159,16 +182,16 @@ import Button from "../../common/Button.astro";
   function openPhotoModal(modalId, src) {
     const modal = document.getElementById(modalId);
     const modalImage = modal.querySelector("img");
-    
+
     modal.classList.remove("hidden");
     modal.classList.add("flex");
     modalImage.src = src;
     document.body.style.overflow = "hidden";
-    
+
     // Animación de entrada
     modal.style.opacity = "0";
     modal.style.transform = "scale(0.9)";
-    
+
     requestAnimationFrame(() => {
       modal.style.transition = "all 0.3s ease-out";
       modal.style.opacity = "1";
@@ -179,12 +202,12 @@ import Button from "../../common/Button.astro";
   function closePhotoModal(modalId) {
     const modal = document.getElementById(modalId);
     const modalImage = modal.querySelector("img");
-    
+
     // Animación de salida
     modal.style.transition = "all 0.2s ease-in";
     modal.style.opacity = "0";
     modal.style.transform = "scale(0.9)";
-    
+
     setTimeout(() => {
       modal.classList.add("hidden");
       modal.classList.remove("flex");
