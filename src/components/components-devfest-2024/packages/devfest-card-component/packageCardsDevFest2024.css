@@ -18,19 +18,19 @@
 }
 
 .packageCard--green {
-  background-image: url('./../../../../assets/devfest2024/svg/CuadroVerdeMobile.svg');
+  background-image: url('./../../../../assets/devfest-2024/svg/CuadroVerdeMobile.svg');
 }
 
 .packageCard--blue {
-  background-image: url('./../../../../assets/devfest2024/svg/CuadroAzulMobile.svg');
+  background-image: url('./../../../../assets/devfest-2024/svg/CuadroAzulMobile.svg');
 }
 
 @media (min-width: 640px) {
   .packageCard--green {
-    background-image: url('./../../../../assets/devfest2024/svg/CuadroVerde.svg');
+    background-image: url('./../../../../assets/devfest-2024/svg/CuadroVerde.svg');
   }
 
   .packageCard--blue {
-    background-image: url('./../../../../assets/devfest2024/svg/CuadroAzul.svg');
+    background-image: url('./../../../../assets/devfest-2024/svg/CuadroAzul.svg');
   }
 }

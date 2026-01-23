@@ -1,7 +1,7 @@
 import { SponsorCard } from '../helpers/SponsorCard';
-import JalaLogo from '../../../../assets/devfest2024/img/JalaLogo.png';
-import AlcaldiaLogo from '../../../../assets/devfest2024/img/AlcaldiaTarija.png';
-import BuenaComidaLogo from '../../../../assets/devfest2024/img/BuenaComidaLogo.jpeg';
+import JalaLogo from '../../../../assets/devfest-2024/img/JalaLogo.png';
+import AlcaldiaLogo from '../../../../assets/devfest-2024/img/AlcaldiaTarija.png';
+import BuenaComidaLogo from '../../../../assets/devfest-2024/img/BuenaComidaLogo.jpeg';
 
 export const sponsorList: SponsorCard[] = [
   {

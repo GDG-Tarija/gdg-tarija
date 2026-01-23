@@ -1,11 +1,11 @@
 
 import type { CardDevFest2024 } from './cardDevFest2024';
-import PaqueteGoldDevFest from "./../../../../assets/devfest2024/img/paqueteGoldImg.png";
-import PaqueteSilverDevFest from "./../../../../assets/devfest2024/img/paqueteSilverImg.png";
-import ContentSilver from "./../../../../assets/devfest2024/svg/contentSiver.svg"
-import ContentGold from "./../../../../assets/devfest2024/svg/contentGold.svg"
-import PrecioGold from "./../../../../assets/devfest2024/svg/precioGold.svg"
-import PrecioSilver from "./../../../../assets/devfest2024/svg/precioSilver.svg"
+import PaqueteGoldDevFest from "./../../../../assets/devfest-2024/img/paqueteGoldImg.png";
+import PaqueteSilverDevFest from "./../../../../assets/devfest-2024/img/paqueteSilverImg.png";
+import ContentSilver from "./../../../../assets/devfest-2024/svg/contentSiver.svg"
+import ContentGold from "./../../../../assets/devfest-2024/svg/contentGold.svg"
+import PrecioGold from "./../../../../assets/devfest-2024/svg/precioGold.svg"
+import PrecioSilver from "./../../../../assets/devfest-2024/svg/precioSilver.svg"
 
 
 export const devCards: CardDevFest2024[] = [

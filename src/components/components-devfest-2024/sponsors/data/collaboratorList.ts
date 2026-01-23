@@ -1,10 +1,10 @@
 import { SponsorCard } from '../helpers/SponsorCard';
-import SarachoEscudo from '../../../../assets/devfest2024/img/EscudoSaracho.png';
-import InformaticaLogo from '../../../../assets/devfest2024/img/FacultadDeInformatica.jpg';
-import SociedadInformaticaLogo from '../../../../assets/devfest2024/img/SociedadInformatica.jpeg';
-import RedSocietLogo from '../../../../assets/devfest2024/img/RedSociet.png';
-import IngenieriaSistemasLogo from '../../../../assets/devfest2024/img/IngenieriaSistemas.jpg';
-import NotionBoliviaLogo from '../../../../assets/devfest2024/img/NotionBolivia.jpg';
+import SarachoEscudo from '../../../../assets/devfest-2024/img/EscudoSaracho.png';
+import InformaticaLogo from '../../../../assets/devfest-2024/img/FacultadDeInformatica.jpg';
+import SociedadInformaticaLogo from '../../../../assets/devfest-2024/img/SociedadInformatica.jpeg';
+import RedSocietLogo from '../../../../assets/devfest-2024/img/RedSociet.png';
+import IngenieriaSistemasLogo from '../../../../assets/devfest-2024/img/IngenieriaSistemas.jpg';
+import NotionBoliviaLogo from '../../../../assets/devfest-2024/img/NotionBolivia.jpg';
 
 export const collaboratorList: SponsorCard[] = [
   {

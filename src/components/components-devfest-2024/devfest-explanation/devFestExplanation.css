@@ -9,7 +9,7 @@
 
 @media (min-width: 768px) {
   .formsBackground--image {
-    background-image: url('./../../../assets/devfest2024/svg/QueEsDevFestFondo1.svg');
+    background-image: url('./../../../assets/devfest-2024/svg/QueEsDevFestFondo1.svg');
     background-size: auto 100%; /* Ancho automático, altura al 100% */
   }
 
