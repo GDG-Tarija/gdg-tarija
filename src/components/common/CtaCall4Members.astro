@@ -3,42 +3,115 @@ import { Image } from "astro:assets";
 import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
 ---
 
-<div class="flex flex-col pt-20" id="call4M">
+<div class="flex flex-col" id="call4M">
   <div class="w-full">
-    <div class="bg-gradient-to-b from-neutral-950 via-neutral-800 to-neutral-600 h-[720px] w-full relative">
-        <Image class="w-full h-full object-cover absolute mix-blend-overlay" src={BgCall4M} alt="fondo" />
-        <div class="relative top-0 left-0 w-full h-full flex items-center flex-col gap-7">
-            <h2 class="text-lg md:text-3xl lg:text-4xl font-medium text-center text-white mt-10">¡Únete a la comunidad del GDG Tarija!</h2>
-            <h6 class="text-6xl md:text-8xl lg:text-[120px] font-bold bg-gradient-to-r from-[#8eb251] via-[#b2c55c] to-[#dcbb45] text-center text-transparent bg-clip-text">Call 4 Members</h6>
-            <h2 class="text-base md:text-2xl lg:text-3xl font-medium text-center text-white">Envía tu postulación antes del 16 de septiembre</h2>
-            <div class="justify-center">
-                <a href="https://forms.gle/A7hXFmNXg1CMEWfu5">
-                  <button type='button' class='py-2.5 px-6 text-base md:text-lg rounded-full bg-gradient-to-r from-[#8eb251] via-[#b2c55c] to-[#dcbb45] text-white cursor-pointer font-semibold text-center shadow-xs transition duration-500 ease-in-out hover:scale-105'>
-                    Registrate Aquí
-                  </button>
-                </a>
-              </div>
-              
+    <div
+      class="bg-gradient-to-b from-neutral-950 via-neutral-800 to-neutral-600 h-screen min-h-[500px] md:min-h-[600px] lg:min-h-[720px] w-full relative overflow-hidden"
+    >
+      <Image
+        class="w-full h-full object-cover absolute mix-blend-overlay"
+        src={BgCall4M}
+        alt="fondo"
+      />
+      <div
+        class="relative top-0 left-0 w-full h-full flex items-center justify-center flex-col gap-4 md:gap-6 lg:gap-7 px-4 py-12 md:py-16 lg:py-20"
+      >
+        <h2
+          id="title-1"
+          class="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-medium text-center text-white opacity-0"
+        >
+          ¡Únete a la comunidad del GDG Tarija!
+        </h2>
+        <h6
+          id="title-main"
+          class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[120px] font-bold bg-gradient-to-r from-[#8eb251] via-[#b2c55c] to-[#dcbb45] text-center text-transparent bg-clip-text px-4 opacity-0"
+        >
+          Call 4 Members
+        </h6>
+        <h2
+          id="title-2"
+          class="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-medium text-center text-white px-2 opacity-0"
+        >
+          Envía tu postulación antes del viernes 06 de febrero
+        </h2>
+        <div
+          id="button-container"
+          class="flex justify-center mt-2 md:mt-4 opacity-0"
+        >
+          <a href="https://forms.gle/A7hXFmNXg1CMEWfu5" class="block">
+            <button
+              type="button"
+              id="cta-button"
+              class="py-2 sm:py-2.5 px-5 sm:px-6 text-sm sm:text-base md:text-lg rounded-full bg-gradient-to-r from-[#8eb251] via-[#b2c55c] to-[#dcbb45] text-white cursor-pointer font-semibold text-center shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out"
+            >
+              Registrate Aquí
+            </button>
+          </a>
         </div>
-      </div>    
+      </div>
+    </div>
   </div>
-
-  <script is:inline>
-    document
-      .getElementById("add-to-calendar")
-      .addEventListener("click", function () {
-        const event = {
-          title: "Google I/O Extended Tarija 2024",
-          location: `Universidad Católica Boliviana "San Pablo" Sete Tarija Calle Colon entre Bolivar e, Ingavi, Tarija`,
-          details:
-            "¡Únete a nosotros en el Google I/O Extended Tarija 2024, un evento imperdible para todos los apasionados por la tecnología! Nuestro objetivo principal es compartir las últimas novedades tecnológicas de Google con la comunidad de Tarija. Contaremos con expositores tanto nacionales como internacionales, que compartirán su conocimiento y experiencia en diversas áreas de la tecnología.\n Este evento es una oportunidad única para aprender, conectar y explorar las tendencias más recientes en el mundo de la tecnología. Habrá charlas inspiradoras, talleres prácticos y paneles de discusión que cubrirán una amplia gama de temas, desde desarrollo web y móvil hasta inteligencia artificial y más.\n No te pierdas esta oportunidad de sumergirte en el mundo de la tecnología y ser parte de una comunidad vibrante y apasionada. ¡Te esperamos en la Universidad Católica Boliviana el 20 de julio!",
-          start: "20240720T123000Z",
-          end: "20240720T220000Z",
-        };
-
-        const href = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.start}/${event.end}&details=${encodeURIComponent(event.details)}&location=${encodeURIComponent(event.location)}`;
-
-        window.open(href, "_blank");
-      });
-  </script>
 </div>
+
+<script>
+  import { animate } from "motion";
+
+  // Esperar a que el DOM esté listo
+  if (typeof window !== "undefined") {
+    // Animación de entrada con stagger para los elementos
+    const elements = [
+      { id: "title-1", delay: 0 },
+      { id: "title-main", delay: 0.2 },
+      { id: "title-2", delay: 0.4 },
+      { id: "button-container", delay: 0.6 },
+    ];
+
+    elements.forEach(({ id, delay }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        animate(
+          element as any,
+          {
+            opacity: [0, 1],
+            y: [30, 0],
+          },
+          {
+            duration: 0.8,
+            delay: delay,
+            easing: [0.16, 1, 0.3, 1] as any, // ease-out-expo
+          } as any
+        );
+      }
+    });
+
+    // Animación sutil del botón al hover
+    const button = document.getElementById("cta-button");
+    if (button) {
+      button.addEventListener("mouseenter", () => {
+        animate(
+          button as any,
+          {
+            scale: 1.05,
+          },
+          {
+            duration: 0.3,
+            easing: [0.16, 1, 0.3, 1] as any,
+          } as any
+        );
+      });
+
+      button.addEventListener("mouseleave", () => {
+        animate(
+          button as any,
+          {
+            scale: 1,
+          },
+          {
+            duration: 0.3,
+            easing: [0.16, 1, 0.3, 1] as any,
+          } as any
+        );
+      });
+    }
+  }
+</script>

@@ -58,6 +58,18 @@
     "Comisión": "Organizer"
   },
   {
+    "Photo": "/img/members/Marlene_Choque_Perez.jpg",
+    "Name": "Marlene Choque",
+    "Linkedin": "https://www.linkedin.com/in/marlenechoqueperez\r",
+    "Github": "",
+    "Facebook": "",
+    "Instagram": "https://www.instagram.com/marlenechoqueperez?igsh=ODJzcTg2Z2Z6MnZu",
+    "Sitio_web": "",
+    "About": "Soy una entusiasta de la tecnología y amante de los naimalitos. Participo en eventos de tecnología, disfrutando de la oportunidad de aprender continuamente y de conectar con otros en mi campo.",
+    "foto": "",
+    "Comisión": "Organizer"
+  },
+  {
     "Photo": "/img/members/Angel_Angola.jpg",
     "Name":"Angel Angola",
     "Linkedin": "",
@@ -80,18 +92,6 @@
     "About": "Una persona entradora ,comprometida , Que le gusta enseñar y aprender de los demás.",
     "foto": "",
     "Comisión": "Diseño"
-  },
-  {
-    "Photo": "/img/members/Ivan_D.jpg",
-    "Name":"Ivan Mamani",
-    "Linkedin": "",
-    "Github": "https://github.com/ivanric",
-    "Facebook": "",
-    "Instagram": "",
-    "Sitio_web": "",
-    "About": "Colaborativo ",
-    "foto": "",
-    "Comisión": "Desarrollo"
   },
   {
     "Photo": "/img/members/Jesus_Miranda.jpg",
@@ -214,17 +214,5 @@
     "About": "Resiliente, proactiva, motivada por quienes enfrentan dificultades y siguen adelante con determinación y optimismo.\n\n",
     "foto": "",
     "Comisión": "Desarrollo"
-  },
-  {
-    "Photo": "/img/members/Marlene_Choque_Perez.jpg",
-    "Name": "Marlene Choque",
-    "Linkedin": "https://www.linkedin.com/in/marlenechoqueperez\r",
-    "Github": "",
-    "Facebook": "",
-    "Instagram": "https://www.instagram.com/marlenechoqueperez?igsh=ODJzcTg2Z2Z6MnZu",
-    "Sitio_web": "",
-    "About": "Soy una entusiasta de la tecnología y amante de los naimalitos. Participo en eventos de tecnología, disfrutando de la oportunidad de aprender continuamente y de conectar con otros en mi campo.",
-    "foto": "",
-    "Comisión": "Marketing"
   }
 ]
