@@ -54,3 +54,129 @@ import { ChevronLeft, ChevronRight } from "lucide-astro";
     </div>
   </div>
 </section>
+
+<script>
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      const carousel = document.getElementById("default-carousel");
+      if (!carousel) return;
+
+      const items = Array.from(
+        carousel.querySelectorAll("[data-carousel-item]")
+      );
+      const prevButton = carousel.querySelector("[data-carousel-prev]");
+      const nextButton = carousel.querySelector("[data-carousel-next]");
+      const indicators = Array.from(
+        carousel.querySelectorAll("[data-carousel-slide-to]")
+      );
+
+      let currentIndex = 0;
+      let direction: "left" | "right" = "right";
+
+      const showSlide = (index: number, slideDirection?: "left" | "right") => {
+        // Asegurar que el índice esté en rango
+        if (index < 0) index = items.length - 1;
+        if (index >= items.length) index = 0;
+
+        const previousIndex = currentIndex;
+        currentIndex = index;
+
+        // Determinar dirección si no se especifica
+        if (!slideDirection) {
+          if (
+            index > previousIndex ||
+            (index === 0 && previousIndex === items.length - 1)
+          ) {
+            direction = "right";
+          } else {
+            direction = "left";
+          }
+        } else {
+          direction = slideDirection;
+        }
+
+        // Ocultar todos los slides y preparar animación
+        items.forEach((item, i) => {
+          const element = item as HTMLElement;
+
+          if (i === currentIndex) {
+            // Slide entrante
+            element.classList.remove("hidden");
+            void element.offsetHeight; // Forzar reflow
+
+            // Posicionar fuera de la vista según dirección
+            if (direction === "right") {
+              element.style.transform = "translateX(100%)";
+            } else {
+              element.style.transform = "translateX(-100%)";
+            }
+            element.style.opacity = "0";
+
+            // Animar hacia el centro con transición suave
+            requestAnimationFrame(() => {
+              element.style.transition =
+                "opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)";
+              element.style.opacity = "1";
+              element.style.transform = "translateX(0)";
+            });
+          } else if (i === previousIndex) {
+            // Slide saliente
+            const exitDirection = direction === "right" ? "-100%" : "100%";
+            element.style.transition =
+              "opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)";
+            element.style.opacity = "0";
+            element.style.transform = `translateX(${exitDirection})`;
+
+            setTimeout(() => {
+              element.classList.add("hidden");
+            }, 700);
+          } else {
+            // Otros slides - mantener ocultos
+            element.style.opacity = "0";
+            element.style.transform = "translateX(0)";
+            element.classList.add("hidden");
+          }
+        });
+
+        // Actualizar indicadores
+        indicators.forEach((indicator, i) => {
+          const btn = indicator as HTMLElement;
+          if (i === currentIndex) {
+            indicator.setAttribute("aria-current", "true");
+            btn.classList.remove("bg-white/50", "dark:bg-gray-800/50");
+            btn.classList.add("bg-white", "dark:bg-gray-800");
+          } else {
+            indicator.setAttribute("aria-current", "false");
+            btn.classList.remove("bg-white", "dark:bg-gray-800");
+            btn.classList.add("bg-white/50", "dark:bg-gray-800/50");
+          }
+        });
+      };
+
+      const nextSlide = () => {
+        showSlide(currentIndex + 1, "right");
+      };
+
+      const prevSlide = () => {
+        showSlide(currentIndex - 1, "left");
+      };
+
+      const goToSlide = (index: number) => {
+        // Determinar dirección basada en el índice
+        const slideDirection = index > currentIndex ? "right" : "left";
+        showSlide(index, slideDirection);
+      };
+
+      // Event listeners
+      prevButton?.addEventListener("click", prevSlide);
+      nextButton?.addEventListener("click", nextSlide);
+
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener("click", () => goToSlide(index));
+      });
+
+      // Inicializar - mostrar el primer slide
+      showSlide(0);
+    });
+  }
+</script>

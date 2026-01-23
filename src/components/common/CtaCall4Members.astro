@@ -24,7 +24,7 @@ import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
         </h2>
         <h6
           id="title-main"
-          class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[120px] font-bold bg-gradient-to-r from-[#8eb251] via-[#b2c55c] to-[#dcbb45] text-center text-transparent bg-clip-text px-4 opacity-0"
+          class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[120px] font-bold bg-gradient-to-r from-[#2A91EE] via-[#A672DE] to-[#F5573C] text-center text-transparent bg-clip-text px-4 opacity-0"
         >
           Call 4 Members
         </h6>
@@ -32,21 +32,22 @@ import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
           id="title-2"
           class="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-medium text-center text-white px-2 opacity-0"
         >
-          Envía tu postulación antes del viernes 06 de febrero
+          Pronto podras formar parte de la comunidad
         </h2>
         <div
           id="button-container"
           class="flex justify-center mt-2 md:mt-4 opacity-0"
         >
-          <a href="https://forms.gle/CRBJ5URssqcHjtsz9" class="block">
-            <button
-              type="button"
-              id="cta-button"
-              class="py-2 sm:py-2.5 px-5 sm:px-6 text-sm sm:text-base md:text-lg rounded-full bg-gradient-to-r from-[#8eb251] via-[#b2c55c] to-[#dcbb45] text-white cursor-pointer font-semibold text-center shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out"
-            >
-              Registrate Aquí
-            </button>
-          </a>
+          {/* <a href="https://forms.gle/CRBJ5URssqcHjtsz9" class="block"> */}
+          <button
+            type="button"
+            id="cta-button"
+            disabled
+            class="py-2 sm:py-2.5 px-5 sm:px-6 text-sm sm:text-base md:text-lg rounded-full bg-gradient-to-r from-[#2A91EE] via-[#A672DE] to-[#F5573C] text-white cursor-not-allowed font-semibold text-center shadow-lg opacity-75 transition-all duration-500 ease-in-out"
+          >
+            Próximamente
+          </button>
+          {/* </a> */}
         </div>
       </div>
     </div>
@@ -84,34 +85,34 @@ import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
       }
     });
 
-    // Animación sutil del botón al hover
-    const button = document.getElementById("cta-button");
-    if (button) {
-      button.addEventListener("mouseenter", () => {
-        animate(
-          button as any,
-          {
-            scale: 1.05,
-          },
-          {
-            duration: 0.3,
-            easing: [0.16, 1, 0.3, 1] as any,
-          } as any
-        );
-      });
+    // Animación sutil del botón al hover - Comentado porque el botón está deshabilitado
+    // const button = document.getElementById("cta-button");
+    // if (button) {
+    //   button.addEventListener("mouseenter", () => {
+    //     animate(
+    //       button as any,
+    //       {
+    //         scale: 1.05,
+    //       },
+    //       {
+    //         duration: 0.3,
+    //         easing: [0.16, 1, 0.3, 1] as any,
+    //       } as any
+    //     );
+    //   });
 
-      button.addEventListener("mouseleave", () => {
-        animate(
-          button as any,
-          {
-            scale: 1,
-          },
-          {
-            duration: 0.3,
-            easing: [0.16, 1, 0.3, 1] as any,
-          } as any
-        );
-      });
-    }
+    //   button.addEventListener("mouseleave", () => {
+    //     animate(
+    //       button as any,
+    //       {
+    //         scale: 1,
+    //       },
+    //       {
+    //         duration: 0.3,
+    //         easing: [0.16, 1, 0.3, 1] as any,
+    //       } as any
+    //     );
+    //   });
+    // }
   }
 </script>

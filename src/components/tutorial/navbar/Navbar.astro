@@ -1,17 +1,20 @@
 ---
-import { Image } from "astro:assets";
-import Logo from "../../../assets/svg/LOGO-GDG-TARIJA.svg";
-import Logo2 from "../../../assets/svg/LOGO-GDG-TARIJA-DESKTOP.svg";
 import MenuList from "../navbar/menuList.json";
 ---
 
-<header
-  class="bg-white border-b shadow-sm top-0 start-0 w-full fixed z-40 "
->
+<header class="bg-white border-b shadow-sm top-0 start-0 w-full fixed z-40">
   <nav class="flex flex-wrap justify-between items-center py-6 px-6 md:px-10">
     <div class="h-12 flex items-center">
-      <Image class="w-36 md:hidden" src={Logo} alt="logo" />
-      <Image class="w-48 hidden md:flex lg:w-80" src={Logo2} alt="logo2" />
+      <img
+        class="h-10 w-auto md:hidden"
+        src="https://res.cloudinary.com/dopkch3x9/image/upload/v1769174223/logoGDG_Tarija_nox4y2.svg"
+        alt="GDG Tarija Logo Mobile"
+      />
+      <img
+        class="h-10 sm:h-12 w-auto hidden md:flex lg:h-12"
+        src="https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg"
+        alt="GDG Tarija Logo Desktop"
+      />
     </div>
     <div
       id="menu-button"
