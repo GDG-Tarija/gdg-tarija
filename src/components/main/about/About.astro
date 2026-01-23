@@ -6,33 +6,51 @@ import { ChevronLeft, ChevronRight } from "lucide-astro";
 ---
 
 <!-- About Section -->
-<div id="about" class="w-full bg-neutral-800 text-zinc-100 py-16 animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards">
-  <div id="default-carousel" class="relative flex flex-col items-center" data-carousel="static">
+<section
+  id="about"
+  class="w-full bg-neutral-800 text-zinc-100 py-16 md:py-20 animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards"
+>
+  <div
+    id="default-carousel"
+    class="relative flex flex-col items-center max-w-6xl mx-auto px-4"
+    data-carousel="static"
+  >
     <!-- Carousel wrapper -->
-    <div class="overflow-hidden w-full md:w-9/12 relative h-96 rounded-xl sm:h-64 lg:h-48 mx-6 shadow-2xl">
+    <div
+      class="overflow-hidden w-full relative min-h-[380px] sm:min-h-[360px] md:min-h-[340px] lg:min-h-[320px] rounded-xl shadow-2xl bg-neutral-900/50 backdrop-blur-sm border border-neutral-700/50"
+      id="carousel-wrapper"
+    >
       <!-- Slider items -->
       {infoAbout.map((info) => <Slide {...info} />)}
-      
+
       <!-- Slider indicators -->
-      <div class="flex absolute bottom-4 left-1/2 z-30 space-x-2 -translate-x-1/2">
+      <div
+        class="flex absolute bottom-4 left-1/2 z-30 space-x-2 -translate-x-1/2"
+      >
         {infoAbout.map((info) => <ButtonsNavigate {...info} />)}
       </div>
-      
+
       <!-- Slider controls -->
       <button
         type="button"
-        class="absolute top-1/2 left-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/20 backdrop-blur-sm hover:bg-black/40 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none transition-colors duration-200"
+        class="absolute top-1/2 left-2 md:left-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm hover:bg-black/50 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200 hover:scale-110 active:scale-95"
         data-carousel-prev
+        aria-label="Slide anterior"
       >
-        <ChevronLeft class="w-5 h-5 text-white/80 group-hover:text-white" />
+        <ChevronLeft
+          class="w-5 h-5 text-white/90 group-hover:text-white transition-colors"
+        />
       </button>
       <button
         type="button"
-        class="absolute top-1/2 right-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/20 backdrop-blur-sm hover:bg-black/40 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none transition-colors duration-200"
+        class="absolute top-1/2 right-2 md:right-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm hover:bg-black/50 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200 hover:scale-110 active:scale-95"
         data-carousel-next
+        aria-label="Slide siguiente"
       >
-        <ChevronRight class="w-5 h-5 text-white/80 group-hover:text-white" />
+        <ChevronRight
+          class="w-5 h-5 text-white/90 group-hover:text-white transition-colors"
+        />
       </button>
     </div>
   </div>
-</div>
+</section>

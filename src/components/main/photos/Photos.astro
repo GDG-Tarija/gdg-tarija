@@ -1,5 +1,6 @@
 ---
 import { X, ExternalLink, Eye } from "lucide-astro";
+import Button from "../../common/Button.astro";
 ---
 
 <div
@@ -79,15 +80,16 @@ import { X, ExternalLink, Eye } from "lucide-astro";
 
     <!-- Botón Ver más mejorado -->
     <div class="mt-16 flex justify-center">
-      <a
+      <Button
         href="https://photos.app.goo.gl/T1r7dZUf3RAypyXd8"
         target="_blank"
         rel="noopener noreferrer"
-        class="group inline-flex items-center space-x-3 bg-azul-GDG hover:bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+        iconPosition="left"
+        class="group"
       >
-        <ExternalLink class="w-5 h-5 group-hover:rotate-12 transition-transform" />
-        <span>Ver Galería Completa</span>
-      </a>
+        <ExternalLink slot="icon" class="w-5 h-5 group-hover:rotate-12 transition-transform" />
+        Ver Galería Completa
+      </Button>
     </div>
   </div>
 </div>

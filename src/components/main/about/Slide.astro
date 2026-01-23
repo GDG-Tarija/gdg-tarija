@@ -2,9 +2,24 @@
 const { titulo, descripcion } = Astro.props;
 ---
 
-<div class="hidden duration-700 ease-in-out px-20" data-carousel-item>
-  <h1 class="text-2xl font-semibold text-center">{titulo}</h1>
-  <p class="text-center line-clamp-[13] md:line-clamp-[6] mt-4 mx-2 sm:mx-6">
+<div class="hidden duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] px-6 sm:px-12 md:px-16 lg:px-20 py-8 md:py-12 pb-20 md:pb-24 absolute inset-0 w-full flex flex-col justify-center transition-all" data-carousel-item>
+  <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-white mb-4 md:mb-6">
+    {titulo}
+  </h2>
+  <p class="text-center text-sm sm:text-base md:text-lg leading-relaxed text-zinc-200 max-w-4xl mx-auto">
     {descripcion}
   </p>
 </div>
+
+<style>
+  [data-carousel-item] {
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  
+  [data-carousel-item]:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

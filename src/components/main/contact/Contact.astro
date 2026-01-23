@@ -1,9 +1,8 @@
 ---
 import { Image } from "astro:assets";
-
 import contactos from "./contactos.json";
 import ContactoComponent from "./ContactoComponent.astro";
-
+import Button from "../../common/Button.astro";
 import ImgContact from "../../../assets/images/contact_image.png";
 ---
 
@@ -12,13 +11,14 @@ import ImgContact from "../../../assets/images/contact_image.png";
     <h2 class="text-xl sm:text-4xl font-bold mt-4 sm:mt-8">
       ¿QUIERES FORMAR PARTE DE LA COMUNIDAD?
     </h2>
-    <a href="https://gdg.community.dev/gdg-tarija/">
-      <button
-        class="py-3 px-7 mt-2 sm:mt-8 bg-blue-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-700"
+    <div class="mt-2 sm:mt-8">
+      <Button
+        href="https://gdg.community.dev/gdg-tarija/"
+        size="md"
       >
         Regístrate
-      </button>
-    </a>
+      </Button>
+    </div>
   </div>
   <Image class="h-auto w-full" src={ImgContact} alt="imagen_contacto" />
   <div class="mt-10 text-center">
