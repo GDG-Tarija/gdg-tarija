@@ -9,9 +9,11 @@ interface Props {
 const { title, description, image } = Astro.props;
 
 // Valores por defecto
-const defaultDescription = "Google Developer Group Tarija - Comunidad tech más vibrante de Bolivia. Descubre las últimas innovaciones de Google, conecta con desarrolladores y participa en eventos como Google I/O Extended.";
+const defaultDescription =
+  "Google Developer Group Tarija - Comunidad tech más vibrante de Bolivia. Descubre las últimas innovaciones de Google, conecta con desarrolladores y participa en eventos como Google I/O Extended.";
 // Imagen optimizada para WhatsApp (cuadrada y menor a 300KB)
-const defaultImage = "https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png";
+const defaultImage =
+  "https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png";
 
 const metaDescription = description || defaultDescription;
 const metaImage = image || defaultImage;
@@ -20,24 +22,16 @@ const metaImage = image || defaultImage;
 <!doctype html>
 <html lang="es">
   <head>
+    <slot name="head" />
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <meta
-      name="description"
-      content={metaDescription}
-    />
+    <meta name="description" content={metaDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
     <meta property="og:title" content={title} />
-    <meta
-      property="og:description"
-      content={metaDescription}
-    />
-    <meta
-      property="og:image"
-      content={metaImage}
-    />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={metaImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="1200" />
     <meta property="og:image:type" content="image/png" />
@@ -48,17 +42,14 @@ const metaImage = image || defaultImage;
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta
-      name="twitter:description"
-      content={metaDescription}
-    />
-    <meta
-      name="twitter:image"
-      content={metaImage}
-    />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={metaImage} />
 
     <!-- WhatsApp specific optimization -->
-    <meta property="og:image:alt" content="GDG Tarija - Google Developer Group" />
+    <meta
+      property="og:image:alt"
+      content="GDG Tarija - Google Developer Group"
+    />
 
     <!-- Additional SEO -->
     <meta

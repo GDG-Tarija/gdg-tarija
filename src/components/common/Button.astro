@@ -25,7 +25,8 @@ const {
   id,
 } = Astro.props;
 
-const baseClasses = "inline-flex items-center justify-center font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
+const baseClasses =
+  "inline-flex items-center justify-center font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
 
 const variantClasses = {
   primary: "bg-azul-GDG hover:bg-blue-600 text-white",
@@ -33,35 +34,42 @@ const variantClasses = {
 };
 
 const sizeClasses = {
-  sm: "px-6 py-2.5 text-sm",
-  md: "px-8 py-4 text-lg",
-  lg: "px-10 py-5 text-xl",
+  sm: "px-5 py-2 text-sm",
+  md: "px-7 py-3 text-lg",
+  lg: "px-8 py-4 text-xl",
 };
 
 const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
 ---
 
-{href ? (
-  <a
-    href={href}
-    class={buttonClasses}
-    target={target}
-    rel={rel}
-    id={id}
-  >
-    {iconPosition === "left" && <span class="mr-3"><slot name="icon" /></span>}
-    <slot />
-    {iconPosition === "right" && <span class="ml-3"><slot name="icon" /></span>}
-  </a>
-) : (
-  <button
-    type={type}
-    class={buttonClasses}
-    onclick={onclick}
-    id={id}
-  >
-    {iconPosition === "left" && <span class="mr-3"><slot name="icon" /></span>}
-    <slot />
-    {iconPosition === "right" && <span class="ml-3"><slot name="icon" /></span>}
-  </button>
-)}
+{
+  href ? (
+    <a href={href} class={buttonClasses} target={target} rel={rel} id={id}>
+      {iconPosition === "left" && (
+        <span class="mr-3">
+          <slot name="icon" />
+        </span>
+      )}
+      <slot />
+      {iconPosition === "right" && (
+        <span class="ml-3">
+          <slot name="icon" />
+        </span>
+      )}
+    </a>
+  ) : (
+    <button type={type} class={buttonClasses} onclick={onclick} id={id}>
+      {iconPosition === "left" && (
+        <span class="mr-3">
+          <slot name="icon" />
+        </span>
+      )}
+      <slot />
+      {iconPosition === "right" && (
+        <span class="ml-3">
+          <slot name="icon" />
+        </span>
+      )}
+    </button>
+  )
+}
