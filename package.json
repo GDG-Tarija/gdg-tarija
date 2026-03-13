@@ -1,7 +1,7 @@
 {
   "name": "gdg-tarija",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.0-beta",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
