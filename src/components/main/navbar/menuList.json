@@ -1,10 +1,10 @@
 [
   {
     "title": "¿Quiénes Somos?",
-    "href": "#about"
+    "href": "/#about"
   },
   {
     "title": "Eventos",
-    "href": "#events"
+    "href": "/#events"
   }
 ]

@@ -4,9 +4,9 @@ import MenuList from "../navbar/menuList.json";
 ---
 
 <header
-  class="bg-white/95 backdrop-blur-sm top-0 start-0 border-b border-gray-200 w-full fixed z-10 shadow-sm"
+  class="fixed top-3 md:top-5 inset-x-0 z-50 flex justify-center w-full px-4 transition-all duration-300"
 >
-  <nav class="flex flex-wrap justify-between items-center py-4 px-6 md:px-10">
+  <nav class="w-full max-w-6xl bg-white/80 backdrop-blur-lg border border-gray-200 shadow-sm rounded-2xl flex flex-wrap justify-between items-center py-2 px-4 md:px-8 relative">
     <div class="h-12 flex items-center">
       <a href="/" aria-label="Home">
         <img
@@ -23,7 +23,7 @@ import MenuList from "../navbar/menuList.json";
     </div>
     <button
       id="menu-button"
-      class="text-gray-700 hover:text-azul-GDG md:hidden cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-all duration-200"
+      class="text-gray-700 hover:text-rojo-GDG md:hidden cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-all duration-200"
     >
       <Menu class="h-6 w-6" />
     </button>
@@ -40,7 +40,7 @@ import MenuList from "../navbar/menuList.json";
             <li>
               <a
                 href={menu.href}
-                class="block px-4 py-3 md:px-0 md:py-0 hover:text-azul-GDG hover:bg-gray-50 md:hover:bg-transparent transition-all duration-200 rounded-md"
+                class="block px-4 py-3 md:px-0 md:py-0 hover:text-rojo-GDG hover:bg-gray-50 md:hover:bg-transparent transition-all duration-200 rounded-md"
               >
                 {menu.title}
               </a>
@@ -52,33 +52,18 @@ import MenuList from "../navbar/menuList.json";
     <!-- Menú móvil mejorado -->
     <div
       id="mobile-menu"
-      class="w-full hidden md:hidden bg-gradient-to-b from-white to-gray-50/50 backdrop-blur-md border-t border-gray-200 shadow-2xl"
+      class="w-full hidden md:hidden bg-white/95 absolute top-full left-0 mt-2 border border-gray-100 shadow-xl overflow-hidden rounded-2xl pb-2"
     >
-      <nav class="px-4 py-6">
-        <ul class="flex flex-col space-y-1">
+      <nav class="px-8 py-2">
+        <ul class="flex flex-col">
           {
             MenuList.map((menu, index) => (
-              <li>
+              <li class="border-b border-gray-100 last:border-none">
                 <a
                   href={menu.href}
-                  class="group block px-5 py-4 text-base font-semibold text-gray-700 hover:text-azul-GDG bg-white/80 hover:bg-gradient-to-r hover:from-azul-GDG/10 hover:to-transparent rounded-xl transition-all duration-300 transform hover:translate-x-2 hover:shadow-lg border-l-4 border-transparent hover:border-azul-GDG"
+                  class="block py-5 text-xl font-bold text-gray-900 hover:text-rojo-GDG transition-colors duration-200"
                 >
-                  <span class="flex items-center justify-between">
-                    <span>{menu.title}</span>
-                    <svg
-                      class="w-5 h-5 text-azul-GDG opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </span>
+                  {menu.title}
                 </a>
               </li>
             ))
