@@ -20,17 +20,30 @@ export default {
     },
     extend: {
       colors: {
-        Background: "#eeeeee",
-        "rojo-GDG": "#EA4335",
-        "amarillo-GDG": "#F9AB00",
-        "azul-GDG": "#4285F4",
-        "verde-GDG": "#34A853",
+        "Background": "#f0f0f0",
+        "rojo-GDG": "#ea4335",
+        "amarillo-GDG": "#f9ab00",
+        "azul-GDG": "#4285f4",
+        "verde-GDG": "#34a853",
         "Gray-900": "#202124",
         "Orange": "#F46831",
         "iwd-primary":"#165185",
         "iwd-secondary":"#CAE6FF",
         "iwd-text":"#2480F0",
         "iwd-accent":"#0f7c67",
+        // HALFTONES
+        "halftone-blue": "#57caff",
+        "halftone-green": "#5cdb6d",
+        "halftone-yellow": "#ffd427",
+        "halftone-red": "#ff7daf",
+        // PASTELS
+        "pastel-blue": "#c3ecf6",
+        "pastel-green": "#ccf6c5",
+        "pastel-yellow": "#ffe7a5",
+        "pastel-red": "#f8d8d8",
+        // GRAYSCALE
+        "off-white": "#f0f0f0",
+        "black-02": "#1e1e1e",
         blue: {
           50: "#F0F5FE",
           100: "#DCE9FD",
@@ -111,5 +124,18 @@ export default {
     'text-verde-GDG',
     'text-Gray-900',
     'text-Orange',
+    // HALFTONES
+    'bg-halftone-blue', 'text-halftone-blue',
+    'bg-halftone-green', 'text-halftone-green',
+    'bg-halftone-yellow', 'text-halftone-yellow',
+    'bg-halftone-red', 'text-halftone-red',
+    // PASTELS
+    'bg-pastel-blue', 'text-pastel-blue',
+    'bg-pastel-green', 'text-pastel-green',
+    'bg-pastel-yellow', 'text-pastel-yellow',
+    'bg-pastel-red', 'text-pastel-red',
+    // GRAYSCALE
+    'bg-off-white', 'text-off-white',
+    'bg-black-02', 'text-black-02',
   ],
 };

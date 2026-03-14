@@ -7,31 +7,29 @@ import { Icon } from "astro-icon/components";
 
 <Layout title="Código de Conducta - GDG Tarija">
   <Navbar />
-  <main
-    class="w-full bg-white md:bg-Background min-h-screen pb-20 pt-12 md:pt-16"
-  >
-    <div class="max-w-5xl mx-auto px-0 md:px-6">
+  <main class="w-full bg-black-02 min-h-screen pb-20 pt-12 md:pt-16">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
       <!-- Contenedor del título y botón de volver -->
-      <div class="px-6 md:px-0 mb-8 md:mb-12">
+      <div class="px-6 md:px-0 mb-6">
         <a
           href="/"
-          class="inline-flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors font-medium text-sm md:text-base animate-fade-up mb-6 md:mb-8"
+          class="inline-flex items-center gap-2 text-gray-400 hover:text-blue-600 transition-colors font-medium text-sm md:text-base animate-fade-up mb-6 md:mb-8"
         >
           <Icon name="mdi:arrow-left" class="w-5 h-5" />
           Volver al Inicio
         </a>
         <h1
-          class="text-3xl md:text-5xl font-bold text-center text-gray-900 animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards"
+          class="text-3xl font-bold text-center text-gray-100/90 animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards"
         >
-          Código de Conducta - GDG/WTM Tarija
+          Código de Conducta
         </h1>
       </div>
 
       <section
-        class="bg-white px-6 py-8 md:p-14 md:my-8 md:rounded-xl md:shadow-md md:border md:border-gray-200 animate-fade-up animate-duration-[1500ms] animate-delay-200 animate-ease-in animate-fill-forwards"
+        class="px-6 md:px-14 md:mb-8 animate-fade-up animate-duration-[1500ms] animate-delay-200 animate-ease-in animate-fill-forwards"
       >
-        <div class="prose prose-lg max-w-none text-gray-700">
-          <h2 class="text-2xl font-bold text-gray-900 mt-0 mb-4">Aviso</h2>
+        <div class="prose prose-lg max-w-none text-gray-300">
+          <h2 class="text-2xl font-bold text-red-400 mt-0 mb-4">Aviso</h2>
           <p class="mb-6">
             Los medios oficiales de GDG/WTM Tarija son nuestros grupos de
             WhatsApp, Discord, redes sociales y todos los espacios donde
@@ -51,7 +49,7 @@ import { Icon } from "astro-icon/components";
           </p>
 
           <h2
-            class="text-2xl font-bold text-gray-900 mt-12 mb-4 border-b border-gray-200 pb-2"
+            class="text-2xl font-bold text-red-400 mt-12 mb-4 border-b border-halftone-red pb-2"
           >
             La versión corta
           </h2>
@@ -60,17 +58,17 @@ import { Icon } from "astro-icon/components";
             todos terminan hablando de "aquella persona" que causó un mal rato a
             uno o más asistentes?
           </p>
-          <p class="font-bold text-xl text-gray-900 my-6 text-center italic">
+          <p class="font-bold text-xl text-gray-100/90 my-6 text-center italic">
             No seas esa persona.
           </p>
 
           <h2
-            class="text-2xl font-bold text-gray-900 mt-12 mb-4 border-b border-gray-200 pb-2"
+            class="text-2xl font-bold text-red-400 mt-12 mb-4 border-b border-halftone-red pb-2"
           >
             La versión larga
           </h2>
 
-          <h3 class="text-xl font-bold text-gray-800 mt-8 mb-3">
+          <h3 class="text-xl font-bold text-red-400 mt-8 mb-3">
             ¿Qué se entiende por acoso?
           </h3>
           <p class="mb-4">
@@ -88,52 +86,54 @@ import { Icon } from "astro-icon/components";
             integridad de las personas.
           </p>
 
-          <h3 class="text-xl font-bold text-gray-800 mt-10 mb-6">
+          <h3 class="text-xl font-bold text-red-400 mt-10 mb-6">
             Comportamientos inaceptables
           </h3>
           <ul class="space-y-4 mb-8 list-none pl-0">
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1"
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1"
                 >Faltas de respeto:</strong
               > Cualquier insulto o actitud hostil dirigida a miembros de la comunidad,
               equipo de organización o ponentes (speakers).
             </li>
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1"
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1"
                 >Mensajes no deseados:</strong
               > Envío de mensajes directos sin previo consentimiento en un canal público.
             </li>
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1"
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1"
                 >Contenido inapropiado:</strong
               > Lenguaje o material sexualmente explícito, violento, amenazante, discriminatorio
               o que promueva el odio.
             </li>
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1"
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1"
                 >Acoso e intimidación:</strong
               > Comportamiento abusivo hacia cualquier persona de la comunidad en
               eventos o medios digitales.
             </li>
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1">Doxxing:</strong> Divulgación
-              de información personal de otros sin su consentimiento.
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1"
+                >Doxxing:</strong
+              > Divulgación de información personal de otros sin su consentimiento.
             </li>
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1">Sabotaje:</strong> Interrupción
-              intencional de charlas, discusiones o actividades.
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1"
+                >Sabotaje:</strong
+              > Interrupción intencional de charlas, discusiones o actividades.
             </li>
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1"
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1"
                 >Suplantación:</strong
               > Robar la identidad de otra persona o entidad.
             </li>
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1">Spam:</strong> Publicidad
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1">Spam:</strong> Publicidad
               no solicitada o promoción de servicios ajenos a la comunidad.
             </li>
-            <li class="pl-4 border-l-4 border-gray-400">
-              <strong class="text-gray-900 inline-block mb-1"
+            <li class="pl-4 border-l-4 border-halftone-red">
+              <strong class="text-gray-100/90 inline-block mb-1"
                 >Automatización:</strong
               > Uso de medios automatizados que interfieran con el funcionamiento
               del grupo o redes sociales.
@@ -141,9 +141,9 @@ import { Icon } from "astro-icon/components";
           </ul>
 
           <div
-            class="bg-gray-50 border border-gray-200 rounded-xl p-8 mt-12 mb-4"
+            class="bg-black-02 border-2 border-halftone-red rounded-xl p-8 mt-12 mb-4"
           >
-            <h2 class="text-2xl font-bold text-gray-900 mt-0 mb-4">
+            <h2 class="text-2xl font-bold text-red-400 mt-0 mb-4">
               Intervención y Reportes
             </h2>
             <p class="mb-4">
@@ -152,7 +152,7 @@ import { Icon } from "astro-icon/components";
               Quienes vulneren estas reglas serán baneados de las plataformas y
               excluidos de futuros eventos de manera inmediata.
             </p>
-            <p class="m-0 text-gray-900 font-medium">
+            <p class="m-0 text-gray-100/90 font-medium">
               Si eres víctima o testigo de acoso o falta de respeto, por favor
               contacta a los Administradores del grupo o a cualquier miembro del
               Staff en un evento de forma inmediata. Los reportes serán tratados
