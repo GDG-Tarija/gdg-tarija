@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Loader from "../components/common/Loader.astro";
+
+// Configura aquí tus datos de SEO específicos para esta página de redirección
+const title = "Inscripciones | GDG Tarija";
+const description =
+  "Inscríbete a los próximos eventos y actividades del Google Developer Group Tarija.";
+// Si no especificas una imagen, se usará la imagen por defecto del Layout
+const image =
+  "https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png";
+
+const redirectUrl =
+  "https://docs.google.com/forms/d/e/1FAIpQLScX2P2GKiKEug2S3ZTBkm6DBv5rSipmqueMCZLljQbfRLrigw/viewform";
+---
+
+<Layout title={title} description={description} image={image}>
+  <Fragment slot="head">
+    <!-- Meta tag responsable de la redirección automática (5 segundos para debug) -->
+    <meta http-equiv="refresh" content={`2;url=${redirectUrl}`} />
+  </Fragment>
+
+  <main
+    class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4"
+  >
+    <Loader
+      text="Redirigiendo..."
+      subtext="Te estamos llevando al formulario de inscripciones."
+    />
+  </main>
+</Layout>
