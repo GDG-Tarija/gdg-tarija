@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find D:/astro/gdg-tarija -not -path */node_modules/* -not -path */.git/* -not -path */.astro/* -type f)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
