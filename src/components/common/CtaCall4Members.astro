@@ -60,9 +60,7 @@ import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
 <script>
   import { animate } from "motion";
 
-  // Esperar a que el DOM esté listo
   if (typeof window !== "undefined") {
-    // Animación de entrada con stagger para los elementos
     const elements = [
       { id: "title-1", delay: 0 },
       { id: "title-main", delay: 0.2 },
@@ -82,40 +80,10 @@ import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
           {
             duration: 0.8,
             delay: delay,
-            easing: [0.16, 1, 0.3, 1] as any, // ease-out-expo
+            easing: [0.16, 1, 0.3, 1] as any,
           } as any,
         );
       }
     });
-
-    // Animación sutil del botón al hover - Comentado porque el botón está deshabilitado
-    // const button = document.getElementById("cta-button");
-    // if (button) {
-    //   button.addEventListener("mouseenter", () => {
-    //     animate(
-    //       button as any,
-    //       {
-    //         scale: 1.05,
-    //       },
-    //       {
-    //         duration: 0.3,
-    //         easing: [0.16, 1, 0.3, 1] as any,
-    //       } as any
-    //     );
-    //   });
-
-    //   button.addEventListener("mouseleave", () => {
-    //     animate(
-    //       button as any,
-    //       {
-    //         scale: 1,
-    //       },
-    //       {
-    //         duration: 0.3,
-    //         easing: [0.16, 1, 0.3, 1] as any,
-    //       } as any
-    //     );
-    //   });
-    // }
   }
 </script>
