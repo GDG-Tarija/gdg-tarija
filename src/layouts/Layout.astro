@@ -1,5 +1,6 @@
 ---
-import "@styles/base.css";
+import "@styles/global.css";
+
 interface Props {
   title: string;
   description?: string;
@@ -60,22 +61,12 @@ const metaImage = image || defaultImage;
     <link rel="canonical" href="https://gdgtarija.com" />
 
     <title>{title}</title>
-
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    />
-    <!-- Hoja de estilos About[Carrusel] -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"
-      rel="stylesheet"
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
   </head>
   <body class="scroll-smooth">
     <slot />
   </body>
-  <!--  JS About[Carrusel] -->
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"
-  ></script>
-  <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
 </html>

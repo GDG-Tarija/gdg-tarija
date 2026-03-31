@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animated";
+
+@theme {
+
+  /* Custom colors */
+  --color-background: #f0f0f0;
+  --color-gdg-red: #ea4335;
+  --color-gdg-yellow: #f9ab00;
+  --color-gdg-blue: #4285f4;
+  --color-gdg-green: #34a853;
+
+  --animate-border-spin: border-spin 10s linear infinite;
+
+  @keyframes border-spin {
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}
+
+
+@font-face {
+  font-family: "Google Sans";
+  src: url(../assets/fonts/google-sans/GoogleSans-Regular.ttf) format("truetype")
+  font-weight-normal,
+  url(../assets/fonts/google-sans/GoogleSans-Bold.ttf) format("truetype")
+  font-weight-bold,
+  url(../assets/fonts/google-sans/GoogleSans-Italic.ttf) format("truetype")
+  font-style-italic,
+  url(../assets/fonts/google-sans/GoogleSans-BoldItalic.ttf) format("truetype")
+  font-weight-bold font-style-italic,
+  url(../assets/fonts/google-sans/GoogleSans-Medium.ttf) format("truetype")
+  font-weight-500,
+  url(../assets/fonts/google-sans/GoogleSans-MediumItalic.ttf)
+  format("truetype") font-weight-500 font-style-italic;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Google Sans", sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/*TODO : move this to a internal file*/
+
+@layer utilities {
+  /* Act as a border */
+  .card-wrapper {
+    @apply relative overflow-hidden rounded-2xl bg-linear-to-b from-slate-700 to-slate-800;
+  }
+
+  /* Gradient */
+  .card-wrapper::before {
+    background: conic-gradient(
+            #34a853 3deg,
+            #ea4335 15deg,
+            #f9ab00 25deg,
+            #4285f4 40deg,
+            transparent 60deg
+    );
+
+    @apply absolute left-[-25%] top-[-25%] h-[150%] w-[150%] animate-border-spin content-[''];
+  }
+
+  /* Body */
+  .card-content {
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-linear-to-b from-gray-600 to-gray-700;
+  }
+
+  .card-content:hover .redes-sociales {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .card-content:hover .card-items {
+    @apply -translate-y-3;
+  }
+}

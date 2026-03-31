@@ -13,7 +13,10 @@ import Button from "../../common/Button.astro";
   >
   </div>
   <div class="flex justify-center mt-8" id="load-more-container">
-    <Button id="load-more"> Ver Más </Button>
+    <Button id="load-more">
+      <i class="fa-solid fa-angle-down mr-2"></i>
+      Ver Más
+    </Button>
   </div>
 </section>
 
@@ -33,7 +36,7 @@ import Button from "../../common/Button.astro";
         eventElement.className = "text-center mb-4";
 
         eventElement.innerHTML = `
-          <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="block transform transition-transform duration-300 hover:scale-110">
+          <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="block transition-transform duration-300 hover:scale-110">
             <img src="${event.src}" alt="${event.title}" class="w-48 h-48 rounded-full object-cover mx-auto">
           </a>
           <p class="text-gray-500 mt-5">${event.date}</p>

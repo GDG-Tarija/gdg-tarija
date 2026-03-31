@@ -2,7 +2,6 @@
 import infoAbout from "./infoAbout.json";
 import Slide from "./Slide.astro";
 import ButtonsNavigate from "./ButtonsNavigate.astro";
-import { ChevronLeft, ChevronRight } from "lucide-astro";
 ---
 
 <!-- About Section -->
@@ -17,7 +16,7 @@ import { ChevronLeft, ChevronRight } from "lucide-astro";
   >
     <!-- Carousel wrapper -->
     <div
-      class="overflow-hidden w-full relative min-h-[380px] sm:min-h-[360px] md:min-h-[340px] lg:min-h-[320px] rounded-xl shadow-2xl bg-neutral-900/50 backdrop-blur-sm border border-neutral-700/50"
+      class="overflow-hidden w-full relative min-h-95 sm:min-h-90 md:min-h-85 lg:min-h-80 rounded-xl shadow-2xl bg-neutral-900/50 backdrop-blur-xs border border-neutral-700/50"
       id="carousel-wrapper"
     >
       <!-- Slider items -->
@@ -33,23 +32,19 @@ import { ChevronLeft, ChevronRight } from "lucide-astro";
       <!-- Slider controls -->
       <button
         type="button"
-        class="absolute top-1/2 left-2 md:left-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm hover:bg-black/50 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200 hover:scale-110 active:scale-95"
+        class="absolute top-1/2 left-2 md:left-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-xs hover:bg-black/50 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200 hover:scale-110 active:scale-95"
         data-carousel-prev
         aria-label="Slide anterior"
       >
-        <ChevronLeft
-          class="w-5 h-5 text-white/90 group-hover:text-white transition-colors"
-        />
+        <i class="fa-solid fa-chevron-left text-white/90 group-hover:text-white transition-colors"></i>
       </button>
       <button
         type="button"
-        class="absolute top-1/2 right-2 md:right-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-sm hover:bg-black/50 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200 hover:scale-110 active:scale-95"
+        class="absolute top-1/2 right-2 md:right-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-xs hover:bg-black/50 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200 hover:scale-110 active:scale-95"
         data-carousel-next
         aria-label="Slide siguiente"
       >
-        <ChevronRight
-          class="w-5 h-5 text-white/90 group-hover:text-white transition-colors"
-        />
+        <i class="fa-solid fa-chevron-right text-white/90 group-hover:text-white transition-colors"></i>
       </button>
     </div>
   </div>
@@ -62,12 +57,12 @@ import { ChevronLeft, ChevronRight } from "lucide-astro";
       if (!carousel) return;
 
       const items = Array.from(
-        carousel.querySelectorAll("[data-carousel-item]")
+        carousel.querySelectorAll("[data-carousel-item]"),
       );
       const prevButton = carousel.querySelector("[data-carousel-prev]");
       const nextButton = carousel.querySelector("[data-carousel-next]");
       const indicators = Array.from(
-        carousel.querySelectorAll("[data-carousel-slide-to]")
+        carousel.querySelectorAll("[data-carousel-slide-to]"),
       );
 
       let currentIndex = 0;
