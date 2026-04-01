@@ -1,5 +1,40 @@
 [
   {
+    "src": "/img/events/devfest2025.webp",
+    "link": "https://gdg.community.dev/events/details/google-gdg-tarija-presents-devfest-tarija-2025/",
+    "date": "15 de Noviembre 2025",
+    "title": "Taller",
+    "fullName": "DevFest Tarija 2025"
+  },
+  {
+    "src": "/img/events/AI_connection.webp",
+    "link": "https://gdg.community.dev/events/details/google-gdg-tarija-presents-the-ai-connection/",
+    "date": "4 de Octubre 2025",
+    "title": "Conferencia",
+    "fullName": "The AI Connection"
+  },
+  {
+    "src": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/blob_QBv8oF1",
+    "link": "https://gdg.community.dev/events/details/google-gdg-tarija-presents-google-io-extended-tarija-2025/",
+    "date": "2 de Agosto 2025",
+    "title": "Conferencia/Taller",
+    "fullName": "Google I/O Extended Tarija 2025"
+  },
+  {
+    "src": "/img/events/build_with_AI_2025.webp",
+    "link": "https://gdg.community.dev/events/details/google-gdg-la-paz-presents-hackthon-build-with-ai-bolivia-2025/cohost-gdg-tarija/",
+    "date": "27 de Junio 2025",
+    "title": "Hackthon/Conferencia",
+    "fullName": "Hackthon Build with AI Bolivia 2025"
+  },
+  {
+    "src": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,dpr_2,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/icon-bevy-road-tarija_eB0hRdX.png",
+    "link": "https://gdg.community.dev/events/details/google-gdg-tarija-presents-build-with-ai-tarija-2025/",
+    "date": "17 de Mayo 2025",
+    "title": "Taller",
+    "fullName": "Build with AI Tarija 2025"
+  },
+  {
     "src": "https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/WTM-IWD25-EventIcon_aDGrLoE.png",
     "link": "https://gdg.community.dev/events/details/google-gdg-tarija-presents-iwd-tarija-2025/",
     "date": "22 de Marzo 2025",
