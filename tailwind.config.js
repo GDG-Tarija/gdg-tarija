@@ -17,6 +17,9 @@ export default {
         "azul-GDG": "#4285f4",
         "verde-GDG": "#34a853",
         "Gray-900": "#202124",
+        // GRAYSCALE
+        "off-white": "#f0f0f0",
+        "black-02": "#1e1e1e",
         blue: {
           50: "#F0F5FE",
           100: "#DCE9FD",
