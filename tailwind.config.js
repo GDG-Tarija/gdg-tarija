@@ -17,6 +17,22 @@ export default {
         "azul-GDG": "#4285f4",
         "verde-GDG": "#34a853",
         "Gray-900": "#202124",
+        "Orange": "#F46831",
+        // IWD
+        "iwd-primary":"#165185",
+        "iwd-secondary":"#CAE6FF",
+        "iwd-text":"#2480F0",
+        "iwd-accent":"#0f7c67",
+        // HALFTONES
+        "halftone-blue": "#57caff",
+        "halftone-green": "#5cdb6d",
+        "halftone-yellow": "#ffd427",
+        "halftone-red": "#ff7daf",
+        // PASTELS
+        "pastel-blue": "#c3ecf6",
+        "pastel-green": "#ccf6c5",
+        "pastel-yellow": "#ffe7a5",
+        "pastel-red": "#f8d8d8",
         // GRAYSCALE
         "off-white": "#f0f0f0",
         "black-02": "#1e1e1e",
@@ -85,7 +101,7 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animated")],
+  plugins: [("tailwindcss-animated")],
   safelist: [
     'bg-rojo-GDG', 'text-rojo-GDG',
     'bg-amarillo-GDG', 'text-amarillo-GDG',

@@ -1,186 +1,292 @@
 [
   {
-    "Photo": "/img/members/Valeria_Burgos.jpg",
-    "Name": "Valeria Burgos",
-    "Linkedin": "https://www.linkedin.com/in/valeriaburgos/",
-    "Facebook": "https://www.facebook.com/pvaleriaburgos/",
-    "Instagram": "https://www.instagram.com/pvaleriaburgos/",
-    "Sitio_web": "",
-    "About": "Soy ingeniera informática con especialidad en calidad de software. Soy una persona apasionada por la tecnología y el conocimiento. Me encuentro constantemente actualizándome y capacitándome en nuevas tecnologías y habilidades.",
-    "foto": "",
-    "Comisión": "Organizer"
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774971379/Antonio_Miranda_bgpeb8.jpg",
+    "Name": "Antonio Miranda",
+    "Linkedin": "www.linkedin.com/in/antoniomiranda-sistemas",
+    "Instagram": "https://www.instagram.com/antoniojm_28",
+    "About": "Soy estudiante de Ingeniería de Sistemas en la Universidad Católica Boliviana, con interés en el desarrollo de software y la creación de aplicaciones.",
+    "Commission": [
+      "Marketing"
+    ]
   },
   {
-    "Photo": "/img/members/Pedro_Anze.jpg",
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981625/Pedro_Anze_prarxu.png",
     "Name": "Pedro Anze",
     "Linkedin": "https://www.linkedin.com/in/pedroanze/",
     "Github": "https://github.com/pedroanze/",
     "Instagram": "https://www.instagram.com/pedroanze_/",
-    "Sitio_web": "",
-    "About": "Estudiante de Ingeniería de sistemas y un apasionado con la tecnología y desarrollo",
-    "foto": "",
-    "Comisión": "Organizer"
+    "Sitio_web": "https://pedroanze.com/",
+    "About": "Pedro es Ingeniero de Sistemas con +3 años de experiencia y mindset de scale. Perfil hands-on con fuerte ownership en el delivery de producto. Lead Organizer en GDG Tarija.",
+    "Commission": [
+      "Organizer"
+    ]
   },
   {
-    "Photo": "/img/members/Damaris.jpg",
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774972360/Kevin_Flores_gkrscg.jpg",
+    "Name": "Kevin Flores",
+    "Linkedin": "https://www.linkedin.com/in/kevin-flores-631a16189?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "Github": "https://github.com/kevinfloresvallejos",
+    "About": "Apasionado por la tecnología, low code in AppSheet",
+    "Commission": [
+      "Decoración",
+      "Staff"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774973459/Miguel_Teran_hcdemz.jpg",
+    "Name": "Miguel Terán",
+    "Github": "https://github.com/MiguelT18",
+    "About": "Ingeniero de software full-stack enfocado en crear productos tecnológicos y explorar nuevas tecnologías. Interesado en IA, ciberseguridad y sistemas; participo en GDG para aprender, compartir y colaborar en innovación.",
+    "Commission": [
+      "Marketing",
+      "Desarrollo"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774971369/FRANZ_CARLOS_CACERES_AUCA_swptlh.jpg",
+    "Name": "Carlos Cáceres",
+    "Linkedin": "https://www.linkedin.com/in/franz-caceres-78a18638a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "About": "Estudiante de Ingeniería de Sistemas con un gran interes por aprender y desarrollarse como profesional y futuro ingeniero en Ciberseguridad",
+    "Commission": [
+      "Decoración"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981446/Marlene_Choque_Perez_qkaseg.jpg",
+    "Name": "Marlene Choque Pérez",
+    "Linkedin": "https://www.linkedin.com/in/marlenechoqueperez",
+    "About": "Hola Soy, Marlen Ingeniera de sistemas de Profesión, me dedico al desarrollo Frontend, y me gusta expolara otras áreas como el diseño para desarrollo web y mobile. Soy amantes de la naturaleza y los libros :)",
+    "Commission": [
+      "Organizer"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981526/Alex_M_lekxcz.png",
+    "Name": "Alex Márquez",
+    "Linkedin": "https://www.linkedin.com/in/ruth-paola-gomez-marquez-2538b9363?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "Instagram": "https://www.instagram.com/marqueezalex?igsh=MXJ2Ync3MmZheDEzbQ==",
+    "About": "Desarrollador en formación con enfoque en backend, arquitectura de sistemas y desarrollo full stack. Interesado en inteligencia artificial y construcción de soluciones escalables",
+    "Commission": [
+      "Marketing"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981362/Cristian_Santiago_Garcia_Mancilla_ep37gu.jpg",
+    "Name": "Cristian Garcia",
+    "Instagram": "https://www.instagram.com/san_gm__?igsh=MW53dWlldXM1NWFpZw==",
+    "About": "Amante de java, gatos, perros y hamburguesas.",
+    "Commission": [
+      "Marketing"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774971372/Valeria_Duran_v1yb1o.webp",
+    "Name": "Valeria Duran",
+    "Instagram": "https://www.instagram.com/_vale_duran_17_?igsh=OW04YWVhamV5Y2Fu",
+    "About": "Me gusta bailar , leer , me gusta escuchar alas personas, conocer nuevos lugares",
+    "Commission": [
+      "Marketing",
+      "Decoración"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774971079/Valeria_Burgos_v05203.jpg",
+    "Name": "Valeria Burgos",
+    "Instagram":"https://www.instagram.com/pvaleriaburgos/",
+    "About": "Soy una persona apasionada por la tecnología y el conocimiento, me encuentro constantemente actualizándome y capacitándome en nuevas tecnologías y habilidades.",
+    "Commission": [
+      "Organizer"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981653/Jose_Luis_Iba%C3%B1ez_Manguia_bl9g0o.png",
+    "Name": "Jose Luis Ibañez",
+    "Instagram":"https://www.instagram.com/koda_x7/",
+    "About": "Soy un programador novato en constante evolución, enfocado en dar mis primeros pasos firmes dentro del ecosistema de Unity.",
+    "Commission": [
+      "Logística",
+      "Staff"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981723/Silvana_Noelia_Bamba_Sossa_ewgxzn.jpg",
+    "Name": "Silvana Bamba",
+    "Linkedin": "https://www.linkedin.com/in/silvana-noelia-bamba-sossa-b94299363?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    "Facebook": "https://www.facebook.com/share/1HfyMS7j4o/",
+    "Instagram": "https://www.instagram.com/jh_silvi?igsh=MTN2d3Z2bHNjamdkMg==",
+    "Github": "https://github.com/silvi3110",
+    "About": "Estudiante de Ingeniería de Sistemas que cree en el poder de la tecnología para transformar realidades. Apasionada por la innovación, el aprendizaje continuo y el impacto positivo en la sociedad.",
+    "Commission": [
+      "Logística",
+      "Marketing",
+      "Decoración"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981447/Doris_Lima_Matias_dinusx.jpg",
+    "Name": "Doris Lima",
+    "Instagram": "https://www.instagram.com/_doris_lima_tja/",
+    "About": "Profesional con pensamiento crítico, enfoque analítico y orientación a resultados",
+    "Commission": [
+      "Marketing",
+      "Diseño"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774972504/Alex_Flores_j2bq8n.jpg",
+    "Name": "Alexander Flores",
+    "Linkedin": "https://www.linkedin.com/in/warachidev/",
+    "Instagram": "https://www.instagram.com/alexflores.png/",
+    "Github": "https://github.com/warachidev",
+    "About": "Ing. de Sistemas apasionado por el Frontend (React) y miembro de GDG Tarija hace 2 años. Si no estoy programando, me encontrarás en los disfrutando de los paisajes de Teyvat o con mis 8 gatos.",
+    "Commission": [
+      "Diseño",
+      "Desarrollo",
+      "Transmisión"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774971367/Rodrigo_Sulca_kubreb.jpg",
+    "Name": "Rodrigo Sulca",
+    "Linkedin": "https://www.linkedin.com/in/rodrigo-e-sulca/",
+    "Github": "https://github.com/rozuke",
+    "About": "Soy un desarrollador Full-stack trabajo con el stack de .Net/Angular en Jalasoft. Me interesa aprender sobre IA y programación a bajo nivel.",
+    "Commission": [
+      "Decoración",
+      "Desarrollo",
+      "Staff"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774971373/Ana_Gabriel_ipbf0c.jpg",
+    "Name": "Ana Gabriel",
+    "Linkedin": "https://www.linkedin.com/in/ana-belen-gabriel-mercado-2985a4297/",
+    "Instagram": "https://www.instagram.com/g2a00bo4?igsh=MWNhNGZ0ejRwc2p3OQ==",
+    "Github": "https://github.com/gabiamer",
+    "About": "Estudiante de Ingeniería de Sistemas con interés en ciberseguridad y desarrollo web. Disfruto aprender por mi cuenta y aplicarlo en proyectos. Fuera de la facultad, practico piano o hago algo de deporte.",
+    "Commission": [
+      "Logística",
+      "Marketing"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981388/Daniel_Medrano_Mollo_t9wvqw.png",
+    "Name": "Daniel Medrano",
+    "Instagram": "https://www.instagram.com/danimedran0/",
+    "About": "Soy estudiante de Ingeniería en Sistemas, trabajo con diseño gráfico y desarrollo web. Me gusta crear proyectos digitales, aprender cosas nuevas y aplicar la tecnología de forma creativa.",
+    "Commission": [
+      "Marketing",
+      "Diseño"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774973791/Patricia_Ramirez_Gomez_gfdwdl.jpg",
+    "Name": "Patricia Ramírez",
+    "Linkedin": "https://www.linkedin.com/in/ramirez-gpl",
+    "Facebook": "https://www.facebook.com/share/1DUCfd3Vad/",
+    "Instagram": "https://www.instagram.com/pati_ramirez_mauw",
+    "About": "Amo la investigación, me llama la atención el análisis de datos y los proyectos de impacto social. Soy curiosa, analítica y me motiva crear soluciones que ayuden a las personas a desarrollar su máximo potencial.",
+    "Commission": [
+      "Marketing"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981691/Fabiola_Ortega_qiokpa.jpg",
+    "Name": "Fabiola Ortega",
+    "Sitio_web": "https://bit.ly/Fabmarketer22",
+    "About": "Hola! soy Fabiola Ortega Soruco, egresada en Derecho y Técnica en Mkt & Publicidad, actualmente trabajo en ambos rubros. Me encanta la leer sobre temas de mis profesiones, actualizarme en el área Marketera.",
+    "Commission": [
+      "Marketing"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981445/Jhoselyn_Fernandez_Ojeda_yxbig8.png",
+    "Name": "Jhoselyn Fernández",
+    "Linkedin": "https://www.linkedin.com/in/jhoselynfernández",
+    "Facebook": "https://www.facebook.com/share/1NhVCFhqiC/",
+    "Instagram": "https://www.instagram.com/jhose_fer14?igsh=dmxsaGpuYmQxZzI3",
+    "About": "Me apasiona la tecnología y el aprendizaje constante. Me gusta compartir conocimientos, aportar a la comunidad tech y seguir creciendo personal y profesionalmente.",
+    "Commission": [
+      "Organizer"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981200/Joel_Jonatan_Ramiro_Mamani_vh3bt2.png",
+    "Name": "Joel Mamani",
+    "Linkedin": "https://www.linkedin.com/in/joeljonatan",
+    "Facebook": "https://www.facebook.com/soyjoeljonatan",
+    "Instagram": "https://www.instagram.com/soyjoeljonatan/",
+    "Beacons": "https://beacons.ai/soyjoeljonatan",
+    "About": "Soy estratega visual y UX Designer que fusiona tecnología, academia y arte. Lic. en Comunicación Social, Docente, Jefe de Carrera de Diseño, Local Lead IxDF Tarija, Músico y Director Musical con +5 años de experiencia.",
+    "Commission": [
+      "Logística",
+      "Marketing",
+      "Diseño",
+      "Staff"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981389/David_Fernando_Camata_Baspineiro_x8els5.jpg",
+    "Name": "Fernando Camata",
+    "Linkedin": "https://www.linkedin.com/in/fernandocamata",
+    "Instagram": "https://www.instagram.com/fernando_cb60?igsh=MW1jaTczZTRnY3VrYQ==",
+    "About": "Egresado de Ingeniería Informática, apasionado por el desarrollo de software y la resolución de retos. Disfruto del deporte, las actividades al aire libre y la música como parte de mi equilibrio personal.",
+    "Commission": [
+      "Marketing",
+      "Diseño",
+      "Desarrollo"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774974003/Segovia_Valdez_Yuleni_Nicol_fyyzf6.jpg",
+    "Name": "Yuleni Segovia",
+    "Linkedin": "https://www.linkedin.com/in/segovia-valdez-yuleni-nicol-81692338b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "Facebook": "",
+    "Instagram": "https://www.instagram.com/nicolyuleni_sv?igsh=cHhjYzU1MjBiMTZt",
+    "About": "Futura Ingeniera de Sistemas y entusiasta tech. Optimista y resiliente ante retos disruptivos como la IA. Amante del aprendizaje continuo y de hallar en cada tecnología y personas una oportunidad para crecer y aprender.",
+    "Commission": [
+      "Marketing",
+      "Decoración",
+      "Desarrollo"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774976079/Damaris_Mamani_rbusm2.jpg",
     "Name": "Damaris Mamani",
-    "Linkedin": "",
-    "Github": "",
-    "Facebook": "https://www.facebook.com/mamani.damaris.13?mibextid=ZbWKwL",
-    "Instagram": "https://www.instagram.com/damaris.mamani.13?igsh=bDlwYzdpNnFrMXNp",
-    "Sitio_web": "",
-    "About": "Exploradora del mundo de la tecnología y las finanzas, en busca constante de crecimiento profesional y oportunidades para compartir aprendizajes. Comprometida con transformar conocimiento en impacto positivo.",
-    "foto": "",
-    "Comisión": "Organizer"
+    "Linkedin": "linkedin.com/in/damarismamani",
+    "Facebook": "https://www.facebook.com/share/1AnANxEqdB/",
+    "Instagram": "https://www.instagram.com/damaris__mamani?igsh=bDlwYzdpNnFrMXNp",
+    "About": "Damaris es una exploradora en el mundo de la tecnología y las finanzas, se encuentra en constante aprendizaje y siempre dispuesta a compartir su conocimiento para aportar a la comunidad.",
+    "Commission": [
+      "Organizer"
+    ]
   },
   {
-    "Photo": "/img/members/Marcia_Andrade.jpg",
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981165/Luis_Fernando_Garcia_Barja_jv6qop.png",
+    "Name": "Luis García",
+    "Linkedin": "https://www.linkedin.com/in/luis-garcia-barja-56a85431a/",
+    "Instagram": "https://www.instagram.com/lfgb2001/",
+    "About": "Hola, soy Luis, desarrollador backend apasionado por la tecnología. Me interesa el hardware y la electrónica, disfruto programar y enfrentar nuevos desafíos, siempre buscando aprender y mejorar continuamente.",
+    "Commission": [
+      "Logística",
+      "Marketing",
+      "Staff"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774975691/Marcia_Andrade_q2hmk1.jpg",
     "Name": "Marcia Andrade",
     "Linkedin": "https://www.linkedin.com/in/marcia-milenka-andrade-llanos/",
     "Github": "https://github.com/milenkandrade",
     "Facebook": "https://www.facebook.com/marcia.m.andrade.ll",
     "Instagram": "https://www.instagram.com/marcia.andrade.4?igsh=MTZwb3BkZWFxbmp0Yg==",
-    "Sitio_web": "",
-    "About": "Soy una persona comprometida, autodidacta y resolutiva. Disfruto de los constantes desafíos y el aprendizaje que conlleva ser un desarrollador FrontEnd",
-    "foto": "",
-    "Comisión": "Organizer"
+    "About": "Ingeniera Informática y autodidacta. Me motiva resolver problemas complejos y seguir aprendiendo cada día. Fuera del código, disfruto de los videojuegos, la música y la compañía de los animales.",
+    "Commission": [
+      "Organizer"
+    ]
   },
   {
-    "Photo": "/img/members/Jhoselyn_Fernández_Ojeda.jpg",
-    "Name": "Jhoselyn Fernández",
-    "Linkedin": "https://www.linkedin.com/in/jhoselyn-fern%C3%A1ndez-ojeda-b0536227b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "Github": "https://github.com/jhosi14",
-    "Facebook": "",
-    "Instagram": "",
-    "Sitio_web": "",
-    "About": "Soy una persona apasionada por la tecnología, con un gran interés en enseñar lo que sé e inspirar a otros a unirse a este fascinante mundo. Además, disfruto participar en voluntariados, ya que tengo un fuerte sentido del servicio y un deseo genuino de ayudar a quienes realmente lo necesitan. Siempre estoy dispuesta a apoyar y colaborar con la comunidad, siendo resiliente, activa y comprometida en mis esfuerzos por hacer una diferencia positiva.",
-    "foto": "",
-    "Comisión": "Organizer"
-  },
-  {
-    "Photo": "/img/members/Marlene_Choque_Perez.jpg",
-    "Name": "Marlene Choque",
-    "Linkedin": "https://www.linkedin.com/in/marlenechoqueperez\r",
-    "Github": "",
-    "Facebook": "",
-    "Instagram": "https://www.instagram.com/marlenechoqueperez?igsh=ODJzcTg2Z2Z6MnZu",
-    "Sitio_web": "",
-    "About": "Soy una entusiasta de la tecnología y amante de los naimalitos. Participo en eventos de tecnología, disfrutando de la oportunidad de aprender continuamente y de conectar con otros en mi campo.",
-    "foto": "",
-    "Comisión": "Organizer"
-  },
-  {
-    "Photo": "/img/members/Angel_Angola.jpg",
-    "Name":"Angel Angola",
-    "Linkedin": "",
-    "Github": "",
-    "Facebook": "",
-    "Instagram": "https://www.instagram.com/neyl_angola?igsh=MXdxdGJtem1wb213Zg%3D%3D",
-    "Sitio_web": "",
-    "About": "Otaku, Gamer y un entusiasta de la tecnología",
-    "foto": "",
-    "Comisión": "Diseño"
-  },
-  {
-    "Photo": "/img/members/Yordi_Vega.jpg",
-    "Name":"Yordi Vega",
-    "Linkedin": "",
-    "Github": "",
-    "Facebook": "https://www.facebook.com/yordi.vega.39?mibextid=kFxxJD",
-    "Instagram": "",
-    "Sitio_web": "",
-    "About": "Una persona entradora ,comprometida , Que le gusta enseñar y aprender de los demás.",
-    "foto": "",
-    "Comisión": "Diseño"
-  },
-  {
-    "Photo": "/img/members/Jesus_Miranda.jpg",
-    "Name":"Jesus Miranda",
-    "Linkedin": "https://www.linkedin.com/in/jesus-miranda-004806264/",
-    "Github": "",
-    "Facebook": "",
-    "Instagram": "https://www.instagram.com/jesusmiranda9634/",
-    "Sitio_web": "",
-    "About": "Soy un estudiante de ing en software, con una gran pasión por la programación, y entusiasmado en aprender sobre las nuevas tecnologías, me gusta participar en \nproyectos en equipos que amplíen mis conocimientos, y me brindan la oportunidad de crear proyectos personales, me esfuerzo continuamente por mejorar mis habilidades para crecer como desarrollador",
-    "foto": "",
-    "Comisión": "Apoyo Técnico"
-  },
-  {
-    "Photo": "/img/members/Alex_Flores.jpg",
-    "Name":"Alexander Flores",
-    "Linkedin": "https://www.linkedin.com/in/warachidev/",
-    "Github": "",
-    "Facebook": "",
-    "Instagram": "https://www.instagram.com/alexflores.png/",
-    "Sitio_web": "",
-    "About": "Soy un desarrollador jr y diseñador con experiencia en desarrollo web y móvil, sistemas de bases de datos y diseño gráfico.",
-    "foto": "",
-    "Comisión": "Diseño"
-  },
-  {
-    "Photo": "/img/members/Kevin_Flores.jpg",
-    "Name":"Kevin Flores",
-    "Linkedin": "https://www.linkedin.com/in/kevin-flores-vallejos-631a16189/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "Github": "https://github.com/kevinfloresvallejos",
-    "Facebook": "",
-    "Instagram": "https://www.instagram.com/kevin_flores_25?igsh=MWx5aWp6NWJ0MzAyYw%3D%3D",
-    "Sitio_web": "",
-    "About": "Técnico de sistemas, apasionado por aprovechar la tecnologías para resolver problemas complejos de manera eficiente.",
-    "foto": "",
-    "Comisión": "Apoyo Técnico"
-  },
-  {
-    "Photo": "/img/members/Silvana_Noelia_Bamba_Sossa.jpg",
-    "Name":"Silvana Bamba",
-    "Linkedin": "",
-    "Github": "https://github.com/silvi3110",
-    "Facebook": "https://www.facebook.com/silvananoelia.bambasossa?mibextid=ZbWKwL",
-    "Instagram": "https://www.instagram.com/jh_silvi?igsh=MTN2d3Z2bHNjamdkMg%3D%3D",
-    "Sitio_web": "",
-    "About": "Hola, soy Silvana Bamba, estudiante de Ingeniería de Sistemas en la Universidad Católica Boliviana. Apasionada por la tecnología y siempre en busca de nuevas innovaciones.",
-    "foto": "",
-    "Comisión": "Logistica"
-  },
-  {
-    "Photo": "/img/members/David_Fernando_Camata_Baspineiro.jpg",
-    "Name": "Fernando Camata",
-    "Linkedin": "",
-    "Github": "https://github.com/Fer140421",
-    "Facebook": "",
-    "Instagram": "",
-    "Sitio_web": "",
-    "About": "Estudiante universitario con amor al deporte , combinando la pasión por el conocimiento con el compromiso y la disciplina del deporte.",
-    "foto": "",
-    "Comisión": "Apoyo Técnico"
-  },
-
-  {
-    "Photo": "/img/members/Luis_Alejandro_Yanarico_Aldana.jpg",
-    "Name": "Luis Yanarico",
-    "Linkedin": "https://www.linkedin.com/in/luis-yanarico-aldana-9307b1208/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "Github": "",
-    "Facebook": "https://www.facebook.com/luisalejandro.yanarico?mibextid=qi2Omg&rdid=dJyXhNRMRUtV595P&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FeioBGTRfWyF2rEXv%2F%3Fmibextid%3Dqi2Omg",
-    "Instagram": "",
-    "Sitio_web": "",
-    "About": "Estudiante de Ingeniería de Sistemas en la Universidad Privada Domingo Savio (UPDS) Desarrollador web con conocimientos en múltiples tecnologías, me apasiona aprender más sobre programación, tecnología y ciencias.",
-    "foto": "",
-    "Comisión": "Desarrollo"
-  },
-  {
-    "Photo": "/img/members/Jose_Luis_Ibañez_Manguia.jpg",
-    "Name": "Jose Ibañez",
-    "Linkedin": "",
-    "Github": "",
-    "Facebook": "https://www.facebook.com/fubukix27",
-    "Instagram": "",
-    "Sitio_web": "",
-    "About": "Soy un chico apasionado por la tecnología. Me encanta el mundo de la informática y le eh tenido un gran aprecio desde niño. Lo que más me define es mi capacidad para aprender de mis errores. Cada fallo es una oportunidad para mejorar y avanzar. Creo firmemente que los errores son el mejor maestro, y esa actitud me impulsa a seguir creciendo.",
-    "foto": "",
-    "Comisión": "Apoyo Técnico"
-  },
-
-  {
-    "Photo": "/img/members/Mauricio_Rosas_Velásquez.jpg",
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774981755/Mauricio_Rosas_Vel%C3%A1squez_xdpfnz.jpg",
     "Name": "Mauricio Rosas",
     "Linkedin": "https://www.linkedin.com/in/mauricio-rosas-vel%C3%A1squez-8433352a2/",
     "Github": "https://github.com/maurirosas",
@@ -188,31 +294,32 @@
     "Instagram": "https://www.instagram.com/mauri_rosasv",
     "Sitio_web": "",
     "About": "Ingeniero de sistemas, enfocado en el desarrollo backend y machine learning",
-    "foto": "",
-    "Comisión": "Transmisión"
+    "Commission": [
+      "Transmisión",
+      "Diseño"
+    ] 
   },
   {
-    "Photo": "/img/members/Angel_Arturo_España_Vacaflor.jpeg",
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774975642/Angel_Arturo_Espa%C3%B1a_Vacaflor_ska9st.jpg",
     "Name": "Arturo España",
     "Linkedin": "https://www.linkedin.com/in/arthur-espana/",
-    "Github": "",
-    "Facebook": "",
-    "Instagram": "",
-    "Sitio_web": "",
     "About": "Estudiante de Sistemas, apasionado por la tecnología.",
-    "foto": "",
-    "Comisión": "Logistica"
+    "Commission": [
+      "Logística",
+      "Marketing",
+      "Decoración",
+      "Staff"
+    ]
   },
   {
-    "Photo": "/img/members/Irka_Jallaza.jpg",
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1774975888/Irka_Jallaza_wx9bpw.jpg",
     "Name": "Irka Jallaza",
-    "Linkedin": "",
     "Github": "https://github.com/irka_jallaza",
-    "Facebook": "",
-    "Instagram": "",
-    "Sitio_web": "",
     "About": "Resiliente, proactiva, motivada por quienes enfrentan dificultades y siguen adelante con determinación y optimismo.\n\n",
-    "foto": "",
-    "Comisión": "Desarrollo"
+    "Commission": [
+      "Decoración",
+      "Staff",
+      "Desarrollo"
+    ]
   }
 ]
