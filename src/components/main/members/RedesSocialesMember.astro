@@ -1,62 +1,66 @@
 ---
-import { Linkedin, Github, Facebook, Instagram, Globe } from "lucide-astro";
-
-const { Linkedin: linkedinUrl, Github: githubUrl, Facebook: facebookUrl, Instagram: instagramUrl, Sitio_web } = Astro.props;
+const {
+  Linkedin: linkedinUrl,
+  Github: githubUrl,
+  Facebook: facebookUrl,
+  Instagram: instagramUrl,
+  Sitio_web,
+} = Astro.props;
 ---
 
-<div class="flex flex-wrap gap-3 mt-4 justify-center">
+<div class="flex flex-wrap gap-3 mt-4 justify-center mb-4">
   {
     linkedinUrl && linkedinUrl !== "" && (
-      <a 
-        href={linkedinUrl} 
-        class="p-2 rounded-lg bg-white/20 text-white hover:bg-blue-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
+      <a
+        href={linkedinUrl}
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-blue-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs "
         aria-label="LinkedIn"
       >
-        <Linkedin class="h-5 w-5" />
+          <i class="fa-brands fa-linkedin"></i>
       </a>
     )
   }
   {
     Sitio_web && Sitio_web !== "" && (
-      <a 
-        href={Sitio_web} 
-        class="p-2 rounded-lg bg-white/20 text-white hover:bg-green-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
+      <a
+        href={Sitio_web}
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-green-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
         aria-label="Sitio Web"
       >
-        <Globe class="h-5 w-5" />
+         <i class="fa-solid fa-globe"></i>
       </a>
     )
   }
   {
     githubUrl && githubUrl !== "" && (
-      <a 
-        href={githubUrl} 
-        class="p-2 rounded-lg bg-white/20 text-white hover:bg-gray-800 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
+      <a
+        href={githubUrl}
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-gray-800 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
         aria-label="GitHub"
       >
-        <Github class="h-5 w-5" />
+          <i class="fa-brands fa-github"></i>
       </a>
     )
   }
   {
     instagramUrl && instagramUrl !== "" && (
-      <a 
-        href={instagramUrl} 
-        class="p-2 rounded-lg bg-white/20 text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
+      <a
+        href={instagramUrl}
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-linear-to-r hover:from-purple-500 hover:to-pink-500 hover:scale-110 transition-all duration-300 hover:shadow-xl backdrop-blur-xs"
         aria-label="Instagram"
       >
-        <Instagram class="h-5 w-5" />
+          <i class="fa-brands fa-instagram"></i>
       </a>
     )
   }
   {
-    facebookUrl !== "" && (
-      <a 
-        href={facebookUrl} 
-        class="p-2 rounded-lg bg-white/20 text-white hover:bg-blue-700 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
+      facebookUrl && facebookUrl !== "" && (
+      <a
+        href={facebookUrl}
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-blue-700 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
         aria-label="Facebook"
       >
-        <Facebook class="h-5 w-5" />
+          <i class="fa-brands fa-facebook"></i>
       </a>
     )
   }
