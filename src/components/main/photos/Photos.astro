@@ -1,213 +1,122 @@
 ---
-import { X, ExternalLink, Eye } from "lucide-astro";
 import Button from "../../common/Button.astro";
+
+const photos = [
+  { src: "/img/photos-comunity/1.png", label: "Talleres" },
+  { src: "/img/photos-comunity/2.png", label: "Google I/O Extended" },
+  { src: "/img/photos-comunity/3.png", label: "IWD" },
+];
 ---
 
 <div
-  id="photos"
-  class="w-full bg-neutral-800 text-zinc-100 py-16 flex flex-col items-center animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards"
+    id="photos"
+    class="w-full bg-neutral-800 text-zinc-100 py-16 flex flex-col items-center animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards"
 >
   <div class="w-full max-w-6xl px-6">
-    <!-- Título mejorado -->
     <div class="text-center mb-12">
       <h2
-        class="text-3xl font-bold mb-8 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent"
+          class="text-3xl font-bold mb-8 bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent"
       >
         Fotos de nuestros eventos
       </h2>
     </div>
 
-    <!-- Grid de fotos mejorado -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Foto 1 -->
-      <div
-        class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300"
-      >
-        <img
-          class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-          src="/img/photos-comunity/1.png"
-          alt="Comunidad GDG Tarija - Evento 1"
-          onclick="openPhotoModal('modal-1', '/img/photos-comunity/1.png')"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <div class="absolute bottom-4 left-4 right-4">
-            <div class="flex items-center justify-between">
-              <span class="text-white font-medium">Talleres</span>
-              <div class="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                <Eye class="w-5 h-5 text-white" />
+      {
+        photos.map((photo) => (
+            <button
+                class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300 text-left"
+                data-photo-src={photo.src}
+                data-photo-label={photo.label}
+                aria-label={`Ver foto: ${photo.label}`}
+            >
+              <img
+                  class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                  src={photo.src}
+                  alt={`Comunidad GDG Tarija - ${photo.label}`}
+              />
+              <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <div class="absolute bottom-4 left-4 right-4">
+                  <div class="flex items-center justify-between">
+                    <span class="text-white font-medium">{photo.label}</span>
+                    <div class="bg-white/20 backdrop-blur-xs rounded-full p-2 text-white">
+                      <i class="fa-regular fa-eye" />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Foto 2 -->
-      <div
-        class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300"
-      >
-        <img
-          class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-          src="/img/photos-comunity/2.png"
-          alt="Comunidad GDG Tarija - Evento 2"
-          onclick="openPhotoModal('modal-2', '/img/photos-comunity/2.png')"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <div class="absolute bottom-4 left-4 right-4">
-            <div class="flex items-center justify-between">
-              <span class="text-white font-medium">Google I/O Extended</span>
-              <div class="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                <Eye class="w-5 h-5 text-white" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Foto 3 -->
-      <div
-        class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300"
-      >
-        <img
-          class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-          src="/img/photos-comunity/3.png"
-          alt="Comunidad GDG Tarija - Evento 3"
-          onclick="openPhotoModal('modal-3', '/img/photos-comunity/3.png')"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <div class="absolute bottom-4 left-4 right-4">
-            <div class="flex items-center justify-between">
-              <span class="text-white font-medium">IWD</span>
-              <div class="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                <Eye class="w-5 h-5 text-white" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            </button>
+        ))
+      }
     </div>
 
-    <!-- Botón Ver más mejorado -->
     <div class="mt-16 flex justify-center">
       <Button
-        href="https://photos.app.goo.gl/T1r7dZUf3RAypyXd8"
-        target="_blank"
-        rel="noopener noreferrer"
-        iconPosition="left"
-        class="group"
+          href="https://photos.app.goo.gl/T1r7dZUf3RAypyXd8"
+          target="_blank"
+          rel="noopener noreferrer"
+          iconPosition="left"
+          class="group"
       >
-        <ExternalLink
-          slot="icon"
-          class="w-5 h-5 group-hover:rotate-12 transition-transform"
-        />
+        <i
+            class="fa-solid fa-arrow-up-right-from-square mr-3 group-hover:rotate-12 transition-transform"
+        ></i>
         Ver Galería Completa
       </Button>
     </div>
   </div>
 </div>
 
-<!-- Modales mejorados para las fotos -->
 <div
-  id="modal-1"
-  class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
+    id="photo-modal"
+    class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Foto ampliada"
 >
   <div
-    class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden"
+      class="relative bg-neutral-900 rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex items-center justify-center"
   >
     <button
-      class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white rounded-full flex items-center justify-center transition-colors duration-200"
-      onclick="closePhotoModal('modal-1')"
+        id="photo-modal-close"
+        class="absolute top-4 right-4 z-10 w-10 h-10 cursor-pointer bg-black/40 backdrop-blur-xs hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-colors duration-200"
+        aria-label="Cerrar modal"
     >
-      <X class="w-5 h-5" />
+      <i class="fa-solid fa-xmark fa-xl"></i>
     </button>
     <img
-      id="modal-image-1"
-      src=""
-      alt="Imagen ampliada"
-      class="w-full h-full object-contain"
+        id="photo-modal-image"
+        src=""
+        alt="Imagen ampliada"
+        class="w-full max-h-[90vh] object-contain"
     />
   </div>
 </div>
 
-<div
-  id="modal-2"
-  class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
->
-  <div
-    class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden"
-  >
-    <button
-      class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white rounded-full flex items-center justify-center transition-colors duration-200"
-      onclick="closePhotoModal('modal-2')"
-    >
-      <X class="w-5 h-5" />
-    </button>
-    <img
-      id="modal-image-2"
-      src=""
-      alt="Imagen ampliada"
-      class="w-full h-full object-contain"
-    />
-  </div>
-</div>
+<script>
+  const modal = document.getElementById("photo-modal") as HTMLElement;
+  const modalImage = document.getElementById(
+      "photo-modal-image"
+  ) as HTMLImageElement;
+  const closeBtn = document.getElementById("photo-modal-close") as HTMLElement;
 
-<div
-  id="modal-3"
-  class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
->
-  <div
-    class="relative bg-white rounded-2xl shadow-2xl max-w-5xl max-h-[90vh] overflow-hidden"
-  >
-    <button
-      class="absolute top-4 right-4 z-10 w-10 h-10 bg-black/20 backdrop-blur-sm hover:bg-black/40 text-white rounded-full flex items-center justify-center transition-colors duration-200"
-      onclick="closePhotoModal('modal-3')"
-    >
-      <X class="w-5 h-5" />
-    </button>
-    <img
-      id="modal-image-3"
-      src=""
-      alt="Imagen ampliada"
-      class="w-full h-full object-contain"
-    />
-  </div>
-</div>
-
-<script is:inline>
-  function openPhotoModal(modalId, src) {
-    const modal = document.getElementById(modalId);
-    const modalImage = modal.querySelector("img");
-
+  function openModal(src: string, label: string) {
+    modalImage.src = src;
+    modalImage.alt = label;
     modal.classList.remove("hidden");
     modal.classList.add("flex");
-    modalImage.src = src;
     document.body.style.overflow = "hidden";
 
-    // Animación de entrada
     modal.style.opacity = "0";
-    modal.style.transform = "scale(0.9)";
-
     requestAnimationFrame(() => {
-      modal.style.transition = "all 0.3s ease-out";
+      modal.style.transition = "opacity 0.25s ease-out";
       modal.style.opacity = "1";
-      modal.style.transform = "scale(1)";
     });
   }
 
-  function closePhotoModal(modalId) {
-    const modal = document.getElementById(modalId);
-    const modalImage = modal.querySelector("img");
-
-    // Animación de salida
-    modal.style.transition = "all 0.2s ease-in";
+  function closeModal() {
+    modal.style.transition = "opacity 0.2s ease-in";
     modal.style.opacity = "0";
-    modal.style.transform = "scale(0.9)";
-
     setTimeout(() => {
       modal.classList.add("hidden");
       modal.classList.remove("flex");
@@ -215,26 +124,26 @@ import Button from "../../common/Button.astro";
       document.body.style.overflow = "";
       modal.style.removeProperty("transition");
       modal.style.removeProperty("opacity");
-      modal.style.removeProperty("transform");
     }, 200);
   }
 
-  // Cierra el modal cuando se hace clic fuera de la imagen
-  document.querySelectorAll(".fixed.inset-0").forEach((modal) => {
-    modal.addEventListener("click", function (event) {
-      if (event.target === modal) {
-        closePhotoModal(modal.id);
-      }
+  document.querySelectorAll<HTMLElement>("[data-photo-src]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const src = btn.dataset.photoSrc ?? "";
+      const label = btn.dataset.photoLabel ?? "Imagen ampliada";
+      openModal(src, label);
     });
   });
 
-  // Cierra el modal con la tecla Escape
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-      const openModal = document.querySelector(".fixed.inset-0:not(.hidden)");
-      if (openModal) {
-        closePhotoModal(openModal.id);
-      }
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
     }
   });
 </script>

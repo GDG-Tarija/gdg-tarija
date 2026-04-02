@@ -1,14 +1,4 @@
 ---
-import { Linkedin, Github, Facebook, Instagram, Globe } from "lucide-astro";
-
-interface Props {
-  Linkedin?: string;
-  Github?: string;
-  Facebook?: string;
-  Instagram?: string;
-  Sitio_web?: string;
-}
-
 const {
   Linkedin: linkedinUrl,
   Github: githubUrl,
@@ -16,74 +6,61 @@ const {
   Instagram: instagramUrl,
   Sitio_web,
 } = Astro.props;
-
-const isValid = (url?: string): url is string =>
-  typeof url === "string" && url.trim() !== "";
 ---
 
-<div class="flex flex-wrap justify-center gap-2 mt-1">
+<div class="flex flex-wrap gap-3 mt-4 justify-center mb-4">
   {
-    isValid(linkedinUrl) && (
+    linkedinUrl && linkedinUrl !== "" && (
       <a
         href={linkedinUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-1 rounded-lg bg-white/20 text-white hover:bg-blue-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-blue-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs "
         aria-label="LinkedIn"
       >
-        <Linkedin class="h-4 w-4" />
+          <i class="fa-brands fa-linkedin"></i>
       </a>
     )
   }
   {
-    isValid(githubUrl) && (
-      <a
-        href={githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-1 rounded-lg bg-white/20 text-white hover:bg-gray-800 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
-        aria-label="GitHub"
-      >
-        <Github class="h-4 w-4" />
-      </a>
-    )
-  }
-  {
-    isValid(instagramUrl) && (
-      <a
-        href={instagramUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-1 rounded-lg bg-white/20 text-white hover:bg-pink-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
-        aria-label="Instagram"
-      >
-        <Instagram class="h-4 w-4" />
-      </a>
-    )
-  }
-  {
-    isValid(facebookUrl) && (
-      <a
-        href={facebookUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-1 rounded-lg bg-white/20 text-white hover:bg-blue-700 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
-        aria-label="Facebook"
-      >
-        <Facebook class="h-4 w-4" />
-      </a>
-    )
-  }
-  {
-    isValid(Sitio_web) && (
+    Sitio_web && Sitio_web !== "" && (
       <a
         href={Sitio_web}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-1 rounded-lg bg-white/20 text-white hover:bg-green-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-sm"
-        aria-label="Sitio web"
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-green-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
+        aria-label="Sitio Web"
       >
-        <Globe class="h-4 w-4" />
+         <i class="fa-solid fa-globe"></i>
+      </a>
+    )
+  }
+  {
+    githubUrl && githubUrl !== "" && (
+      <a
+        href={githubUrl}
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-gray-800 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
+        aria-label="GitHub"
+      >
+          <i class="fa-brands fa-github"></i>
+      </a>
+    )
+  }
+  {
+    instagramUrl && instagramUrl !== "" && (
+      <a
+        href={instagramUrl}
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-linear-to-r hover:from-purple-500 hover:to-pink-500 hover:scale-110 transition-all duration-300 hover:shadow-xl backdrop-blur-xs"
+        aria-label="Instagram"
+      >
+          <i class="fa-brands fa-instagram"></i>
+      </a>
+    )
+  }
+  {
+      facebookUrl && facebookUrl !== "" && (
+      <a
+        href={facebookUrl}
+        class="text-xl flex p-3 rounded bg-white/20 text-white hover:bg-blue-700 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
+        aria-label="Facebook"
+      >
+          <i class="fa-brands fa-facebook"></i>
       </a>
     )
   }
