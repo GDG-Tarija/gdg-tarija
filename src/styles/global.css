@@ -11,6 +11,20 @@
   --color-gdg-green: #34a853;
   --color-gdg-black: #1E1E1E;
   --color-off-white: #f0f0f0;
+  --color-Orange: #F46831;
+  --color-iwd-primary: #165185;
+  --color-iwd-secondary: #CAE6FF;
+  --color-iwd-secondary: #2480F0;
+  --color-iwd-accent: #0f7c67;
+  --color-halftone-blue: #57caff;
+  --color-halftone-green: #5cdb6d;
+  --color-halftone-yellow: #ffd427;
+  --color-halftone-red: #ff7daf;
+  --color-pastel-blue: #c3ecf6;
+  --color-pastel-green: #ccf6c5;
+  --color-pastel-yellow: #ffe7a5;
+  --color-pastel-red: #f8d8d8;
+  --color-purple-t: #9334E6;
   
   --animate-border-spin: border-spin 10s linear infinite;
 

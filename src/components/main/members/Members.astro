@@ -1,19 +1,6 @@
 ---
 import members from './members.json';
 import MemberCard from './MemberCard.astro';
-import tailwindConfig from '../../../../tailwind.config.js';
-
-const customColors = tailwindConfig.theme.extend.colors as Record<string, string>;
-const TAB_COLORS: Record<string, string> = {
-	Organizer: customColors['azul-GDG'],
-	Decoración: customColors['Orange'],
-	Desarrollo: customColors['iwd-accent'],
-	Diseño: customColors['rojo-GDG'],
-	Logística: customColors['verde-GDG'],
-	Marketing: customColors['amarillo-GDG'],
-	Staff: customColors['iwd-secondary'],
-	Transmisión: customColors['purple-04'],
-};
 
 const sortedMembers = [...members].sort((a, b) => {
 	const aIsOrg = a.Commission[0] === 'Organizer';
@@ -27,6 +14,7 @@ const sortedMembers = [...members].sort((a, b) => {
 	return a.Name.localeCompare(b.Name, 'es');
 });
 
+// Tabs
 const comisiones = ['Todos', ...new Set(sortedMembers.flatMap((m) => m.Commission))];
 const countFor = (c: string) =>
 	c === 'Todos' ? sortedMembers.length : sortedMembers.filter((m) => m.Commission.includes(c)).length;
@@ -35,18 +23,14 @@ const countFor = (c: string) =>
 <section id='members' class='bg-neutral-800 content-container mt-8 p-10'>
 	<h2 class='text-3xl font-bold text-center mb-8 text-zinc-100'>Miembros</h2>
 	<!-- Tabs por comisión -->
-	<div
-		class='flex flex-wrap gap-2 justify-center mb-10'
-		id='tabs-container'
-		role='tablist'
-		aria-label='Filtrar miembros por comisión'>
+	<div class='flex flex-wrap gap-2 justify-center mb-10' role='tablist' aria-label='Filtrar miembros por comisión'>
 		{
 			comisiones.map((c) => (
 				<button
 					class='tab-btn px-4 py-1.5 rounded-full text-sm font-medium
-                border border-zinc-600 text-zinc-400
-                hover:text-zinc-200 hover:border-zinc-400
-                transition-all duration-200 cursor-pointer'
+						border border-zinc-600 text-zinc-400
+						hover:text-zinc-200 hover:border-zinc-400
+						transition-all duration-200 cursor-pointer'
 					data-tab={c}
 					role='tab'
 					aria-selected={c === 'Todos' ? 'true' : 'false'}>
@@ -56,6 +40,7 @@ const countFor = (c: string) =>
 			))
 		}
 	</div>
+	<!-- Grid de miembros -->
 	<div
 		id='members-grid'
 		class='max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 place-content-center'>
@@ -68,18 +53,29 @@ const countFor = (c: string) =>
 		}
 	</div>
 </section>
-<script define:vars={{ TAB_COLORS }}>
-	const tabs = document.querySelectorAll('.tab-btn');
-	const items = document.querySelectorAll('.member-item');
+<script>
+	const cssVars = getComputedStyle(document.documentElement);
+	const v = (name: string) => cssVars.getPropertyValue(name).trim();
+	const TAB_COLORS: Record<string, string> = {
+		Organizer: v('--color-gdg-blue'),
+		Decoración: v('--color-Orange'),
+		Desarrollo: v('--color-iwd-accent'),
+		Diseño: v('--color-gdg-red'),
+		Logística: v('--color-gdg-green'),
+		Marketing: v('--color-gdg-yellow'),
+		Staff: v('--color-iwd-secondary'),
+		Transmisión: v('--color-purple-t'),
+	};
 
-	function setTab(selected) {
+	const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+	const items = document.querySelectorAll<HTMLElement>('.member-item');
+
+	function setTab(selected: string) {
 		tabs.forEach((tab) => {
 			const isActive = tab.dataset.tab === selected;
 			tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-
 			tab.style.borderColor = '';
 			tab.style.color = '';
-
 			if (isActive) {
 				const color = selected === 'Todos' ? '#a1a1aa' : (TAB_COLORS[selected] ?? '#a1a1aa');
 				tab.style.borderColor = color;
@@ -87,10 +83,8 @@ const countFor = (c: string) =>
 			}
 		});
 		items.forEach((item) => {
-			// Parsear el array JSON del data attribute
 			const comisiones = JSON.parse(item.dataset.comision ?? '[]');
-			const visible = selected === 'Todos' || comisiones.includes(selected);
-			item.style.display = visible ? '' : 'none';
+			item.style.display = selected === 'Todos' || comisiones.includes(selected) ? '' : 'none';
 		});
 	}
 	tabs.forEach((tab) => tab.addEventListener('click', () => setTab(tab.dataset.tab ?? 'Todos')));
