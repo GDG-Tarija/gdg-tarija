@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+import ImgBeacons from '../../../assets/images/beacons.svg';
+
+const {
+	Linkedin: linkedinUrl,
+	Github: githubUrl,
+	Facebook: facebookUrl,
+	Instagram: instagramUrl,
+	Sitio_web,
+	Beacons: beaconsUrl,
+} = Astro.props;
+---
+
+<div class='flex flex-wrap gap-3 mt-1 justify-center'>
+	{
+		linkedinUrl && linkedinUrl !== '' && (
+			<a
+				href={linkedinUrl}
+				class='flex p-1.5 rounded bg-white/20 text-white hover:bg-blue-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs '
+				aria-label='LinkedIn'>
+				<i class='fa-brands fa-linkedin' />
+			</a>
+		)
+	}
+	{
+		Sitio_web && Sitio_web !== '' && (
+			<a
+				href={Sitio_web}
+				class='flex p-1.5 rounded bg-white/20 text-white hover:bg-green-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs'
+				aria-label='Sitio Web'>
+				<i class='fa-solid fa-globe' />
+			</a>
+		)
+	}
+	{
+		githubUrl && githubUrl !== '' && (
+			<a
+				href={githubUrl}
+				class='flex p-1.5 rounded bg-white/20 text-white hover:bg-gray-800 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs'
+				aria-label='GitHub'>
+				<i class='fa-brands fa-github' />
+			</a>
+		)
+	}
+	{
+		instagramUrl && instagramUrl !== '' && (
+			<a
+				href={instagramUrl}
+				class='flex p-1.5 rounded bg-white/20 text-white hover:bg-linear-to-r hover:from-purple-500 hover:to-pink-500 hover:scale-110 transition-all duration-300 hover:shadow-xl backdrop-blur-xs'
+				aria-label='Instagram'>
+				<i class='fa-brands fa-instagram' />
+			</a>
+		)
+	}
+	{
+		facebookUrl && facebookUrl !== '' && (
+			<a
+				href={facebookUrl}
+				class='flex p-1.5 rounded bg-white/20 text-white hover:bg-blue-700 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs'
+				aria-label='Facebook'>
+				<i class='fa-brands fa-facebook' />
+			</a>
+		)
+	}
+	{
+		beaconsUrl && beaconsUrl !== '' && (
+			<a
+				href={beaconsUrl}
+				class='flex p-1.5 rounded bg-white/20 text-white hover:bg-gdg-black hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs'
+				aria-label='Beacons'>
+				<Image src={ImgBeacons} alt='Beacons Icon' class='size-4 object-contain' />
+			</a>
+		)
+	}
+</div>
