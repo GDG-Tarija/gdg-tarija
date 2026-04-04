@@ -1,21 +1,21 @@
 ---
-import Button from "../../common/Button.astro";
+import Button from '../../common/Button.astro';
 
 const photos = [
-  { src: "/img/photos-comunity/1.png", label: "Talleres" },
-  { src: "/img/photos-comunity/2.png", label: "Google I/O Extended" },
-  { src: "/img/photos-comunity/3.png", label: "IWD" },
+  { src: '/img/photos-comunity/1.png', label: 'Talleres' },
+  { src: '/img/photos-comunity/2.png', label: 'Google I/O Extended' },
+  { src: '/img/photos-comunity/3.png', label: 'IWD' },
 ];
 ---
 
 <div
-    id="photos"
-    class="w-full bg-neutral-800 text-zinc-100 py-16 flex flex-col items-center animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards"
+  id="photos"
+  class="w-full bg-neutral-800 text-zinc-100 py-16 flex flex-col items-center animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards"
 >
   <div class="w-full max-w-6xl px-6">
     <div class="text-center mb-12">
       <h2
-          class="text-3xl font-bold mb-8 bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent"
+        class="text-3xl font-bold mb-8 bg-linear-to-r from-white to-gray-300 bg-clip-text text-transparent"
       >
         Fotos de nuestros eventos
       </h2>
@@ -24,42 +24,42 @@ const photos = [
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
         photos.map((photo) => (
-            <button
-                class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300 text-left"
-                data-photo-src={photo.src}
-                data-photo-label={photo.label}
-                aria-label={`Ver foto: ${photo.label}`}
-            >
-              <img
-                  class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
-                  src={photo.src}
-                  alt={`Comunidad GDG Tarija - ${photo.label}`}
-              />
-              <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div class="absolute bottom-4 left-4 right-4">
-                  <div class="flex items-center justify-between">
-                    <span class="text-white font-medium">{photo.label}</span>
-                    <div class="bg-white/20 backdrop-blur-xs rounded-full p-2 text-white">
-                      <i class="fa-regular fa-eye" />
-                    </div>
+          <button
+            class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-300 text-left"
+            data-photo-src={photo.src}
+            data-photo-label={photo.label}
+            aria-label={`Ver foto: ${photo.label}`}
+          >
+            <img
+              class="w-full h-64 md:h-72 object-cover group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+              src={photo.src}
+              alt={`Comunidad GDG Tarija - ${photo.label}`}
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+              <div class="absolute bottom-4 left-4 right-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-white font-medium">{photo.label}</span>
+                  <div class="bg-white/20 backdrop-blur-xs rounded-full p-2 text-white">
+                    <i class="fa-regular fa-eye" />
                   </div>
                 </div>
               </div>
-            </button>
+            </div>
+          </button>
         ))
       }
     </div>
 
     <div class="mt-16 flex justify-center">
       <Button
-          href="https://photos.app.goo.gl/T1r7dZUf3RAypyXd8"
-          target="_blank"
-          rel="noopener noreferrer"
-          iconPosition="left"
-          class="group"
+        href="https://photos.app.goo.gl/T1r7dZUf3RAypyXd8"
+        target="_blank"
+        rel="noopener noreferrer"
+        iconPosition="left"
+        class="group"
       >
         <i
-            class="fa-solid fa-arrow-up-right-from-square mr-3 group-hover:rotate-12 transition-transform"
+          class="fa-solid fa-arrow-up-right-from-square mr-3 group-hover:rotate-12 transition-transform"
         ></i>
         Ver Galería Completa
       </Button>
@@ -68,81 +68,79 @@ const photos = [
 </div>
 
 <div
-    id="photo-modal"
-    class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Foto ampliada"
+  id="photo-modal"
+  class="fixed inset-0 hidden items-center justify-center bg-black/90 backdrop-blur-sm z-50 p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Foto ampliada"
 >
   <div
-      class="relative bg-neutral-900 rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex items-center justify-center"
+    class="relative bg-neutral-900 rounded-2xl shadow-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex items-center justify-center"
   >
     <button
-        id="photo-modal-close"
-        class="absolute top-4 right-4 z-10 w-10 h-10 cursor-pointer bg-black/40 backdrop-blur-xs hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-colors duration-200"
-        aria-label="Cerrar modal"
+      id="photo-modal-close"
+      class="absolute top-4 right-4 z-10 w-10 h-10 cursor-pointer bg-black/40 backdrop-blur-xs hover:bg-black/60 text-white rounded-full flex items-center justify-center transition-colors duration-200"
+      aria-label="Cerrar modal"
     >
       <i class="fa-solid fa-xmark fa-xl"></i>
     </button>
     <img
-        id="photo-modal-image"
-        src=""
-        alt="Imagen ampliada"
-        class="w-full max-h-[90vh] object-contain"
+      id="photo-modal-image"
+      src=""
+      alt="Imagen ampliada"
+      class="w-full max-h-[90vh] object-contain"
     />
   </div>
 </div>
 
 <script>
-  const modal = document.getElementById("photo-modal") as HTMLElement;
-  const modalImage = document.getElementById(
-      "photo-modal-image"
-  ) as HTMLImageElement;
-  const closeBtn = document.getElementById("photo-modal-close") as HTMLElement;
+  const modal = document.getElementById('photo-modal') as HTMLElement;
+  const modalImage = document.getElementById('photo-modal-image') as HTMLImageElement;
+  const closeBtn = document.getElementById('photo-modal-close') as HTMLElement;
 
   function openModal(src: string, label: string) {
     modalImage.src = src;
     modalImage.alt = label;
-    modal.classList.remove("hidden");
-    modal.classList.add("flex");
-    document.body.style.overflow = "hidden";
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
 
-    modal.style.opacity = "0";
+    modal.style.opacity = '0';
     requestAnimationFrame(() => {
-      modal.style.transition = "opacity 0.25s ease-out";
-      modal.style.opacity = "1";
+      modal.style.transition = 'opacity 0.25s ease-out';
+      modal.style.opacity = '1';
     });
   }
 
   function closeModal() {
-    modal.style.transition = "opacity 0.2s ease-in";
-    modal.style.opacity = "0";
+    modal.style.transition = 'opacity 0.2s ease-in';
+    modal.style.opacity = '0';
     setTimeout(() => {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
-      modalImage.src = "";
-      document.body.style.overflow = "";
-      modal.style.removeProperty("transition");
-      modal.style.removeProperty("opacity");
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      modalImage.src = '';
+      document.body.style.overflow = '';
+      modal.style.removeProperty('transition');
+      modal.style.removeProperty('opacity');
     }, 200);
   }
 
-  document.querySelectorAll<HTMLElement>("[data-photo-src]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const src = btn.dataset.photoSrc ?? "";
-      const label = btn.dataset.photoLabel ?? "Imagen ampliada";
+  document.querySelectorAll<HTMLElement>('[data-photo-src]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const src = btn.dataset.photoSrc ?? '';
+      const label = btn.dataset.photoLabel ?? 'Imagen ampliada';
       openModal(src, label);
     });
   });
 
-  closeBtn.addEventListener("click", closeModal);
+  closeBtn.addEventListener('click', closeModal);
 
-  modal.addEventListener("click", (e) => {
+  modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
       closeModal();
     }
   });

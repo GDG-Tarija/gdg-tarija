@@ -1,5 +1,5 @@
 ---
-import "@styles/global.css";
+import '@styles/global.css';
 
 interface Props {
   title: string;
@@ -11,10 +11,10 @@ const { title, description, image } = Astro.props;
 
 // Valores por defecto
 const defaultDescription =
-  "Google Developer Group Tarija - Comunidad tech más vibrante de Bolivia. Descubre las últimas innovaciones de Google, conecta con desarrolladores y participa en eventos como Google I/O Extended.";
+  'Google Developer Group Tarija - Comunidad tech más vibrante de Bolivia. Descubre las últimas innovaciones de Google, conecta con desarrolladores y participa en eventos como Google I/O Extended.';
 // Imagen optimizada para WhatsApp (cuadrada y menor a 300KB)
 const defaultImage =
-  "https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png";
+  'https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png';
 
 const metaDescription = description || defaultDescription;
 const metaImage = image || defaultImage;
@@ -47,10 +47,7 @@ const metaImage = image || defaultImage;
     <meta name="twitter:image" content={metaImage} />
 
     <!-- WhatsApp specific optimization -->
-    <meta
-      property="og:image:alt"
-      content="GDG Tarija - Google Developer Group"
-    />
+    <meta property="og:image:alt" content="GDG Tarija - Google Developer Group" />
 
     <!-- Additional SEO -->
     <meta
@@ -62,8 +59,8 @@ const metaImage = image || defaultImage;
 
     <title>{title}</title>
     <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
   </head>
   <body class="scroll-smooth">

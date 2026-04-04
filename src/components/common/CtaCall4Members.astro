@@ -1,6 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
+import { Image } from 'astro:assets';
+import BgCall4M from '../../assets/images/gdg-grupal-Call4.png';
 ---
 
 <div class="flex flex-col" id="call4M">
@@ -34,15 +34,8 @@ import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
         >
           Postulate hasta el 07 de febrero
         </h2>
-        <div
-          id="button-container"
-          class="flex justify-center mt-2 md:mt-4 opacity-0"
-        >
-          <a
-            href="https://forms.gle/CRBJ5URssqcHjtsz9"
-            target="_blank"
-            class="block"
-          >
+        <div id="button-container" class="flex justify-center mt-2 md:mt-4 opacity-0">
+          <a href="https://forms.gle/CRBJ5URssqcHjtsz9" target="_blank" class="block">
             <button
               type="button"
               id="cta-button"
@@ -58,14 +51,14 @@ import BgCall4M from "../../assets/images/gdg-grupal-Call4.png";
 </div>
 
 <script>
-  import { animate } from "motion";
+  import { animate } from 'motion';
 
-  if (typeof window !== "undefined") {
+  if (typeof window !== 'undefined') {
     const elements = [
-      { id: "title-1", delay: 0 },
-      { id: "title-main", delay: 0.2 },
-      { id: "title-2", delay: 0.4 },
-      { id: "button-container", delay: 0.6 },
+      { id: 'title-1', delay: 0 },
+      { id: 'title-main', delay: 0.2 },
+      { id: 'title-2', delay: 0.4 },
+      { id: 'button-container', delay: 0.6 },
     ];
 
     elements.forEach(({ id, delay }) => {

@@ -4,7 +4,7 @@
     "baseUrl": "src",
     "paths": {
       "@styles/*": ["styles/*"]
-    },
+    }
 
     // "strict": true,
     // "noImplicitAny": true,
