@@ -57,14 +57,14 @@ const countFor = (c: string) =>
 	const cssVars = getComputedStyle(document.documentElement);
 	const v = (name: string) => cssVars.getPropertyValue(name).trim();
 	const TAB_COLORS: Record<string, string> = {
-		Organizer: v('--color-gdg-blue'),
-		Decoración: v('--color-Orange'),
-		Desarrollo: v('--color-iwd-accent'),
+		Organizer: v('--color-gdg-halftone-blue'),
+		Decoración: v('--color-gdg-pastel-red'),
+		Desarrollo: v('--color-gdg-pastel-blue'),
 		Diseño: v('--color-gdg-red'),
-		Logística: v('--color-gdg-green'),
-		Marketing: v('--color-gdg-yellow'),
-		Staff: v('--color-iwd-secondary'),
-		Transmisión: v('--color-purple-t'),
+		Logística: v('--color-gdg-halftone-green'),
+		Marketing: v('--color-gdg-halftone-yellow'),
+		Staff: v('--color-gdg-pastel-green'),
+		Transmisión: v('--color-gdg-halftone-red'),
 	};
 
 	const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');

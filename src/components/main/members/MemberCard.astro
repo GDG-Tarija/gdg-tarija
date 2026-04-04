@@ -1,5 +1,7 @@
 ---
-import RedesSocialesMember from './RedesSocialesMember.astro';
+import MemberSocialNetworks from './MemberSocialNetworks.astro';
+
+
 
 interface Props {
 	Photo: string;
@@ -16,14 +18,14 @@ interface Props {
 
 const { Photo, Name, About, Linkedin, Github, Facebook, Instagram, Sitio_web, Commission, Beacons } = Astro.props;
 const BADGE_COLORS: Record<string, { bg: string; text: string }> = {
-	Organizer: { bg: '#162440', text: 'var(--color-halftone-blue)' },
-	Decoración: { bg: '#57220d', text: 'var(--color-pastel-red)' },
-	Desarrollo: { bg: '#003462', text: 'var(--color-pastel-blue)' },
-	Diseño: { bg: '#2a0e0e', text: 'var(--color-halftone-red)' },
-	Logística: { bg: '#072012', text: 'var(--color-halftone-green)' },
-	Marketing: { bg: '#2a2000', text: 'var(--color-halftone-yellow)' },
-	Staff: { bg: '#042424', text: 'var(--color-pastel-green)' },
-	Transmisión: { bg: '#220d40', text: 'var(--color-halftone-red)' },
+	Organizer: { bg: '#162440', text: 'var(--color-gdg-halftone-blue)' },
+	Decoración: { bg: '#57220d', text: 'var(--color-gdg-pastel-red)' },
+	Desarrollo: { bg: '#003462', text: 'var(--color-gdg-pastel-blue)' },
+	Diseño: { bg: '#2a0e0e', text: 'var(--color-gdg-red)' },
+	Logística: { bg: '#072012', text: 'var(--color-gdg-halftone-green)' },
+	Marketing: { bg: '#2a2000', text: 'var(--color-gdg-halftone-yellow)' },
+	Staff: { bg: '#042424', text: 'var(--color-gdg-pastel-green)' },
+	Transmisión: { bg: '#220d40', text: 'var(--color-gdg-halftone-red)' },
 };
 
 const frontBadges = Commission.slice(0, 2);
@@ -142,7 +144,7 @@ const initials = Name.split(' ')
 				{About}
 			</p>
 			<div class='shrink-0 mt-auto'>
-				<RedesSocialesMember
+				<MemberSocialNetworks
 					Linkedin={Linkedin}
 					Github={Github}
 					Facebook={Facebook}
