@@ -1,0 +1,136 @@
+---
+import { Image } from 'astro:assets';
+import WtmLogo from 'assets/images/WTM_Logo.png';
+
+interface Props {
+	links?: { label: string; href: string }[];
+}
+
+const {
+	links = [
+		{ label: 'Inicio', href: '#inicio' },
+		{ label: 'Speakers', href: '#speakers' },
+		{ label: 'Agenda', href: '#agenda' },
+		{ label: 'Sponsors', href: '#sponsors' },
+		{ label: 'Lugar', href: '#lugar' },
+	],
+} = Astro.props;
+---
+
+<header
+	id='navbar'
+	class='fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-4 transition-all duration-500'
+	style='animation: fade-iwd-in 0.5s ease both;'>
+	<a
+		href='https://www.technovation.org/women-techmakers/'
+		target='_blank'
+		rel='noopener noreferrer'
+		class='flex items-center gap-2 group'
+		aria-label='WTM Tarija Home'>
+		<div class='wtm-mark me-2' aria-hidden='true'>
+			<Image
+				src={WtmLogo}
+				alt='WTM Logo'
+				width='220'
+				class='h-10 object-left object-contain group-hover:animate-pulse transition-all duration-300'
+			/>
+		</div>
+	</a>
+	<!-- Desktop nav -->
+	<nav class='hidden md:flex items-center gap-4 lg:gap-8' aria-label='Navegación principal'>
+		{
+			links.map(({ label, href }) => (
+				<a
+					href={href}
+					class='text-white/70 hover:text-white text-xs lg:text-sm font-medium font-body tracking-widest uppercase transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-iwd-accent after:transition-all hover:after:w-full'
+					style='font-family: var(--font-body);'>
+					{label}
+				</a>
+			))
+		}
+		<a
+			href='https://docs.google.com/forms/d/e/1FAIpQLScX2P2GKiKEug2S3ZTBkm6DBv5rSipmqueMCZLljQbfRLrigw/viewform'
+			class='ml-2 bg-iwd-accent text-iwd-blue-primary font-display font-black px-5 py-2 text-xs tracking-[0.2em] uppercase rounded hover:bg-iwd-accent-hover hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-iwd-accent/20'
+			target='_blank'
+			rel='noopener noreferrer'
+			style='font-family: var(--font-display);'>
+			Regístrate
+		</a>
+	</nav>
+	<!-- Mobile hamburger -->
+	<button
+		id='mobile-menu-btn'
+		class='md:hidden flex flex-col gap-1.5 p-2 group cursor-pointer'
+		aria-label='Menú'
+		aria-expanded='false'>
+		<span
+			class='w-6 h-0.5 bg-white block transition-all duration-300 opacity-0 group-aria-expanded:opacity-100 group-aria-expanded:rotate-45 group-aria-expanded:translate-y-2.5'
+		></span>
+		<span class='w-6 h-1.5 bg-white block transition-all duration-300 group-aria-expanded:opacity-0'></span>
+		<span
+			class='w-6 h-0.5 bg-white block transition-all duration-300 opacity-0 group-aria-expanded:opacity-100 group-aria-expanded:-rotate-45 group-aria-expanded:-translate-y-2.5'
+		></span>
+	</button>
+</header>
+<!-- Mobile drawer -->
+<div
+	id='mobile-menu'
+	class='fixed inset-0 z-40 bg-iwd-navy/95 backdrop-blur-sm flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-300 md:hidden'
+	aria-hidden='true'>
+	{
+		links.map(({ label, href }) => (
+			<a
+				href={href}
+				class='text-white text-xl font-black font-display tracking-widest uppercase hover:text-iwd-accent transition-colors'
+				style='font-family: var(--font-display);'>
+				{label}
+			</a>
+		))
+	}
+	<a
+		href='https://docs.google.com/forms/d/e/1FAIpQLScX2P2GKiKEug2S3ZTBkm6DBv5rSipmqueMCZLljQbfRLrigw/viewform'
+		target='_blank'
+		rel='noopener noreferrer'
+		class='mt-4 bg-iwd-accent text-iwd-blue-primary font-display font-black px-8 py-3 text-sm tracking-[0.2em] uppercase rounded'
+		style='font-family: var(--font-display);color: var(--color-iwd-blue-primary);'>
+		Regístrate
+	</a>
+</div>
+
+<script>
+	const btn = document.getElementById('mobile-menu-btn')!;
+	const menu = document.getElementById('mobile-menu')!;
+	const links = menu.querySelectorAll('a');
+
+	btn.addEventListener('click', () => {
+		const open = menu.classList.toggle('translate-x-full') === false;
+		btn.setAttribute('aria-expanded', String(open));
+		menu.setAttribute('aria-hidden', String(!open));
+		document.body.style.overflow = open ? 'hidden' : '';
+	});
+
+	links.forEach((l) =>
+		l.addEventListener('click', () => {
+			menu.classList.add('translate-x-full');
+			btn.setAttribute('aria-expanded', 'false');
+			menu.setAttribute('aria-hidden', 'true');
+			document.body.style.overflow = '';
+		}),
+	);
+	const header = document.getElementById('navbar')!;
+	window.addEventListener(
+		'scroll',
+		() => {
+			if (window.scrollY > 20) {
+				header.style.background = 'rgba(26, 35, 232, 0.85)';
+				header.style.backdropFilter = 'blur(12px)';
+				header.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+			} else {
+				header.style.background = 'transparent';
+				header.style.backdropFilter = '';
+				header.style.borderBottom = '';
+			}
+		},
+		{ passive: true },
+	);
+</script>
