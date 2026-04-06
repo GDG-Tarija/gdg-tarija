@@ -1,0 +1,79 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-iwd-blue-primary: #0334AB;
+	--color-iwd-accent: #1CE9B6;
+	--color-iwd-accent-hover: #00fbb3;
+	--color-iwd-navy: #0d1240;
+	--color-iwd-black-73: #00000073;
+
+	--font-display: 'Poppins', sans-serif;
+	--font-body: 'Poppins', sans-serif;
+
+	--animate-fade-iwd-up: fade-iwd-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+	--animate-fade-iwd-in: fade-iwd-in 0.6s ease both;
+	--animate-scale-iwd-in: scale-iwd-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes fade-iwd-up {
+	from {
+		opacity: 0;
+		transform: translateY(36px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-iwd-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes scale-iwd-in {
+	from {
+		opacity: 0;
+		transform: scale(0.85);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes pulse-dot {
+	0%,
+	100% {
+		opacity: 0.35;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.8;
+		transform: scale(1.15);
+	}
+}
+
+@keyframes grid-shimmer {
+	0% {
+		opacity: 0.04;
+	}
+	50% {
+		opacity: 0.09;
+	}
+	100% {
+		opacity: 0.04;
+	}
+}
+
+.grid-texture {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+	background-size: 48px 48px;
+	animation: grid-shimmer 6s ease-in-out infinite;
+}

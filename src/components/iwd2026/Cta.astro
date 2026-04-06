@@ -1,0 +1,191 @@
+---
+import StatsBar from './StatsBar.astro';
+---
+
+<section
+	class='relative flex flex-col bg-iwd-blue-primary grid-texture'
+	style='background-color: var(--color-iwd-blue-primary); height: 100dvh; min-height: 100svh;'>
+	<div class='flex-1'>
+		<div class='relative h-full flex flex-col justify-center pt-16 pb-4 px-6 md:px-16 lg:px-24 overflow-hidden'>
+			<div class='relative z-10 max-w-3xl'>
+				<!-- Badge -->
+				<div
+					class='inline-flex font-display items-center gap-2 border border-iwd-accent/70 bg-iwd-accent/20 text-iwd-accent text-xs font-bold tracking-[0.25em] uppercase px-4 py-2 rounded mb-3 md:mb-6'
+					style='font-family:var(--font-display); animation: var(--animate-fade-iwd-up); animation-delay:200ms; opacity:0;'>
+					<span class='w-1.5 h-1.5 bg-iwd-accent inline-block'></span>
+					2026 · International Women's Day
+				</div>
+				<div class='flex items-center gap-5 sm:gap-10 lg:gap-14 flex-wrap overflow-hidden mb-2 '>
+					<h1
+						class='hero-word block font-black font-display text-white uppercase leading-none tracking-tight'
+						style='
+							font-family: var(--font-display);
+							font-size: clamp(4rem, 10vw, 8rem);
+							animation: var(--animate-fade-iwd-up);
+							animation-delay: 450ms;
+							opacity: 0;'
+						aria-label='Break the Pattern'>
+						Break
+					</h1>
+					<div
+						class='the-box bg-iwd-accent flex items-center justify-center px-5 py-4 shrink-0'
+						style='animation: var(--animate-scale-iwd-in); animation-delay: 580ms; opacity: 0;'
+						aria-hidden='true'>
+						<span
+							class='font-black text-iwd-blue-primary font-display uppercase tracking-tight leading-none'
+							style='font-family:var(--font-display); font-size: clamp(1.9rem, 4vw, 3.5rem);'>
+							THE
+						</span>
+					</div>
+				</div>
+				<div class='overflow-hidden'>
+					<div class='overflow-hidden'>
+						<h1
+							class='hero-word block font-black font-display text-white uppercase leading-none tracking-tight'
+							style='
+								font-family: var(--font-display);
+								font-size: clamp(4rem, 10vw, 8rem);
+								animation: var(--animate-fade-iwd-up);
+								animation-delay: 520ms;
+								opacity: 0;'
+							aria-hidden='true'>
+							Pattern
+						</h1>
+					</div>
+				</div>
+				<div
+					class='flex flex-col md:flex-row md:flex-wrap md:items-center gap-y-1.5 md:gap-x-5 mt-4 md:mt-8 text-white/80 text-sm font-body'
+					style='font-family:var(--font-body); animation: var(--animate-fade-iwd-up); animation-delay: 700ms; opacity: 0;'>
+					<span class='flex items-center gap-2'>
+						<span aria-hidden='true'><i class='fa-solid fa-calendar-days'></i></span>
+						11 de Abril, 2026
+					</span>
+					<span class='flex items-center gap-2'>
+						<span aria-hidden='true'><i class='fa-regular fa-clock'></i></span>
+						09:00 AM
+					</span>
+					<span class='flex items-center gap-2'>
+						<span aria-hidden='true'><i class='fa-solid fa-map-pin'></i></span>
+						Auditorio del Instituto Técnico Domingo Savio
+					</span>
+				</div>
+				<!-- CTA Buttons -->
+				<div
+					class='flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-10'
+					style='animation: var(--animate-fade-iwd-up); animation-delay: 850ms; opacity: 0;'>
+					<a
+						id='registro'
+						href='https://docs.google.com/forms/d/e/1FAIpQLScX2P2GKiKEug2S3ZTBkm6DBv5rSipmqueMCZLljQbfRLrigw/viewform'
+						class='btn-primary font-black text-sm font-display tracking-[0.2em] uppercase px-8 py-4 rounded transition-all duration-200 text-center flex items-center justify-center gap-2'
+						style='font-family: var(--font-display);'>
+						Regístrate Ahora
+					</a>
+					<!-- <a
+						href='#agenda'
+						class='btn-outline font-bold text-sm font-display tracking-[0.2em] uppercase px-8 py-4 rounded transition-all duration-200 text-center hidden sm:flex items-center justify-center'
+						style='font-family: var(--font-display);'>
+						Ver Agenda
+					</a> -->
+				</div>
+			</div>
+			<!-- Pixel heart -->
+			<div
+				class='absolute top-1/2 right-0 -translate-y-1/2 pointer-events-none select-none '
+				aria-hidden='true'
+				style='animation: var(--animate-fade-iwd-in); animation-delay: 1000ms; opacity: 0;'>
+				<div class='pixel-heart' id='pixel-heart'></div>
+			</div>
+		</div>
+	</div>
+	<StatsBar />
+</section>
+<script>
+	// Build pixel heart grid dynamically
+	const heart = document.getElementById('pixel-heart');
+	if (heart) {
+		// Heart bitmap: 1 = filled, 0 = empty (14×12 grid)
+		const map = [
+			[0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0],
+			[0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+			[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+			[0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+			[0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0],
+			[0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+			[0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+			[0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+		];
+
+		const size = 18; // px per dot
+		const gap = 6; // px gap
+		const rows = map.length;
+		const cols = map[0].length;
+
+		heart.style.width = `${cols * (size + gap)}px`;
+		heart.style.height = `${rows * (size + gap)}px`;
+		heart.style.position = 'relative';
+
+		map.forEach((row, r) => {
+			row.forEach((cell, c) => {
+				if (cell) {
+					const dot = document.createElement('div');
+					dot.style.cssText = `
+            position: absolute;
+            left: ${c * (size + gap)}px;
+            top:  ${r * (size + gap)}px;
+            width: ${size}px;
+            height: ${size}px;
+            background: rgba(255,255,255,0.18);
+            border-radius: 2px;
+            animation: pulse-dot ${2 + Math.random() * 2}s ease-in-out ${Math.random() * 2}s infinite;`;
+					heart.appendChild(dot);
+				}
+			});
+		});
+	}
+</script>
+
+<style>
+	.btn-primary {
+		background-color: var(--color-iwd-accent);
+		color: var(--color-iwd-blue-primary);
+		box-shadow: 0 0 30px rgba(0, 229, 160, 0.3);
+	}
+	.btn-primary:hover {
+		background-color: var(--color-iwd-accent-hover);
+		transform: translateY(-2px);
+		box-shadow: 0 0 40px rgba(0, 229, 160, 0.5);
+	}
+	.btn-primary:active {
+		transform: translateY(0);
+	}
+	.btn-outline {
+		background: transparent;
+		color: var(--color-white);
+		border: 2px solid rgba(255, 255, 255, 0.45);
+	}
+	.btn-outline:hover {
+		border-color: rgba(255, 255, 255, 0.9);
+		background: rgba(255, 255, 255, 0.06);
+		transform: translateY(-2px);
+	}
+	.btn-outline:active {
+		transform: translateY(0);
+	}
+	.the-box {
+		line-height: 1;
+	}
+
+	@keyframes reveal-page {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	section {
+		animation: reveal-page 0.4s ease 0.1s both;
+	}
+</style>

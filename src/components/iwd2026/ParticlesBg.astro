@@ -1,0 +1,110 @@
+---
+// ParticlesBg.astro — Canvas-based floating dot particles
+// Inspired by the pixel-dot WTM logo aesthetic
+---
+
+<canvas
+	id='particles-canvas'
+	aria-hidden='true'
+	class='fixed inset-0 w-full h-full pointer-events-none z-9'
+	style='opacity: 0; transition: opacity 1.2s ease 1.5s;'></canvas>
+
+<script>
+	const canvas = document.getElementById('particles-canvas') as HTMLCanvasElement;
+	const ctx = canvas.getContext('2d')!;
+
+	// Fade in after page loads
+	window.addEventListener('load', () => {
+		canvas.style.opacity = '1';
+	});
+
+	interface Particle {
+		x: number;
+		y: number;
+		vx: number;
+		vy: number;
+		size: number;
+		alpha: number;
+		alphaDir: number;
+		color: string;
+		life: number;
+		maxLife: number;
+	}
+
+	const COLORS = [
+		'rgba(0, 229, 160,', // accent teal
+		'rgba(255, 255, 255,', // white
+		'rgba(100, 120, 255,', // light blue
+	];
+
+	let particles: Particle[] = [];
+	let width = 0;
+	let height = 0;
+	let animId = 0;
+
+	function resize() {
+		width = canvas.width = window.innerWidth;
+		height = canvas.height = window.innerHeight;
+	}
+
+	function spawnParticle(): Particle {
+		return {
+			x: Math.random() * width,
+			y: height + 20,
+			vx: (Math.random() - 0.5) * 0.6,
+			vy: -(0.3 + Math.random() * 0.7),
+			size: 3 + Math.random() * 5,
+			alpha: 0,
+			alphaDir: 1,
+			color: COLORS[Math.floor(Math.random() * COLORS.length)],
+			life: 0,
+			maxLife: 180 + Math.random() * 240,
+		};
+	}
+
+	function draw() {
+		ctx.clearRect(0, 0, width, height);
+
+		// Spawn new particles
+		if (particles.length < 60 && Math.random() < 0.25) {
+			particles.push(spawnParticle());
+		}
+
+		// Update & draw
+		particles = particles.filter((p) => {
+			p.life++;
+			p.x += p.vx;
+			p.y += p.vy;
+
+			// Fade in/out
+			const lifeFrac = p.life / p.maxLife;
+			if (lifeFrac < 0.15) {
+				p.alpha = (lifeFrac / 0.15) * 0.55;
+			} else if (lifeFrac > 0.75) {
+				p.alpha = (1 - (lifeFrac - 0.75) / 0.25) * 0.55;
+			} else {
+				p.alpha = 0.55;
+			}
+
+			// Draw as small square (pixel aesthetic)
+			ctx.save();
+			ctx.globalAlpha = p.alpha;
+			ctx.fillStyle = `${p.color} 1)`;
+			ctx.fillRect(p.x, p.y, p.size, p.size);
+			ctx.restore();
+
+			return p.life < p.maxLife && p.y > -50;
+		});
+
+		animId = requestAnimationFrame(draw);
+	}
+
+	// Init
+	resize();
+	window.addEventListener('resize', resize, { passive: true });
+
+	// Start animation after a short delay (let entrance anims play first)
+	setTimeout(() => {
+		draw();
+	}, 1800);
+</script>
