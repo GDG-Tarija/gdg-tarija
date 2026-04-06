@@ -1,6 +1,6 @@
 ---
-import redesSociales from './redesSociales.json';
-import RedesSociales from './RedesSociales.astro';
+import redesSociales from './social-networks.json';
+import SocialNetworks from './SocialNetworks.astro';
 
 interface Props {
   darkMode?: boolean;
@@ -31,7 +31,7 @@ const {
 
       <!-- Redes sociales -->
       <div class="flex items-center space-x-2">
-        {redesSociales.map((red_social) => <RedesSociales {...red_social} />)}
+        {redesSociales.map((red_social) => <SocialNetworks {...red_social} />)}
       </div>
     </div>
 

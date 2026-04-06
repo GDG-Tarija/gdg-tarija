@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import contactos from './contactos.json';
-import ContactoComponent from './ContactoComponent.astro';
+import contactos from './contact.json';
+import ContactComponent from './ContactComponent.astro';
 import Button from '../../common/Button.astro';
 import ImgContact from '../../../assets/images/contact_image.png';
 ---
@@ -23,6 +23,6 @@ import ImgContact from '../../../assets/images/contact_image.png';
     </p>
   </div>
   <div class="flex justify-center">
-    {contactos.map((contacto) => <ContactoComponent {...contacto} />)}
+    {contactos.map((contacto) => <ContactComponent {...contacto} />)}
   </div>
 </div>

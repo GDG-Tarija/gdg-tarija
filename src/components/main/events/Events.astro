@@ -65,7 +65,7 @@ import Button from '../../common/Button.astro';
     fetch('/events.json')
       .then((response) => response.json())
       .then((data) => {
-        events = data; // Asignar los eventos del JSON a la variable events
+        events = data;
         loadEvents(events);
       })
       .catch((error) => console.error('Error al cargar eventos desde JSON:', error));
