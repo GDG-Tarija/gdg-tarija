@@ -72,11 +72,12 @@
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775219820/Cristian_Garcia_r8hqmo.jpg",
-    "Name": "Cristian Garcia",
+    "Name": "Santiago Garcia",
     "Instagram": "https://www.instagram.com/san_gm__?igsh=MW53dWlldXM1NWFpZw==",
     "About": "Amante de java, gatos, perros y hamburguesas.",
     "Commission": [
-      "Marketing"
+      "Marketing",
+      "Transmisión"
     ]
   },
   {
@@ -242,7 +243,6 @@
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774974003/Segovia_Valdez_Yuleni_Nicol_fyyzf6.jpg",
     "Name": "Yuleni Segovia",
     "Linkedin": "https://www.linkedin.com/in/segovia-valdez-yuleni-nicol-81692338b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "Facebook": "",
     "Instagram": "https://www.instagram.com/nicolyuleni_sv?igsh=cHhjYzU1MjBiMTZt",
     "About": "Futura Ingeniera de Sistemas y entusiasta tech. Optimista y resiliente ante retos disruptivos como la IA. Amante del aprendizaje continuo y de hallar en cada tecnología y personas una oportunidad para crecer y aprender.",
     "Commission": [
@@ -254,7 +254,7 @@
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774976079/Damaris_Mamani_rbusm2.jpg",
     "Name": "Damaris Mamani",
-    "Linkedin": "linkedin.com/in/damarismamani",
+    "Linkedin": "https://www.linkedin.com/in/damarismamani",
     "Facebook": "https://www.facebook.com/share/1AnANxEqdB/",
     "Instagram": "https://www.instagram.com/damaris__mamani?igsh=bDlwYzdpNnFrMXNp",
     "About": "Damaris es una exploradora en el mundo de la tecnología y las finanzas, se encuentra en constante aprendizaje y siempre dispuesta a compartir su conocimiento para aportar a la comunidad.",
@@ -376,6 +376,15 @@
     "Commission": [
       "Desarrollo",
       "Logística"
+    ]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775482654/German_Alvarez_fyuge1.jpg",
+    "Name": "German Alvarez",
+    "Linkedin": "https://www.linkedin.com/in/german-alvarez-copa",
+    "About": "Desarrollador web e Ingeniero en Sistemas. Me motiva la intersección entre la lógica técnica y la creatividad digital. Siempre listo para aprender algo nuevo junto al GDG.",
+    "Commission": [
+      "Marketing"
     ]
   }
 ]
