@@ -4,19 +4,21 @@ interface Props {
   subtext?: string;
 }
 
-const { 
-  text = "Cargando...",
-  subtext = "Por favor espera un momento"
-} = Astro.props;
+const { text = 'Cargando...', subtext = 'Por favor espera un momento' } = Astro.props;
 ---
 
 <div class="flex flex-col items-center justify-center w-full">
   <div class="relative flex items-center justify-center w-24 h-24 mb-6">
     <!-- Anillo giratorio con los 4 colores de Google -->
-    <div class="absolute inset-0 rounded-full border-[3px] border-t-gdg-blue border-r-gdg-red border-b-gdg-yellow border-l-gdg-green animate-spin"></div>
-    
+    <div
+      class="absolute inset-0 rounded-full border-[3px] border-t-gdg-blue border-r-gdg-red border-b-gdg-yellow border-l-gdg-green animate-spin"
+    >
+    </div>
+
     <!-- Core Logo -->
-    <div class="relative bg-white rounded-full w-20 h-20 flex items-center justify-center z-10 p-3 shadow-xs">
+    <div
+      class="relative bg-white rounded-full w-20 h-20 flex items-center justify-center z-10 p-3 shadow-xs"
+    >
       <img
         src="https://res.cloudinary.com/dopkch3x9/image/upload/v1769174223/logoGDG_Tarija_nox4y2.svg"
         alt="GDG Logo"
@@ -24,7 +26,7 @@ const {
       />
     </div>
   </div>
-  
+
   <h2 class="text-xl font-semibold text-gray-800 tracking-tight">{text}</h2>
   {subtext && <p class="text-gray-500 mt-2 text-center max-w-sm text-sm">{subtext}</p>}
 </div>
