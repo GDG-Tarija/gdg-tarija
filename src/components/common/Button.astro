@@ -1,10 +1,10 @@
 ---
 interface Props {
   href?: string;
-  type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary";
-  size?: "sm" | "md" | "lg";
-  iconPosition?: "left" | "right";
+  type?: 'button' | 'submit' | 'reset';
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+  iconPosition?: 'left' | 'right';
   class?: string;
   target?: string;
   rel?: string;
@@ -14,11 +14,11 @@ interface Props {
 
 const {
   href,
-  type = "button",
-  variant = "primary",
-  size = "md",
-  iconPosition = "left",
-  class: className = "",
+  type = 'button',
+  variant = 'primary',
+  size = 'md',
+  iconPosition = 'left',
+  class: className = '',
   target,
   rel,
   onclick,
@@ -26,17 +26,17 @@ const {
 } = Astro.props;
 
 const baseClasses =
-  "inline-flex cursor-pointer items-center justify-center font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500";
+  'inline-flex cursor-pointer items-center justify-center font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500';
 
 const variantClasses = {
-  primary: "bg-gdg-blue hover:bg-blue-600 text-white",
-  secondary: "bg-gray-200 hover:bg-gray-300 text-gray-800",
+  primary: 'bg-gdg-blue hover:bg-blue-600 text-white',
+  secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-800',
 };
 
 const sizeClasses = {
-  sm: "px-5 py-2 text-sm",
-  md: "px-7 py-3 text-lg",
-  lg: "px-8 py-4 text-xl",
+  sm: 'px-5 py-2 text-sm',
+  md: 'px-7 py-3 text-lg',
+  lg: 'px-8 py-4 text-xl',
 };
 
 const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
@@ -45,13 +45,13 @@ const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[s
 {
   href ? (
     <a href={href} class={buttonClasses} target={target} rel={rel} id={id}>
-      {iconPosition === "left" && (
+      {iconPosition === 'left' && (
         <span class="mr-3">
           <slot name="icon" />
         </span>
       )}
       <slot />
-      {iconPosition === "right" && (
+      {iconPosition === 'right' && (
         <span class="ml-3">
           <slot name="icon" />
         </span>
@@ -59,13 +59,13 @@ const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[s
     </a>
   ) : (
     <button type={type} class={buttonClasses} onclick={onclick} id={id}>
-      {iconPosition === "left" && (
+      {iconPosition === 'left' && (
         <span class="mr-3">
           <slot name="icon" />
         </span>
       )}
       <slot />
-      {iconPosition === "right" && (
+      {iconPosition === 'right' && (
         <span class="ml-3">
           <slot name="icon" />
         </span>

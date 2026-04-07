@@ -1,5 +1,5 @@
 ---
-import MenuList from "../navbar/menuList.json";
+import MenuList from '../navbar/menuList.json';
 ---
 
 <header
@@ -76,61 +76,60 @@ import MenuList from "../navbar/menuList.json";
 </header>
 
 <script>
-  const button = document.querySelector("#menu-button");
-  const menuOpen = document.querySelector("#menu-open");
-  const mobileMenu = document.querySelector("#mobile-menu");
-  const menuIcon = button.querySelector("svg");
+  const button = document.querySelector('#menu-button');
+  const menuOpen = document.querySelector('#menu-open');
+  const mobileMenu = document.querySelector('#mobile-menu');
+  const menuIcon = button.querySelector('svg');
 
   const toggleMobileMenu = () => {
-    const isHidden = mobileMenu.classList.contains("hidden");
+    const isHidden = mobileMenu.classList.contains('hidden');
 
     if (isHidden) {
-      mobileMenu.classList.remove("hidden");
+      mobileMenu.classList.remove('hidden');
       // Animar los items del menú con stagger
-      const menuItems = mobileMenu.querySelectorAll("li");
+      const menuItems = mobileMenu.querySelectorAll('li');
       menuItems.forEach((item, index) => {
-        const link = item.querySelector("a") as HTMLElement;
-        link.style.opacity = "0";
-        link.style.transform = "translateX(-30px)";
+        const link = item.querySelector('a') as HTMLElement;
+        link.style.opacity = '0';
+        link.style.transform = 'translateX(-30px)';
         setTimeout(() => {
           link.style.transition =
-            "opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)";
-          link.style.opacity = "1";
-          link.style.transform = "translateX(0)";
+            'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+          link.style.opacity = '1';
+          link.style.transform = 'translateX(0)';
         }, index * 80);
       });
       menuIcon.innerHTML =
         '<path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
     } else {
       // Animar salida
-      const menuItems = mobileMenu.querySelectorAll("li");
+      const menuItems = mobileMenu.querySelectorAll('li');
       menuItems.forEach((item, index) => {
-        const link = item.querySelector("a") as HTMLElement;
+        const link = item.querySelector('a') as HTMLElement;
         setTimeout(() => {
-          link.style.transition =
-            "opacity 0.2s ease-out, transform 0.2s ease-out";
-          link.style.opacity = "0";
-          link.style.transform = "translateX(-30px)";
+          link.style.transition = 'opacity 0.2s ease-out, transform 0.2s ease-out';
+          link.style.opacity = '0';
+          link.style.transform = 'translateX(-30px)';
         }, index * 30);
       });
       setTimeout(() => {
-        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.add('hidden');
       }, 300);
       menuIcon.innerHTML =
         '<path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
     }
   };
 
-  button.addEventListener("click", () => {
+  button.addEventListener('click', () => {
     toggleMobileMenu();
   });
 
-  window.addEventListener("scroll", () => {
-    if (mobileMenu && !mobileMenu.classList.contains("hidden")) {
+  window.addEventListener('scroll', () => {
+    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
       toggleMobileMenu();
     }
-    if (menuOpen && !menuOpen.classList.contains("hidden")) {
-      menuOpen.classList.add("hidden");
+    if (menuOpen && !menuOpen.classList.contains('hidden')) {
+      menuOpen.classList.add('hidden');
     }
   });
 </script>
