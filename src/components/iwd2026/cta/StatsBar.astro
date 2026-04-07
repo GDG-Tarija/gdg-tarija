@@ -5,38 +5,28 @@ interface Stat {
 	short?: string;
 }
 
-interface Props {
-	stats?: Stat[];
-}
-
-const {
-	stats = [
-		{ value: '100+', label: 'Asistentes', short: 'Asist.' },
-		{ value: '4+', label: 'Speakers', short: 'Speak.' },
-		{ value: '2', label: 'Workshops', short: 'Works.' },
-		{ value: '1', label: 'Día Épico', short: 'Día' },
-	],
-} = Astro.props;
+const stats: Stat[] = [
+	{ value: '100+', label: 'Asistentes', short: 'Asist.' },
+	{ value: '4+', label: 'Speakers', short: 'Speak.' },
+	{ value: '2', label: 'Workshops', short: 'Works.' },
+	{ value: '1', label: 'Día Épico', short: 'Día' },
+];
 ---
 
 <div
-	class='stats-bar relative max-w-67 sm:max-w-100 md:max-w-2xl ps-3 md:ps-10 lg:ps-16 z-10'
-	style='animation: var(--animate-fade-iwd-up); animation-delay: 1100ms; opacity: 0;'>
+	id='stats-bar'
+	class='relative max-w-67 sm:max-w-100 md:max-w-2xl lg:max-w-3xl ps-3 md:ps-10 lg:ps-16 z-10 bg-black/45 animate-fade-iwd-up [animation-delay:1100ms]'>
 	<div class='grid grid-cols-4'>
 		{
 			stats.map((s, i) => (
 				<div
-					class='stat-item flex flex-col items-start px-4 py-3 md:px-8 md:py-4 group hover:bg-white/5 transition-colors duration-200'
+					class='flex flex-col items-start px-4 py-3 md:px-8 md:py-4 hover:bg-white/5 transition-colors duration-200'
 					data-value={s.value}
 					style={`animation-delay: ${1100 + i * 100}ms`}>
-					<span
-						class='stat-value font-black font-display leading-none'
-						style='font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2rem);'>
+					<span class='stat-value text-iwd-accent font-black font-display leading-none text-[clamp(1.5rem,4vw,2rem)]'>
 						{s.value}
 					</span>
-					<span
-						class='stat-label text-xs font-semibold font-body tracking-[0.15em] uppercase mt-1'
-						style='font-family: var(--font-body); color: rgba(255,255,255,0.45);'>
+					<span class='text-white/45 text-xs font-semibold font-display tracking-[0.15em] uppercase mt-1'>
 						<span class='md:hidden'>{s.short ?? s.label}</span>
 						<span class='hidden md:inline'>{s.label}</span>
 					</span>
@@ -47,35 +37,34 @@ const {
 </div>
 
 <script>
-	// Count-up animation triggered when stats bar enters viewport
+	const bar = document.getElementById('stats-bar');
+	if (!bar) throw new Error('stats-bar not found');
+
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
 				if (!entry.isIntersecting) return;
 				observer.unobserve(entry.target);
 
-				const items = entry.target.querySelectorAll('.stat-item');
-				items.forEach((item, idx) => {
-					const raw = item.getAttribute('data-value') ?? '';
+				entry.target.querySelectorAll<HTMLElement>('[data-value]').forEach((item, idx) => {
+					const raw = item.dataset.value ?? '';
 					const num = parseInt(raw.replace(/\D/g, ''), 10);
 					const suffix = raw.replace(/\d/g, '');
-					const el = item.querySelector('.stat-value') as HTMLElement;
-					if (!el || isNaN(num)) return;
+					const valueEl = item.querySelector<HTMLElement>('.stat-value');
+					if (valueEl == null || Number.isNaN(num)) return;
 
-					let start = 0;
 					const duration = 1200;
-					const delay = idx * 120;
-					const startTime = performance.now() + delay;
+					const startTime = performance.now() + idx * 120;
+					const span = valueEl;
 
 					function tick(now: number) {
 						if (now < startTime) {
 							requestAnimationFrame(tick);
 							return;
 						}
-						const elapsed = now - startTime;
-						const progress = Math.min(elapsed / duration, 1);
+						const progress = Math.min((now - startTime) / duration, 1);
 						const eased = 1 - Math.pow(1 - progress, 3);
-						el.textContent = `${Math.round(eased * num)}${suffix}`;
+						span.textContent = `${Math.round(eased * num)}${suffix}`;
 						if (progress < 1) requestAnimationFrame(tick);
 					}
 					requestAnimationFrame(tick);
@@ -85,15 +74,5 @@ const {
 		{ threshold: 0.4 },
 	);
 
-	const bar = document.querySelector('.stats-bar');
-	if (bar) observer.observe(bar);
+	observer.observe(bar);
 </script>
-
-<style>
-	.stats-bar {
-		background-color: var(--color-iwd-black-73);
-	}
-	.stat-value {
-		color: var(--color-iwd-accent);
-	}
-</style>
