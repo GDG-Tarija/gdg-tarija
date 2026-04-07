@@ -1,14 +1,12 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-iwd-blue-primary: #0334AB;
-	--color-iwd-accent: #1CE9B6;
+	--color-iwd-blue-primary: #0334ab;
+	--color-iwd-accent: #1ce9b6;
 	--color-iwd-accent-hover: #00fbb3;
 	--color-iwd-navy: #0d1240;
-	--color-iwd-black-73: #00000073;
 
 	--font-display: 'Poppins', sans-serif;
-	--font-body: 'Poppins', sans-serif;
 
 	--animate-fade-iwd-up: fade-iwd-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 	--animate-fade-iwd-in: fade-iwd-in 0.6s ease both;
