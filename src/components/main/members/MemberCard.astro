@@ -1,31 +1,40 @@
 ---
 import MemberSocialNetworks from './MemberSocialNetworks.astro';
 
-
-
 interface Props {
-	Photo: string;
-	Name: string;
-	About: string;
-	Commission: string[];
-	Linkedin?: string;
-	Github?: string;
-	Facebook?: string;
-	Instagram?: string;
-	Sitio_web?: string;
-	Beacons?: string;
+  Photo: string;
+  Name: string;
+  About: string;
+  Commission: string[];
+  Linkedin?: string;
+  Github?: string;
+  Facebook?: string;
+  Instagram?: string;
+  Sitio_web?: string;
+  Beacons?: string;
 }
 
-const { Photo, Name, About, Linkedin, Github, Facebook, Instagram, Sitio_web, Commission, Beacons } = Astro.props;
+const {
+  Photo,
+  Name,
+  About,
+  Linkedin,
+  Github,
+  Facebook,
+  Instagram,
+  Sitio_web,
+  Commission,
+  Beacons,
+} = Astro.props;
 const BADGE_COLORS: Record<string, { bg: string; text: string }> = {
-	Organizer: { bg: '#162440', text: 'var(--color-gdg-halftone-blue)' },
-	Decoración: { bg: '#57220d', text: 'var(--color-gdg-pastel-red)' },
-	Desarrollo: { bg: '#003462', text: 'var(--color-gdg-pastel-blue)' },
-	Diseño: { bg: '#2a0e0e', text: 'var(--color-gdg-red)' },
-	Logística: { bg: '#072012', text: 'var(--color-gdg-halftone-green)' },
-	Marketing: { bg: '#2a2000', text: 'var(--color-gdg-halftone-yellow)' },
-	Staff: { bg: '#042424', text: 'var(--color-gdg-pastel-green)' },
-	Transmisión: { bg: '#220d40', text: 'var(--color-gdg-halftone-red)' },
+  Organizer: { bg: '#162440', text: 'var(--color-gdg-halftone-blue)' },
+  Decoración: { bg: '#57220d', text: 'var(--color-gdg-pastel-red)' },
+  Desarrollo: { bg: '#003462', text: 'var(--color-gdg-pastel-blue)' },
+  Diseño: { bg: '#2a0e0e', text: 'var(--color-gdg-red)' },
+  Logística: { bg: '#072012', text: 'var(--color-gdg-halftone-green)' },
+  Marketing: { bg: '#2a2000', text: 'var(--color-gdg-halftone-yellow)' },
+  Staff: { bg: '#042424', text: 'var(--color-gdg-pastel-green)' },
+  Transmisión: { bg: '#220d40', text: 'var(--color-gdg-halftone-red)' },
 };
 
 const frontBadges = Commission.slice(0, 2);
@@ -33,164 +42,176 @@ const backBadges = Commission;
 const primaryColor = (BADGE_COLORS[Commission[0]] ?? BADGE_COLORS['Organizer']).text;
 
 const initials = Name.split(' ')
-	.map((w) => w[0])
-	.slice(0, 2)
-	.join('');
+  .map((w) => w[0])
+  .slice(0, 2)
+  .join('');
 ---
 
 <div
-	class='member-card relative h-70 w-57.5 justify-self-center shadow-lg shadow-slate-900
+  class="member-card relative h-70 w-57.5 justify-self-center shadow-lg shadow-slate-900
 		cursor-pointer perspective:[900px]
-		transition-all duration-300 hover:scale-105 hover:shadow-xl'
-	aria-label={`Perfil de ${Name}`}>
-	<div class='flip-inner absolute inset-0 rounded-2xl
+		transition-all duration-300 hover:scale-105 hover:shadow-xl"
+  aria-label={`Perfil de ${Name}`}
+>
+  <div
+    class="flip-inner absolute inset-0 rounded-2xl
 			transform-3d
-			transition-transform duration-500 ease-in-out'>
-		<!-- CARA FRONTAL -->
-		<div
-			class='card-wrapper absolute! inset-0
+			transition-transform duration-500 ease-in-out"
+  >
+    <!-- CARA FRONTAL -->
+    <div
+      class="card-wrapper absolute! inset-0
 				backface-hidden [-webkit-backface-visibility:hidden]
-				shadow-lg shadow-slate-900'>
-			<div class='card-content flex flex-col items-center justify-center gap-2 p-4 text-center'>
-				<div
-					class='hidden w-32 h-32 rounded-full items-center justify-center
-						text-xl font-semibold shrink-0 bg-slate-700 text-zinc-300'
-					aria-hidden='true'>
-					{initials}
-				</div>
-				<img
-					src={Photo}
-					alt={`Foto de ${Name}`}
-					class='rounded-full w-32 h-32 object-cover border-2 border-neutral-700 shrink-0'
-					loading='lazy'
-					onerror="this.style.display='none'; this.previousElementSibling.classList.replace('hidden','flex');"
-				/>
-				<p class='font-semibold text-zinc-100 leading-snug mb-2'>{Name}</p>
-				<div class='flex flex-wrap gap-1 justify-center'>
-					{
-						frontBadges.map((c) => {
-							const colors = BADGE_COLORS[c] ?? BADGE_COLORS['Organizer'];
-							return (
-								<span
-									class='text-xs font-medium px-2.5 py-0.5 rounded-full whitespace-nowrap'
-									style={`background: ${colors.bg}; color: ${colors.text};`}>
-									{c}
-								</span>
-							);
-						})
-					}
-				</div>
-				<span class='flex items-center gap-1 text-[10px] text-zinc-300 mt-0.5' aria-hidden='true'>
-					<i class='fa-regular fa-file-lines'></i>
-					Ver perfil
-				</span>
-			</div>
-		</div>
-		<!-- CARA TRASERA -->
-		<div
-			class='face-back absolute inset-0 rounded-2xl
+				shadow-lg shadow-slate-900"
+    >
+      <div class="card-content flex flex-col items-center justify-center gap-2 p-4 text-center">
+        <div
+          class="hidden w-32 h-32 rounded-full items-center justify-center
+						text-xl font-semibold shrink-0 bg-slate-700 text-zinc-300"
+          aria-hidden="true"
+        >
+          {initials}
+        </div>
+        <img
+          src={Photo}
+          alt={`Foto de ${Name}`}
+          class="rounded-full w-32 h-32 object-cover border-2 border-neutral-700 shrink-0"
+          loading="lazy"
+          onerror="this.style.display='none'; this.previousElementSibling.classList.replace('hidden','flex');"
+        />
+        <p class="font-semibold text-zinc-100 leading-snug mb-2">{Name}</p>
+        <div class="flex flex-wrap gap-1 justify-center">
+          {
+            frontBadges.map((c) => {
+              const colors = BADGE_COLORS[c] ?? BADGE_COLORS['Organizer'];
+              return (
+                <span
+                  class="text-xs font-medium px-2.5 py-0.5 rounded-full whitespace-nowrap"
+                  style={`background: ${colors.bg}; color: ${colors.text};`}
+                >
+                  {c}
+                </span>
+              );
+            })
+          }
+        </div>
+        <span class="flex items-center gap-1 text-[10px] text-zinc-300 mt-0.5" aria-hidden="true">
+          <i class="fa-regular fa-file-lines"></i>
+          Ver perfil
+        </span>
+      </div>
+    </div>
+    <!-- CARA TRASERA -->
+    <div
+      class="face-back absolute inset-0 rounded-2xl
 				bg-linear-to-b from-gray-600 to-gray-700
 				border border-zinc-600
 				backface-hidden [-webkit-backface-visibility:hidden]
 				transform-[rotateY(180deg)]
-				flex flex-col gap-2 p-6'>
-			<div class='flex justify-between items-start shrink-0 gap-2'>
-				<div class='min-w-0'>
-					<p class='text-sm font-semibold m-0 mb-2 truncate' style={`color: ${primaryColor};`}>
-						{Name}
-					</p>
-					<div class='flex flex-wrap gap-1'>
-						{
-							backBadges.map((c) => {
-								const colors = BADGE_COLORS[c] ?? BADGE_COLORS['Organizer'];
-								return (
-									<span
-										class='text-[10px] font-medium px-2 py-0.5 rounded-full whitespace-nowrap'
-										style={`background: ${colors.bg}; color: ${colors.text};`}>
-										{c}
-									</span>
-								);
-							})
-						}
-					</div>
-				</div>
-				<button
-					class='close-btn shrink-0 flex items-center justify-center w-6 h-6
+				flex flex-col gap-2 p-6"
+    >
+      <div class="flex justify-between items-start shrink-0 gap-2">
+        <div class="min-w-0">
+          <p class="text-sm font-semibold m-0 mb-2 truncate" style={`color: ${primaryColor};`}>
+            {Name}
+          </p>
+          <div class="flex flex-wrap gap-1">
+            {
+              backBadges.map((c) => {
+                const colors = BADGE_COLORS[c] ?? BADGE_COLORS['Organizer'];
+                return (
+                  <span
+                    class="text-[10px] font-medium px-2 py-0.5 rounded-full whitespace-nowrap"
+                    style={`background: ${colors.bg}; color: ${colors.text};`}
+                  >
+                    {c}
+                  </span>
+                );
+              })
+            }
+          </div>
+        </div>
+        <button
+          class="close-btn shrink-0 flex items-center justify-center w-6 h-6
 						rounded-full bg-zinc-500 hover:bg-zinc-400 text-zinc-400 text-[11px]
-						leading-none border-none cursor-pointer transition-colors duration-150'
-					aria-label='Cerrar perfil'>
-					<svg
-						xmlns='http://www.w3.org/2000/svg'
-						enable-background='new 0 0 24 24'
-						height='16'
-						viewBox='0 0 24 24'
-						width='16'>
-						<g><rect fill='none' height='24' width='24'></rect></g>
-						<g
-							><g>
-								<path d='M9,12c0,1.66,1.34,3,3,3s3-1.34,3-3s-1.34-3-3-3S9,10.34,9,12z' fill='#f0f0f2'></path>
-								<path
-									d='M8,10V8H5.09C6.47,5.61,9.05,4,12,4c3.72,0,6.85,2.56,7.74,6h2.06c-0.93-4.56-4.96-8-9.8-8C8.73,2,5.82,3.58,4,6.01V4H2v6H8z'
-									fill='#f0f0f2'></path>
-								<path
-									d='M16,14v2h2.91c-1.38,2.39-3.96,4-6.91,4c-3.72,0-6.85-2.56-7.74-6H2.2c0.93,4.56,4.96,8,9.8,8c3.27,0,6.18-1.58,8-4.01V20h2v-6H16z'
-									fill='#f0f0f2'></path>
-							</g></g
-						>
-					</svg>
-				</button>
-			</div>
-			<p class='about-text flex-1 text-xs text-zinc-400 leading-relaxed overflow-y-auto m-0 pr-0.5'>
-				{About}
-			</p>
-			<div class='shrink-0 mt-auto'>
-				<MemberSocialNetworks
-					Linkedin={Linkedin}
-					Github={Github}
-					Facebook={Facebook}
-					Instagram={Instagram}
-					Sitio_web={Sitio_web}
-					Beacons={Beacons}
-				/>
-			</div>
-		</div>
-	</div>
+						leading-none border-none cursor-pointer transition-colors duration-150"
+          aria-label="Cerrar perfil"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            enable-background="new 0 0 24 24"
+            height="16"
+            viewBox="0 0 24 24"
+            width="16"
+          >
+            <g><rect fill="none" height="24" width="24"></rect></g>
+            <g
+              ><g>
+                <path
+                  d="M9,12c0,1.66,1.34,3,3,3s3-1.34,3-3s-1.34-3-3-3S9,10.34,9,12z"
+                  fill="#f0f0f2"></path>
+                <path
+                  d="M8,10V8H5.09C6.47,5.61,9.05,4,12,4c3.72,0,6.85,2.56,7.74,6h2.06c-0.93-4.56-4.96-8-9.8-8C8.73,2,5.82,3.58,4,6.01V4H2v6H8z"
+                  fill="#f0f0f2"></path>
+                <path
+                  d="M16,14v2h2.91c-1.38,2.39-3.96,4-6.91,4c-3.72,0-6.85-2.56-7.74-6H2.2c0.93,4.56,4.96,8,9.8,8c3.27,0,6.18-1.58,8-4.01V20h2v-6H16z"
+                  fill="#f0f0f2"></path>
+              </g></g
+            >
+          </svg>
+        </button>
+      </div>
+      <p class="about-text flex-1 text-xs text-zinc-400 leading-relaxed overflow-y-auto m-0 pr-0.5">
+        {About}
+      </p>
+      <div class="shrink-0 mt-auto">
+        <MemberSocialNetworks
+          Linkedin={Linkedin}
+          Github={Github}
+          Facebook={Facebook}
+          Instagram={Instagram}
+          Sitio_web={Sitio_web}
+          Beacons={Beacons}
+        />
+      </div>
+    </div>
+  </div>
 </div>
 <style>
-	.member-card.is-flipped .flip-inner {
-		transform: rotateY(180deg);
-	}
+  .member-card.is-flipped .flip-inner {
+    transform: rotateY(180deg);
+  }
 
-	.member-card.is-flipped .card-wrapper {
-		pointer-events: none;
-	}
+  .member-card.is-flipped .card-wrapper {
+    pointer-events: none;
+  }
 
-	.about-text {
-		scrollbar-width: thin;
-		scrollbar-color: #52525b transparent;
-	}
-	.about-text::-webkit-scrollbar {
-		width: 3px;
-	}
-	.about-text::-webkit-scrollbar-thumb {
-		background: #52525b;
-		border-radius: 2px;
-	}
+  .about-text {
+    scrollbar-width: thin;
+    scrollbar-color: #52525b transparent;
+  }
+  .about-text::-webkit-scrollbar {
+    width: 3px;
+  }
+  .about-text::-webkit-scrollbar-thumb {
+    background: #52525b;
+    border-radius: 2px;
+  }
 </style>
 
 <script>
-	document.querySelectorAll<HTMLElement>('.member-card').forEach((card) => {
-		card.addEventListener('click', (e) => {
-			const target = e.target as HTMLElement;
+  document.querySelectorAll<HTMLElement>('.member-card').forEach((card) => {
+    card.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
 
-			if (target.closest('.close-btn')) {
-				card.classList.remove('is-flipped');
-				return;
-			}
+      if (target.closest('.close-btn')) {
+        card.classList.remove('is-flipped');
+        return;
+      }
 
-			if (target.closest('a')) return;
+      if (target.closest('a')) return;
 
-			card.classList.toggle('is-flipped');
-		});
-	});
+      card.classList.toggle('is-flipped');
+    });
+  });
 </script>

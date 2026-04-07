@@ -1,6 +1,6 @@
 ---
-import redesSociales from "./redesSociales.json";
-import RedesSociales from "./RedesSociales.astro";
+import redesSociales from './social-networks.json';
+import SocialNetworks from './SocialNetworks.astro';
 
 interface Props {
   darkMode?: boolean;
@@ -9,15 +9,15 @@ interface Props {
 
 const {
   darkMode = false,
-  logo = "https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg",
+  logo = 'https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg',
 } = Astro.props;
 ---
 
 <footer
   class={`${
     darkMode
-      ? "bg-linear-to-b from-black to-gray-900 border-t border-black"
-      : "bg-linear-to-r from-gray-50 to-gray-100 border-t border-gray-200"
+      ? 'bg-linear-to-b from-black to-gray-900 border-t border-black'
+      : 'bg-linear-to-r from-gray-50 to-gray-100 border-t border-gray-200'
   }`}
 >
   <div class="container mx-auto px-4 py-4">
@@ -31,21 +31,13 @@ const {
 
       <!-- Redes sociales -->
       <div class="flex items-center space-x-2">
-        {redesSociales.map((red_social) => <RedesSociales {...red_social} />)}
+        {redesSociales.map((red_social) => <SocialNetworks {...red_social} />)}
       </div>
     </div>
 
     <!-- Copyright -->
-    <div
-      class={`mt-4 pt-3 ${
-        darkMode ? "border-t border-gray-700" : "border-t border-gray-200"
-      }`}
-    >
-      <p
-        class={`text-center text-xs ${
-          darkMode ? "text-gray-400" : "text-gray-500"
-        }`}
-      >
+    <div class={`mt-4 pt-3 ${darkMode ? 'border-t border-gray-700' : 'border-t border-gray-200'}`}>
+      <p class={`text-center text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
         © {new Date().getFullYear()} GDG Tarija. Todos los derechos reservados.
       </p>
     </div>

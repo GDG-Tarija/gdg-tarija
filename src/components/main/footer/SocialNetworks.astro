@@ -1,0 +1,24 @@
+---
+const { red_social, url, logo } = Astro.props;
+
+const icons: Record<string, string> = {
+  facebook: 'fa-brands fa-facebook',
+  instagram: 'fa-brands fa-instagram',
+  linkedin: 'fa-brands fa-linkedin',
+  youtube: 'fa-brands fa-youtube',
+  tiktok: 'fa-brands fa-tiktok',
+  github: 'fa-brands fa-github',
+  twitter: 'fa-brands fa-x-twitter',
+  globe: 'fa-solid fa-globe',
+};
+
+const iconClass = icons[logo] ?? 'fa-solid fa-link';
+---
+
+<a
+  href={url}
+  class="p-2 rounded-full bg-gray-100 text-gray-600 transition-opacity duration-200 hover:opacity-70"
+  aria-label={red_social}
+>
+  <i class={`${iconClass} text-xl`}></i>
+</a>

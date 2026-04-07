@@ -1,20 +1,19 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "tailwindcss-animated";
 
 @theme {
-
   /* Custom colors */
   --color-background: #f0f0f0;
   --color-gdg-red: #ea4335;
   --color-gdg-yellow: #f9ab00;
   --color-gdg-blue: #4285f4;
   --color-gdg-green: #34a853;
-  --color-gdg-black: #1E1E1E;
+  --color-gdg-black: #1e1e1e;
   --color-gdg-off-white: #f0f0f0;
-  --color-gdg-sunset-orange: #F46831;
+  --color-gdg-sunset-orange: #f46831;
   --color-gdg-midnight-blue: #165185;
-  --color-gdg-ice-blue: #CAE6FF;
-  --color-gdg-deep-ocean-blue: #2480F0;
+  --color-gdg-ice-blue: #cae6ff;
+  --color-gdg-deep-ocean-blue: #2480f0;
   --color-gdg-forest-green: #0f7c67;
   --color-gdg-halftone-blue: #57caff;
   --color-gdg-halftone-green: #5cdb6d;
@@ -24,8 +23,8 @@
   --color-gdg-pastel-green: #ccf6c5;
   --color-gdg-pastel-yellow: #ffe7a5;
   --color-gdg-pastel-red: #f8d8d8;
-  --color-gdg-accent-purple: #9334E6;
-  
+  --color-gdg-accent-purple: #9334e6;
+
   --animate-border-spin: border-spin 10s linear infinite;
 
   @keyframes border-spin {
@@ -35,15 +34,17 @@
   }
 }
 
-
 @font-face {
-  font-family: "Google Sans";
-  src: url(../assets/fonts/google-sans/GoogleSans-Regular.ttf) format("truetype") font-weight-normal,
-    url(../assets/fonts/google-sans/GoogleSans-Bold.ttf) format("truetype") font-weight-bold,
-    url(../assets/fonts/google-sans/GoogleSans-Italic.ttf) format("truetype") font-style-italic,
-    url(../assets/fonts/google-sans/GoogleSans-BoldItalic.ttf) format("truetype") font-weight-bold font-style-italic,
-    url(../assets/fonts/google-sans/GoogleSans-Medium.ttf) format("truetype") font-weight-500,
-    url(../assets/fonts/google-sans/GoogleSans-MediumItalic.ttf) format("truetype") font-weight-500 font-style-italic;
+  font-family: 'Google Sans';
+  src:
+    url(../assets/fonts/google-sans/GoogleSans-Regular.ttf) format('truetype') font-weight-normal,
+    url(../assets/fonts/google-sans/GoogleSans-Bold.ttf) format('truetype') font-weight-bold,
+    url(../assets/fonts/google-sans/GoogleSans-Italic.ttf) format('truetype') font-style-italic,
+    url(../assets/fonts/google-sans/GoogleSans-BoldItalic.ttf) format('truetype') font-weight-bold
+      font-style-italic,
+    url(../assets/fonts/google-sans/GoogleSans-Medium.ttf) format('truetype') font-weight-500,
+    url(../assets/fonts/google-sans/GoogleSans-MediumItalic.ttf) format('truetype') font-weight-500
+      font-style-italic;
 }
 
 * {
@@ -51,7 +52,7 @@
 }
 
 body {
-  font-family: "Google Sans", sans-serif;
+  font-family: 'Google Sans', sans-serif;
   font-size: 16px;
   line-height: normal;
   margin: 0;
@@ -65,7 +66,6 @@ html {
 /*TODO : move this to a internal file*/
 
 @layer utilities {
-
   /* Act as a border */
   .card-wrapper {
     @apply relative overflow-hidden rounded-2xl bg-linear-to-b from-slate-700 to-slate-800;
@@ -73,11 +73,13 @@ html {
 
   /* Gradient */
   .card-wrapper::before {
-    background: conic-gradient(#34a853 3deg,
-        #ea4335 15deg,
-        #f9ab00 25deg,
-        #4285f4 40deg,
-        transparent 60deg);
+    background: conic-gradient(
+      #34a853 3deg,
+      #ea4335 15deg,
+      #f9ab00 25deg,
+      #4285f4 40deg,
+      transparent 60deg
+    );
 
     @apply absolute left-[-25%] top-[-25%] h-[150%] w-[150%] animate-border-spin content-[''];
   }
