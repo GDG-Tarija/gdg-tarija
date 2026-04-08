@@ -1,5 +1,5 @@
 ---
-import Button from "../../common/Button.astro";
+import Button from '../../common/Button.astro';
 ---
 
 <section
@@ -21,19 +21,19 @@ import Button from "../../common/Button.astro";
 </section>
 
 <script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     let visibleEvents = 4;
 
-    const eventList = document.getElementById("event-list");
-    const loadMoreBtn = document.getElementById("load-more");
-    const loadMoreContainer = document.getElementById("load-more-container");
+    const eventList = document.getElementById('event-list');
+    const loadMoreBtn = document.getElementById('load-more');
+    const loadMoreContainer = document.getElementById('load-more-container');
 
     const loadEvents = (events) => {
-      eventList.innerHTML = "";
+      eventList.innerHTML = '';
 
       events.slice(0, visibleEvents).forEach((event) => {
-        const eventElement = document.createElement("div");
-        eventElement.className = "text-center mb-4";
+        const eventElement = document.createElement('div');
+        eventElement.className = 'text-center mb-4';
 
         eventElement.innerHTML = `
           <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="block transition-transform duration-300 hover:scale-110">
@@ -48,9 +48,9 @@ import Button from "../../common/Button.astro";
       });
 
       if (visibleEvents >= events.length) {
-        loadMoreContainer.style.display = "none";
+        loadMoreContainer.style.display = 'none';
       } else {
-        loadMoreContainer.style.display = "flex";
+        loadMoreContainer.style.display = 'flex';
       }
     };
 
@@ -59,17 +59,15 @@ import Button from "../../common/Button.astro";
       loadEvents(events);
     };
 
-    loadMoreBtn?.addEventListener("click", loadMoreEvents);
+    loadMoreBtn?.addEventListener('click', loadMoreEvents);
 
     // Cargar eventos desde el archivo JSON
-    fetch("/events.json")
+    fetch('/events.json')
       .then((response) => response.json())
       .then((data) => {
-        events = data; // Asignar los eventos del JSON a la variable events
+        events = data;
         loadEvents(events);
       })
-      .catch((error) =>
-        console.error("Error al cargar eventos desde JSON:", error),
-      );
+      .catch((error) => console.error('Error al cargar eventos desde JSON:', error));
   });
 </script>

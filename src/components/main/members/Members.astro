@@ -3,90 +3,98 @@ import members from './members.json';
 import MemberCard from './MemberCard.astro';
 
 const sortedMembers = [...members].sort((a, b) => {
-	const aIsOrg = a.Commission[0] === 'Organizer';
-	const bIsOrg = b.Commission[0] === 'Organizer';
+  const aIsOrg = a.Commission[0] === 'Organizer';
+  const bIsOrg = b.Commission[0] === 'Organizer';
 
-	if (aIsOrg && !bIsOrg) return -1;
-	if (!aIsOrg && bIsOrg) return 1;
+  if (aIsOrg && !bIsOrg) return -1;
+  if (!aIsOrg && bIsOrg) return 1;
 
-	const cmpComision = a.Commission[0].localeCompare(b.Commission[0], 'es');
-	if (cmpComision !== 0) return cmpComision;
-	return a.Name.localeCompare(b.Name, 'es');
+  const cmpComision = a.Commission[0].localeCompare(b.Commission[0], 'es');
+  if (cmpComision !== 0) return cmpComision;
+  return a.Name.localeCompare(b.Name, 'es');
 });
 
 // Tabs
 const comisiones = ['Todos', ...new Set(sortedMembers.flatMap((m) => m.Commission))];
 const countFor = (c: string) =>
-	c === 'Todos' ? sortedMembers.length : sortedMembers.filter((m) => m.Commission.includes(c)).length;
+  c === 'Todos'
+    ? sortedMembers.length
+    : sortedMembers.filter((m) => m.Commission.includes(c)).length;
 ---
 
-<section id='members' class='bg-neutral-800 content-container mt-8 p-10'>
-	<h2 class='text-3xl font-bold text-center mb-8 text-zinc-100'>Miembros</h2>
-	<!-- Tabs por comisión -->
-	<div class='flex flex-wrap gap-2 justify-center mb-10' role='tablist' aria-label='Filtrar miembros por comisión'>
-		{
-			comisiones.map((c) => (
-				<button
-					class='tab-btn px-4 py-1.5 rounded-full text-sm font-medium
+<section id="members" class="bg-neutral-800 content-container mt-8 p-10">
+  <h2 class="text-3xl font-bold text-center mb-8 text-zinc-100">Miembros</h2>
+  <!-- Tabs por comisión -->
+  <div
+    class="flex flex-wrap gap-2 justify-center mb-10"
+    role="tablist"
+    aria-label="Filtrar miembros por comisión"
+  >
+    {
+      comisiones.map((c) => (
+        <button
+          class="tab-btn px-4 py-1.5 rounded-full text-sm font-medium
 						border border-zinc-600 text-zinc-400
 						hover:text-zinc-200 hover:border-zinc-400
-						transition-all duration-200 cursor-pointer'
-					data-tab={c}
-					role='tab'
-					aria-selected={c === 'Todos' ? 'true' : 'false'}>
-					{c}
-					<span class='text-xs opacity-50 ml-1'>{countFor(c)}</span>
-				</button>
-			))
-		}
-	</div>
-	<!-- Grid de miembros -->
-	<div
-		id='members-grid'
-		class='max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 place-content-center'>
-		{
-			sortedMembers.map((member) => (
-				<div class='member-item' data-comision={JSON.stringify(member.Commission)}>
-					<MemberCard {...member} />
-				</div>
-			))
-		}
-	</div>
+						transition-all duration-200 cursor-pointer"
+          data-tab={c}
+          role="tab"
+          aria-selected={c === 'Todos' ? 'true' : 'false'}
+        >
+          {c}
+          <span class="text-xs opacity-50 ml-1">{countFor(c)}</span>
+        </button>
+      ))
+    }
+  </div>
+  <!-- Grid de miembros -->
+  <div
+    id="members-grid"
+    class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 place-content-center"
+  >
+    {
+      sortedMembers.map((member) => (
+        <div class="member-item" data-comision={JSON.stringify(member.Commission)}>
+          <MemberCard {...member} />
+        </div>
+      ))
+    }
+  </div>
 </section>
 <script>
-	const cssVars = getComputedStyle(document.documentElement);
-	const v = (name: string) => cssVars.getPropertyValue(name).trim();
-	const TAB_COLORS: Record<string, string> = {
-		Organizer: v('--color-gdg-halftone-blue'),
-		Decoración: v('--color-gdg-pastel-red'),
-		Desarrollo: v('--color-gdg-pastel-blue'),
-		Diseño: v('--color-gdg-red'),
-		Logística: v('--color-gdg-halftone-green'),
-		Marketing: v('--color-gdg-halftone-yellow'),
-		Staff: v('--color-gdg-pastel-green'),
-		Transmisión: v('--color-gdg-halftone-red'),
-	};
+  const cssVars = getComputedStyle(document.documentElement);
+  const v = (name: string) => cssVars.getPropertyValue(name).trim();
+  const TAB_COLORS: Record<string, string> = {
+    Organizer: v('--color-gdg-halftone-blue'),
+    Decoración: v('--color-gdg-pastel-red'),
+    Desarrollo: v('--color-gdg-pastel-blue'),
+    Diseño: v('--color-gdg-red'),
+    Logística: v('--color-gdg-halftone-green'),
+    Marketing: v('--color-gdg-halftone-yellow'),
+    Staff: v('--color-gdg-pastel-green'),
+    Transmisión: v('--color-gdg-halftone-red'),
+  };
 
-	const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
-	const items = document.querySelectorAll<HTMLElement>('.member-item');
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const items = document.querySelectorAll<HTMLElement>('.member-item');
 
-	function setTab(selected: string) {
-		tabs.forEach((tab) => {
-			const isActive = tab.dataset.tab === selected;
-			tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-			tab.style.borderColor = '';
-			tab.style.color = '';
-			if (isActive) {
-				const color = selected === 'Todos' ? '#a1a1aa' : (TAB_COLORS[selected] ?? '#a1a1aa');
-				tab.style.borderColor = color;
-				tab.style.color = color;
-			}
-		});
-		items.forEach((item) => {
-			const comisiones = JSON.parse(item.dataset.comision ?? '[]');
-			item.style.display = selected === 'Todos' || comisiones.includes(selected) ? '' : 'none';
-		});
-	}
-	tabs.forEach((tab) => tab.addEventListener('click', () => setTab(tab.dataset.tab ?? 'Todos')));
-	setTab('Todos');
+  function setTab(selected: string) {
+    tabs.forEach((tab) => {
+      const isActive = tab.dataset.tab === selected;
+      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      tab.style.borderColor = '';
+      tab.style.color = '';
+      if (isActive) {
+        const color = selected === 'Todos' ? '#a1a1aa' : (TAB_COLORS[selected] ?? '#a1a1aa');
+        tab.style.borderColor = color;
+        tab.style.color = color;
+      }
+    });
+    items.forEach((item) => {
+      const comisiones = JSON.parse(item.dataset.comision ?? '[]');
+      item.style.display = selected === 'Todos' || comisiones.includes(selected) ? '' : 'none';
+    });
+  }
+  tabs.forEach((tab) => tab.addEventListener('click', () => setTab(tab.dataset.tab ?? 'Todos')));
+  setTab('Todos');
 </script>

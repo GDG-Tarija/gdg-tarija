@@ -1,8 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from 'components/iwd2026/Footer.astro';
+import Cta from 'components/iwd2026/cta/Cta.astro';
+import Navbar from 'components/iwd2026/Navbar.astro';
+import ParticlesBg from 'components/iwd2026/ParticlesBg.astro';
 ---
 
-<Layout title='Break The Pattern' description='IWD - 11 de Abril, 2026 - Tarija, Bolivia'>
+<Layout
+	title='Break The Pattern'
+	description="IWD - 11 de Abril, 2026 - Tarija, Bolivia">
+	<ParticlesBg />
+	<Navbar />
+	<Cta />
 	<Footer />
 </Layout>
