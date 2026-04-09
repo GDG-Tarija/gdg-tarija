@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Jhoselyn Fernández Ojeda",
+    "img_path": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981445/Jhoselyn_Fernandez_Ojeda_yxbig8.png",
+    "title": "ATRÉVETE ANTES DE SENTIRTE LISTA: MI CAMINO IMPERFECTO HACIA LA TECNOLOGÍA",
+    "description": "Una charla sobre cómo construí mi camino en tecnología desde cero, enfrentando miedos, obstáculos y aprendiendo nuevas tecnologías en el proceso, con el objetivo de inspirar a otras mujeres a atreverse a intentarlo."
+  },
+  {
+    "name": "Leslie Rocío Acosta Martínez ",
+    "img_path": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775744055/Leslie_Acosta_jr95vb.jpg",
+    "title": "EL INICIO Y CRECIMIENTO DE CHURA LOMBRIZ: UNA HISTORIA PARA INSPIRAR A JÓVENES EMPRENDEDORES",
+    "description": "Experiencia de Chura Lombriz como emprendimiento en la investigación científica en compostaje, tratamiento de aguas residuales y restauración de suelos, desarrollada desde la docencia universitaria y compartida en congresos con estudiantes y la población en general."
+  },
+  {
+    "name": "Paola Angelica Callahuara Mallcu",
+    "img_path": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775744055/Paola_Callahuara_cfitya.jpg",
+    "title": "ROMPER EL MOLDE: SER MUJER EN TECNOLOGÍA SIN DEJAR DE SER TÚ",
+    "description": "Una charla para romper estereotipos sobre el mundo tecnológico, mostrando que no solo se trata de habilidades técnicas, sino también de disciplina, liderazgo y comunicación, con el objetivo de inspirar a más jóvenes a construir su propio camino en tecnología."
+  },
+  {
+    "name": "Gabriela Nathaly Torrico",
+    "img_path": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775744005/Gabriela_Torrico_glks7h.jpg",
+    "title": "Still Not Giving Up",
+    "description": "Esta charla cuenta mi experiencia como mujer en soporte técnico durante más de 5 años, enfrentando desafíos técnicos, físicos y emocionales en un entorno donde muchas veces sentí que no era mi lugar. A pesar de las dudas, el miedo y los obstáculos, nunca dejé mi meta de convertirme en QA, un objetivo que perseguí durante casi 8 años hasta lograrlo. Esta historia no trata solo de alcanzar una meta, sino de todo lo que pasa en el camino: inseguridades, tropiezos y la fuerza que se construye al no rendirse. El objetivo es que más mujeres en tecnología se sientan identificadas, acompañadas y capaces de lograrlo."
+  }
+]
