@@ -7,6 +7,8 @@
     justify-content: center;
     align-items: flex-start;
     margin: auto;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
 }
 
 .speakers-title {
@@ -54,6 +56,7 @@
     height: 25rem;
     background-color: rgba(255, 255, 255, 0.09);
     transition: all 200ms;
+    position: relative;
 }
 
 .speaker-card-line {
@@ -63,7 +66,14 @@
     border: none;
 }
 
-.speaker-photo>img {
+.speaker-photo-container{
+    display: flex;
+    width: 8rem;
+    height: 8rem;
+    position: relative;
+}
+
+.speaker-photo {
     display: flex;
     width: 8rem;
     height: 8rem;
@@ -112,4 +122,188 @@
 
 .speaker-card:hover>.speaker-card-description {
     -webkit-line-clamp: 20;
+}
+
+
+.speaker-photo {
+    position: relative;
+    overflow: hidden;
+    animation: glitch-trigger 5s infinite;
+}
+
+.speaker-photo::before,
+.speaker-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.speaker-photo::before {
+    animation: glitch-layer-r 5s infinite;
+}
+
+.speaker-photo::after {
+    animation: glitch-layer-b 5s infinite;
+}
+
+.speaker-photo > img {
+    position: relative;
+    z-index: 1;
+}
+
+.scanlines {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.12) 2px,
+        rgba(0, 0, 0, 0.12) 4px
+    );
+    opacity: 0;
+    animation: scanline-flash 5s infinite;
+}
+
+
+@keyframes glitch-trigger {
+    0%, 16%, 100% {
+        transform: translate(0);
+        filter: none;
+    }
+    2% {
+        transform: translate(-3px, 1px);
+        filter: saturate(1.8);
+    }
+    4% {
+        transform: translate(4px, -2px);
+        filter: hue-rotate(15deg);
+    }
+    6% {
+        transform: translate(-2px, 3px) skewX(-2deg);
+        filter: saturate(2) brightness(1.1);
+    }
+    8% {
+        transform: translate(3px, -1px) skewX(1deg);
+        filter: hue-rotate(-10deg);
+    }
+    10% {
+        transform: translate(-4px, 2px);
+        filter: saturate(1.5) contrast(1.2);
+    }
+    12% {
+        transform: translate(2px, -3px) skewX(-1deg);
+        filter: hue-rotate(20deg) brightness(1.15);
+    }
+    14% {
+        transform: translate(-1px, 1px);
+        filter: saturate(1.2);
+    }
+}
+
+@keyframes glitch-layer-r {
+    0%, 16%, 100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+    2% {
+        opacity: 0.7;
+        transform: translate(-5px, 0);
+        mix-blend-mode: screen;
+        background-color: rgba(255, 0, 50, 0.25);
+        clip-path: inset(20% 0 50% 0);
+    }
+    4% {
+        opacity: 0.5;
+        transform: translate(4px, 2px);
+        clip-path: inset(60% 0 10% 0);
+    }
+    6% {
+        opacity: 0.8;
+        transform: translate(-6px, -1px);
+        clip-path: inset(10% 0 70% 0);
+    }
+    8% {
+        opacity: 0.4;
+        transform: translate(3px, 0);
+        clip-path: inset(40% 0 30% 0);
+    }
+    10% {
+        opacity: 0.6;
+        transform: translate(-4px, 1px);
+        clip-path: inset(55% 0 15% 0);
+    }
+    12% {
+        opacity: 0.3;
+        transform: translate(2px, -1px);
+        clip-path: inset(25% 0 60% 0);
+    }
+    14% {
+        opacity: 0.1;
+        transform: translate(-1px, 0);
+        clip-path: inset(0);
+    }
+}
+
+@keyframes glitch-layer-b {
+    0%, 16%, 100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+    2% {
+        opacity: 0.5;
+        transform: translate(5px, -1px);
+        mix-blend-mode: screen;
+        background-color: rgba(0, 150, 255, 0.25);
+        clip-path: inset(50% 0 20% 0);
+    }
+    4% {
+        opacity: 0.7;
+        transform: translate(-3px, 1px);
+        clip-path: inset(10% 0 60% 0);
+    }
+    6% {
+        opacity: 0.4;
+        transform: translate(6px, 2px);
+        clip-path: inset(70% 0 5% 0);
+    }
+    8% {
+        opacity: 0.8;
+        transform: translate(-5px, -2px);
+        clip-path: inset(30% 0 40% 0);
+    }
+    10% {
+        opacity: 0.5;
+        transform: translate(4px, 0);
+        clip-path: inset(15% 0 55% 0);
+    }
+    12% {
+        opacity: 0.6;
+        transform: translate(-2px, 1px);
+        clip-path: inset(45% 0 25% 0);
+    }
+    14% {
+        opacity: 0.15;
+        transform: translate(1px, 0);
+        clip-path: inset(0);
+    }
+}
+
+@keyframes scanline-flash {
+    0%, 16%, 100% { opacity: 0; }
+    2%, 14% { opacity: 1; }
+}
+
+
+@media (max-width: 480px) {
+    .speaker-card {
+        height: auto;
+        width: 16rem;
+    }
 }

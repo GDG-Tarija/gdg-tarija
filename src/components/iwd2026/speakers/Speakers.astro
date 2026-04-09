@@ -1,78 +1,24 @@
 ---
 import "./speakers.css";
 import speakers from "./speakers.json";
-
-const icons: Record<string, string> = {
-  facebook: 'fa-brands fa-facebook',
-  instagram: 'fa-brands fa-instagram',
-  linkedin: 'fa-brands fa-linkedin',
-  youtube: 'fa-brands fa-youtube',
-  tiktok: 'fa-brands fa-tiktok',
-  github: 'fa-brands fa-github',
-  web: 'fa-solid fa-globe',
-  website: 'fa-solid fa-globe',
-};
 ---
 <article id="speakers" class="speakers-container">
     <h4 class="speakers-title">Speakers</h4>
     <h1 class="speakers-large-title">Conoce a las voces del cambio</h1>
     <hr class="speakers-line">
-
     <section class="speakers-list">
-  {speakers.map((item) =>
-
-                <section class="speaker-card">
-                        <hr class="speaker-card-line">
-                        <div class="speaker-photo">
-                            <img src={item.img_path} alt={item.name}/>
-                        </div>
-                        <div class="speaker-name">{item.name}</div>
-                        <div class="speaker-card-title">{item.title}</div>
-                        <hr class="speaker-card-line-info">
-                        <div class="speaker-card-description">{item.description}</div>
-                </section>
-        )}
+    {speakers.map((item, index) =>
+            <section class="speaker-card">
+                    <div class="scanlines" style={`animation-delay: ${index * 1.2}s`}></div>
+                    <hr class="speaker-card-line">
+                    <div class="speaker-photo-container">
+                        <img src={item.img_path} class="speaker-photo" alt={item.name}  style={`animation-delay: ${index * 1.2}s`}/>
+                    </div>
+                    <div class="speaker-name">{item.name}</div>
+                    <div class="speaker-card-title">{item.title}</div>
+                    <hr class="speaker-card-line-info">
+                    <div class="speaker-card-description">{item.description}</div>
+            </section>
+     )}
     </section>
-
 </article>
-
-<!-- <section id="speakers" class="speakers-container">
-    <h1 class="speakers-title">TALLERES</h1>
-
-    <section class="speakers-list">
-
-        {speakers.map((item) =>
-
-                <section class={`speaker-card level-${item.level}`}>
-                    <section class="speaker-card-left">
-                        <div class={`speaker-card-category category-${item.category}`}>{item.category}</div>
-                        <div class="speaker-photo">
-                            <img src={item.img_path} alt={item.name}/>
-                        </div>
-                        <div class="speaker-name">{item.name}</div>
-                        <div class="speaker-title">{item.profession}</div>
-                        <div class="speaker-social-media">
-                            {Object.entries(item.links).map(([key, url]) => {
-                                const iconClass = icons[key.toLowerCase()] ?? 'fa-solid fa-link';
-
-                                return (
-                                        <a href={url}
-                                           title={key}
-                                           target="_blank"
-                                           rel="noopener noreferrer"
-                                        >
-                                            <i class={`${iconClass} text-xl`}></i>
-                                        </a>
-                                );
-                            })}
-                        </div>
-                    </section>
-                    <section class="speaker-card-right">
-                        <div class="speaker-card-title">{item.title}</div>
-                        <div class="speaker-card-description">{item.description}</div>
-                    </section>
-                </section>
-        )}
-    </section>
-
-</section> -->
