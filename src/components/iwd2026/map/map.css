@@ -3,7 +3,7 @@
     padding: 2rem;
     flex-direction: column;
     gap: 1.5rem;
-    background-color: #000B2E;
+    background-color: var(--color-iwd-dark-navy);
     justify-content: center;
     align-items: flex-start;
     margin: auto;
@@ -12,7 +12,7 @@
 .map-title {
     margin: auto;
     font-size: 1rem;
-    color: #1CE9B6;
+    color: var(--color-iwd-accent);
     text-align: left;
     width: 100%;
 }
@@ -29,7 +29,7 @@
 .map-line {
     width: 5rem;
     height: 0.75rem;
-    background-color: #1CE9B6;
+    background-color: var(--color-iwd-accent);
 }
 
 .map-info-container {
@@ -42,7 +42,7 @@
 .map-info-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .info-item {
@@ -70,7 +70,7 @@
 }
 
 .info-data>h3 {
-    color: #1CE9B6;
+    color: var(--color-iwd-accent);
     font-weight: bold;
 }
 
@@ -79,9 +79,12 @@
     font-size: x-large;
 }
 
-@media (max-width: 480px) {
-    .map-card {
-        height: auto;
-        width: 16rem;
+.info-data>p {
+    opacity: 0.5;
+}
+
+@media (max-width: 680px) {
+    .map-frame {
+        width: 100%;
     }
 }

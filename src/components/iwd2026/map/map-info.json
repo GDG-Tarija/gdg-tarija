@@ -2,19 +2,25 @@
   {
     "icon": "fa-solid fa-calendar-days",
     "title": "FECHA",
-    "subtitle":"8 de Marzo, 2026",
+    "subtitle": "11 de Abril, 2026",
     "info": "International Women's Day"
   },
-    {
-    "icon": "fa-solid fa-calendar-days",
-    "title": "FECHA",
-    "subtitle":"8 de Marzo, 2026",
-    "info": "International Women's Day"
+  {
+    "icon": "fa-solid fa-clock",
+    "title": "HORARIO",
+    "subtitle": "9:00 AM – 12:00 AM",
+    "info": "Puertas abren a las 8:30 AM"
   },
-    {
-    "icon": "fa-solid fa-calendar-days",
-    "title": "FECHA",
-    "subtitle":"8 de Marzo, 2026",
-    "info": "International Women's Day"
+  {
+    "icon": "fa-solid fa-location-dot",
+    "title": "LUGAR",
+    "subtitle": "Auditorio - Instituto Técnico Domingo Savio",
+    "info": "Av. La Banda, Tarija"
+  },
+  {
+    "icon": "fa-solid fa-ticket",
+    "title": "ENTRADA",
+    "subtitle": "Gratuita con registro",
+    "info": "Cupo limitado a 200 personas"
   }
 ]

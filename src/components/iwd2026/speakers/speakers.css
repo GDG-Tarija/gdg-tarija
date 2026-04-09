@@ -3,7 +3,7 @@
     padding: 2rem;
     flex-direction: column;
     gap: 1.5rem;
-    background-color: #0334AB;
+    background-color: var(--color-iwd-blue-primary);
     justify-content: center;
     align-items: flex-start;
     margin: auto;
@@ -14,7 +14,7 @@
 .speakers-title {
     margin: auto;
     font-size: 1rem;
-    color: #1CE9B6;
+    color: var(--color-iwd-accent);
     text-align: left;
     width: 100%;
 }
@@ -31,7 +31,7 @@
 .speakers-line {
     width: 5rem;
     height: 0.75rem;
-    background-color: #1CE9B6;
+    background-color: var(--color-iwd-accent);
 }
 
 .speakers-list {
@@ -62,7 +62,7 @@
 .speaker-card-line {
     width: 100%;
     height: 0.2rem;
-    background-color: #1CE9B6;
+    background-color: var(--color-iwd-accent);
     border: none;
 }
 
@@ -78,7 +78,7 @@
     width: 8rem;
     height: 8rem;
     object-fit: cover;
-    background-color: #0334AB;
+    background-color: var(--color-iwd-blue-primary);
     margin-bottom: 0.5rem;
 }
 
@@ -95,11 +95,11 @@
 }
 
 .speaker-profession {
-    color: #1CE9B6;
+    color: var(--color-iwd-accent);
 }
 
 .speaker-card-title {
-    color: #1CE9B6;
+    color: var(--color-iwd-accent);
     font-weight: lighter;
     line-height: 1.5;
 }

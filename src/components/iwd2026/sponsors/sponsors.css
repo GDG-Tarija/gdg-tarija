@@ -3,7 +3,7 @@
     padding: 2rem;
     flex-direction: column;
     gap: 1.5rem;
-    background-color: black;
+    background-color: var(--color-iwd-black);
     justify-content: center;
     align-items: flex-start;
     margin: auto;
@@ -12,7 +12,7 @@
 .sponsors-title {
     margin: auto;
     font-size: 1rem;
-    color: #1CE9B6;
+    color: var(--color-iwd-accent);
     text-align: left;
     width: 100%;
 }
@@ -29,7 +29,7 @@
 .sponsors-line {
     width: 5rem;
     height: 0.75rem;
-    background-color: #1CE9B6;
+    background-color: var(--color-iwd-accent);
 }
 
 .sponsors-list {
