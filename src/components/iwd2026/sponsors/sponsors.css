@@ -1,9 +1,12 @@
+.sponsors-wrapper {
+    background-color: var(--color-iwd-black);
+}
+
 .sponsors-container {
     display: flex;
     padding: 2rem;
     flex-direction: column;
     gap: 1.5rem;
-    background-color: var(--color-iwd-black);
     justify-content: center;
     align-items: flex-start;
     margin: auto;
@@ -53,7 +56,7 @@
     transition: all 200ms;
 }
 
-.sponsor-card:hover{
+.sponsor-card:hover {
     transform: scale(1.1);
 }
 
@@ -68,11 +71,12 @@
 
 .sponsor-name {
     font-weight: bold;
+    text-align: center;
 }
 
 @media (max-width: 480px) {
     .sponsor-card {
         height: auto;
-        width: 16rem;
+        width: 12rem;
     }
 }

@@ -1,9 +1,12 @@
+.map-wrapper {
+    background-color: var(--color-iwd-dark-navy);
+}
+
 .map-container {
     display: flex;
     padding: 2rem;
     flex-direction: column;
     gap: 1.5rem;
-    background-color: var(--color-iwd-dark-navy);
     justify-content: center;
     align-items: flex-start;
     margin: auto;
@@ -35,7 +38,7 @@
 .map-info-container {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: 2rem;
 }
@@ -51,6 +54,7 @@
     align-items: center;
     gap: 1rem;
     color: white;
+    flex-wrap: wrap;
 }
 
 .info-icon {
@@ -68,6 +72,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    max-width: 20rem;
 }
 
 .info-data>h3 {
@@ -78,6 +83,7 @@
 .info-data>h4 {
     font-weight: bold;
     font-size: x-large;
+    
 }
 
 .info-data>p {

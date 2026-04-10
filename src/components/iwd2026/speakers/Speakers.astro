@@ -2,23 +2,25 @@
 import "./speakers.css";
 import speakers from "./speakers.json";
 ---
-<article id="speakers" class="speakers-container">
-    <h4 class="speakers-title">Speakers</h4>
-    <h1 class="speakers-large-title">Conoce a las voces del cambio</h1>
-    <hr class="speakers-line">
-    <section class="speakers-list">
-    {speakers.map((item, index) =>
-            <section class="speaker-card">
-                    <div class="scanlines" style={`animation-delay: ${index * 1.2}s`}></div>
-                    <hr class="speaker-card-line">
-                    <div class="speaker-photo-container">
-                        <img src={item.img_path} class="speaker-photo" alt={item.name}  style={`animation-delay: ${index * 1.2}s`}/>
-                    </div>
-                    <div class="speaker-name">{item.name}</div>
-                    <div class="speaker-card-title">{item.title}</div>
-                    <hr class="speaker-card-line-info">
-                    <div class="speaker-card-description">{item.description}</div>
-            </section>
-     )}
+<article id="speakers" class="speakers-wrapper">
+    <section class="speakers-container max-w-7xl">
+        <h4 class="speakers-title">Speakers</h4>
+        <h1 class="speakers-large-title">Conoce a las voces del cambio</h1>
+        <hr class="speakers-line">
+        <section class="speakers-list">
+        {speakers.map((item, index) =>
+                <section class="speaker-card">
+                        <div class="scanlines" style={`animation-delay: ${index * 1.2}s`}></div>
+                        <hr class="speaker-card-line">
+                        <div class="speaker-photo-container">
+                            <img src={item.img_path} class="speaker-photo" alt={item.name}  style={`animation-delay: ${index * 1.2}s`}/>
+                        </div>
+                        <div class="speaker-name">{item.name}</div>
+                        <div class="speaker-card-title">{item.title}</div>
+                        <hr class="speaker-card-line-info">
+                        <div class="speaker-card-description">{item.description}</div>
+                </section>
+        )}
+        </section>
     </section>
 </article>

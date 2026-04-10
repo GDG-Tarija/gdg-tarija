@@ -3,5 +3,10 @@
     "name": "Delve",
     "img_path": "/img/events/iwd2026/delve.png",
     "url": "https://delveedu.com/"
+  },
+  {
+    "name": "Instituto Técnico Domingo Savio",
+    "img_path": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775770278/ITDS_AZUL_izx0i4.png",
+    "url": "https://itdstarija.edu.bo/"
   }
 ]
