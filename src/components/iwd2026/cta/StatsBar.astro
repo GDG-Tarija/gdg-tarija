@@ -15,13 +15,13 @@ const stats: Stat[] = [
 
 <div
 	id='stats-bar'
-	class='relative w-[70%] md:w-3/5 xl:w-1/2 justify-items-end z-10 bg-black/45 animate-fade-iwd-up [animation-delay:1100ms]'>
-	<div class="flex sm:max-w-100 md:max-w-2xl lg:w-3xl ps-3 lg:ps-0 justify-end">
+	class='relative w-[70%] md:w-3/5 xl:w-[45%] 2xl:w-1/2 justify-items-end z-10 bg-black/45 animate-fade-iwd-up [animation-delay:1100ms]'>
+	<div class="flex sm:max-w-100 md:max-w-120 lg:max-w-161 ps-3 lg:ps-0 justify-end">
 		<div class='grid grid-cols-4'>
 			{
 				stats.map((s, i) => (
 					<div
-						class='flex flex-col items-start px-3 py-3 md:px-5 md:py-4 lg:py-5 lg:px-[1.6rem] 2xl:px-10 hover:bg-white/5 transition-colors duration-200'
+						class='flex flex-col items-start px-3 py-3 md:px-5 md:py-4 lg:py-5 lg:px-[1.4rem] 2xl:px-10 hover:bg-white/5 transition-colors duration-200'
 						data-value={s.value}
 						style={`animation-delay: ${1100 + i * 100}ms`}>
 						<span class='stat-value text-iwd-accent font-black font-display leading-none text-[clamp(1.3rem,4vw,2rem)]'>
