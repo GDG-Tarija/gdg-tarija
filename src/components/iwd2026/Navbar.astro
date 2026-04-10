@@ -9,10 +9,10 @@ interface NavLink {
 
 const links: NavLink[] = [
 	{ label: 'Inicio', href: '#inicio' },
-	{ label: 'Speakers', href: '#speakers' },
-	{ label: 'Agenda', href: '#agenda' },
-	{ label: 'Sponsors', href: '#sponsors' },
 	{ label: 'Lugar', href: '#lugar' },
+	{ label: 'Speakers', href: '#speakers' },
+	{ label: 'Sponsors', href: '#sponsors' },
+	{ label: 'Agenda', href: '#agenda' },
 ];
 
 const REGISTRO_URL =
@@ -21,7 +21,8 @@ const REGISTRO_URL =
 
 <header
 	id='navbar'
-	class='fixed top-0 left-0 right-0 z-50 flex max-w-7xl mx-auto items-center justify-between px-6 xl:px-20 2xl:px-0 py-4 transition-all duration-500 animate-fade-iwd-in'>
+	class='fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-500 animate-fade-iwd-in'>
+	<div class="flex max-w-7xl mx-auto items-center justify-between px-6 2xl:px-8">
 	<a
 		href='https://www.technovation.org/women-techmakers/'
 		target='_blank'
@@ -69,6 +70,7 @@ const REGISTRO_URL =
 			class='w-6 h-0.5 bg-white block transition-all duration-300 opacity-0 group-aria-expanded:opacity-100 group-aria-expanded:-rotate-45 group-aria-expanded:-translate-y-2.5'
 		></span>
 	</button>
+	</div>
 </header>
 <!-- Mobile drawer -->
 <div
