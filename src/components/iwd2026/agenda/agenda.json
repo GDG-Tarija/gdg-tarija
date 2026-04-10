@@ -1,0 +1,34 @@
+[
+  {
+    "hour": "08:30",
+    "description": "Registro e inauguración"
+  },
+  {
+    "hour": "09:00",
+    "description": "UNA HISTORIA PARA INSPIRAR A JÓVENES EMPRENDEDORES"
+  },
+  {
+    "hour": "09:30",
+    "description": "MI CAMINO IMPERFECTO HACIA LA TECNOLOGÍA "
+  },
+  {
+    "hour": "10:00",
+    "description": "STILL NOT GIVING UP"
+  },
+    {
+    "hour": "10:30",
+    "description": "SER MUJER EN TECNOLOGÍA SIN DEJAR DE SER TÚ"
+  },
+    {
+    "hour": "10:30",
+    "description": "Refrigerio"
+  },
+    {
+    "hour": "10:45",
+    "description": "Networking (dinámica con premio)"
+  },
+      {
+    "hour": "12:00",
+    "description": "Premiación y despedida."
+  }
+]

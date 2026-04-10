@@ -1,0 +1,30 @@
+---
+import info from "./map-info.json";
+import "./map.css";
+---
+<article id="lugar" class="map-wrapper">
+    <section class="map-container max-w-7xl">
+        <h4 class="map-title">INFORMACIÓN DEL EVENTO</h4>
+        <h1 class="map-large-title">¿Cómo llegar?</h1>
+        <hr class="map-line">
+
+        <section class="map-info-container">
+            <section class="map-info-list">
+
+            {info.map((item) =>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class={item.icon} aria-hidden='true'></i>
+                    </div>
+                    <div class="info-data">
+                        <h3>{item.title}</h3>
+                        <h4>{item.subtitle}</h4>
+                        <p>{item.info}</p>
+                    </div>
+                </div>
+            )}
+            </section>
+            <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6241.453763181996!2d-64.73023693123713!3d-21.53940088589127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94064809bb187429%3A0x298cd29b61717ed7!2sInstituto%20T%C3%A9cnico%20Domingo%20Savio!5e0!3m2!1ses!2sbo!4v1775750441954!5m2!1ses!2sbo" width="60%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+    </section>
+</article>

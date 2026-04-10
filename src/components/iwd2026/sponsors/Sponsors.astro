@@ -1,0 +1,25 @@
+---
+import "./sponsors.css";
+import sponsors from "./sponsors.json";
+---
+<article id="sponsors" class="sponsors-wrapper">
+    <section class="sponsors-container max-w-7xl">
+        <h4 class="sponsors-title">Sponsors</h4>
+        <h1 class="sponsors-large-title">Quienes hacen esto posible</h1>
+        <hr class="sponsors-line">
+
+        <section class="sponsors-list">
+    {sponsors.map((item) =>
+                    <a
+                    class="sponsor-card"
+                    href={item.url}
+                    target="_blank">
+                            <div class="sponsor-photo">
+                                <img src={item.img_path} alt={item.name}/>
+                            </div>
+                            <div class="sponsor-name">{item.name}</div>
+                    </a>
+            )}
+        </section>
+    </section>
+</article>
