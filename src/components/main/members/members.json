@@ -5,7 +5,7 @@
     "Linkedin": "www.linkedin.com/in/antoniomiranda-sistemas",
     "Instagram": "https://www.instagram.com/antoniojm_28",
     "About": "Soy estudiante de Ingeniería de Sistemas en la Universidad Católica Boliviana, con interés en el desarrollo de software y la creación de aplicaciones.",
-    "Commission": ["Marketing"]
+    "Commission": ["Marketing", "Logística"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981625/Pedro_Anze_prarxu.png",
@@ -23,14 +23,14 @@
     "Linkedin": "https://www.linkedin.com/in/kevin-flores-631a16189?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     "Github": "https://github.com/kevinfloresvallejos",
     "About": "Apasionado por la tecnología, low code in AppSheet",
-    "Commission": ["Decoración", "Staff"]
+    "Commission": ["Developer", "Decoración", "Staff"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774973459/Miguel_Teran_hcdemz.jpg",
     "Name": "Miguel Terán",
     "Github": "https://github.com/MiguelT18",
     "About": "Ingeniero de software full-stack enfocado en crear productos tecnológicos y explorar nuevas tecnologías. Interesado en IA, ciberseguridad y sistemas; participo en GDG para aprender, compartir y colaborar en innovación.",
-    "Commission": ["Marketing", "Desarrollo"]
+    "Commission": ["Marketing"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774971369/FRANZ_CARLOS_CACERES_AUCA_swptlh.jpg",
@@ -59,10 +59,7 @@
     "Name": "Santiago Garcia",
     "Instagram": "https://www.instagram.com/san_gm__?igsh=MW53dWlldXM1NWFpZw==",
     "About": "Amante de java, gatos, perros y hamburguesas.",
-    "Commission": [
-      "Marketing",
-      "Transmisión"
-    ]
+    "Commission": ["Diseño", "Marketing", "Transmisión"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774971372/Valeria_Duran_v1yb1o.webp",
@@ -93,14 +90,14 @@
     "Instagram": "https://www.instagram.com/jh_silvi?igsh=MTN2d3Z2bHNjamdkMg==",
     "Github": "https://github.com/silvi3110",
     "About": "Estudiante de Ingeniería de Sistemas que cree en el poder de la tecnología para transformar realidades. Apasionada por la innovación, el aprendizaje continuo y el impacto positivo en la sociedad.",
-    "Commission": ["Logística", "Marketing", "Decoración"]
+    "Commission": ["Logística", "Decoración", "Marketing"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981447/Doris_Lima_Matias_dinusx.jpg",
     "Name": "Doris Lima",
     "Instagram": "https://www.instagram.com/_doris_lima_tja/",
     "About": "Profesional con pensamiento crítico, enfoque analítico y orientación a resultados",
-    "Commission": ["Marketing", "Diseño"]
+    "Commission": ["Decoración", "Marketing", "Diseño"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774972504/Alex_Flores_j2bq8n.jpg",
@@ -109,7 +106,7 @@
     "Instagram": "https://www.instagram.com/alexflores.png/",
     "Github": "https://github.com/warachidev",
     "About": "Ing. de Sistemas apasionado por el Frontend (React) y miembro de GDG Tarija hace 2 años. Si no estoy programando, me encontrarás en los disfrutando de los paisajes de Teyvat o con mis 8 gatos.",
-    "Commission": ["Desarrollo", "Diseño", "Transmisión"]
+    "Commission": ["Developer", "Diseño", "Transmisión"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774971367/Rodrigo_Sulca_kubreb.jpg",
@@ -117,7 +114,7 @@
     "Linkedin": "https://www.linkedin.com/in/rodrigo-e-sulca/",
     "Github": "https://github.com/rozuke",
     "About": "Soy un desarrollador Full-stack trabajo con el stack de .Net/Angular en Jalasoft. Me interesa aprender sobre IA y programación a bajo nivel.",
-    "Commission": ["Decoración", "Desarrollo", "Staff"]
+    "Commission": ["Decoración", "Logística", "Staff"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774971373/Ana_Gabriel_ipbf0c.jpg",
@@ -142,14 +139,14 @@
     "Facebook": "https://www.facebook.com/share/1DUCfd3Vad/",
     "Instagram": "https://www.instagram.com/pati_ramirez_mauw",
     "About": "Amo la investigación, me llama la atención el análisis de datos y los proyectos de impacto social. Soy curiosa, analítica y me motiva crear soluciones que ayuden a las personas a desarrollar su máximo potencial.",
-    "Commission": ["Marketing"]
+    "Commission": ["Decoración", "Marketing"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981691/Fabiola_Ortega_qiokpa.jpg",
     "Name": "Fabiola Ortega",
     "Linkedin": "https://www.linkedin.com/in/fabiola-ortega-soruco-172517310/",
     "About": "Hola! soy Fabiola Ortega Soruco, egresada en Derecho y Técnica en Mkt & Publicidad, actualmente trabajo en ambos rubros. Me encanta leer sobre temas de mis profesiones, actualizarme en el área Marketera.",
-    "Commission": ["Marketing"]
+    "Commission": ["Decoración", "Marketing"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981445/Jhoselyn_Fernandez_Ojeda_yxbig8.png",
@@ -168,7 +165,7 @@
     "Instagram": "https://www.instagram.com/soyjoeljonatan/",
     "Beacons": "https://beacons.ai/soyjoeljonatan",
     "About": "Soy estratega visual y UX Designer que fusiona tecnología, academia y arte. Lic. en Comunicación Social, Docente, Jefe de Carrera de Diseño, Local Lead IxDF Tarija, Músico y Director Musical con +5 años de experiencia.",
-    "Commission": ["Logística", "Diseño", "Marketing", "Staff"]
+    "Commission": ["Diseño", "Logística", "Marketing", "Staff"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981389/David_Fernando_Camata_Baspineiro_x8els5.jpg",
@@ -176,7 +173,7 @@
     "Linkedin": "https://www.linkedin.com/in/fernandocamata",
     "Instagram": "https://www.instagram.com/fernando_cb60?igsh=MW1jaTczZTRnY3VrYQ==",
     "About": "Egresado de Ingeniería Informática, apasionado por el desarrollo de software y la resolución de retos. Disfruto del deporte, las actividades al aire libre y la música como parte de mi equilibrio personal.",
-    "Commission": ["Marketing", "Diseño", "Desarrollo", "Decoración"]
+    "Commission": ["Decoración", "Marketing", "Diseño"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774974003/Segovia_Valdez_Yuleni_Nicol_fyyzf6.jpg",
@@ -184,7 +181,7 @@
     "Linkedin": "https://www.linkedin.com/in/segovia-valdez-yuleni-nicol-81692338b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     "Instagram": "https://www.instagram.com/nicolyuleni_sv?igsh=cHhjYzU1MjBiMTZt",
     "About": "Futura Ingeniera de Sistemas y entusiasta tech. Optimista y resiliente ante retos disruptivos como la IA. Amante del aprendizaje continuo y de hallar en cada tecnología y personas una oportunidad para crecer y aprender.",
-    "Commission": ["Marketing", "Decoración", "Desarrollo"]
+    "Commission": ["Decoración", "Marketing"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774976079/Damaris_Mamani_rbusm2.jpg",
@@ -222,7 +219,7 @@
     "Instagram": "https://www.instagram.com/mauri_rosasv",
     "Sitio_web": "",
     "About": "Ingeniero de sistemas, enfocado en el desarrollo backend y machine learning",
-    "Commission": ["Transmisión", "Diseño"]
+    "Commission": ["Diseño", "Transmisión"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774975642/Angel_Arturo_Espa%C3%B1a_Vacaflor_ska9st.jpg",
@@ -246,7 +243,7 @@
     "Facebook": "https://www.facebook.com/DominguezAmilkar",
     "Sitio_web": "https://amilkardominguez.com/",
     "About": "Desarrollador Full Stack y Tech Lead con experiencia en liderazgo técnico, educación en bootcamps y desarrollo de soluciones innovadoras.",
-    "Commission": ["Desarrollo"]
+    "Commission": ["Developer"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775217633/Jesus_Miranda_wkyxdt.jpg",
@@ -254,13 +251,14 @@
     "Linkedin": "https://www.linkedin.com/in/jesus-miranda-004806264/",
     "Instagram": "https://www.instagram.com/jesusmiranda9634/",
     "About": "Soy un estudiante de ing en software, con una gran pasión por la programación, y entusiasmado en aprender sobre las nuevas tecnologías, me gusta participar en \nproyectos en equipos que amplíen mis conocimientos, y me brindan la oportunidad de crear proyectos personales, me esfuerzo continuamente por mejorar mis habilidades para crecer como desarrollador",
-    "Commission": ["Staff", "Decoración"]
+    "Commission": ["Marketing", "Staff", "Decoración"]
   },
   {
-    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775217633/Angel_Angola_a626ek.jpg",
-    "Name": "Angel Angola",
-    "Instagram": "https://www.instagram.com/neyl_angola?igsh=MXdxdGJtem1wb213Zg%3D%3D",
-    "About": "Otaku, Gamer y un entusiasta de la tecnología",
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1778098132/Neyl_Angola_yg6uth.jpg",
+    "Name": "Neyl Angola",
+    "Facebook": "https://www.facebook.com/angel.angola.52",
+    "Github": "https://github.com/NeylAngola",
+    "About": "Me gustan los videojuegos, los animes y los conocimientos científicos y tecnológicos",
     "Commission": ["Diseño"]
   },
   {
@@ -272,7 +270,7 @@
     "Sitio_web": "",
     "About": "Estudiante de Ingeniería de Sistemas en la Universidad Privada Domingo Savio (UPDS) Desarrollador web con conocimientos en múltiples tecnologías, me apasiona aprender más sobre programación, tecnología y ciencias.",
     "foto": "",
-    "Commission": ["Desarrollo"]
+    "Commission": ["Decoración"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775217942/Alessandro_Dominguez_lbqeqd.jpg",
@@ -280,18 +278,37 @@
     "Linkedin": "https://www.linkedin.com/in/alessandro-dominguez-selaes-086b22234",
     "Github": "https://github.com/Alessandro199510",
     "About": "Developer de aplicaciones móviles, escritorio y web con conocimientos en PHP, Java, C#, phpMyAdmin, Javascript, Angular, Ionic, Laravel, MySql, GitHub, GitLab, Posman entre otros.",
-    "Commission": [
-      "Desarrollo",
-      "Logística"
-    ]
+    "Commission": ["Logística"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775482654/German_Alvarez_fyuge1.jpg",
     "Name": "German Alvarez",
     "Linkedin": "https://www.linkedin.com/in/german-alvarez-copa",
     "About": "Desarrollador web e Ingeniero en Sistemas. Me motiva la intersección entre la lógica técnica y la creatividad digital. Siempre listo para aprender algo nuevo junto al GDG.",
-    "Commission": [
-      "Marketing"
-    ]
+    "Commission": ["Developer", "Marketing"]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1778098132/Yordi_Vega_rnnhjh.jpg",
+    "Name": "Yordi Vega",
+    "Facebook": "https://www.facebook.com/share/1Cy286FXKR/",
+    "About": "Soy una persona curiosa y práctica. Me caracterizo por aplicar lo aprendido en situaciones reales. Me gusta mejorar continuamente y asumir retos. Soy comprometida y enfocada en crecer personal y profesionalmente.",
+    "Commission": ["Marketing", "Staff", "Decoración"]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1778098648/Victor_Subelza_p6lx9z.jpg",
+    "Name": "Victor Subelza",
+    "Linkedin": "https://www.linkedin.com/in/victor-subelza-690824356",
+    "Github": "https://github.com/Pablopedro55",
+    "Instagram": "https://www.instagram.com/victor_subelza129",
+    "About": "Estudiante de Ingeniería de sistemas amante de la tecnología y musico apasionado por vocación.",
+    "Commission": ["Logística", "Staff"]
+  },
+  {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1778098132/Micaela_Lema_xkq4x4.jpg",
+    "Name": "Micaela Lema",
+    "Linkedin": "https://www.linkedin.com/in/micaela-lema-lema",
+    "Facebook": "https://www.facebook.com/micaela.lemalema?locale=es_LA",
+    "About": "Soy una persona creativa, perseverante y ambiciosa. Me gusta superarme día a día y siempre busco crecer y aprender más. Disfruto mucho viajar, hacer ejercicio, las actividades al aire libre y conocer nuevas personas.",
+    "Commission": ["Marketing"]
   }
 ]
