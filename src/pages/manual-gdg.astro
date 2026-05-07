@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Loader from '../components/common/Loader.astro';
+
+const title = 'Manual GDG | GDG Tarija';
+const description = 'Guía y manual para el staff del Google Developer Group Tarija.';
+const image =
+  'https://anze.notion.site/image/attachment%3A9bfc7e22-e0c4-40d0-be65-aa3fc156fe7f%3ACopia_de_GDG-Pro-Digital-WebsiteBanner-2650x500-Red.jpg?table=block&id=35697cf9-3c3c-8032-afa7-eea6128391e4&spaceId=1a4acc86-765d-497b-b027-8ee90c93dbcb&width=2000&userId=&cache=v2';
+
+const redirectUrl = 'https://anze.notion.site/Manual-Staff-35697cf93c3c8032afa7eea6128391e4';
+---
+
+<Layout title={title} description={description} image={image}>
+  <Fragment slot="head">
+    <meta http-equiv="refresh" content={`2;url=${redirectUrl}`} />
+  </Fragment>
+
+  <main class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
+    <Loader text="Redirigiendo..." subtext="Te estamos llevando al manual de staff." />
+  </main>
+</Layout>
