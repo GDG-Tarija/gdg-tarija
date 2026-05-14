@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import "./bwai2026.css";
 @plugin "tailwindcss-animated";
 
 @theme {
@@ -86,7 +87,7 @@ html {
 
   /* Body */
   .card-content {
-    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-linear-to-b from-gray-600 to-gray-700;
+    @apply absolute left-px top-px h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-linear-to-b from-gray-600 to-gray-700;
   }
 
   .card-content:hover .redes-sociales {
