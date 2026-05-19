@@ -1,5 +1,5 @@
-@import 'tailwindcss';
 @import "./bwai2026.css";
+@import 'tailwindcss';
 @plugin "tailwindcss-animated";
 
 @theme {
@@ -27,6 +27,15 @@
   --color-gdg-accent-purple: #9334e6;
 
   --animate-border-spin: border-spin 10s linear infinite;
+
+  /* Animación para el delineado vector */
+  --animate-draw-stroke: draw-stroke 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  
+  @keyframes draw-stroke {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
 
   @keyframes border-spin {
     100% {
