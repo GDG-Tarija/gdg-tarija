@@ -294,7 +294,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
       </div><!-- /countdown -->
 
       <!-- Scroll indicator -->
-      <div class="hero-scroll absolute bottom-6 z-20 opacity-0" aria-hidden="true">
+      <div id='scroll-hero' class="hero-scroll absolute bottom-6 z-20 opacity-0 cursor-pointer" aria-hidden="true">
         <span class="text-gdg-blue text-3xl animate-bounce block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -501,4 +501,10 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
   // Limpieza para View Transitions y bfcache
   document.addEventListener('astro:before-swap', () => clearInterval(timer), { once: true });
   window.addEventListener('pagehide', () => clearInterval(timer), { once: true });
+
+	// Scroll HERO
+	document.getElementById('scroll-hero')?.addEventListener('click', () => {
+		document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+	});
+
 </script>
