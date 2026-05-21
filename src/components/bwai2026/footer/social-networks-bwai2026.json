@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Facebook",
+    "url": "https://www.facebook.com/gdgtarija",
+    "icon": "facebook"
+  },
+  {
+    "name": "Instagram",
+    "url": "https://www.instagram.com/gdgtarija",
+    "icon": "instagram"
+  },
+  {
+    "name": "TikTok",
+    "url": "https://www.tiktok.com/@gdgtarija",
+    "icon": "tiktok"
+  },
+  {
+    "name": "LinkedIn",
+    "url": "https://www.linkedin.com/company/gdg-tarija/",
+    "icon": "linkedin"
+  },
+  {
+    "name": "YouTube",
+    "url": "https://www.youtube.com/channel/UCrXfaMnZX5hDpH85iBrmo1w/videos",
+    "icon": "youtube"
+  }
+]
