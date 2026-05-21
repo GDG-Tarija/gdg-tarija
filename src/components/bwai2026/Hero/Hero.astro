@@ -1,0 +1,510 @@
+---
+import { Image } from 'astro:assets';
+import AuroraBackground from './AuroraBackground.astro';
+import Sparkles from './Sparkles.astro';
+import LogoBuildDark from '../../../assets/images/bwai2026/LogoBuildDark.webp';
+import SkylineTarija from '../../../assets/images/bwai2026/tarija-skyline.svg';
+import Location from '../../../assets/images/bwai2026/location_on.svg';
+import Groups from '../../../assets/images/bwai2026/groups.svg';
+---
+
+<section
+  id="hero"
+  class="flex relative min-h-screen xl:min-h-svh xl:h-dvh w-full items-center overflow-hidden bg-bwai-background"
+  aria-label="Sección principal - Build with AI 2026"
+>
+  <AuroraBackground />
+  <Sparkles />
+
+  <!-- ══════════ CONTENIDO PRINCIPAL ════════════ -->
+
+  <div
+    class="relative z-20 mx-auto w-full max-w-7xl px-6 xl:px-16
+              pt-20 pb-16 lg:pt-24
+              flex flex-col lg:flex-row items-center"
+  >
+    <!-- ──────── COLUMNA IZQUIERDA ───────── -->
+    <div class="hero-left flex-1 basis-[37%] min-w-0 text-white">
+      <!-- Tagline -->
+      <p
+        class="hero-tagline flex justify-center md:justify-start font-sans-code text-gdg-blue font-medium text-sm sm:text-base
+                tracking-tight mb-6 opacity-0"
+      >
+        // The Future is ours to build
+      </p>
+
+      <!-- Título principal -->
+      <div class="hero-title flex opacity-0 mb-8 justify-center md:justify-start">
+        <div class="w-2/3 md:w-4/5">
+          <Image
+            src={LogoBuildDark}
+            alt="Build with AI 2026"
+            widths={[243, 486, 367]}
+            sizes="(max-width: 768px) 243px, 367px"
+            width={367}
+            height={278}
+            class="w-full md:w-75 lg:w-full h-auto"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
+            quality={75}
+          />
+        </div>
+      </div>
+
+      <!-- Detalles del evento -->
+      <ul class="hero-info opacity-0 space-y-2.5 mb-4 font-sans-flex">
+        <li class="flex items-center gap-1 md:gap-2.5 flex-wrap">
+          <span role="img" aria-label="Ubicación">
+            <Image src={Location} alt="Location" height={31} width={31} decoding="async" class="w-5 md:w-7.75"/>
+          </span>
+          <span class="font-medium text-[clamp(1.1rem,1.5vw,1.4rem)]">Tarija, Bolivia</span>
+          <span class="text-bwai-border text-base md:text-2xl">|</span>
+          <span role="img" aria-label="Fecha" class="text-xl md:text-3xl text-gdg-green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
+              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z"/>
+            </svg>
+
+          </span>
+          <span class="font-medium text-[clamp(1.1rem,1.5vw,1.4rem)]">20 de Junio</span>
+          <span role="img" aria-label="Fecha" class="text-3xl md:text-[2.5rem] text-gdg-blue ms-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
+              <path d="M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7h-2z"/>
+            </svg>
+          </span>
+        </li>
+        <li class="flex items-center gap-1 md:gap-2.5">
+          <span role="img" aria-label="Institución">
+            <Image src={Groups} alt="Groups" height={31} width={31} decoding="async" class="w-5 md:w-7.75"/>
+          </span>
+          <span class="font-medium text-[clamp(1.1rem,1.5vw,1.4rem)]"
+            >Universidad Católica Boliviana
+          </span>
+        </li>
+        <li class="flex items-center gap-1 md:gap-2.5">
+          <span role="img" aria-label="Beca Delve" class="text-xl md:text-3xl text-gdg-red">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
+              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.42 3.43 1.4 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.42-3.43-1.4-4.33-3.56zm2.95-8H5.08c.91-2.16 2.5-3.14 4.33-3.56-.6 1.11-1.06 2.31-1.38 3.56zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.9 2.16-2.49 3.14-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
+            </svg>
+          </span>
+          <span class="font-medium text-[clamp(1.1rem,1.5vw,1.4rem)]">Beca a curso de Delve</span>
+        </li>
+      </ul>
+
+      <!-- Descripción -->
+      <p
+        class="hero-desc opacity-0 font-medium text-white/60 text-[clamp(1rem,1.5vw,1.3rem)] leading-relaxed
+                max-w-76 xl:max-w-100 mb-8"
+      >
+        Únete a desarrolladores, creadores e innovadores que están construyendo lo que viene con la
+        IA.
+      </p>
+
+      <!-- CTAs -->
+      <div
+        class="hero-ctas opacity-0 flex items-center justify-center md:justify-start gap-6 flex-wrap"
+      >
+        <!-- Botón primario — registro próximamente -->
+        <button
+          type="button"
+          disabled
+          title="Las inscripciones abren pronto"
+          aria-label="Inscripciones próximamente"
+          class="cta-primary group relative w-full lg:w-auto
+                inline-flex items-center gap-2 justify-center
+                px-6 py-3.5
+                bg-gdg-blue text-white
+                font-semibold text-[clamp(1rem,1.5vw,1.2rem)] rounded-md
+                border border-gdg-blue/50
+                select-none
+                overflow-hidden"
+        >
+          <span class="relative z-10 text-center">Próximamente</span>
+          <span class="relative z-10 group-hover:translate-x-1 transition-transform">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              fill="currentColor"
+              width="14"
+              height="14"
+              class="relative z-10 group-hover:translate-x-1 transition-transform"
+              aria-hidden="true"
+            >
+              <path
+                d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+              ></path>
+            </svg>
+          </span>
+          <!-- shimmer sutil -->
+          <span class="shimmer absolute inset-0" aria-hidden="true"></span>
+        </button>
+
+        <!-- Botón secundario -->
+        <a
+          href="https://gdg.community.dev/e/m9mtrm/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Las inscripciones abren pronto"
+          aria-label="Inscripciones próximamente"
+          class="cta-secondary group relative w-full lg:w-auto
+                inline-flex items-center gap-2 justify-center
+                px-6 py-3.5 text-white/80
+                hover:text-white transition-colors
+                font-semibold text-[clamp(1rem,1.5vw,1.2rem)] rounded-md
+                outline outline-bwai-border
+                select-none
+                overflow-hidden"
+        >
+          <span class="relative z-10 text-center">Conoce más</span>
+          <span class="relative z-10 group-hover:translate-x-1 transition-transform">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 320 512"
+              fill="currentColor"
+              width="10"
+              height="14"
+              class="relative z-10 group-hover:translate-x-1 transition-transform"
+              aria-hidden="true"
+            >
+              <path
+                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+              ></path>
+            </svg>
+          </span>
+          <!-- shimmer sutil -->
+          <span class="shimmer absolute inset-0" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div><!-- /hero-left -->
+
+    <!-- ────────── COLUMNA DERECHA ────────── -->
+    <div class="hero-right flex-1 basis-[63%] min-w-0 flex flex-col items-center gap-6 w-full">
+      <!-- Skyline de Tarija -->
+      <div class="hero-skyline opacity-0 relative w-full">
+        <img
+          src={SkylineTarija.src}
+          alt="Ilustración del skyline de Tarija con sus monumentos principales"
+          width="882"
+          height="405"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+          class="w-full h-auto mx-auto"
+        />
+      </div>
+
+      <!-- Countdown -->
+      <div
+        class="hero-countdown opacity-0 w-full max-w-lg
+                  bg-white/1.5 backdrop-blur-sm
+                  border border-white/6 rounded-md
+                  p-5 sm:p-6"
+      >
+        <p
+          class="text-center text-white/70 text-sm md:text-2xl font-medium mb-5"
+        >
+          El evento comienza en:
+        </p>
+
+        <!-- Grid de tiempo -->
+        <div class="flex items-center justify-center gap-1 sm:gap-2">
+          <!-- Días -->
+          <div class="cd-unit text-center">
+            <div
+              class="cd-card bg-white/5 rounded-md px-3 py-2.5 sm:px-4 sm:py-3
+                        min-w-14.5 sm:min-w-17"
+            >
+              <span
+                id="cd-days"
+                class="text-3xl sm:text-4xl font-medium font-sans-flex text-white tabular-nums block"
+                >00</span
+              >
+            </div>
+            <span class="text-white/70 text-[0.6rem] uppercase tracking-widest mt-2 block">
+              Días
+            </span>
+          </div>
+
+          <span
+            aria-hidden="true"
+            class="cd-dot text-gdg-blue text-4xl md:text-6xl font-bold self-center mb-5">:</span
+          >
+
+          <!-- Horas -->
+          <div class="cd-unit text-center">
+            <div
+              class="cd-card bg-white/5 rounded-md px-3 py-2.5 sm:px-4 sm:py-3
+                        min-w-14.5 sm:min-w-17"
+            >
+              <span
+                id="cd-hours"
+                class="text-3xl sm:text-4xl font-medium font-sans-flex text-white tabular-nums block"
+                >00</span
+              >
+            </div>
+            <span class="text-white/70 text-[0.6rem] uppercase tracking-widest mt-2 block">
+              Horas
+            </span>
+          </div>
+
+          <span
+            aria-hidden="true"
+            class="cd-dot text-gdg-green text-4xl md:text-6xl font-bold self-center mb-5">:</span
+          >
+
+          <!-- Minutos -->
+          <div class="cd-unit text-center">
+            <div
+              class="cd-card bg-white/5 rounded-md px-3 py-2.5 sm:px-4 sm:py-3
+                        min-w-14.5 sm:min-w-17"
+            >
+              <span
+                id="cd-minutes"
+                class="text-3xl sm:text-4xl font-medium font-sans-flex text-white tabular-nums block"
+                >00</span
+              >
+            </div>
+            <span class="text-white/70 text-[0.6rem] uppercase tracking-widest mt-2 block">
+              Minutos
+            </span>
+          </div>
+
+          <span
+            aria-hidden="true"
+            class="cd-dot text-gdg-yellow text-4xl md:text-6xl font-bold self-center mb-5">:</span
+          >
+
+          <!-- Segundos -->
+          <div class="cd-unit text-center">
+            <div
+              class="cd-card bg-white/5 rounded-xl px-3 py-2.5 sm:px-4 sm:py-3
+                        min-w-14.5 sm:min-w-17"
+            >
+              <span
+                id="cd-seconds"
+                class="text-3xl sm:text-4xl font-medium font-sans-code text-white tabular-nums block"
+                >00</span
+              >
+            </div>
+            <span class="text-white/70 text-[0.6rem] uppercase tracking-widest mt-2 block">
+              Segundos
+            </span>
+          </div>
+        </div>
+      </div><!-- /countdown -->
+
+      <!-- Scroll indicator -->
+      <div id='scroll-hero' class="hero-scroll absolute bottom-6 z-20 opacity-0 cursor-pointer" aria-hidden="true">
+        <span class="text-gdg-blue text-3xl animate-bounce block">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+            width="1em"
+            height="1em"
+            fill="currentColor"
+          >
+            <!-- Font Awesome Free 6.x Solid - fa-chevron-down -->
+            <path
+              d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.3c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+            ></path>
+          </svg>
+        </span>
+      </div>
+    </div><!-- /hero-right -->
+  </div><!-- /container -->
+</section>
+
+<!-- ═════════ ESTILOS ══════════ -->
+<style>
+  /* ── Shimmer en botón primario ───────────────────────── */
+  .shimmer {
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 60%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-move 4s linear infinite;
+  }
+
+  @keyframes shimmer-move {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* ── Countdown: flip al actualizar ─────────────────── */
+  .cd-flip {
+    animation: cd-flip 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  @keyframes cd-flip {
+    from {
+      transform: translateY(-5px);
+      opacity: 0.4;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* ── Countdown dots pulse ───────────────────────────── */
+  .cd-dot {
+    animation: dot-pulse 1.2s ease-in-out infinite;
+  }
+  .cd-dot:nth-child(2) {
+    animation-delay: 0s;
+  }
+  .cd-dot:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+  .cd-dot:nth-child(6) {
+    animation-delay: 0.8s;
+  }
+
+  @keyframes dot-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }
+
+  /* ── CTA Primary ────────────────────────────────────── */
+  .cta-primary {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  .cta-primary:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(66, 133, 244, 0.35);
+  }
+</style>
+
+<!-- ══════════════════════════════════════════════════════════
+      SCRIPTS — Animaciones de entrada + Countdown
+═══════════════════════════════════════════════════════════ -->
+<script>
+  import { animate } from 'motion';
+
+  /* ── Animaciones de entrada al cargar ─────────────────── */
+  const ease = [0.22, 1, 0.36, 1] as const;
+
+  function animateEl(
+    selector: string,
+    keyframes: Record<string, unknown>,
+    options: Record<string, unknown>,
+  ): void {
+    const el = document.querySelector(selector);
+    if (el) animate(el, keyframes, options);
+  }
+
+  // Respeta prefers-reduced-motion: si el usuario prefiere sin movimiento,
+  // simplemente muestra los elementos sin animar.
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReduced) {
+    document
+      .querySelectorAll<HTMLElement>(
+        '.hero-tagline,.hero-title,.hero-info,.hero-desc,.hero-ctas,.hero-skyline,.hero-countdown,.hero-scroll',
+      )
+      .forEach((el) => {
+        el.style.opacity = '1';
+      });
+  } else {
+    animateEl(
+      '.hero-tagline',
+      { opacity: [0, 1], y: [18, 0] },
+      { duration: 0.55, delay: 0.08, easing: ease },
+    );
+    animateEl(
+      '.hero-title',
+      { opacity: [0, 1], y: [28, 0] },
+      { duration: 0.65, delay: 0.2, easing: ease },
+    );
+    animateEl(
+      '.hero-info',
+      { opacity: [0, 1], y: [20, 0] },
+      { duration: 0.55, delay: 0.38, easing: ease },
+    );
+    animateEl(
+      '.hero-desc',
+      { opacity: [0, 1], y: [14, 0] },
+      { duration: 0.5, delay: 0.52, easing: ease },
+    );
+    animateEl(
+      '.hero-ctas',
+      { opacity: [0, 1], scale: [0.88, 1.03, 1], y: [10, 0] },
+      { duration: 0.6, delay: 0.66, easing: 'ease-out' },
+    );
+    animateEl(
+      '.hero-skyline',
+      { opacity: [0, 1], x: [40, 0] },
+      { duration: 0.75, delay: 0.28, easing: ease },
+    );
+    animateEl(
+      '.hero-countdown',
+      { opacity: [0, 1], y: [24, 0] },
+      { duration: 0.65, delay: 0.48, easing: ease },
+    );
+    animateEl('.hero-scroll', { opacity: [0, 0.75] }, { duration: 0.8, delay: 1.3 });
+  }
+
+  /* ── Countdown Timer ──────────────────────────────────── */
+  function pad(n: number): string {
+    return String(n).padStart(2, '0');
+  }
+
+  function setUnit(el: HTMLElement | null, value: string): void {
+    if (!el || el.textContent === value) return;
+    el.textContent = value;
+    el.classList.remove('cd-flip');
+    void el.offsetWidth; // force reflow para reiniciar la animación CSS
+    el.classList.add('cd-flip');
+  }
+
+  const EVENT_DATE = new Date('2026-06-20T08:30:00-04:00');
+
+  const elDays = document.getElementById('cd-days');
+  const elHours = document.getElementById('cd-hours');
+  const elMinutes = document.getElementById('cd-minutes');
+  const elSeconds = document.getElementById('cd-seconds');
+
+  function tick(): void {
+    const diff = EVENT_DATE.getTime() - Date.now();
+
+    if (diff <= 0) {
+      setUnit(elDays, '00');
+      setUnit(elHours, '00');
+      setUnit(elMinutes, '00');
+      setUnit(elSeconds, '00');
+      return;
+    }
+
+    setUnit(elDays, pad(Math.floor(diff / 86_400_000)));
+    setUnit(elHours, pad(Math.floor((diff % 86_400_000) / 3_600_000)));
+    setUnit(elMinutes, pad(Math.floor((diff % 3_600_000) / 60_000)));
+    setUnit(elSeconds, pad(Math.floor((diff % 60_000) / 1_000)));
+  }
+
+  tick();
+  const timer = setInterval(tick, 1000);
+
+  // Limpieza para View Transitions y bfcache
+  document.addEventListener('astro:before-swap', () => clearInterval(timer), { once: true });
+  window.addEventListener('pagehide', () => clearInterval(timer), { once: true });
+
+	// Scroll HERO
+	document.getElementById('scroll-hero')?.addEventListener('click', () => {
+		document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+	});
+
+</script>
