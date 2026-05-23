@@ -1,0 +1,81 @@
+<div class="sparkles-layer" aria-hidden="true">
+  <span class="sp top-[10%] left-[54%] text-gdg-red text-[1.1rem]">✦</span>
+  <span class="sp top-[11%] right-[16%] text-gdg-blue text-[0.9rem]">✦</span>
+  <span class="sp top-[26%] right-[7%] text-gdg-yellow text-[1.3rem]">✦</span>
+  <span class="sp top-[62%] left-[40%] text-gdg-green text-[0.8rem]">✦</span>
+  <span class="sp top-[74%] left-[36%] text-gdg-blue text-[1rem]">✦</span>
+  <span class="sp top-[16%] left-[40%] text-gdg-yellow text-[0.85rem]">✦</span>
+  <span class="sp top-[45%] right-[3%] text-gdg-green text-[0.7rem]">✦</span>
+  <span class="sp top-[15%] left-[67%] text-gdg-green text-[0.7rem]">✦</span>
+  <span class="sp top-[59%] md:top-[68%] right-[10%] text-gdg-red text-[1.3rem]">✦</span>
+</div>
+
+<style>
+  /* ── Sparkles ───────────────────────────────────────── */
+  .sparkles-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+  }
+
+  .sp {
+    position: absolute;
+    animation: sp-float 6s ease-in-out infinite;
+    opacity: 0;
+  }
+
+  .sp:nth-child(1) {
+    animation-delay: 0s;
+    animation-duration: 5.2s;
+  }
+  .sp:nth-child(2) {
+    animation-delay: 1.1s;
+    animation-duration: 7s;
+  }
+  .sp:nth-child(3) {
+    animation-delay: 2.3s;
+    animation-duration: 6.1s;
+  }
+  .sp:nth-child(4) {
+    animation-delay: 0.7s;
+    animation-duration: 8.4s;
+  }
+  .sp:nth-child(5) {
+    animation-delay: 3.2s;
+    animation-duration: 5.7s;
+  }
+  .sp:nth-child(6) {
+    animation-delay: 1.8s;
+    animation-duration: 7.8s;
+  }
+  .sp:nth-child(7) {
+    animation-delay: 4s;
+    animation-duration: 6.5s;
+  }
+  .sp:nth-child(8) {
+    animation-delay: 3s;
+    animation-duration: 5s;
+  }
+
+  @keyframes sp-float {
+    0% {
+      opacity: 0;
+      transform: translateY(0) rotate(0deg) scale(0.7);
+    }
+    20% {
+      opacity: 0.9;
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateY(-14px) rotate(180deg) scale(1.3);
+    }
+    80% {
+      opacity: 0.9;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0) rotate(360deg) scale(0.7);
+    }
+  }
+</style>

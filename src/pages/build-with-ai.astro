@@ -1,17 +1,19 @@
 ---
 import Layout from 'layouts/Layout.astro';
-import Hero from 'components/bwai2026/Hero/Hero.astro'
-import Footer from '../components/bwai2026/footer/Footer.astro';
+import Hero from 'components/bwai2026/hero/Hero.astro';
+import Footer from 'components/bwai2026/footer/Footer.astro';
+import AuroraBackground from 'components/bwai2026/hero/AuroraBackground.astro';
 
 const title = 'Build with AI 2026 - Tarija';
-const description = 'Join us for Build with AI 2026 in Tarija, where we explore the latest advancements in artificial intelligence and how it can transform our world. Discover innovative solutions, network with industry experts, and be part of the future of technology.';
+const description =
+  'Join us for Build with AI 2026 in Tarija, where we explore the latest advancements in artificial intelligence and how it can transform our world. Discover innovative solutions, network with industry experts, and be part of the future of technology.';
 const image = '';
 ---
 
 <Layout title={title} description={description} image={image}>
-    <main>
-        <Hero />
-        <!-- <About /> -->
-    </main>
-    <Footer />
+  <main>
+    <AuroraBackground />
+    <Hero />
+  </main>
+  <Footer />
 </Layout>

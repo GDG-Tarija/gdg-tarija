@@ -1,7 +1,4 @@
 ---
-// Importamos los datos del JSON
-import socialNetworks from './social-networks-bwai2026.json';
-
 const { name, url, icon } = Astro.props;
 
 const icons: Record<string, string> = {
@@ -20,6 +17,7 @@ const iconClass = icons[icon] ?? 'fa-solid fa-link';
 
 <a
   href={url}
+  target="_blank"
   class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white hover:border-blue-400 text-white transition-opacity duration-200 hover:text-blue-400"
   aria-label={name}
 >
