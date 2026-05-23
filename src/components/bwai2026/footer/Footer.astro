@@ -1,81 +1,105 @@
 ---
 import SocialNetworksBwai2026 from '../footer/SocialNetworksBwai2026.astro';
-import SocialNetwork from "../footer/social-networks-bwai2026.json"
-import LogoGDGwhite from '../../../assets/images/bwai2026/gdg_tarija_logo.svg'
+import SocialNetwork from '../footer/social-networks-bwai2026.json';
+import LogoGDGwhite from '../../../assets/images/bwai2026/gdg_tarija_logo.svg';
 
 const links = [
   { text: 'About', url: '/about' },
   { text: 'Agenda', url: '/agenda' },
   { text: 'Speakers', url: '/speakers' },
   { text: 'Venue', url: '/venue' },
-  { text: 'FAQ', url: '/faq' }
+  { text: 'FAQ', url: '/faq' },
 ];
 
 const resources = [
-  { text: 'Code of Conduct', url: 'https://gdgtarija.com/code-of-conduct/', external: true }
+  { text: 'GDG Tarija', url: 'https://gdgtarija.com', external: true },
+  { text: 'Code of Conduct', url: 'https://gdgtarija.com/code-of-conduct/', external: true },
 ];
 ---
 
-<footer class="flex flex-col items-center w-full justify-center bg-[#111827] text-gray-300 py-12 px-6 font-sans border-t border-gray-800">
-  <div class="flex flex-col max-w-7xl w-full md:flex-row justify-center md:justify-between gap-10">
-  {/* Columna 1: Logo */}
-  <div class="flex justify-center items-center">
-    <img 
-      src={LogoGDGwhite.src}
-      width="354"
-      height="42"
-      alt="GDG Tarija Logo" 
-      class="h-10 w-auto mb-4"
-    />
-  </div>
-    <div class="flex justify-center gap-15 lg:gap-35 md:gap-10"> 
+<footer
+  class="flex flex-col items-center w-full justify-center bg-bwai-background text-gray-300 mx-auto py-12 font-sans border-t border-gray-800"
+>
+  <div
+    class="flex flex-col max-w-7xl w-full md:flex-row justify-center md:justify-between gap-10 mx-auto px-6 xl:px-16"
+  >
+    {/* Columna 1: Logo */}
+    <div class="flex justify-center items-center">
+      <a href="https://gdgtarija.com/" target="_blank" rel="noopener noreferrer">
+        <img
+          src={LogoGDGwhite.src}
+          width="354"
+          height="42"
+          alt="GDG Tarija Logo"
+          class="h-10 w-auto mb-4"
+        />
+      </a>
+    </div>
+    <div class="flex justify-center gap-15 lg:gap-35 md:gap-10">
       {/* Columna 2: Links */}
       <div class="flex flex-col">
-      <h3 class="text-white text-lg font-medium mb-4">Links</h3>
-      <ul class="space-y-3">
-        {links.map(link => (
-          <li>
-            <a href={link.url} class="hover:text-blue-400 transition-colors duration-300">
-              {link.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <h3 class="text-white text-lg font-medium mb-4">Links</h3>
+        <ul class="space-y-3">
+          {
+            links.map((link) => (
+              <li>
+                <a href={link.url} class="hover:text-gdg-blue transition-colors duration-300">
+                  {link.text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
-    {/* Columna 3: Resources */}
-    <div class="flex flex-col">
-      <h3 class="text-white self-end md:self-start text-lg font-medium mb-4">Resources</h3>
-      <ul class="space-y-3">
-        {resources.map(item => (
-          <li>
-            <a 
-              href={item.url} 
-              target={item.external ? "_blank" : "_self"}
-              rel={item.external ? "noopener noreferrer" : ""}
-              class="hover:text-blue-400 transition-colors duration-300"
-            >
-              {item.text}
-            </a>
-          </li>
-        ))}
-      </ul>
+      {/* Columna 3: Resources */}
+      <div class="flex flex-col">
+        <h3 class="text-white self-end md:self-start text-lg font-medium mb-4">Resources</h3>
+        <ul class="space-y-3">
+          {
+            resources.map((item) => (
+              <li class="flex justify-end md:justify-start">
+                <a
+                  href={item.url}
+                  target={item.external ? '_blank' : '_self'}
+                  rel={item.external ? 'noopener noreferrer' : ''}
+                  class="hover:text-gdg-blue transition-colors duration-300"
+                >
+                  {item.text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
-  </div>
-    
 
     {/* Columna 4: Follow Us + Social Media */}
     <div class="flex flex-col items-center md:items-start">
       <h3 class="text-white text-lg font-medium mb-4">Follow Us</h3>
-      <div class="flex gap-3"> {SocialNetwork.map((redSocial)=><SocialNetworksBwai2026 {...redSocial}/>)} </div> 
-          
+      <div class="flex gap-3">
+        {SocialNetwork.map((redSocial) => <SocialNetworksBwai2026 {...redSocial} />)}
+      </div>
     </div>
-
   </div>
 
   {/* Sección Inferior: Copyright */}
-  <div class="max-w-7xl self-center mt-16 pt-8 text-right text-sm text-gray-400">
-    <p class="text-xs md:text-base"> &copy; 2026 Google Developer Groups Tarija. All rights reserved.</p>
-    <div class="text-xs md:text-base flex justify-center"> <span class="mt-2"> UX/UI Design: <a href="https://www.instagram.com/soyjoeljonatan/" target="_blank"> @soyjoeljonatan </a> </span></div>
+  <div class="max-w-7xl self-center mt-14 text-right text-sm text-gray-400">
+    <p class="text-xs md:text-base">
+      &copy; 2026 Google Developer Group Tarija. All rights reserved.
+    </p>
+    <div class="text-xs md:text-base flex justify-center">
+      <span class="mt-2">
+        UX/UI Design:
+        <a
+          href="https://www.instagram.com/soyjoeljonatan/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-gdg-blue"
+        >
+          @soyjoeljonatan
+        </a>
+      </span>
+    </div>
   </div>
 </footer>

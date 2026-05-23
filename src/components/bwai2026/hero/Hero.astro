@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import AuroraBackground from './AuroraBackground.astro';
 import Sparkles from './Sparkles.astro';
 import LogoBuildDark from '../../../assets/images/bwai2026/LogoBuildDark.webp';
 import SkylineTarija from '../../../assets/images/bwai2026/tarija-skyline.svg';
@@ -13,7 +12,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
   class="flex relative min-h-screen xl:min-h-svh xl:h-dvh w-full items-center overflow-hidden bg-bwai-background"
   aria-label="Sección principal - Build with AI 2026"
 >
-  <AuroraBackground />
   <Sparkles />
 
   <!-- ══════════ CONTENIDO PRINCIPAL ════════════ -->
@@ -24,11 +22,11 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
               flex flex-col lg:flex-row items-center"
   >
     <!-- ──────── COLUMNA IZQUIERDA ───────── -->
-    <div class="hero-left flex-1 basis-[37%] min-w-0 text-white">
+    <div class="hero-left flex-1 basis-[33%] min-w-0 text-white">
       <!-- Tagline -->
       <p
         class="hero-tagline flex justify-center md:justify-start font-sans-code text-gdg-blue font-medium text-sm sm:text-base
-                tracking-tight mb-6 opacity-0"
+                tracking-tight mb-4 opacity-0"
       >
         // The Future is ours to build
       </p>
@@ -39,11 +37,11 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
           <Image
             src={LogoBuildDark}
             alt="Build with AI 2026"
-            widths={[243, 486, 367]}
-            sizes="(max-width: 768px) 243px, 367px"
-            width={367}
-            height={278}
-            class="w-full md:w-75 lg:w-full h-auto"
+            widths={[234, 469, 354]}
+            sizes="(max-width: 768px) 234px, 354px"
+            width={354}
+            height={268}
+            class="w-full h-auto"
             fetchpriority="high"
             loading="eager"
             decoding="async"
@@ -53,48 +51,78 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
       </div>
 
       <!-- Detalles del evento -->
-      <ul class="hero-info opacity-0 space-y-2.5 mb-4 font-sans-flex">
-        <li class="flex items-center gap-1 md:gap-2.5 flex-wrap">
+      <ul class="hero-info opacity-0 space-y-1.5 mb-4 font-sans-flex">
+        <li class="flex items-center gap-1 md:gap-2 flex-wrap">
           <span role="img" aria-label="Ubicación">
-            <Image src={Location} alt="Location" height={31} width={31} decoding="async" class="w-5 md:w-7.75"/>
+            <Image
+              src={Location}
+              alt="Location"
+              height={26}
+              width={26}
+              decoding="async"
+              class="w-5 md:w-6.75"
+            />
           </span>
-          <span class="font-medium text-[clamp(1.1rem,1.5vw,1.4rem)]">Tarija, Bolivia</span>
+          <span class="font-medium text-[clamp(1rem,0.8438rem+0.625vw,1.3125rem)]"
+            >Tarija, Bolivia</span
+          >
           <span class="text-bwai-border text-base md:text-2xl">|</span>
-          <span role="img" aria-label="Fecha" class="text-xl md:text-3xl text-gdg-green">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
-              <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z"/>
+          <span role="img" aria-label="Fecha" class="text-xl md:text-2xl text-gdg-green">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+            >
+              <path
+                d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7v-5z"
+              ></path>
             </svg>
-
           </span>
-          <span class="font-medium text-[clamp(1.1rem,1.5vw,1.4rem)]">20 de Junio</span>
-          <span role="img" aria-label="Fecha" class="text-3xl md:text-[2.5rem] text-gdg-blue ms-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
-              <path d="M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7h-2z"/>
+          <span class="font-medium text-[clamp(1rem,0.8438rem+0.625vw,1.3125rem)]">20 de Junio</span
+          >
+          <span role="img" aria-label="Fecha" class="text-3xl md:text-[2rem] text-gdg-blue ms-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="1em"
+              height="1em"
+              fill="currentColor"
+            >
+              <path d="M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7h-2z"></path>
             </svg>
           </span>
         </li>
-        <li class="flex items-center gap-1 md:gap-2.5">
+        <li class="flex items-center gap-1 md:gap-2">
           <span role="img" aria-label="Institución">
-            <Image src={Groups} alt="Groups" height={31} width={31} decoding="async" class="w-5 md:w-7.75"/>
+            <Image
+              src={Groups}
+              alt="Groups"
+              height={26}
+              width={26}
+              decoding="async"
+              class="w-5 md:w-6.75"
+            />
           </span>
-          <span class="font-medium text-[clamp(1.1rem,1.5vw,1.4rem)]"
+          <span class="font-medium text-[clamp(1rem,0.8438rem+0.625vw,1.3125rem)]"
             >Universidad Católica Boliviana
           </span>
         </li>
-        <li class="flex items-center gap-1 md:gap-2.5">
-          <span role="img" aria-label="Beca Delve" class="text-xl md:text-3xl text-gdg-red">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor">
-              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.42 3.43 1.4 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.42-3.43-1.4-4.33-3.56zm2.95-8H5.08c.91-2.16 2.5-3.14 4.33-3.56-.6 1.11-1.06 2.31-1.38 3.56zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.9 2.16-2.49 3.14-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/>
-            </svg>
+        <li class="flex items-center gap-1 md:gap-2 text-center">
+          <span role="img" aria-label="Beca Delve" class="text-xl md:text-xl text-gdg-red">
+            <i class="fa-solid fa-gift w-5 md:w-6.75"></i>
           </span>
-          <span class="font-medium text-[clamp(1.1rem,1.5vw,1.4rem)]">Beca a curso de Delve</span>
+          <span class="font-medium text-[clamp(1rem,0.8438rem+0.625vw,1.3125rem)]"
+            >Gift curso Delve</span
+          >
         </li>
       </ul>
 
       <!-- Descripción -->
       <p
-        class="hero-desc opacity-0 font-medium text-white/60 text-[clamp(1rem,1.5vw,1.3rem)] leading-relaxed
-                max-w-76 xl:max-w-100 mb-8"
+        class="hero-desc opacity-0 font-medium text-white/60 text-[clamp(1rem,0.9063rem+0.375vw,1.1875rem)] leading-relaxed
+                max-w-76 xl:max-w-88 mb-8"
       >
         Únete a desarrolladores, creadores e innovadores que están construyendo lo que viene con la
         IA.
@@ -105,19 +133,23 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
         class="hero-ctas opacity-0 flex items-center justify-center md:justify-start gap-6 flex-wrap"
       >
         <!-- Botón primario — registro próximamente -->
-        <button
-          type="button"
-          disabled
+        <a
+          href="#register"
+          target="_blank"
+          rel="noopener noreferrer"
           title="Las inscripciones abren pronto"
           aria-label="Inscripciones próximamente"
           class="cta-primary group relative w-full lg:w-auto
                 inline-flex items-center gap-2 justify-center
                 px-6 py-3.5
-                bg-gdg-blue text-white
-                font-semibold text-[clamp(1rem,1.5vw,1.2rem)] rounded-md
+                bg-gdg-blue hover:bg-[#3367D6] text-white
+                font-semibold rounded-md
                 border border-gdg-blue/50
                 select-none
-                overflow-hidden"
+                shadow-[0_0_20px_rgba(66,133,244,0.35)]
+                overflow-hiddenhover:shadow-[0_0_30px_rgba(66,133,244,0.55)]
+                transition-all duration-200
+                active:scale-[0.97]"
         >
           <span class="relative z-10 text-center">Próximamente</span>
           <span class="relative z-10 group-hover:translate-x-1 transition-transform">
@@ -137,23 +169,27 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
           </span>
           <!-- shimmer sutil -->
           <span class="shimmer absolute inset-0" aria-hidden="true"></span>
-        </button>
+        </a>
 
         <!-- Botón secundario -->
         <a
           href="https://gdg.community.dev/e/m9mtrm/"
           target="_blank"
           rel="noopener noreferrer"
-          title="Las inscripciones abren pronto"
-          aria-label="Inscripciones próximamente"
+          title="Conoce más sobre el evento en la comunidad de GDG Tarija"
+          aria-label="Conoce más sobre el evento en la comunidad de GDG Tarija"
           class="cta-secondary group relative w-full lg:w-auto
                 inline-flex items-center gap-2 justify-center
                 px-6 py-3.5 text-white/80
                 hover:text-white transition-colors
-                font-semibold text-[clamp(1rem,1.5vw,1.2rem)] rounded-md
+                font-semibold rounded-md
                 outline outline-bwai-border
                 select-none
-                overflow-hidden"
+                overflow-hidden
+                shadow-[0_0_5px_rgba(103,136,181,0.35)]
+                hover:shadow-[0_0_10px_rgba(121,143,174,0.55)]
+                duration-200
+                active:scale-[0.97]"
         >
           <span class="relative z-10 text-center">Conoce más</span>
           <span class="relative z-10 group-hover:translate-x-1 transition-transform">
@@ -178,7 +214,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
     </div><!-- /hero-left -->
 
     <!-- ────────── COLUMNA DERECHA ────────── -->
-    <div class="hero-right flex-1 basis-[63%] min-w-0 flex flex-col items-center gap-6 w-full">
+    <div class="hero-right flex-1 basis-[65%] min-w-0 flex flex-col items-center gap-6 w-full">
       <!-- Skyline de Tarija -->
       <div class="hero-skyline opacity-0 relative w-full">
         <img
@@ -200,9 +236,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
                   border border-white/6 rounded-md
                   p-5 sm:p-6"
       >
-        <p
-          class="text-center text-white/70 text-sm md:text-2xl font-medium mb-5"
-        >
+        <p class="text-center text-white/70 text-sm md:text-xl font-medium mb-5">
           El evento comienza en:
         </p>
 
@@ -294,7 +328,11 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
       </div><!-- /countdown -->
 
       <!-- Scroll indicator -->
-      <div id='scroll-hero' class="hero-scroll absolute bottom-6 z-20 opacity-0 cursor-pointer" aria-hidden="true">
+      <div
+        id="scroll-hero"
+        class="hero-scroll absolute bottom-6 z-20 opacity-0 cursor-pointer"
+        aria-hidden="true"
+      >
         <span class="text-gdg-blue text-3xl animate-bounce block">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -502,9 +540,8 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
   document.addEventListener('astro:before-swap', () => clearInterval(timer), { once: true });
   window.addEventListener('pagehide', () => clearInterval(timer), { once: true });
 
-	// Scroll HERO
-	document.getElementById('scroll-hero')?.addEventListener('click', () => {
-		document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-	});
-
+  // Scroll HERO
+  document.getElementById('scroll-hero')?.addEventListener('click', () => {
+    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+  });
 </script>
