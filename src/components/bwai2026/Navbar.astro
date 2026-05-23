@@ -1,0 +1,260 @@
+---
+import LogoBuildBlueH     from '../../assets/images/bwai2026/GDG_Blue_H.svg';
+import LogoBuildBlueHMini from '../../assets/images/bwai2026/GDG_Blue_mini.svg';
+
+const navLinks = [
+  { label: 'About',    href: '#about'    },
+  { label: 'Speakers', href: '#speakers' },
+  { label: 'Agenda',   href: '#agenda'   },
+  { label: 'Sponsors', href: '#sponsors' },
+  { label: 'Venue',    href: '#venue'    },
+  { label: 'FAQ',      href: '#faq'      },
+];
+
+// Stagger per índice → reemplaza style="--i:N" inline
+const staggerDelay = [
+  'delay-[80ms]',  'delay-[125ms]', 'delay-[170ms]',
+  'delay-[215ms]', 'delay-[260ms]', 'delay-[305ms]',
+];
+
+const linkClass = [
+  'relative px-1 lg:px-3 py-1.5',
+  'text-sm md:text-base 2xl:text-lg font-medium 2xl:font-semibold',
+  'text-white/70 hover:text-white transition-colors duration-200 rounded-sm',
+  'after:absolute after:inset-x-3 after:bottom-0 after:h-px',
+  'after:bg-gdg-blue after:scale-x-0 after:origin-left',
+  'after:transition-transform after:duration-300 hover:after:scale-x-100',
+].join(' ');
+
+const ctaClass = [
+  'flex items-center justify-center gap-2',
+  'text-sm font-semibold text-white',
+  'bg-gdg-blue hover:bg-[#3367D6]',
+  'shadow-[0_0_16px_rgba(66,133,244,0.35)] hover:shadow-[0_0_24px_rgba(66,133,244,0.55)]',
+  'transition-all duration-200 active:scale-95',
+].join(' ');
+---
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50
+    border-b border-gray-800
+    transition-all duration-500 ease-out
+    navbar-enter"
+>
+  <nav class="max-w-7xl mx-auto px-6 xl:px-16 h-16 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-2 shrink-0 group" aria-label="GDG Tarija — Home">
+      <img
+        src={LogoBuildBlueH.src}
+        alt="Google Developer Group Tarija"
+        class="h-auto w-40 lg:w-65 hidden md:flex transition-transform duration-300 group-hover:scale-105"
+        loading="eager"
+      />
+      <img
+        src={LogoBuildBlueHMini.src}
+        alt="Google Developer Group Tarija"
+        class="h-5 w-auto md:hidden transition-transform duration-300 group-hover:scale-105"
+        loading="eager"
+      />
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-1" role="list">
+      {navLinks.map(({ label, href }) => (
+        <li><a href={href} class={linkClass}>{label}</a></li>
+      ))}
+    </ul>
+
+    <!-- CTA + Hamburger -->
+    <div class="flex items-center gap-3">
+      <a href="#register" class={`hidden md:inline-flex px-4 py-2 rounded-md ${ctaClass}`}>
+        Próximamente
+      </a>
+
+      <!--
+        group → habilita group-[&.is-open]: en los spans hijos.
+        JS solo hace: menuBtn.classList.toggle('is-open', open)
+      -->
+      <button
+        id="menu-btn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+        class="group md:hidden flex flex-col justify-center items-center
+          w-9 h-9 rounded-md text-white/80 hover:text-white hover:bg-white/10
+          transition-colors duration-200
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gdg-blue"
+      >
+        <span class="block w-5 h-0.5 bg-current rounded-full origin-center
+          transition-all duration-300
+          group-[&.is-open]:translate-y-2 group-[&.is-open]:rotate-45" />
+        <span class="block w-5 h-0.5 bg-current rounded-full mt-1.5
+          transition-all duration-300
+          group-[&.is-open]:opacity-0" />
+        <span class="block w-5 h-0.5 bg-current rounded-full mt-1.5 origin-center
+          transition-all duration-300
+          group-[&.is-open]:-translate-y-2 group-[&.is-open]:-rotate-45" />
+      </button>
+    </div>
+
+  </nav>
+</header>
+
+<!-- ═══════════ BACKDROP ═══════════ -->
+<div
+  id="drawer-backdrop"
+  aria-hidden="true"
+  class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm
+    opacity-0 pointer-events-none transition-opacity duration-300"
+/>
+
+<!-- ═══════════ MOBILE DRAWER ═══════════ -->
+<aside
+  id="mobile-drawer"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menú de navegación"
+  class="fixed top-0 right-0 bottom-0 z-50
+    w-72 max-w-[85vw]
+    bg-[#0f0f0f] border-l border-white/10
+    translate-x-full
+    transition-transform duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]
+    flex flex-col shadow-[-20px_0_60px_rgba(0,0,0,0.6)]"
+>
+  <!-- Header -->
+  <div class="flex items-center justify-between px-5 h-16 border-b border-white/10 shrink-0">
+    <img src={LogoBuildBlueHMini.src} alt="GDG Tarija" class="h-7 w-auto" />
+    <button
+      id="drawer-close"
+      aria-label="Cerrar menú"
+      class="flex items-center justify-center w-8 h-8 rounded-md
+        text-white/60 hover:text-white hover:bg-white/10
+        transition-colors duration-200
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gdg-blue"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M2 2l12 12M14 2L2 14" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Links -->
+  <nav class="flex-1 overflow-y-auto px-3 py-4">
+    <ul class="space-y-0.5" role="list">
+      {navLinks.map(({ label, href }, i) => (
+        <li class={`opacity-0 translate-x-4 transition-[opacity,transform] duration-280 ease-out ${staggerDelay[i]}`}>
+          <a
+            href={href}
+            class="drawer-link flex items-center gap-3 px-4 py-3 rounded-md
+              text-white/70 hover:text-white hover:bg-white/[0.07]
+              text-sm font-medium transition-all duration-200 group"
+          >
+            <span class="w-1 h-4 rounded-full bg-gdg-blue shrink-0
+              opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- CTA -->
+  <div class="px-5 py-5 border-t border-white/10 shrink-0">
+    <a href="#register" class={`drawer-link w-full rounded-lg px-4 py-3 ${ctaClass}`}>
+      Próximamente
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 7h10M8 3l4 4-4 4" />
+      </svg>
+    </a>
+  </div>
+</aside>
+
+<script>
+  const navbar   = document.getElementById('navbar')!;
+  const menuBtn  = document.getElementById('menu-btn')!;
+  const drawer   = document.getElementById('mobile-drawer')!;
+  const backdrop = document.getElementById('drawer-backdrop')!;
+  const closeBtn = document.getElementById('drawer-close')!;
+  const drawerItems = drawer.querySelectorAll<HTMLElement>('li[class*="opacity-0"]');
+
+  // ── Scroll → frosted navbar ──────────────────────────────
+  const SCROLLED = [
+    'bg-[#0a0a0a]/85', 'backdrop-blur-md',
+    'border-white/[0.08]', 'shadow-[0_1px_32px_rgba(0,0,0,0.55)]',
+  ] as const;
+
+  function updateNavbar() {
+    navbar.classList[window.scrollY > 20 ? 'add' : 'remove'](...SCROLLED);
+  }
+
+  let rafPending = false;
+  window.addEventListener('scroll', () => {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(() => { updateNavbar(); rafPending = false; });
+  }, { passive: true });
+
+  updateNavbar();
+
+  // ── Drawer ───────────────────────────────────────────────
+  let isOpen = false;
+
+  function setDrawer(open: boolean) {
+    isOpen = open;
+
+    drawer.classList.toggle('translate-x-full', !open);
+    backdrop.classList.toggle('opacity-0', !open);
+    backdrop.classList.toggle('pointer-events-none', !open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.classList.toggle('is-open', open);        // activa group-[&.is-open]: en los spans
+    document.body.style.overflow = open ? 'hidden' : '';
+
+    // Stagger items: las clases delay-[Nms] ya están fijas en el HTML;
+    // solo se alterna la visibilidad.
+    drawerItems.forEach(el => {
+      el.classList.toggle('opacity-0', !open);
+      el.classList.toggle('translate-x-4', !open);
+    });
+
+    if (open) {
+      setTimeout(() => drawer.querySelector<HTMLElement>('.drawer-link')?.focus(), 350);
+    } else {
+      menuBtn.focus();
+    }
+  }
+
+  menuBtn.addEventListener('click', () => setDrawer(!isOpen));
+  closeBtn.addEventListener('click', () => setDrawer(false));
+  backdrop.addEventListener('click', () => setDrawer(false));
+  drawer.querySelectorAll('.drawer-link').forEach(el =>
+    el.addEventListener('click', () => setDrawer(false))
+  );
+  document.addEventListener('keydown', e => e.key === 'Escape' && isOpen && setDrawer(false));
+
+  // ── Focus trap ───────────────────────────────────────────
+  drawer.addEventListener('keydown', e => {
+    if (!isOpen || e.key !== 'Tab') return;
+    const focusable = Array.from(
+      drawer.querySelectorAll<HTMLElement>("a,button,[tabindex]:not([tabindex='-1'])")
+    ).filter(el => !el.hasAttribute('disabled'));
+    const first = focusable[0];
+    const last  = focusable.at(-1)!;
+    if (e.shiftKey  && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    if (!e.shiftKey && document.activeElement === last)  { e.preventDefault(); first.focus(); }
+  });
+</script>
+
+<style>
+  @keyframes navbarEnter {
+    from { opacity: 0; transform: translateY(-100%); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .navbar-enter {
+    animation: navbarEnter 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+</style>
