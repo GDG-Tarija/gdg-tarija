@@ -4,6 +4,7 @@ import Hero from 'components/bwai2026/hero/Hero.astro';
 import Footer from 'components/bwai2026/footer/Footer.astro';
 import AuroraBackground from 'components/bwai2026/hero/AuroraBackground.astro';
 import Navbar from 'components/bwai2026/Navbar.astro';
+import FAQ from 'components/bwai2026/faq/FAQ.astro';
 
 const title = 'Build with AI 2026 - Tarija';
 const description =
@@ -12,10 +13,11 @@ const image = '';
 ---
 
 <Layout title={title} description={description} image={image}>
-    <Navbar />
-    <main>
-        <AuroraBackground />
-        <Hero />
-    </main>
-    <Footer />
+  <Navbar />
+  <main>
+    <AuroraBackground />
+    <Hero />
+    <FAQ />
+  </main>
+  <Footer />
 </Layout>
