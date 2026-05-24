@@ -46,15 +46,41 @@
 
 @font-face {
   font-family: 'Google Sans';
-  src:
-    url(../assets/fonts/google-sans/GoogleSans-Regular.ttf) format('truetype') font-weight-normal,
-    url(../assets/fonts/google-sans/GoogleSans-Bold.ttf) format('truetype') font-weight-bold,
-    url(../assets/fonts/google-sans/GoogleSans-Italic.ttf) format('truetype') font-style-italic,
-    url(../assets/fonts/google-sans/GoogleSans-BoldItalic.ttf) format('truetype') font-weight-bold
-      font-style-italic,
-    url(../assets/fonts/google-sans/GoogleSans-Medium.ttf) format('truetype') font-weight-500,
-    url(../assets/fonts/google-sans/GoogleSans-MediumItalic.ttf) format('truetype') font-weight-500
-      font-style-italic;
+  src: url(../assets/fonts/google-sans/GoogleSans-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-Medium.ttf) format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-Bold.ttf) format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-Italic.ttf) format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-MediumItalic.ttf) format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-BoldItalic.ttf) format('truetype');
+  font-weight: 700;
+  font-style: italic;
 }
 
 * {

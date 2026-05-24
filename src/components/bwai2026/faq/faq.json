@@ -1,35 +1,39 @@
 [
   {
-    "question": "¿Necesito experiencia previa en IA para asistir?",
-    "answer": "¡Para nada! Build with AI está diseñado para desarrolladores de todos los niveles. Tendremos talleres desde introductorios hasta avanzados, así que tanto si eres principiante como si ya trabajas con modelos de lenguaje, encontrarás contenido relevante para ti."
+    "question": "¿Qué es Build with AI?",
+    "answer": "Build with AI es una iniciativa impulsada por Google Developer Groups y comunidades locales como GDG Tarija, enfocada en aprender y construir soluciones utilizando Inteligencia Artificial y tecnologías de Google."
   },
   {
-    "question": "¿Cuánto cuesta el registro a los eventos online?",
-    "answer": "El registro es 100% gratuito, Solo necesitas registrarte para cada fecha (30 de mayo y 13 de junio)."
+    "question": "¿Necesito experiencia previa en IA para asistir?",
+    "answer": "¡Para nada! Build with AI está diseñado para desarrolladores de todos los niveles, ingenieros de software, estudiantes y entusiastas de la tecnología. Tendremos talleres desde introductorios hasta avanzados, así que tanto si eres principiante como si ya trabajas con modelos de lenguaje, encontrarás contenido relevante para ti."
+  },
+  {
+    "question": "¿En qué tecnologías se enfocará el Build with AI 2026?",
+    "answer": "Se enfocará en IA generativa (Gemini, AI Studio, Gemma), MLOps (Vertex AI) e infraestructura en la nube (Google Cloud, Cloud Run) para el desarrollo de aplicaciones reales con IA de Google."
   },
   {
     "question": "¿Cuánto cuesta el registro al evento presencial del 20 de Junio?",
     "answer": "El registro cuesta 15 Bs. incluye (refrigerio, landyard, certificado y stickers). Solo necesitas registrarte con anticipación para asegurar tu lugar, ya que los cupos son limitados."
   },
   {
-    "question": "¿Qué debo llevar al evento presencial?",
-    "answer": "Te recomendamos traer tu laptop cargada (con cargador y alargador), acceso a internet o datos móviles, y mucha energía. El evento incluirá sesiones de código en vivo, así que asegúrate de tener instalado ?????????? y un editor de código como ????????????."
+    "question": "¿Las charlar online son las mismas que el evento presencial?",
+    "answer": "No. Las charlas online previas son sesiones de preparación diseñadas para nivelar conocimientos antes del evento presencial. El evento presencial del 20 de junio es la experiencia completa: keynotes, talleres en profundidad, networking y mucho más."
   },
   {
-    "question": "¿Habrá comida y bebidas disponibles?",
+    "question": "¿Cuánto cuesta el registro a los eventos online?",
+    "answer": "El registro es 100% gratuito, Solo necesitas registrarte para cada fecha (30 de mayo y 13 de junio)."
+  },
+  {
+    "question": "¿Qué debo llevar al evento presencial?",
+    "answer": "Te recomendamos traer tu laptop cargada (con cargador y alargador), acceso a internet o datos móviles, y mucha energía. El evento incluirá sesiones de código en vivo, así que asegúrate de tener un navegador actualizado y contar con una cuenta activa de Google Cloud (o el crédito del evento)"
+  },
+  {
+    "question": "¿Habrá comida y bebidas disponibles en el evento presencial?",
     "answer": "Sí. El evento contará con coffee breaks durante las sesiones."
   },
   {
-    "question": "¿Las charlar online son los mismos que el evento presencial?",
-    "answer": "No. Las charlas online previas son sesiones de preparación diseñadas para nivelar conocimientos antes del evento principal. El evento presencial del 20 de junio es la experiencia completa: keynotes, talleres en profundidad, networking y mucho más."
-  },
-  {
-    "question": "¿En qué tecnologías se enfocará el evento?",
-    "answer": "El evento cubrirá tecnologías reales de IA, cloud y web: Gemini API, Google Cloud AI, prompt engineering, agentes de IA, y aplicaciones cloud-native. El foco está en construir con herramientas reales, no solo en teoría."
-  },
-  {
     "question": "¿Puedo obtener un certificado de participación?",
-    "answer": "Sí. Todos los asistentes que completen el evento recibirán un certificado digital de participación emitido por GDG Tarija. Asegúrate de registrar tu asistencia en el evento presencial para recibirlo."
+    "answer": "Sí. Todos los asistentes que completen el evento presencial recibirán un certificado digital de participación emitido por GDG Tarija. Asegúrate de registrar tu asistencia en el evento presencial para recibirlo."
   },
   {
     "question": "¿Qué es GDG (Google Developer Groups)?",
