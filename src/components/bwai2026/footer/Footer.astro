@@ -4,11 +4,12 @@ import SocialNetwork from '../footer/social-networks-bwai2026.json';
 import LogoGDGwhite from '../../../assets/images/bwai2026/gdg_tarija_logo.svg';
 
 const links = [
-  { text: 'About', url: '/about' },
-  { text: 'Agenda', url: '/agenda' },
-  { text: 'Speakers', url: '/speakers' },
-  { text: 'Venue', url: '/venue' },
-  { text: 'FAQ', url: '/faq' },
+  { label: 'About',    href: '#about'    },
+  { label: 'Venue',    href: '#about'    },
+  // { label: 'Speakers', href: '#speakers' },
+  // { label: 'Agenda',   href: '#agenda'   },
+  { label: 'Sponsors', href: '#sponsors' },
+  { label: 'FAQ',      href: '#faq'      },
 ];
 
 const resources = [
@@ -43,8 +44,8 @@ const resources = [
           {
             links.map((link) => (
               <li>
-                <a href={link.url} class="hover:text-gdg-blue transition-colors duration-300">
-                  {link.text}
+                <a href={link.href} class="hover:text-gdg-blue transition-colors duration-300">
+                  {link.label}
                 </a>
               </li>
             ))
