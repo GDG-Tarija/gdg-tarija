@@ -1,0 +1,461 @@
+---
+import { Image } from 'astro:assets'
+import milestones from './milestones.json'
+---
+
+<section
+  id="road-to-build"
+  class="bg-bwai-background py-16 md:py-20 overflow-hidden border-t border-gray-800"
+  aria-labelledby="rtb-heading"
+>
+  <div class="max-w-5xl mx-auto px-4 md:px-8">
+
+    <!-- ─── Encabezado de sección ─────────────────────── -->
+    <header class="text-center mb-10 md:mb-14">
+      <p class="text-xs font-semibold tracking-[0.28em] uppercase text-gdg-blue mb-3">
+        Tu Camino
+      </p>
+      <h2
+        id="rtb-heading"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
+      >
+        Road to <span class="text-gdg-blue">Build</span> with AI
+      </h2>
+      <p class="mt-4 text-white/50 max-w-sm mx-auto text-sm leading-relaxed">
+        Tres eventos, un camino. De los fundamentos a construir con IA en vivo.
+      </p>
+    </header>
+
+    <!-- ══════ DESKTOP TIMELINE (md y superior) — horizontal ═════ -->
+    <div class="hidden md:block">
+
+      <!-- Fila de nodos + conectores SVG -->
+      <div class="flex items-center justify-between px-16 mb-6">
+        {milestones.map((m, i) => (
+          <Fragment>
+            <!-- Nodo de hito -->
+            <div
+              class="flex flex-col items-center relative"
+              data-milestone-node
+              data-iso={m.isoDate}
+              data-color={m.color}
+            >
+              <!-- Anillo de pulso (animado cuando data-state="active") -->
+              <div
+                class="absolute w-5 h-5 rounded-full rtb-pulse-ring"
+                data-pulse-ring
+                aria-hidden="true"
+              ></div>
+              <!-- Punto indicador -->
+              <div
+                class="w-5 h-5 rounded-full z-10 rtb-dot"
+                data-dot
+                aria-hidden="true"
+              ></div>
+              <!-- Número de paso -->
+              <span
+                class="mt-2.5 font-bold text-white/25 uppercase rtb-step-label"
+                aria-hidden="true"
+              >
+                {String(i + 1).padStart(2, '0')}
+              </span>
+            </div>
+
+            <!-- Conector SVG entre nodos (omitido en el último) -->
+            {i < milestones.length - 1 && (
+              <div class="flex-1 mx-8" aria-hidden="true">
+                <svg
+                  viewBox="0 0 200 6"
+                  class="w-full"
+                  height="6"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <!-- Pista base discontinua (siempre visible, atenuada) -->
+                  <line
+                    x1="0" y1="3" x2="200" y2="3"
+                    class="rtb-track"
+                    stroke-width="1.5"
+                    stroke-dasharray="5 5"
+                  />
+                  <!-- Overlay de color (activado por JS con data-active="true") -->
+                  <line
+                    x1="0" y1="3" x2="200" y2="3"
+                    class="rtb-segment"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    data-segment
+                    data-segment-index={String(i)}
+                    data-color={m.color}
+                  />
+                </svg>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+
+      <!-- Fila de cards -->
+      <div class="grid grid-cols-3 gap-5">
+        {milestones.map((m) => (
+          <article
+            class={`rtb-card rtb-card-${m.color} rtb-card-main group rounded-2xl border p-5 flex flex-col gap-3 transition-transform duration-300 hover:-translate-y-1`}
+            data-milestone-card
+            data-iso={m.isoDate}
+            data-color={m.color}
+          >
+            <div
+              class={`rtb-img rtb-img-${m.color} w-full p-4 rounded-xl flex items-center justify-center mb-1`}
+              aria-label="Imagen del evento — próximamente"
+            >
+              <Image
+                src={m.imgSrc}
+                alt={m.title}
+                width={624}
+                height={474}
+                decoding="async"
+                class="w-auto"
+              />
+            </div>
+
+            <!-- Etiquetas -->
+            <div class="flex flex-wrap gap-2">
+              <span class={`rtb-tag rtb-tag-${m.color} text-xs font-medium px-2.5 py-0.5 rounded-full border`}>
+                {m.tag}
+              </span>
+            </div>
+
+            <!-- Fecha -->
+            <time
+              class={`rtb-date-${m.color} text-sm font-semibold tracking-wide block`}
+              datetime={m.isoDate}
+            >
+              {m.dateLabel}, 2026
+            </time>
+
+            <!-- Título y subtítulo -->
+            <div>
+              <h3 class="text-white font-bold text-base leading-snug">{m.title}</h3>
+              <p class="text-white/45 text-sm mt-1 leading-relaxed">{m.subtitle}</p>
+            </div>
+
+            <!-- CTA -->
+            <a
+              href={m.ctaHref}
+              class={`rtb-btn rtb-btn-${m.color} mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-all duration-200`}
+              aria-label={`${m.ctaText}: ${m.title}`}
+            >
+              {m.ctaText}
+              <svg
+                class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
+                viewBox="0 0 14 14"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.917 7H11.083M7.583 3.5L11.083 7l-3.5 3.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <!-- ════════ MOBILE TIMELINE (< md) — vertical ══════════ -->
+    <ol class="md:hidden" aria-label="Hitos del camino al evento">
+      {milestones.map((m, i) => (
+        <li
+          class="flex p-2 gap-4"
+          data-milestone-node
+          data-iso={m.isoDate}
+          data-color={m.color}
+        >
+          <!-- Columna izquierda: punto + línea vertical -->
+          <div class="flex flex-col items-center shrink-0 pt-1">
+            
+            <div
+              class="absolute w-5 h-5 -mt-1 rounded-full rtb-pulse-ring"
+              data-pulse-ring
+              aria-hidden="true"
+            ></div>
+            <div
+              class="w-3.5 h-3.5 rounded-full z-10 shrink-0 rtb-dot"
+              data-dot
+              aria-hidden="true"
+            ></div>
+            {i < milestones.length - 1 && (
+              <div
+                class="w-px flex-1 mt-2 rtb-mobile-line"
+                data-connector
+                data-color={m.color}
+                aria-hidden="true"
+              ></div>
+            )}
+          </div>
+
+          <!-- Card -->
+          <article
+            class={`rtb-card rtb-card-${m.color} rtb-card-main flex-1 items-center justify-center rounded-2xl border p-4 flex flex-col gap-3 mb-5`}
+            data-milestone-card
+            data-iso={m.isoDate}
+            data-color={m.color}
+          >
+            <!-- Placeholder de imagen -->
+            <div
+              class={`rtb-img rtb-img-${m.color} w-full p-4 rounded-xl flex items-center justify-center`}
+              aria-hidden="true"
+            >
+              <Image
+                src={m.imgSrc}
+                alt={m.title}
+                width={624}
+                height={474}
+                decoding="async"
+                class="w-auto h-40"
+              />
+            </div>
+
+            <span
+              class={`rtb-tag rtb-tag-${m.color} text-xs font-medium px-2.5 py-0.5 rounded-full border inline-block md:self-start`}
+            >
+              {m.tag}
+            </span>
+
+            <time
+              class={`rtb-date-${m.color} text-xs font-semibold tracking-wide`}
+              datetime={m.isoDate}
+            >
+              {m.dateLabel}, 2026
+            </time>
+
+            <div>
+              <h3 class="text-white text-center font-bold text-sm leading-snug">{m.title}</h3>
+              <p class="text-white/45 text-xs mt-1 leading-relaxed">{m.subtitle}</p>
+            </div>
+
+            <a
+              href={m.ctaHref}
+              class={`rtb-btn rtb-btn-${m.color} md:self-start inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border text-xs font-medium transition-all duration-200`}
+            >
+              {m.ctaText}
+              <svg class="w-3 h-3" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M2.917 7H11.083M7.583 3.5L11.083 7l-3.5 3.5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </article>
+        </li>
+      ))}
+    </ol>
+
+  </div>
+</section>
+
+<style>
+  /* ── Número de paso ──────────────────────────────────────────── */
+  .rtb-step-label {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Pista SVG base ──────────────────────────────────────────── */
+  .rtb-track   { stroke: rgba(255, 255, 255, 0.1); }
+  .rtb-segment {
+    stroke: transparent;
+    transition: stroke 0.7s ease;
+  }
+
+  /* Colores de segmento activado (JS establece data-active="true") */
+  [data-segment][data-active="true"][data-color="blue"]   { stroke: var(--color-gdg-blue); }
+  [data-segment][data-active="true"][data-color="green"]  { stroke: var(--color-gdg-green); }
+  [data-segment][data-active="true"][data-color="yellow"] { stroke: var(--color-gdg-yellow); }
+
+  /* ── Punto indicador (dot) ───────────────────────────────────── */
+  .rtb-dot {
+    background: rgba(255, 255, 255, 0.12);
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  /* Color del dot según el color del hito padre */
+  [data-milestone-node][data-color="blue"]   .rtb-dot { background: var(--color-gdg-blue);   border-color: var(--color-gdg-blue); }
+  [data-milestone-node][data-color="green"]  .rtb-dot { background: var(--color-gdg-green);  border-color: var(--color-gdg-green); }
+  [data-milestone-node][data-color="yellow"] .rtb-dot { background: var(--color-gdg-yellow); border-color: var(--color-gdg-yellow); }
+
+  /* Estado: activo → dot más grande con glow */
+  [data-milestone-node][data-state="active"][data-color="blue"]   .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(66, 133, 244, 0.6); }
+  [data-milestone-node][data-state="active"][data-color="green"]  .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(52, 168, 83, 0.6); }
+  [data-milestone-node][data-state="active"][data-color="yellow"] .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(249, 171, 0, 0.6); }
+
+  /* Estado: pasado → dot atenuado */
+  [data-milestone-node][data-state="past"] .rtb-dot { opacity: 0.35; }
+
+  /* ── Anillo de pulso ─────────────────────────────────────────── */
+  .rtb-pulse-ring {
+    opacity: 0;
+    transform: scale(1);
+    transform-origin: center;
+  }
+
+  /* Color del ring según hito */
+  [data-milestone-node][data-color="blue"]   .rtb-pulse-ring { background: var(--color-gdg-blue); }
+  [data-milestone-node][data-color="green"]  .rtb-pulse-ring { background: var(--color-gdg-green); }
+  [data-milestone-node][data-color="yellow"] .rtb-pulse-ring { background: var(--color-gdg-yellow); }
+
+  @keyframes rtb-ping {
+    0%   { transform: scale(1);   opacity: 0.5; }
+    100% { transform: scale(3.2); opacity: 0; }
+  }
+
+  /* Solo el nodo activo tiene la animación de pulso */
+  [data-milestone-node][data-state="active"] .rtb-pulse-ring {
+    animation: rtb-ping 2.2s ease-out infinite;
+  }
+
+  /* ── Cards ───────────────────────────────────────────────────── */
+  .rtb-card { background: var(--color-bwai-border); }
+
+  .rtb-card-blue   { border-color: rgba(66, 133, 244, 0.2); }
+  .rtb-card-green  { border-color: rgba(52, 168, 83, 0.2); }
+  .rtb-card-yellow { border-color: rgba(249, 171, 0, 0.2); }
+
+  /* Card activa: borde más visible + sombra sutil */
+  [data-milestone-card][data-state="active"].rtb-card-blue   { border-color: rgba(66, 133, 244, 0.6); box-shadow: 0 6px 36px -8px rgba(66, 133, 244, 0.2); }
+  [data-milestone-card][data-state="active"].rtb-card-green  { border-color: rgba(52, 168, 83, 0.6);  box-shadow: 0 6px 36px -8px rgba(52, 168, 83, 0.2); }
+  [data-milestone-card][data-state="active"].rtb-card-yellow { border-color: rgba(249, 171, 0, 0.6);  box-shadow: 0 6px 36px -8px rgba(249, 171, 0, 0.2); }
+
+  /* Card pasada: atenuada */
+  [data-milestone-card][data-state="past"] { opacity: 0.5; }
+
+  /* Card del evento principal: outline extra */
+  .rtb-card-main { outline: 1px solid rgba(249, 171, 0, 0.07); outline-offset: 2px; }
+
+  /* ── Placeholders de imagen ──────────────────────────────────── */
+  .rtb-img-blue   { background: rgba(66, 133, 244, 0.07); border: 1px solid rgba(66, 133, 244, 0.14); color: var(--color-gdg-blue); }
+  .rtb-img-green  { background: rgba(52, 168, 83, 0.07);  border: 1px solid rgba(52, 168, 83, 0.14);  color: var(--color-gdg-green); }
+  .rtb-img-yellow { background: rgba(249, 171, 0, 0.07);  border: 1px solid rgba(249, 171, 0, 0.14);  color: var(--color-gdg-yellow); }
+
+  /* ── Etiquetas (tags) ────────────────────────────────────────── */
+  .rtb-tag-blue   { background: rgba(66, 133, 244, 0.1);  color: var(--color-gdg-blue);   border-color: rgba(66, 133, 244, 0.25); }
+  .rtb-tag-green  { background: rgba(52, 168, 83, 0.1);   color: var(--color-gdg-green);  border-color: rgba(52, 168, 83, 0.25); }
+  .rtb-tag-yellow { background: rgba(249, 171, 0, 0.1);   color: var(--color-gdg-yellow); border-color: rgba(249, 171, 0, 0.25); }
+  .rtb-tag-main   { background: rgba(249, 171, 0, 0.1);   color: var(--color-gdg-yellow); border-color: rgba(249, 171, 0, 0.25); }
+
+  /* ── Fechas ──────────────────────────────────────────────────── */
+  .rtb-date-blue   { color: rgba(66, 133, 244, 0.65); }
+  .rtb-date-green  { color: rgba(52, 168, 83, 0.65); }
+  .rtb-date-yellow { color: rgba(249, 171, 0, 0.65); }
+
+  /* ── Botones CTA ─────────────────────────────────────────────── */
+  .rtb-btn-blue   { color: var(--color-gdg-blue);   border-color: rgba(66, 133, 244, 0.4); }
+  .rtb-btn-green  { color: var(--color-gdg-green);  border-color: rgba(52, 168, 83, 0.4); }
+  .rtb-btn-yellow { color: var(--color-gdg-yellow); border-color: rgba(249, 171, 0, 0.4); }
+
+  .rtb-btn-blue:hover   { background: var(--color-gdg-blue);   color: var(--color-gdg-black); border-color: var(--color-gdg-blue); }
+  .rtb-btn-green:hover  { background: var(--color-gdg-green);  color: var(--color-gdg-black); border-color: var(--color-gdg-green); }
+  .rtb-btn-yellow:hover { background: var(--color-gdg-yellow); color: var(--color-gdg-black); border-color: var(--color-gdg-yellow); }
+
+  /* ── Línea vertical mobile ───────────────────────────────────── */
+  .rtb-mobile-line {
+    border-left: 1.5px dashed rgba(255, 255, 255, 0.1);
+    transition: border-color 0.6s ease;
+  }
+
+  /* La línea se colorea cuando el conector está activo (evento pasado) */
+  [data-connector][data-active="true"][data-color="blue"]   { border-color: rgba(66, 133, 244, 0.45); }
+  [data-connector][data-active="true"][data-color="green"]  { border-color: rgba(52, 168, 83, 0.45); }
+  [data-connector][data-active="true"][data-color="yellow"] { border-color: rgba(249, 171, 0, 0.45); }
+</style>
+
+<script>
+  function initRoadToBuild(): void {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const allNodes = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-milestone-node]')
+    );
+
+    // ── Paso 1: construir el mapa de estados por ISO date ──────
+    const stateByIso = new Map<string, 'past' | 'active' | 'future'>();
+    const orderedIsos: string[] = [];
+    const seen = new Set<string>();
+    let activeFound = false;
+
+    allNodes.forEach((node) => {
+      const iso = node.dataset.iso ?? '';
+      if (iso && !seen.has(iso)) {
+        seen.add(iso);
+        orderedIsos.push(iso);
+      }
+    });
+
+    orderedIsos.forEach((iso) => {
+      const milestoneDate = new Date(`${iso}T00:00:00`);
+      let state: 'past' | 'active' | 'future';
+
+      if (milestoneDate < today) {
+        state = 'past';
+      } else if (!activeFound) {
+        state = 'active';
+        activeFound = true;
+      } else {
+        state = 'future';
+      }
+
+      stateByIso.set(iso, state);
+    });
+
+    // ── Paso 2: aplicar estado a todos los nodos (desktop + mobile) ──
+    allNodes.forEach((node) => {
+      const state = stateByIso.get(node.dataset.iso ?? '');
+      if (state) node.dataset.state = state;
+    });
+
+    // ── Paso 3: aplicar estado a las cards ───────────────────────
+    document.querySelectorAll<HTMLElement>('[data-milestone-card]').forEach((card) => {
+      const state = stateByIso.get(card.dataset.iso ?? '');
+      if (state) card.dataset.state = state;
+    });
+
+    // ── Paso 4: activar segmentos SVG ─────────────────────────────
+    // Un segmento i conecta milestone[i] → milestone[i+1].
+    // Se activa (data-active="true") si el milestone DESTINO (i+1)
+    // ya pasó o es el próximo (esto "rellena" el camino recorrido).
+    document.querySelectorAll<SVGLineElement>('[data-segment]').forEach((seg) => {
+      const idx = parseInt(seg.dataset.segmentIndex ?? '0', 10);
+      const targetIso = orderedIsos[idx + 1];
+      if (!targetIso) return;
+      const targetState = stateByIso.get(targetIso);
+      if (targetState === 'past' || targetState === 'active') {
+        seg.dataset.active = 'true';
+      }
+    });
+
+    // ── Paso 5: activar líneas verticales mobile ──────────────────
+    // El conector en posición i se colorea si milestone[i] ya pasó
+    // (indica que ese tramo del camino está completado).
+    document.querySelectorAll<HTMLElement>('[data-connector]').forEach((conn, i) => {
+      const iso = orderedIsos[i];
+      if (!iso) return;
+      const state = stateByIso.get(iso);
+      if (state === 'past') conn.dataset.active = 'true';
+    });
+  }
+
+  // Carga inicial de la página
+  document.addEventListener('DOMContentLoaded', initRoadToBuild);
+
+  // Re-ejecutar tras navegación con Astro View Transitions
+  document.addEventListener('astro:page-load', initRoadToBuild);
+</script>
