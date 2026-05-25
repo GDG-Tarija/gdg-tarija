@@ -42,8 +42,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
             width={354}
             height={268}
             class="w-full h-auto"
-            fetchpriority="high"
-            loading="eager"
+            loading="lazy"
             decoding="async"
             quality={75}
           />
@@ -217,8 +216,8 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
     <div class="hero-right flex-1 basis-[65%] min-w-0 flex flex-col items-center gap-6 w-full">
       <!-- Skyline de Tarija -->
       <div class="hero-skyline opacity-0 relative w-full">
-        <img
-          src={SkylineTarija.src}
+        <Image
+          src={SkylineTarija}
           alt="Ilustración del skyline de Tarija con sus monumentos principales"
           width="882"
           height="405"

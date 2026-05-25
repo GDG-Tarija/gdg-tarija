@@ -2,6 +2,7 @@
 import SocialNetworksBwai2026 from '../footer/SocialNetworksBwai2026.astro';
 import SocialNetwork from '../footer/social-networks-bwai2026.json';
 import LogoGDGwhite from '../../../assets/images/bwai2026/gdg_tarija_logo.svg';
+import { Image } from 'astro:assets';
 
 const links = [
   { label: 'About',    href: '#about'    },
@@ -27,8 +28,8 @@ const resources = [
     {/* Columna 1: Logo */}
     <div class="flex justify-center items-center">
       <a href="https://gdgtarija.com/" target="_blank" rel="noopener noreferrer">
-        <img
-          src={LogoGDGwhite.src}
+        <Image
+          src={LogoGDGwhite}
           width="354"
           height="42"
           alt="GDG Tarija Logo"
