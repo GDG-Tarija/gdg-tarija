@@ -32,7 +32,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
       </p>
 
       <!-- Título principal -->
-      <div class="hero-title flex opacity-0 mb-8 justify-center md:justify-start">
+      <div class="hero-title flex mb-8 justify-center md:justify-start">
         <div class="w-2/3 md:w-4/5">
           <Image
             src={LogoBuildDark}
@@ -42,7 +42,8 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
             width={354}
             height={268}
             class="w-full h-auto"
-            loading="lazy"
+            fetchpriority="high"
+            loading="eager"
             decoding="async"
             quality={75}
           />
@@ -129,7 +130,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
 
       <!-- CTAs -->
       <div
-        class="hero-ctas opacity-0 flex items-center justify-center md:justify-start gap-6 flex-wrap"
+        class="hero-ctas opacity-0 flex items-center justify-center md:justify-start gap-6 flex-wrap mb-2"
       >
         <!-- Botón primario — registro -->
         <a
@@ -146,7 +147,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
                 border border-gdg-blue/50
                 select-none
                 shadow-[0_0_20px_rgba(66,133,244,0.35)]
-                overflow-hiddenhover:shadow-[0_0_30px_rgba(66,133,244,0.55)]
+                overflow-hidden hover:shadow-[0_0_30px_rgba(66,133,244,0.55)]
                 transition-all duration-200
                 active:scale-[0.97]"
         >
@@ -182,7 +183,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
                 px-5 py-3.5 text-white/80
                 hover:text-white transition-colors
                 font-semibold tracking-tighter rounded-md
-                outline outline-bwai-border
+                outline outline-bwai-border bg-bwai-background md:bg-transparent
                 select-none
                 overflow-hidden
                 shadow-[0_0_5px_rgba(103,136,181,0.35)]
@@ -236,7 +237,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
                   p-5 sm:p-6"
       >
         <p class="text-center text-white/70 text-sm md:text-xl font-medium mb-5">
-          El evento comienza en:
+          El evento presencial comienza en:
         </p>
 
         <!-- Grid de tiempo -->
@@ -541,6 +542,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
 
   // Scroll HERO
   document.getElementById('scroll-hero')?.addEventListener('click', () => {
-    document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('road-to-build')?.scrollIntoView({ behavior: 'smooth' });
   });
 </script>

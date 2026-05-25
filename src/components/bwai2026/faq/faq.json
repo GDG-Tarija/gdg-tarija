@@ -5,18 +5,18 @@
   },
   {
     "question": "¿Necesito experiencia previa en IA para asistir?",
-    "answer": "¡Para nada! Build with AI está diseñado para desarrolladores de todos los niveles, ingenieros de software, estudiantes y entusiastas de la tecnología. Tendremos talleres desde introductorios hasta avanzados, así que tanto si eres principiante como si ya trabajas con modelos de lenguaje, encontrarás contenido relevante para ti."
+    "answer": "¡Para nada! Build with AI está diseñado para desarrolladores de todos los niveles, ingenieros de software, estudiantes y entusiastas de la tecnología. Tendremos charlas y talleres desde introductorios hasta avanzados, así que tanto si eres principiante como si ya trabajas con modelos de lenguaje, encontrarás contenido relevante para ti."
   },
   {
     "question": "¿En qué tecnologías se enfocará el Build with AI 2026?",
-    "answer": "Se enfocará en IA generativa (Gemini, AI Studio, Gemma), MLOps (Vertex AI) e infraestructura en la nube (Google Cloud, Cloud Run) para el desarrollo de aplicaciones reales con IA de Google."
+    "answer": "Se enfocará en IA generativa (Gemini, AI Studio, Gemma), MLOps (Vertex AI) e infraestructura en la nube (Google Cloud) para el desarrollo de aplicaciones reales con IA de Google."
   },
   {
     "question": "¿Cuánto cuesta el registro al evento presencial del 20 de Junio?",
     "answer": "El registro cuesta 15 Bs. incluye (refrigerio, landyard, certificado y stickers). Solo necesitas registrarte con anticipación para asegurar tu lugar, ya que los cupos son limitados."
   },
   {
-    "question": "¿Las charlar online son las mismas que el evento presencial?",
+    "question": "¿Las charlas online son las mismas que el evento presencial?",
     "answer": "No. Las charlas online previas son sesiones de preparación diseñadas para nivelar conocimientos antes del evento presencial. El evento presencial del 20 de junio es la experiencia completa: keynotes, talleres en profundidad, networking y mucho más."
   },
   {
@@ -25,7 +25,7 @@
   },
   {
     "question": "¿Qué debo llevar al evento presencial?",
-    "answer": "Te recomendamos traer tu laptop cargada (con cargador y alargador), acceso a internet o datos móviles, y mucha energía. El evento incluirá sesiones de código en vivo, así que asegúrate de tener un navegador actualizado y contar con una cuenta activa de Google Cloud (o el crédito del evento)"
+    "answer": "Te recomendamos traer tu laptop cargada (con cargador y alargador), acceso a internet o datos móviles, y mucha energía. El evento incluirá sesiones de código en vivo, así que asegúrate de tener un navegador actualizado y contar con una cuenta activa de Google."
   },
   {
     "question": "¿Habrá comida y bebidas disponibles en el evento presencial?",
