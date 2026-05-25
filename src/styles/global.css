@@ -1,3 +1,4 @@
+@import "./bwai2026.css";
 @import 'tailwindcss';
 @plugin "tailwindcss-animated";
 
@@ -27,6 +28,15 @@
 
   --animate-border-spin: border-spin 10s linear infinite;
 
+  /* Animación para el delineado vector */
+  --animate-draw-stroke: draw-stroke 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  
+  @keyframes draw-stroke {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
   @keyframes border-spin {
     100% {
       transform: rotate(-360deg);
@@ -36,15 +46,41 @@
 
 @font-face {
   font-family: 'Google Sans';
-  src:
-    url(../assets/fonts/google-sans/GoogleSans-Regular.ttf) format('truetype') font-weight-normal,
-    url(../assets/fonts/google-sans/GoogleSans-Bold.ttf) format('truetype') font-weight-bold,
-    url(../assets/fonts/google-sans/GoogleSans-Italic.ttf) format('truetype') font-style-italic,
-    url(../assets/fonts/google-sans/GoogleSans-BoldItalic.ttf) format('truetype') font-weight-bold
-      font-style-italic,
-    url(../assets/fonts/google-sans/GoogleSans-Medium.ttf) format('truetype') font-weight-500,
-    url(../assets/fonts/google-sans/GoogleSans-MediumItalic.ttf) format('truetype') font-weight-500
-      font-style-italic;
+  src: url(../assets/fonts/google-sans/GoogleSans-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-Medium.ttf) format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-Bold.ttf) format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-Italic.ttf) format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-MediumItalic.ttf) format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url(../assets/fonts/google-sans/GoogleSans-BoldItalic.ttf) format('truetype');
+  font-weight: 700;
+  font-style: italic;
 }
 
 * {
@@ -86,7 +122,7 @@ html {
 
   /* Body */
   .card-content {
-    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-linear-to-b from-gray-600 to-gray-700;
+    @apply absolute left-px top-px h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl bg-linear-to-b from-gray-600 to-gray-700;
   }
 
   .card-content:hover .redes-sociales {

@@ -11,6 +11,7 @@ import Footer from 'components/main/footer/Footer.astro';
       <!-- Contenedor del título y botón de volver -->
       <div class="px-6 md:px-0 mb-6">
         <a
+          id="back-link"
           href="/"
           class="inline-flex items-center gap-2 text-gray-400 hover:text-blue-600 transition-colors font-medium text-sm md:text-base animate-fade-up mb-6 md:mb-8"
         >
@@ -143,3 +144,19 @@ import Footer from 'components/main/footer/Footer.astro';
   </main>
   <Footer />
 </Layout>
+
+<script>
+    const backLink = document.getElementById('back-link');
+
+    if (document.referrer) {
+      const referrerUrl = new URL(document.referrer);
+
+      // Verifica si viene del mismo dominio
+      if (referrerUrl.origin === window.location.origin) {
+        backLink?.addEventListener('click', (e) => {
+          e.preventDefault();
+          history.back();
+        });
+      }
+    }
+  </script>

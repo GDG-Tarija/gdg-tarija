@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "isoDate": "2026-05-30",
+    "dateLabel": "30 de Mayo",
+    "title": "Conferencia Online #1",
+    "subtitle": "Tus primeros pasos construyendo con IA",
+    "tag": "Pre-evento · Online",
+    "color": "blue",
+    "ctaText": "Registrarse",
+    "ctaHref": "#",
+    "imgSrc": "/img/events/bwai2026/conferencia1.webp"
+  },
+  {
+    "id": 2,
+    "isoDate": "2026-06-13",
+    "dateLabel": "13 de Junio",
+    "title": "Conferencia Online #2",
+    "subtitle": "Construyendo aplicaciones con Gemini API",
+    "tag": "Pre-evento · Online",
+    "color": "green",
+    "ctaText": "Registrarse",
+    "ctaHref": "#",
+    "imgSrc": "/img/events/bwai2026/conferencia2.webp"
+  },
+  {
+    "id": 3,
+    "isoDate": "2026-06-20",
+    "dateLabel": "20 de Junio",
+    "title": "Build with AI Tarija",
+    "subtitle": "El gran evento presencial en Tarija, Bolivia",
+    "tag": "Evento Principal · Presencial",
+    "color": "yellow",
+    "ctaText": "Registrarse",
+    "ctaHref": "#register",
+    "imgSrc": "/img/events/bwai2026/workshop.webp"
+  }
+]
