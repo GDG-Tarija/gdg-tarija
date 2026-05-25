@@ -1,0 +1,148 @@
+---
+import sponsors from "./sponsors.json";
+import collaborators from "./collaborators.json";
+import { Image } from "astro:assets";
+
+// Clases compartidas extraídas para evitar redundancia y mejorar mantenibilidad
+const cardBaseClasses = "group ring-1 ring-transparent transition-all duration-300 bg-white/1.5 border border-white/6";
+const hoverElevation = "hover:-translate-y-1.5 hover:bg-[#111e2d] hover:border-[#1f3251] hover:shadow-[0_12px_36px_rgba(0,0,0,0.45),_inset_0_0_0_1px_rgba(255,255,255,0.03)]";
+---
+
+<section
+  id="sponsors"
+  aria-labelledby="sponsors-title"
+  class="relative w-full overflow-hidden bg-bwai-background px-4 py-18 sm:px-6 lg:px-8 border-t border-gray-800"
+>
+  <div class="relative z-10 mx-auto max-w-6xl">
+    <header class="mb-8 flex items-center gap-3">
+
+      <h2 id="collaboratos-title" class="text-xl lg:text-2xl font-medium tracking-tight text-white">
+        Colaboradores
+      </h2>
+      <div
+        class="flex h-9 w-9 shrink-0 items-center justify-center"
+        aria-hidden="true"
+      >
+        <svg
+          class="h-8 w-8 text-orange-400"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          stroke="currentColor"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+      </div>
+    </header>
+
+    <div class="mb-16" role="group" aria-label="Colaboradores">
+      <ul class="flex flex-wrap justify-center gap-5" role="list">
+        {collaborators.map((c) => (
+          <li>
+            <a
+              href={c.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class:list={[
+                "flex items-center gap-3 px-5 py-4 rounded-md",
+                cardBaseClasses,
+                hoverElevation,
+                c.ringClass,
+              ]}
+              aria-label={`${c.name}, sitio web del colaborador`}
+            >
+              <Image
+                src={c.logo}
+                alt={`${c.name} logo`}
+                height={76}
+                width={210}
+                decoding="async"
+                class="h-10 md:h-15 lg:h-19 w-auto transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mb-8 flex items-center gap-3">      
+
+      <h2 id="sponsors-title" class="text-xl lg:text-2xl font-medium tracking-tight text-white">
+        Sponsors
+      </h2>
+      <p class="font-medium text-5xl text-gdg-blue" aria-hidden="true">
+        {"#"}
+      </p>
+    </div>
+
+    <div role="group" aria-label="Sponsors">
+      <ul class="flex flex-wrap justify-center gap-5" role="list">
+        {sponsors.map((s) => (
+          <li>
+            <a
+              href={s.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class:list={[
+                "flex items-center gap-3 px-5 py-4 rounded-md",
+                cardBaseClasses,
+                hoverElevation,
+                s.ringClass,
+              ]}
+              aria-label={`${s.name}, sitio web del sponsor`}
+            >
+              <Image
+                src={s.logo}
+                alt={`${s.name} logo`}
+                height={76}
+                width={210}
+                decoding="async"
+                class="h-10 md:h-15 lg:h-19 w-auto transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+              />
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="mt-18 border-t text-center border md:max-w-xl lg:max-w-4xl rounded-md border-white/6 bg-white/1.5 p-8 mx-auto">
+      <div class="max-w-xl mx-auto space-y-4">
+        <h3 class="text-xl font-medium tracking-tight text-white">
+          ¿Quieres apoyar a la comunidad?
+        </h3>
+        
+        <p class="text-xs text-gray-400 leading-relaxed max-w-md mx-auto">
+          Forma parte de nuestros eventos y conecta con el talento tecnológico local. Haz click en el boton para conocer nuestros niveles de patrocinio.
+        </p>
+
+        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-6">
+          <a
+            href="https://docs.google.com/document/d/1t33oD9OfBEGxqvxsih7QCN1uaEnmVgiD/edit?usp=sharing&ouid=102157576605899365843&rtpof=true&sd=true"
+            target="_blank"
+            class="group inline-flex items-center gap-1 text-xs font-semibold px-5 py-3 rounded-md bg-gdg-blue hover:bg-[#3367D6] text-white transition-colors duration-200 focus-visible:outline-none focus-visible:underline"
+          >
+            Ver convocatoria
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke-width="2.5" 
+              stroke="currentColor" 
+              class="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

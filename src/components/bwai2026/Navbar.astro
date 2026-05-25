@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import LogoBuildBlueH     from '../../assets/images/bwai2026/GDG_Blue_H.svg';
 import LogoBuildBlueHMini from '../../assets/images/bwai2026/GDG_Blue_mini.svg';
 
@@ -47,17 +48,18 @@ const ctaClass = [
 
     <!-- Logo -->
     <a href="#hero" class="flex items-center gap-2 shrink-0 group" aria-label="GDG Tarija — Home">
-      <img
-        src={LogoBuildBlueH.src}
+      <Image
+        src={LogoBuildBlueH}
         alt="Google Developer Group Tarija"
         class="h-auto w-40 lg:w-65 hidden md:flex transition-transform duration-300 group-hover:scale-105"
-        loading="eager"
+        loading="lazy"
       />
-      <img
-        src={LogoBuildBlueHMini.src}
+
+      <Image
+        src={LogoBuildBlueHMini}
         alt="Google Developer Group Tarija"
         class="h-5 w-auto md:hidden transition-transform duration-300 group-hover:scale-105"
-        loading="eager"
+        loading="lazy"
       />
     </a>
 
@@ -126,7 +128,7 @@ const ctaClass = [
 >
   <!-- Header -->
   <div class="flex items-center justify-between px-5 h-16 border-b border-white/10 shrink-0">
-    <img src={LogoBuildBlueHMini.src} alt="GDG Tarija" class="h-7 w-auto" />
+    <Image src={LogoBuildBlueHMini} alt="GDG Tarija" class="h-7 w-auto" />
     <button
       id="drawer-close"
       aria-label="Cerrar menú"
