@@ -114,7 +114,7 @@ import milestones from './milestones.json'
                 width={624}
                 height={474}
                 decoding="async"
-                class="w-auto"
+                class="w-auto rounded-md"
               />
             </div>
 
@@ -130,7 +130,7 @@ import milestones from './milestones.json'
               class={`rtb-date-${m.color} text-sm font-semibold tracking-wide block`}
               datetime={m.isoDate}
             >
-              {m.dateLabel}, 2026
+              {m.dateLabel}
             </time>
 
             <!-- Título y subtítulo -->
@@ -142,6 +142,7 @@ import milestones from './milestones.json'
             <!-- CTA -->
             <a
               href={m.ctaHref}
+              target="_blank"
               class={`rtb-btn rtb-btn-${m.color} mt-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border text-sm font-medium transition-all duration-200`}
               aria-label={`${m.ctaText}: ${m.title}`}
             >
@@ -170,7 +171,7 @@ import milestones from './milestones.json'
     <ol class="md:hidden" aria-label="Hitos del camino al evento">
       {milestones.map((m, i) => (
         <li
-          class="flex p-2 gap-4"
+          class="flex p-2 gap-4 justify-center"
           data-milestone-node
           data-iso={m.isoDate}
           data-color={m.color}
@@ -200,14 +201,14 @@ import milestones from './milestones.json'
 
           <!-- Card -->
           <article
-            class={`rtb-card rtb-card-${m.color} rtb-card-main flex-1 items-center justify-center rounded-2xl border p-4 flex flex-col gap-3 mb-5`}
+            class={`rtb-card max-w-77 self-center rtb-card-${m.color} rtb-card-main flex-1 items-center justify-center rounded-2xl border p-4 flex flex-col gap-3 mb-5`}
             data-milestone-card
             data-iso={m.isoDate}
             data-color={m.color}
           >
             <!-- Placeholder de imagen -->
             <div
-              class={`rtb-img rtb-img-${m.color} w-full p-4 rounded-xl flex items-center justify-center`}
+              class={`rtb-img rtb-img-${m.color} p-4 rounded-xl flex items-center justify-center`}
               aria-hidden="true"
             >
               <Image
@@ -230,17 +231,18 @@ import milestones from './milestones.json'
               class={`rtb-date-${m.color} text-xs font-semibold tracking-wide`}
               datetime={m.isoDate}
             >
-              {m.dateLabel}, 2026
+              {m.dateLabel}
             </time>
 
             <div>
               <h3 class="text-white text-center font-bold text-sm leading-snug">{m.title}</h3>
-              <p class="text-white/45 text-xs mt-1 leading-relaxed">{m.subtitle}</p>
+              <p class="text-white/45 text-center text-xs mt-1 leading-relaxed">{m.subtitle}</p>
             </div>
 
             <a
               href={m.ctaHref}
               class={`rtb-btn rtb-btn-${m.color} md:self-start inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border text-xs font-medium transition-all duration-200`}
+              target="_blank"
             >
               {m.ctaText}
               <svg class="w-3 h-3" viewBox="0 0 14 14" fill="none" aria-hidden="true">
