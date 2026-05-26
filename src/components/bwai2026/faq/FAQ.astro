@@ -1,32 +1,32 @@
 ---
 const colors = [
   {
-    idx:        'text-gdg-blue',
+    idx: 'text-gdg-blue',
     openBorder: 'open:border-gdg-blue/40',
-    openBg:     'open:bg-gdg-blue/5',
-    iconOpen:   'group-open:text-gdg-blue',
+    openBg: 'open:bg-gdg-blue/5',
+    iconOpen: 'group-open:text-gdg-blue',
   },
   {
-    idx:        'text-gdg-red',
+    idx: 'text-gdg-red',
     openBorder: 'open:border-gdg-red/40',
-    openBg:     'open:bg-gdg-red/5',
-    iconOpen:   'group-open:text-gdg-red',
+    openBg: 'open:bg-gdg-red/5',
+    iconOpen: 'group-open:text-gdg-red',
   },
   {
-    idx:        'text-gdg-green',
+    idx: 'text-gdg-green',
     openBorder: 'open:border-gdg-green/40',
-    openBg:     'open:bg-gdg-green/5',
-    iconOpen:   'group-open:text-gdg-green',
+    openBg: 'open:bg-gdg-green/5',
+    iconOpen: 'group-open:text-gdg-green',
   },
   {
-    idx:        'text-gdg-yellow',
+    idx: 'text-gdg-yellow',
     openBorder: 'open:border-gdg-yellow/40',
-    openBg:     'open:bg-gdg-yellow/5',
-    iconOpen:   'group-open:text-gdg-yellow',
+    openBg: 'open:bg-gdg-yellow/5',
+    iconOpen: 'group-open:text-gdg-yellow',
   },
 ];
 
-import Faqs from './faq.json'
+import Faqs from './faq.json';
 ---
 
 <section
@@ -37,12 +37,14 @@ import Faqs from './faq.json'
         before:bg-[radial-gradient(circle,rgba(255,255,255,0.04)_1px,transparent_1px)]
         before:bg-size-[28px_28px]"
 >
-  <div class="relative z-10 mx-auto max-w-7xl px-6 xl:px-14 ">
-
+  <div class="relative z-10 mx-auto max-w-7xl px-6 xl:px-14">
     <!-- ── Encabezado de sección ───────────────────────────────── -->
     <div class="mb-10 animate-[fadeSlideUpFaq_0.6s_ease_both]">
-      <p class="mb-3 font-mono font-extrabold text-3xl tracking-widest text-gdg-green" aria-hidden="true">
-        {"{?}"}
+      <p
+        class="mb-3 font-mono font-extrabold text-3xl tracking-widest text-gdg-green"
+        aria-hidden="true"
+      >
+        {'{?}'}
       </p>
       <h2 id="faq-heading" class="mb-4 text-xl lg:text-2xl font-medium leading-tight text-white">
         Preguntas Frecuentes
@@ -94,34 +96,52 @@ import Faqs from './faq.json'
                   aria-hidden="true"
                 >
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <line class="icon-h" x1="4" y1="10" x2="16" y2="10"
-                          stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
-                    <line class="icon-v" x1="10" y1="4" x2="10" y2="16"
-                          stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+                    <line
+                      class="icon-h"
+                      x1="4"
+                      y1="10"
+                      x2="16"
+                      y2="10"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      class="icon-v"
+                      x1="10"
+                      y1="4"
+                      x2="10"
+                      y2="16"
+                      stroke="currentColor"
+                      stroke-width="1.75"
+                      stroke-linecap="round"
+                    />
                   </svg>
                 </span>
               </summary>
 
               {/* Respuesta — indentada al nivel del texto de la pregunta */}
               <div class="px-6 pb-5 pl-[calc(1.5rem+1.8rem+1rem)]">
-                <p class="text-[0.9375rem] leading-[1.7] text-neutral-400">
-                  {faq.answer}
-                </p>
+                <p class="text-[0.9375rem] leading-[1.7] text-neutral-400">{faq.answer}</p>
               </div>
             </details>
           );
         })
       }
     </div>
-
   </div>
 </section>
 
 <style>
-
   @keyframes fadeSlideUpFaq {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: translateY(0);    }
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Estado inicial oculto; JS añade .is-visible para disparar la animación */
@@ -135,21 +155,37 @@ import Faqs from './faq.json'
   }
 
   /* Delays escalonados por posición — sin estilos en línea */
-  .faq-item:nth-child(1).is-visible  { animation-delay:   0ms; }
-  .faq-item:nth-child(2).is-visible  { animation-delay:  70ms; }
-  .faq-item:nth-child(3).is-visible  { animation-delay: 140ms; }
-  .faq-item:nth-child(4).is-visible  { animation-delay: 210ms; }
-  .faq-item:nth-child(5).is-visible  { animation-delay: 280ms; }
-  .faq-item:nth-child(6).is-visible  { animation-delay: 350ms; }
-  .faq-item:nth-child(7).is-visible  { animation-delay: 420ms; }
-  .faq-item:nth-child(8).is-visible  { animation-delay: 490ms; }
+  .faq-item:nth-child(1).is-visible {
+    animation-delay: 0ms;
+  }
+  .faq-item:nth-child(2).is-visible {
+    animation-delay: 70ms;
+  }
+  .faq-item:nth-child(3).is-visible {
+    animation-delay: 140ms;
+  }
+  .faq-item:nth-child(4).is-visible {
+    animation-delay: 210ms;
+  }
+  .faq-item:nth-child(5).is-visible {
+    animation-delay: 280ms;
+  }
+  .faq-item:nth-child(6).is-visible {
+    animation-delay: 350ms;
+  }
+  .faq-item:nth-child(7).is-visible {
+    animation-delay: 420ms;
+  }
+  .faq-item:nth-child(8).is-visible {
+    animation-delay: 490ms;
+  }
 
   /* Animación del icono SVG — selector compuesto, imposible con Tailwind */
   .icon-v {
     transform-origin: center;
     transition:
       transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity   0.2s  ease;
+      opacity 0.2s ease;
   }
 
   details[open] .icon-v {

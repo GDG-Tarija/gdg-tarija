@@ -146,17 +146,17 @@ import Footer from 'components/main/footer/Footer.astro';
 </Layout>
 
 <script>
-    const backLink = document.getElementById('back-link');
+  const backLink = document.getElementById('back-link');
 
-    if (document.referrer) {
-      const referrerUrl = new URL(document.referrer);
+  if (document.referrer) {
+    const referrerUrl = new URL(document.referrer);
 
-      // Verifica si viene del mismo dominio
-      if (referrerUrl.origin === window.location.origin) {
-        backLink?.addEventListener('click', (e) => {
-          e.preventDefault();
-          history.back();
-        });
-      }
+    // Verifica si viene del mismo dominio
+    if (referrerUrl.origin === window.location.origin) {
+      backLink?.addEventListener('click', (e) => {
+        e.preventDefault();
+        history.back();
+      });
     }
-  </script>
+  }
+</script>

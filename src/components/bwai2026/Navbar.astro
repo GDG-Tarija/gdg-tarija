@@ -1,22 +1,26 @@
 ---
 import { Image } from 'astro:assets';
-import LogoBuildBlueH     from '../../assets/images/bwai2026/GDG_Blue_H.svg';
+import LogoBuildBlueH from '../../assets/images/bwai2026/GDG_Blue_H.svg';
 import LogoBuildBlueHMini from '../../assets/images/bwai2026/GDG_Blue_mini.svg';
 
 const navLinks = [
   { label: 'Road to Build', href: '#road-to-build' },
-  { label: 'About',    href: '#about'    },
-  { label: 'Venue',    href: '#about'    },
+  { label: 'About', href: '#about' },
+  { label: 'Venue', href: '#about' },
   // { label: 'Speakers', href: '#speakers' },
   // { label: 'Agenda',   href: '#agenda'   },
   { label: 'Sponsors', href: '#sponsors' },
-  { label: 'FAQ',      href: '#faq'      },
+  { label: 'FAQ', href: '#faq' },
 ];
 
 // Stagger per índice → reemplaza style="--i:N" inline
 const staggerDelay = [
-  'delay-[80ms]',  'delay-[125ms]', 'delay-[170ms]',
-  'delay-[215ms]', 'delay-[260ms]', 'delay-[305ms]',
+  'delay-[80ms]',
+  'delay-[125ms]',
+  'delay-[170ms]',
+  'delay-[215ms]',
+  'delay-[260ms]',
+  'delay-[305ms]',
 ];
 
 const linkClass = [
@@ -46,7 +50,6 @@ const ctaClass = [
     navbar-enter"
 >
   <nav class="max-w-7xl mx-auto px-6 xl:px-14 h-16 flex items-center justify-between">
-
     <!-- Logo -->
     <a href="#hero" class="flex items-center gap-2 shrink-0 group" aria-label="GDG Tarija — Home">
       <Image
@@ -66,9 +69,15 @@ const ctaClass = [
 
     <!-- Desktop links -->
     <ul class="hidden md:flex items-center gap-1" role="list">
-      {navLinks.map(({ label, href }) => (
-        <li><a href={href} class={linkClass}>{label}</a></li>
-      ))}
+      {
+        navLinks.map(({ label, href }) => (
+          <li>
+            <a href={href} class={linkClass}>
+              {label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
 
     <!-- CTA + Hamburger -->
@@ -91,18 +100,23 @@ const ctaClass = [
           transition-colors duration-200
           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gdg-blue"
       >
-        <span class="block w-5 h-0.5 bg-current rounded-full origin-center
+        <span
+          class="block w-5 h-0.5 bg-current rounded-full origin-center
           transition-all duration-300
-          group-[&.is-open]:translate-y-2 group-[&.is-open]:rotate-45" />
-        <span class="block w-5 h-0.5 bg-current rounded-full mt-1.5
+          group-[&.is-open]:translate-y-2 group-[&.is-open]:rotate-45"
+        ></span>
+        <span
+          class="block w-5 h-0.5 bg-current rounded-full mt-1.5
           transition-all duration-300
-          group-[&.is-open]:opacity-0" />
-        <span class="block w-5 h-0.5 bg-current rounded-full mt-1.5 origin-center
+          group-[&.is-open]:opacity-0"
+        ></span>
+        <span
+          class="block w-5 h-0.5 bg-current rounded-full mt-1.5 origin-center
           transition-all duration-300
-          group-[&.is-open]:-translate-y-2 group-[&.is-open]:-rotate-45" />
+          group-[&.is-open]:-translate-y-2 group-[&.is-open]:-rotate-45"
+        ></span>
       </button>
     </div>
-
   </nav>
 </header>
 
@@ -112,7 +126,8 @@ const ctaClass = [
   aria-hidden="true"
   class="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm
     opacity-0 pointer-events-none transition-opacity duration-300"
-/>
+>
+</div>
 
 <!-- ═══════════ MOBILE DRAWER ═══════════ -->
 <aside
@@ -138,9 +153,16 @@ const ctaClass = [
         transition-colors duration-200
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gdg-blue"
     >
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <path d="M2 2l12 12M14 2L2 14" />
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <path d="M2 2l12 12M14 2L2 14"></path>
       </svg>
     </button>
   </div>
@@ -148,20 +170,26 @@ const ctaClass = [
   <!-- Links -->
   <nav class="flex-1 overflow-y-auto px-3 py-4">
     <ul class="space-y-0.5" role="list">
-      {navLinks.map(({ label, href }, i) => (
-        <li class={`opacity-0 translate-x-4 transition-[opacity,transform] duration-280 ease-out ${staggerDelay[i]}`}>
-          <a
-            href={href}
-            class="drawer-link flex items-center gap-3 px-4 py-3 rounded-md
+      {
+        navLinks.map(({ label, href }, i) => (
+          <li
+            class={`opacity-0 translate-x-4 transition-[opacity,transform] duration-280 ease-out ${staggerDelay[i]}`}
+          >
+            <a
+              href={href}
+              class="drawer-link flex items-center gap-3 px-4 py-3 rounded-md
               text-white/70 hover:text-white hover:bg-white/[0.07]
               text-sm font-medium transition-all duration-200 group"
-          >
-            <span class="w-1 h-4 rounded-full bg-gdg-blue shrink-0
-              opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-            {label}
-          </a>
-        </li>
-      ))}
+            >
+              <span
+                class="w-1 h-4 rounded-full bg-gdg-blue shrink-0
+              opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+              />
+              {label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 
@@ -169,26 +197,36 @@ const ctaClass = [
   <div class="px-5 py-5 border-t border-white/10 shrink-0">
     <a href="#register" class={`drawer-link w-full rounded-lg px-4 py-3 ${ctaClass}`}>
       Regístrate ahora
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M2 7h10M8 3l4 4-4 4" />
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M2 7h10M8 3l4 4-4 4"></path>
       </svg>
     </a>
   </div>
 </aside>
 
 <script>
-  const navbar   = document.getElementById('navbar')!;
-  const menuBtn  = document.getElementById('menu-btn')!;
-  const drawer   = document.getElementById('mobile-drawer')!;
+  const navbar = document.getElementById('navbar')!;
+  const menuBtn = document.getElementById('menu-btn')!;
+  const drawer = document.getElementById('mobile-drawer')!;
   const backdrop = document.getElementById('drawer-backdrop')!;
   const closeBtn = document.getElementById('drawer-close')!;
   const drawerItems = drawer.querySelectorAll<HTMLElement>('li[class*="opacity-0"]');
 
   // ── Scroll → frosted navbar ──────────────────────────────
   const SCROLLED = [
-    'bg-[#0a0a0a]/85', 'backdrop-blur-md',
-    'border-white/[0.08]', 'shadow-[0_1px_32px_rgba(0,0,0,0.55)]',
+    'bg-[#0a0a0a]/85',
+    'backdrop-blur-md',
+    'border-white/[0.08]',
+    'shadow-[0_1px_32px_rgba(0,0,0,0.55)]',
   ] as const;
 
   function updateNavbar() {
@@ -196,11 +234,18 @@ const ctaClass = [
   }
 
   let rafPending = false;
-  window.addEventListener('scroll', () => {
-    if (rafPending) return;
-    rafPending = true;
-    requestAnimationFrame(() => { updateNavbar(); rafPending = false; });
-  }, { passive: true });
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (rafPending) return;
+      rafPending = true;
+      requestAnimationFrame(() => {
+        updateNavbar();
+        rafPending = false;
+      });
+    },
+    { passive: true },
+  );
 
   updateNavbar();
 
@@ -214,12 +259,12 @@ const ctaClass = [
     backdrop.classList.toggle('opacity-0', !open);
     backdrop.classList.toggle('pointer-events-none', !open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.classList.toggle('is-open', open);        // activa group-[&.is-open]: en los spans
+    menuBtn.classList.toggle('is-open', open); // activa group-[&.is-open]: en los spans
     document.body.style.overflow = open ? 'hidden' : '';
 
     // Stagger items: las clases delay-[Nms] ya están fijas en el HTML;
     // solo se alterna la visibilidad.
-    drawerItems.forEach(el => {
+    drawerItems.forEach((el) => {
       el.classList.toggle('opacity-0', !open);
       el.classList.toggle('translate-x-4', !open);
     });
@@ -234,28 +279,40 @@ const ctaClass = [
   menuBtn.addEventListener('click', () => setDrawer(!isOpen));
   closeBtn.addEventListener('click', () => setDrawer(false));
   backdrop.addEventListener('click', () => setDrawer(false));
-  drawer.querySelectorAll('.drawer-link').forEach(el =>
-    el.addEventListener('click', () => setDrawer(false))
-  );
-  document.addEventListener('keydown', e => e.key === 'Escape' && isOpen && setDrawer(false));
+  drawer
+    .querySelectorAll('.drawer-link')
+    .forEach((el) => el.addEventListener('click', () => setDrawer(false)));
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && isOpen && setDrawer(false));
 
   // ── Focus trap ───────────────────────────────────────────
-  drawer.addEventListener('keydown', e => {
+  drawer.addEventListener('keydown', (e) => {
     if (!isOpen || e.key !== 'Tab') return;
     const focusable = Array.from(
-      drawer.querySelectorAll<HTMLElement>("a,button,[tabindex]:not([tabindex='-1'])")
-    ).filter(el => !el.hasAttribute('disabled'));
+      drawer.querySelectorAll<HTMLElement>("a,button,[tabindex]:not([tabindex='-1'])"),
+    ).filter((el) => !el.hasAttribute('disabled'));
     const first = focusable[0];
-    const last  = focusable.at(-1)!;
-    if (e.shiftKey  && document.activeElement === first) { e.preventDefault(); last.focus(); }
-    if (!e.shiftKey && document.activeElement === last)  { e.preventDefault(); first.focus(); }
+    const last = focusable.at(-1)!;
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    }
+    if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 </script>
 
 <style>
   @keyframes navbarEnter {
-    from { opacity: 0; transform: translateY(-100%); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .navbar-enter {
     animation: navbarEnter 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;

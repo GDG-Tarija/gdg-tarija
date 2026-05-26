@@ -1,15 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Loader from "../components/common/Loader.astro";
+import Layout from '../layouts/Layout.astro';
+import Loader from '../components/common/Loader.astro';
 
-const title = "Convocatoria Sponsor | GDG Tarija";
-const description =
-  "Convocatoria para sponsors del Google Developer Group Tarija.";
+const title = 'Convocatoria Sponsor | GDG Tarija';
+const description = 'Convocatoria para sponsors del Google Developer Group Tarija.';
 const image =
-  "https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png";
+  'https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png';
 
-const redirectUrl =
-  "https://docs.google.com/document/d/1t33oD9OfBEGxqvxsih7QCN1uaEnmVgiD/edit";
+const redirectUrl = 'https://docs.google.com/document/d/1t33oD9OfBEGxqvxsih7QCN1uaEnmVgiD/edit';
 ---
 
 <Layout title={title} description={description} image={image}>
@@ -17,12 +15,7 @@ const redirectUrl =
     <meta http-equiv="refresh" content={`2;url=${redirectUrl}`} />
   </Fragment>
 
-  <main
-    class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4"
-  >
-    <Loader
-      text="Redirigiendo..."
-      subtext="Te estamos llevando a la convocatoria para sponsors."
-    />
+  <main class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
+    <Loader text="Redirigiendo..." subtext="Te estamos llevando a la convocatoria para sponsors." />
   </main>
 </Layout>

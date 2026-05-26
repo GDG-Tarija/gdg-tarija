@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Loader from '../components/common/Loader.astro';
+
+const title = 'Road to Build With AI 2026 | GDG Tarija';
+const description =
+  'Prepárate para nuestro evento principal con el Road to Build with AI, un ciclo de charlas virtuales los días 30 de mayo y 13 de junio donde aprenderás fundamentos de IA y configurarás tus entornos de la mano de expertos para llegar listo a programar. 🚀';
+const image =
+  'https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/blob_I6NQ4Qd';
+
+const redirectUrl = 'https://eventos.gdgtarija.com/e/road-to-build-with-ai-tarija';
+---
+
+<Layout title={title} description={description} image={image}>
+  <Fragment slot="head">
+    <meta http-equiv="refresh" content={`2;url=${redirectUrl}`} />
+  </Fragment>
+
+  <main class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
+    <Loader text="Redirigiendo..." subtext="Te estamos llevando al evento Road to Build with AI." />
+  </main>
+</Layout>
