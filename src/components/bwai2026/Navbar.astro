@@ -14,7 +14,6 @@ const navLinks = [
   { label: 'FAQ', href: '#faq' },
 ];
 
-// Stagger per índice → reemplaza style="--i:N" inline
 const staggerDelay = [
   'delay-[80ms]',
   'delay-[125ms]',
@@ -41,8 +40,6 @@ const ctaClass = [
   'transition-all duration-200 active:scale-95',
 ].join(' ');
 ---
-
-<!-- ═══════════ NAVBAR ═══════════ -->
 <header
   id="navbar"
   class="fixed top-0 left-0 right-0 z-50
@@ -51,7 +48,6 @@ const ctaClass = [
     navbar-enter"
 >
   <nav class="max-w-7xl mx-auto px-6 xl:px-14 h-16 flex items-center justify-between">
-    <!-- Logo -->
     <a href="#hero" class="flex items-center gap-2 shrink-0 group" aria-label="GDG Tarija — Home">
       <Image
         src={LogoBuildBlueH}
@@ -67,8 +63,6 @@ const ctaClass = [
         loading="lazy"
       />
     </a>
-
-    <!-- Desktop links -->
     <ul class="hidden md:flex items-center gap-1" role="list">
       {
         navLinks.map(({ label, href }) => (
@@ -81,16 +75,11 @@ const ctaClass = [
       }
     </ul>
 
-    <!-- CTA + Hamburger -->
     <div class="flex items-center gap-3">
       <a href="https://gdgtarija.com/road/" target="_blank" class={`hidden md:inline-flex px-4 py-2 rounded-md ${ctaClass}`}>
         Regístrate
       </a>
 
-      <!--
-        group → habilita group-[&.is-open]: en los spans hijos.
-        JS solo hace: menuBtn.classList.toggle('is-open', open)
-      -->
       <button
         id="menu-btn"
         aria-label="Abrir menú"
@@ -121,7 +110,6 @@ const ctaClass = [
   </nav>
 </header>
 
-<!-- ═══════════ BACKDROP ═══════════ -->
 <div
   id="drawer-backdrop"
   aria-hidden="true"
@@ -129,8 +117,6 @@ const ctaClass = [
     opacity-0 pointer-events-none transition-opacity duration-300"
 >
 </div>
-
-<!-- ═══════════ MOBILE DRAWER ═══════════ -->
 <aside
   id="mobile-drawer"
   role="dialog"
@@ -143,7 +129,6 @@ const ctaClass = [
     transition-transform duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]
     flex flex-col shadow-[-20px_0_60px_rgba(0,0,0,0.6)]"
 >
-  <!-- Header -->
   <div class="flex items-center justify-between px-5 h-16 border-b border-white/10 shrink-0">
     <Image src={LogoBuildBlueHMini} alt="GDG Tarija" class="h-7 w-auto" />
     <button
@@ -168,7 +153,6 @@ const ctaClass = [
     </button>
   </div>
 
-  <!-- Links -->
   <nav class="flex-1 overflow-y-auto px-3 py-4">
     <ul class="space-y-0.5" role="list">
       {
@@ -194,7 +178,6 @@ const ctaClass = [
     </ul>
   </nav>
 
-  <!-- CTA -->
   <div class="px-5 py-5 border-t border-white/10 shrink-0">
     <a href="https://gdgtarija.com/road/" target="_blank" class={`drawer-link w-full rounded-lg px-4 py-3 ${ctaClass}`}>
       Regístrate al Road to Build
@@ -222,7 +205,6 @@ const ctaClass = [
   const closeBtn = document.getElementById('drawer-close')!;
   const drawerItems = drawer.querySelectorAll<HTMLElement>('li[class*="opacity-0"]');
 
-  // ── Scroll → frosted navbar ──────────────────────────────
   const SCROLLED = [
     'bg-[#0a0a0a]/85',
     'backdrop-blur-md',
@@ -250,7 +232,6 @@ const ctaClass = [
 
   updateNavbar();
 
-  // ── Drawer ───────────────────────────────────────────────
   let isOpen = false;
 
   function setDrawer(open: boolean) {
@@ -260,11 +241,9 @@ const ctaClass = [
     backdrop.classList.toggle('opacity-0', !open);
     backdrop.classList.toggle('pointer-events-none', !open);
     menuBtn.setAttribute('aria-expanded', String(open));
-    menuBtn.classList.toggle('is-open', open); // activa group-[&.is-open]: en los spans
+    menuBtn.classList.toggle('is-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
 
-    // Stagger items: las clases delay-[Nms] ya están fijas en el HTML;
-    // solo se alterna la visibilidad.
     drawerItems.forEach((el) => {
       el.classList.toggle('opacity-0', !open);
       el.classList.toggle('translate-x-4', !open);
@@ -285,7 +264,6 @@ const ctaClass = [
     .forEach((el) => el.addEventListener('click', () => setDrawer(false)));
   document.addEventListener('keydown', (e) => e.key === 'Escape' && isOpen && setDrawer(false));
 
-  // ── Focus trap ───────────────────────────────────────────
   drawer.addEventListener('keydown', (e) => {
     if (!isOpen || e.key !== 'Tab') return;
     const focusable = Array.from(

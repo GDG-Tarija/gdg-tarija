@@ -10,7 +10,7 @@
     "ctaText": "Registrarse",
     "ctaHref": "https://gdgtarija.com/road/",
     
-    "imgSrc": "/img/events/bwai2026/logo-road.png"
+    "imgSrc": "/img/events/bwai2026/logo-road.webp"
   },
   {
     "id": 2,
@@ -22,7 +22,7 @@
     "color": "green",
     "ctaText": "Registrarse",
     "ctaHref": "https://gdgtarija.com/road/",
-    "imgSrc": "/img/events/bwai2026/logo-road.png"
+    "imgSrc": "/img/events/bwai2026/logo-road.webp"
   },
   {
     "id": 3,
@@ -34,6 +34,6 @@
     "color": "yellow",
     "ctaText": "Próximamente",
     "ctaHref": "#",
-    "imgSrc": "/img/events/bwai2026/logo-build.png"
+    "imgSrc": "/img/events/bwai2026/logo-build.webp"
   }
 ]

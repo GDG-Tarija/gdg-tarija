@@ -12,11 +12,9 @@ const mapsUrl =
     <div
       class="max-w-7xl px-6 w-full xl:px-14 mx-auto flex flex-col lg:flex-row gap-3 lg:gap-8 items-start"
     >
-      <!-- ── LEFT: About the Event ─────────────────────────────── -->
       <div
         class="about-text opacity-0 basis-[40%] w-full translate-y-8 transition-[opacity,transform] duration-700 ease-out mb-10"
       >
-        <!-- { } + Heading -->
         <div class="flex items-center gap-4 mb-6 pt-10">
           <span
             class="text-gdg-blue text-4xl font-medium font-mono leading-none select-none"
@@ -26,8 +24,6 @@ const mapsUrl =
             About the Event
           </h2>
         </div>
-
-        <!-- Descripción -->
         <div class="space-y-4 mb-6 ms-14.5">
           <p class="text-white/65 text-base leading-relaxed font-light lg:font-medium xl:text-xl">
             Build with AI es un evento enfocado en el aprendizaje práctico de Inteligencia
@@ -35,8 +31,6 @@ const mapsUrl =
             habilidades y aplicar herramientas actuales mediante talleres y charlas.
           </p>
         </div>
-
-        <!-- Tagline -->
         <p
           class="text-gdg-green font-mono text-sm tracking-widest ms-14.5"
           aria-label="learn, connect, build"
@@ -44,12 +38,9 @@ const mapsUrl =
           // learn. connect. build.
         </p>
       </div>
-
-      <!-- ── RIGHT: Ubicación ──────────────────────────────────── -->
       <div
         class="location-block pt-8 h-full basis-[60%] w-full md:w-5/6 self-center opacity-0 translate-y-8 transition-[opacity,transform] duration-700 ease-out delay-150 ps-0 lg:ps-8 lg:border-l border-gray-800"
       >
-        <!-- Header -->
         <div class="flex items-center justify-between mt-1">
           <h2 class="text-white text-xl lg:text-2xl font-medium">Ubicación</h2>
           <span
@@ -58,11 +49,9 @@ const mapsUrl =
           >
         </div>
 
-        <!-- Flip Card: el contenedor aplica la perspectiva 3D -->
         <div
           class="flex flex-col md:flex-row perspective-distant gap-6 items-center justify-center"
         >
-          <!-- Logo UCB — overlay esquina inferior izquierda -->
           <div
             class="shadow-lg hidden md:flex pointer-events-none ps-0 w-33 lg:ps-4 justify-items-center"
             aria-hidden="true"
@@ -91,7 +80,6 @@ const mapsUrl =
             class="flip-card relative w-full aspect-4/3 h-63 lg:h-68.25 md:me-12"
             id="venueFlipCard"
           >
-            <!-- FRENTE: Foto del venue + logo UCB -->
             <div
               class="flip-face absolute inset-0 rounded-2xl overflow-hidden cursor-pointer group"
               id="flipFront"
@@ -99,7 +87,6 @@ const mapsUrl =
               tabindex="0"
               aria-label="Haz click para ver la ubicación en Google Maps"
             >
-              <!-- Foto principal del venue -->
               <Image
                 src={VenueUCB}
                 alt="Campus de la Universidad Católica Boliviana, Tarija"
@@ -108,7 +95,6 @@ const mapsUrl =
                 decoding="async"
               />
 
-              <!-- Hint hover -->
               <div
                 class="absolute inset-0 flex items-center justify-center bg-gdg-blue/0 group-hover:bg-gdg-blue/10 transition-colors duration-300"
                 aria-hidden="true"
@@ -139,7 +125,6 @@ const mapsUrl =
               </div>
             </div>
 
-            <!-- REVERSO: Google Maps iframe -->
             <div class="flip-face flip-face--back absolute inset-0 rounded-2xl overflow-hidden">
               <iframe
                 id="venueMapIframe"
@@ -151,7 +136,6 @@ const mapsUrl =
                 referrerpolicy="no-referrer-when-downgrade"
                 title="Mapa del venue — Universidad Católica Boliviana, Tarija"></iframe>
 
-              <!-- Botón volver -->
               <button
                 id="flipBackBtn"
                 class="absolute top-3 right-3 flex items-center gap-2 bg-bwai-background/85 backdrop-blur-md border border-white/10 text-white text-sm font-medium rounded-full px-4 py-2 hover:bg-white/10 transition-colors duration-200 cursor-pointer"
@@ -176,9 +160,6 @@ const mapsUrl =
             </div>
           </div>
         </div>
-        <!-- /Flip Card -->
-
-        <!-- Caption -->
         <p class="mt-3 flex items-center gap-1.5 text-white/35 text-xs font-mono justify-end mb-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +178,6 @@ const mapsUrl =
           Click en la imagen para ver el mapa
         </p>
       </div>
-      <!-- /RIGHT -->
     </div>
   </div>
 </section>
@@ -223,22 +203,18 @@ const mapsUrl =
 </style>
 
 <script>
-  // ── Flip Card ────────────────────────────────────────────────
   const card = document.getElementById('venueFlipCard');
   const front = document.getElementById('flipFront');
   const backBtn = document.getElementById('flipBackBtn');
   const iframe = document.getElementById('venueMapIframe') as HTMLIFrameElement | null;
 
   let isFlipped = false;
-  let mapLoaded = false; // evita recargar el iframe en flips sucesivos
+  let mapLoaded = false;
 
   function flipToMap(): void {
     if (isFlipped || !card || !iframe) return;
     isFlipped = true;
     card.classList.add('is-flipped');
-
-    // Lazy-load: inyectar src a los 320ms (mitad del flip)
-    // para que el mapa cargue mientras la animación termina.
     setTimeout(() => {
       if (!mapLoaded && iframe.dataset.src) {
         iframe.src = iframe.dataset.src;
@@ -255,7 +231,6 @@ const mapsUrl =
 
   front?.addEventListener('click', flipToMap);
 
-  // Soporte de teclado (accesibilidad — role="button" requiere Enter y Space)
   front?.addEventListener('keydown', (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
@@ -263,26 +238,19 @@ const mapsUrl =
     }
   });
 
-  // stopPropagation: defensa por si el botón y el frente comparten
-  // algún ancestro con listener en el futuro.
   backBtn?.addEventListener('click', (e: MouseEvent) => {
     e.stopPropagation();
     flipToVenue();
   });
 
-  // ── Scroll Entrance Animations ───────────────────────────────
-  // Estrategia: las clases Tailwind opacity-0 y translate-y-8 se aplican
-  // como estado inicial en el HTML. El observer las elimina al entrar
-  // en el viewport, activando la transición CSS declarada con Tailwind.
   const targets = document.querySelectorAll<HTMLElement>('.about-text, .location-block');
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Remover las clases de estado inicial dispara la transición Tailwind
           entry.target.classList.remove('opacity-0', 'translate-y-8');
-          observer.unobserve(entry.target); // ejecutar solo una vez
+          observer.unobserve(entry.target);
         }
       });
     },

@@ -13,9 +13,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
   aria-label="Sección principal - Build with AI 2026"
 >
   <Sparkles />
-
-  <!-- ══════════ CONTENIDO PRINCIPAL ════════════ -->
-
   <div
     class="relative z-20 mx-auto w-full max-w-7xl px-6 xl:px-14
               pt-20 pb-16 lg:pt-24
@@ -31,7 +28,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
         // The Future is ours to build
       </p>
 
-      <!-- Título principal -->
       <div class="hero-title flex mb-8 justify-center md:justify-start">
         <div class="w-2/3 md:w-4/5">
           <Image
@@ -50,7 +46,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
         </div>
       </div>
 
-      <!-- Detalles del evento -->
       <ul class="hero-info opacity-0 space-y-1.5 mb-4 font-sans-flex">
         <li class="flex items-center gap-1 md:gap-2 flex-wrap">
           <span role="img" aria-label="Ubicación">
@@ -119,7 +114,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
         </li>
       </ul>
 
-      <!-- Descripción -->
       <p
         class="hero-desc opacity-0 font-medium text-white/60 text-[clamp(1rem,0.9063rem+0.375vw,1.1775rem)] leading-relaxed
                 max-w-76 xl:max-w-88 mb-8"
@@ -128,11 +122,9 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
         IA.
       </p>
 
-      <!-- CTAs -->
       <div
         class="hero-ctas opacity-0 flex items-center md:max-w-85 justify-center md:justify-start gap-6 flex-wrap mb-2"
       >
-        <!-- Botón primario — registro -->
         <a
           href="https://gdgtarija.com/road/"
           target="_blank"
@@ -167,55 +159,12 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
               ></path>
             </svg>
           </span>
-          <!-- shimmer sutil -->
           <span class="shimmer absolute inset-0" aria-hidden="true"></span>
         </a>
-
-        <!-- Botón secundario -->
-        <!-- <a
-          href="https://gdg.community.dev/e/m9mtrm/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Conoce más sobre el evento en la comunidad de GDG Tarija"
-          aria-label="Conoce más sobre el evento en la comunidad de GDG Tarija"
-          class="cta-secondary group relative w-full lg:w-auto
-                inline-flex items-center gap-2 justify-center
-                px-5 py-3.5 text-white/80
-                hover:text-white transition-colors
-                font-semibold tracking-tighter rounded-md
-                outline outline-bwai-border bg-bwai-background md:bg-transparent
-                select-none
-                overflow-hidden
-                shadow-[0_0_5px_rgba(103,136,181,0.35)]
-                hover:shadow-[0_0_10px_rgba(121,143,174,0.55)]
-                duration-200
-                active:scale-[0.97]"
-        >
-          <span class="relative z-10 text-center">Conoce más</span>
-          <span class="relative z-10 group-hover:translate-x-1 transition-transform">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 320 512"
-              fill="currentColor"
-              width="10"
-              height="14"
-              class="relative z-10 group-hover:translate-x-1 transition-transform"
-              aria-hidden="true"
-            >
-              <path
-                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
-              ></path>
-            </svg>
-          </span> -->
-          <!-- shimmer sutil -->
-          <!-- <span class="shimmer absolute inset-0" aria-hidden="true"></span> -->
         </a>
       </div>
-    </div><!-- /hero-left -->
-
-    <!-- ────────── COLUMNA DERECHA ────────── -->
+    </div>
     <div class="hero-right flex-1 basis-[65%] min-w-0 flex flex-col items-center gap-6 w-full">
-      <!-- Skyline de Tarija -->
       <div class="hero-skyline opacity-0 relative w-full">
         <Image
           src={SkylineTarija}
@@ -228,8 +177,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
           class="w-full h-auto mx-auto"
         />
       </div>
-
-      <!-- Countdown -->
       <div
         class="hero-countdown opacity-0 w-full max-w-lg
                   bg-white/1.5 backdrop-blur-sm
@@ -239,10 +186,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
         <p class="text-center text-white/70 text-sm md:text-xl font-medium mb-5">
           El evento presencial comienza en:
         </p>
-
-        <!-- Grid de tiempo -->
         <div class="flex items-center justify-center gap-1 sm:gap-2">
-          <!-- Días -->
           <div class="cd-unit text-center">
             <div
               class="cd-card bg-white/5 rounded-md px-3 py-2.5 sm:px-4 sm:py-3
@@ -263,7 +207,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
             class="cd-dot text-gdg-blue text-4xl md:text-6xl font-bold self-center mb-5">:</span
           >
 
-          <!-- Horas -->
           <div class="cd-unit text-center">
             <div
               class="cd-card bg-white/5 rounded-md px-3 py-2.5 sm:px-4 sm:py-3
@@ -284,7 +227,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
             class="cd-dot text-gdg-green text-4xl md:text-6xl font-bold self-center mb-5">:</span
           >
 
-          <!-- Minutos -->
           <div class="cd-unit text-center">
             <div
               class="cd-card bg-white/5 rounded-md px-3 py-2.5 sm:px-4 sm:py-3
@@ -305,7 +247,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
             class="cd-dot text-gdg-yellow text-4xl md:text-6xl font-bold self-center mb-5">:</span
           >
 
-          <!-- Segundos -->
           <div class="cd-unit text-center">
             <div
               class="cd-card bg-white/5 rounded-xl px-3 py-2.5 sm:px-4 sm:py-3
@@ -321,9 +262,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
             </span>
           </div>
         </div>
-      </div><!-- /countdown -->
-
-      <!-- Scroll indicator -->
+      </div>
       <div
         id="scroll-hero"
         class="hero-scroll absolute bottom-6 z-20 opacity-0 cursor-pointer"
@@ -337,20 +276,17 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
             height="1em"
             fill="currentColor"
           >
-            <!-- Font Awesome Free 6.x Solid - fa-chevron-down -->
             <path
               d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.3c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
             ></path>
           </svg>
         </span>
       </div>
-    </div><!-- /hero-right -->
-  </div><!-- /container -->
+    </div>
+  </div>
 </section>
 
-<!-- ═════════ ESTILOS ══════════ -->
 <style>
-  /* ── Shimmer en botón primario ───────────────────────── */
   .shimmer {
     background: linear-gradient(
       105deg,
@@ -371,7 +307,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
     }
   }
 
-  /* ── Countdown: flip al actualizar ─────────────────── */
   .cd-flip {
     animation: cd-flip 0.28s cubic-bezier(0.4, 0, 0.2, 1) both;
   }
@@ -386,8 +321,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
       opacity: 1;
     }
   }
-
-  /* ── Countdown dots pulse ───────────────────────────── */
   .cd-dot {
     animation: dot-pulse 1.2s ease-in-out infinite;
   }
@@ -410,8 +343,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
       opacity: 0.2;
     }
   }
-
-  /* ── CTA Primary ────────────────────────────────────── */
   .cta-primary {
     transition:
       transform 0.2s ease,
@@ -423,13 +354,9 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
   }
 </style>
 
-<!-- ══════════════════════════════════════════════════════════
-      SCRIPTS — Animaciones de entrada + Countdown
-═══════════════════════════════════════════════════════════ -->
 <script>
   import { animate } from 'motion';
 
-  /* ── Animaciones de entrada al cargar ─────────────────── */
   const ease = [0.22, 1, 0.36, 1] as const;
 
   function animateEl(
@@ -441,8 +368,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
     if (el) animate(el, keyframes, options);
   }
 
-  // Respeta prefers-reduced-motion: si el usuario prefiere sin movimiento,
-  // simplemente muestra los elementos sin animar.
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (prefersReduced) {
@@ -492,7 +417,6 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
     animateEl('.hero-scroll', { opacity: [0, 0.75] }, { duration: 0.8, delay: 1.3 });
   }
 
-  /* ── Countdown Timer ──────────────────────────────────── */
   function pad(n: number): string {
     return String(n).padStart(2, '0');
   }
@@ -501,7 +425,7 @@ import Groups from '../../../assets/images/bwai2026/groups.svg';
     if (!el || el.textContent === value) return;
     el.textContent = value;
     el.classList.remove('cd-flip');
-    void el.offsetWidth; // force reflow para reiniciar la animación CSS
+    void el.offsetWidth;
     el.classList.add('cd-flip');
   }
 

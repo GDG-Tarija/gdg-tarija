@@ -38,7 +38,6 @@ import Faqs from './faq.json';
         before:bg-size-[28px_28px]"
 >
   <div class="relative z-10 mx-auto max-w-7xl px-6 xl:px-14">
-    <!-- ── Encabezado de sección ───────────────────────────────── -->
     <div class="mb-10 animate-[fadeSlideUpFaq_0.6s_ease_both]">
       <p
         class="mb-3 font-mono font-extrabold text-3xl tracking-widest text-gdg-green"
@@ -53,8 +52,6 @@ import Faqs from './faq.json';
         ¿Tienes dudas? Aquí están las respuestas a las preguntas más comunes sobre el evento.
       </p>
     </div>
-
-    <!-- ── Lista de acordeones ─────────────────────────────────── -->
     <div class="flex flex-col gap-2 mx-auto md:max-w-xl lg:max-w-4xl" role="list">
       {
         Faqs.map((faq, index) => {
@@ -72,7 +69,6 @@ import Faqs from './faq.json';
                       [&::-webkit-details-marker]:hidden [&::marker]:hidden"
                 aria-expanded="false"
               >
-                {/* Número de índice — coloreado según variante */}
                 <span
                   class={`min-w-[1.8rem] shrink-0 font-mono text-[0.7rem]
                           tracking-[0.05em] opacity-70 ${color.idx}`}
@@ -80,16 +76,12 @@ import Faqs from './faq.json';
                 >
                   {String(index + 1).padStart(2, '0')}
                 </span>
-
-                {/* Pregunta */}
                 <span
                   class="flex-1 text-base font-medium leading-snug text-[#e8eaed]
                         transition-colors duration-200 group-open:text-white"
                 >
                   {faq.question}
                 </span>
-
-                {/* Icono +/− */}
                 <span
                   class={`flex shrink-0 items-center justify-center
                           text-neutral-500 transition-colors duration-200 ${color.iconOpen}`}
@@ -120,7 +112,6 @@ import Faqs from './faq.json';
                 </span>
               </summary>
 
-              {/* Respuesta — indentada al nivel del texto de la pregunta */}
               <div class="px-6 pb-5 pl-[calc(1.5rem+1.8rem+1rem)]">
                 <p class="text-[0.9375rem] leading-[1.7] text-neutral-400">{faq.answer}</p>
               </div>
@@ -143,8 +134,6 @@ import Faqs from './faq.json';
       transform: translateY(0);
     }
   }
-
-  /* Estado inicial oculto; JS añade .is-visible para disparar la animación */
   .faq-item {
     opacity: 0;
     transform: translateY(12px);
@@ -153,8 +142,6 @@ import Faqs from './faq.json';
   .faq-item.is-visible {
     animation: fadeSlideUpFaq 0.45s ease forwards;
   }
-
-  /* Delays escalonados por posición — sin estilos en línea */
   .faq-item:nth-child(1).is-visible {
     animation-delay: 0ms;
   }
@@ -180,7 +167,6 @@ import Faqs from './faq.json';
     animation-delay: 490ms;
   }
 
-  /* Animación del icono SVG — selector compuesto, imposible con Tailwind */
   .icon-v {
     transform-origin: center;
     transition:
@@ -195,7 +181,6 @@ import Faqs from './faq.json';
 </style>
 
 <script>
-  // Intersection Observer para la entrada escalonada al hacer scroll
   const items = document.querySelectorAll<HTMLElement>('.faq-item');
 
   const observer = new IntersectionObserver(
@@ -212,7 +197,6 @@ import Faqs from './faq.json';
 
   items.forEach((item) => observer.observe(item));
 
-  // Accesibilidad: sincronizar aria-expanded con el estado del acordeón
   document.querySelectorAll<HTMLDetailsElement>('.faq-item').forEach((det) => {
     const summary = det.querySelector('summary');
     if (!summary) return;

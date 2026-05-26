@@ -5,9 +5,10 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  canonical?: string;
 }
 
-const { title, description, image } = Astro.props;
+const { title, description, image, canonical } = Astro.props;
 
 // Valores por defecto
 const defaultDescription =
@@ -16,8 +17,11 @@ const defaultDescription =
 const defaultImage =
   'https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png';
 
+const defaultCannonical = 'https://gdgtarija.com'
+
 const metaDescription = description || defaultDescription;
 const metaImage = image || defaultImage;
+const canonicalURL = canonical || defaultCannonical;
 ---
 
 <!doctype html>
@@ -36,7 +40,7 @@ const metaImage = image || defaultImage;
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="1200" />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:url" content="https://gdgtarija.com" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GDG Tarija" />
 
@@ -55,7 +59,7 @@ const metaImage = image || defaultImage;
       content="GDG, Google Developer Group, Tarija, Bolivia, Google I/O Extended, Developers, Tech Community, Programming, Innovation"
     />
     <meta name="author" content="GDG Tarija" />
-    <link rel="canonical" href="https://gdgtarija.com" />
+    <link rel="canonical" href={canonicalURL} />
 
     <title>{title}</title>
     <link
