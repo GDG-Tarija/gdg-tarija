@@ -2,26 +2,27 @@
   {
     "id": 1,
     "isoDate": "2026-05-30",
-    "dateLabel": "30 de Mayo",
-    "title": "Conferencia Online #1",
-    "subtitle": "Tus primeros pasos construyendo con IA",
+    "dateLabel": "30 de Mayo - 10:00 AM",
+    "title": "Sesión #1",
+    "subtitle": "Fundamentos de IA y conceptos clave.",
     "tag": "Pre-evento · Online",
     "color": "blue",
     "ctaText": "Registrarse",
-    "ctaHref": "#",
-    "imgSrc": "/img/events/bwai2026/conferencia1.webp"
+    "ctaHref": "https://gdgtarija.com/road/",
+    
+    "imgSrc": "/img/events/bwai2026/logo-road.png"
   },
   {
     "id": 2,
     "isoDate": "2026-06-13",
-    "dateLabel": "13 de Junio",
-    "title": "Conferencia Online #2",
-    "subtitle": "Construyendo aplicaciones con Gemini API",
+    "dateLabel": "13 de Junio - 12:00 PM",
+    "title": "Sesión #2",
+    "subtitle": "Configuración técnica de entornos, cuentas y accesos.",
     "tag": "Pre-evento · Online",
     "color": "green",
     "ctaText": "Registrarse",
-    "ctaHref": "#",
-    "imgSrc": "/img/events/bwai2026/conferencia2.webp"
+    "ctaHref": "https://gdgtarija.com/road/",
+    "imgSrc": "/img/events/bwai2026/logo-road.png"
   },
   {
     "id": 3,
@@ -31,8 +32,8 @@
     "subtitle": "El gran evento presencial en Tarija, Bolivia",
     "tag": "Evento Principal · Presencial",
     "color": "yellow",
-    "ctaText": "Registrarse",
-    "ctaHref": "#register",
-    "imgSrc": "/img/events/bwai2026/workshop.webp"
+    "ctaText": "Próximamente",
+    "ctaHref": "#",
+    "imgSrc": "/img/events/bwai2026/logo-build.png"
   }
 ]

@@ -4,11 +4,5 @@
     "website": "https://www.technovation.org/women-techmakers/",
     "ringClass": "hover:ring-green-500/40",
     "logo": "/img/events/bwai2026/WTM_Logo.png"
-  },
-  {
-    "name": "Universidad Catolica",
-    "website": "https://tja.ucb.edu.bo/",
-    "ringClass": "hover:ring-yellow-500/40",
-    "logo": "/img/events/bwai2026/logo-ucb_ucb.png"
   }
 ]

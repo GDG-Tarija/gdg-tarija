@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "isRevealed": true,
+    "name": "Lesly Zerna",
+    "photo": "/img/events/bwai2026/lesly-zerna.webp",
+    "talkTitle": "Herramientas para construir con IA: del prompt a la publicación",
+    "talkDescription": "Exploramos las herramientas de Google IA para transformar una idea en un MVP y publicarlo con Google Cloud Run.",
+    "aboutSpeaker": "Lesly es ingeniera en Telecomunicaciones con una maestría en Ciencias de Computación e Ingeniería. Actualmente, trabaja como curriculum developer en la empresa DeepLearning.AI y es facilitadora y mentora de startup weekends y hackathons, además es Google Developer Expert en AI y Cloud. Sus principales intereses son: tecnología, educación y startups."
+  }
+]

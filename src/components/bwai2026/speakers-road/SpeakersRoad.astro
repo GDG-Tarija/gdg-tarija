@@ -1,0 +1,300 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import speakers from './speakers-road.json'
+---
+
+<section
+  id="speakers-road"
+  aria-labelledby="speakers-road-title"
+  class="relative bg-bwai-background px-4 py-12 md:py-20 overflow-hidden border-t border-gray-800"
+>
+  
+
+  <div class="relative max-w-7xl mx-auto px-6 xl:px-14">
+    <!-- ── Encabezado de sección ──── -->
+    <header class="mb-12 md:mb-16" data-animate data-stagger="0">
+      <p class="text-gdg-blue font-medium text-sm sm:text-base
+                tracking-wider mb-2">
+        Conferencia Online · Sesión 1
+      </p>
+      <h2
+        id="speakers-road-title"
+        class="text-2xl md:text-3xl font-bold text-gdg-off-white mb-3 leading-tight"
+      >
+        Speakers Road to Build
+      </h2>
+      <p class="text-sm text-gdg-midnight-blue leading-relaxed max-w-sm">
+        Conoce a los speakers de la primer sesión online. Un nuevo speaker se revela cada día.
+      </p>
+    </header>
+
+    <div class="relative">
+      <!-- Grid de columnas de speakers -->
+      <div class="grid grid-cols-1 gap-5 justify-items-center">
+        {
+          speakers.map((speaker, index) => (
+            <div class="flex flex-col gap-3 max-w-sm w-full" data-animate data-stagger={index + 1}>
+              <article
+                class="speaker-card group w-full flex flex-col"
+                aria-label={`Speaker: ${speaker.name}`}
+              >
+                <div class="rounded-2xl p-px flex flex-col h-full speaker-card-border">
+                  <div class="rounded-[15px] bg-bwai-background overflow-hidden flex flex-col h-full">
+                    <div class="relative overflow-hidden h-70 shrink-0">
+                      <Image
+                        src={speaker.photo}
+                        alt={`Foto de ${speaker.name}`}
+                        width={400}
+                        height={280}
+                        class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <div
+                        class="absolute inset-0 bg-linear-to-t from-bwai-background/75 via-transparent to-transparent pointer-events-none"
+                        aria-hidden="true"
+                      />
+                      <span
+                        class="absolute top-3 right-3 bg-gdg-green/90 text-gdg-off-white text-[10px] font-bold px-2.5 py-1 rounded-full tracking-[0.06em] uppercase"
+                        aria-label="Speaker confirmada"
+                      >
+                        ✓ Confirmada
+                      </span>
+                    </div>
+
+                    <div class="flex flex-col flex-1 p-5 gap-2">
+                      <h3 class="text-gdg-off-white font-semibold text-base leading-snug">
+                        {speaker.name}
+                      </h3>
+                      <p class="text-gdg-halftone-blue text-sm font-medium leading-relaxed">
+                        {speaker.talkTitle}
+                      </p>
+                      <p class="text-gdg-off-white/60 text-sm leading-relaxed pt-3">
+                        {speaker.talkDescription}
+                      </p>
+                      <div class="mt-auto pt-3 border-t border-gdg-midnight-blue/20">
+                        <button
+                          class="flex items-center gap-1.5 text-xs font-medium text-gdg-midnight-blue hover:text-gdg-ice-blue focus-visible:text-gdg-ice-blue focus-visible:outline-none transition-colors duration-200 cursor-pointer"
+                          aria-expanded="false"
+                          aria-controls={`speaker-details-${speaker.id}`}
+                          data-speaker-toggle
+                        >
+                          <span class="toggle-label">Ver más</span>
+                          <svg
+                            class="w-3.5 h-3.5 toggle-icon transition-transform duration-300"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M4 6l4 4 4-4"
+                              stroke="currentColor"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </button>
+                        <div
+                          id={`speaker-details-${speaker.id}`}
+                          class="speaker-details"
+                          aria-hidden="true"
+                        >
+                          <p class="text-gdg-off-white/60 text-xs leading-relaxed pt-3">
+                            {speaker.aboutSpeaker}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Brillo ambiental de fondo ────────────────────────────────────────────── */
+  .speakers-bg-glow {
+    background: radial-gradient(
+      ellipse 70% 50% at 50% 0%,
+      rgba(36, 128, 240, 0.07) 0%,
+      transparent 70%
+    );
+  }
+
+  /* ── Road connector: línea punteada horizontal ────────────────────────────── */
+  .road-connector {
+    height: 1px;
+    background-image: repeating-linear-gradient(
+      to right,
+      rgba(22, 81, 133, 0.55) 0px,
+      rgba(22, 81, 133, 0.55) 6px,
+      transparent 6px,
+      transparent 14px
+    );
+  }
+
+  /* ── Nodos del camino ─────────────────────────────────────────────────────── */
+  .road-node {
+    width: 14px;
+    height: 14px;
+    border-radius: 9999px;
+    position: relative;
+    z-index: 10; /* Cubre la línea del camino para el efecto milestone */
+    flex-shrink: 0;
+  }
+
+  .road-node--active {
+    background-color: var(--color-gdg-deep-ocean-blue);
+    box-shadow:
+      0 0 0 4px rgba(36, 128, 240, 0.2),
+      0 0 14px rgba(36, 128, 240, 0.4);
+  }
+
+  .road-node--locked {
+    background-color: var(--color-bwai-background);
+    border: 2px solid rgba(22, 81, 133, 0.4);
+  }
+
+  /* ── Borde degradado de la card activa (técnica p-px) ────────────────────── */
+  /*
+    El `background` del wrapper actúa como borde porque tiene `padding: 1px`.
+    El div interior cubre el relleno con el color de fondo real.
+    El `box-shadow` añade un halo de profundidad.
+  */
+  .speaker-card-border {
+    background: linear-gradient(
+      155deg,
+      rgba(36, 128, 240, 0.85) 0%,
+      rgba(87, 202, 255, 0.4) 45%,
+      rgba(36, 128, 240, 0.06) 100%
+    );
+    box-shadow:
+      0 0 28px rgba(36, 128, 240, 0.1),
+      0 12px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  /* ── Panel expandible: descripción de la charla ──────────────────────────── */
+  /*
+    Arranca en max-height: 0 y transition: max-height.
+    El JS asigna/elimina `style.maxHeight` con el scrollHeight real del contenido,
+    lo que provoca que la transición CSS anime hacia arriba o hacia abajo.
+    No se usa style="" en el HTML: la altura es 100% controlada por JS en runtime.
+  */
+  .speaker-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out;
+  }
+
+  /* ── Rotación del chevron cuando el panel está expandido ─────────────────── */
+  [aria-expanded='true'] .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  /* ── Animaciones de entrada activadas por scroll ─────────────────────────── */
+  /*
+    Los elementos con `data-animate` comienzan invisibles y desplazados hacia abajo.
+    El IntersectionObserver en <script> añade `.is-visible` cuando entran al viewport.
+    Los `data-stagger` values controlan el retraso escalonado sin usar style="".
+  */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  [data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  [data-stagger='0'] {
+    transition-delay: 0ms;
+  }
+  [data-stagger='1'] {
+    transition-delay: 100ms;
+  }
+  [data-stagger='2'] {
+    transition-delay: 200ms;
+  }
+  [data-stagger='3'] {
+    transition-delay: 300ms;
+  }
+
+  /* Respeta la preferencia del sistema para reducir movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    [data-animate] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // ── Expand / Collapse: descripción de la charla ─────────────────────────────
+  //
+  // Cómo funciona:
+  //   1. El botón tiene `aria-expanded="false"` (estado inicial, accesible).
+  //   2. Al hacer clic, leemos ese atributo para saber el estado actual.
+  //   3. Si se va a expandir: asignamos `style.maxHeight = scrollHeight + 'px'`
+  //      → la transición CSS de `.speaker-details` anima de 0 al alto real.
+  //   4. Si se va a colapsar: eliminamos el inline style con `style.maxHeight = ''`
+  //      → el navegador vuelve a aplicar el `max-height: 0` del CSS con transición.
+  //   5. Actualizamos `aria-expanded` / `aria-hidden` para accesibilidad.
+  //   6. Cambiamos el texto del botón ("Ver charla" ↔ "Ver menos").
+
+  document.querySelectorAll<HTMLButtonElement>('[data-speaker-toggle]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      const targetId = btn.getAttribute('aria-controls');
+      const content = targetId ? document.getElementById(targetId) : null;
+
+      if (!content) return;
+
+      // Actualizar estado ARIA
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      content.setAttribute('aria-hidden', String(isExpanded));
+
+      // Animar la altura del panel
+      if (!isExpanded) {
+        // Expandir: fija max-height al alto real del contenido
+        content.style.maxHeight = `${content.scrollHeight}px`;
+      } else {
+        // Colapsar: elimina el inline style → la transición CSS regresa a 0
+        content.style.maxHeight = '';
+      }
+
+      // Actualizar etiqueta del botón
+      const label = btn.querySelector('.toggle-label');
+      if (label) label.textContent = isExpanded ? 'Ver más' : 'Ver menos';
+    });
+  });
+
+  // ── Animaciones de entrada por IntersectionObserver ─────────────────────────
+  //
+  // Observa cada elemento [data-animate]. Cuando entra al viewport (threshold 10%),
+  // añade la clase `.is-visible` que activa la transición CSS hacia su estado final.
+  // `unobserve` después de disparar garantiza que la animación ocurra solo una vez.
+
+  const animObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          animObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  document.querySelectorAll('[data-animate]').forEach((el) => animObserver.observe(el));
+</script>

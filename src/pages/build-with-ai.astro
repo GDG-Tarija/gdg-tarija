@@ -8,11 +8,12 @@ import FAQ from 'components/bwai2026/faq/FAQ.astro';
 import About from 'components/bwai2026/About.astro';
 import Sponsors from 'components/bwai2026/sponsors/Sponsors.astro';
 import RoadToBuild from 'components/bwai2026/road/RoadToBuild.astro';
+import SpeakersRoad from 'components/bwai2026/speakers-road/SpeakersRoad.astro';
 
 const title = 'Build with AI 2026 - Tarija';
 const description =
-  'Join us for Build with AI 2026 in Tarija, where we explore the latest advancements in artificial intelligence and how it can transform our world. Discover innovative solutions, network with industry experts, and be part of the future of technology.';
-const image = '';
+  'Únete a nosotros en Build with AI 2026 en Tarija, donde exploraremos los últimos avances en inteligencia artificial y cómo puede transformar nuestro mundo. Descubre soluciones innovadoras, establece contactos con expertos del sector y forma parte del futuro de la tecnología.';
+const image = 'https://res.cloudinary.com/dopkch3x9/image/upload/v1778774677/Logo-Build_lmlupk.jpg';
 ---
 
 <Layout title={title} description={description} image={image}>
@@ -21,7 +22,8 @@ const image = '';
     <AuroraBackground />
     <Hero />
     <RoadToBuild />
-    <About />
+    <!-- <About /> -->
+    <SpeakersRoad />
     <Sponsors />
     <FAQ />
   </main>
