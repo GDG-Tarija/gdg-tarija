@@ -12,28 +12,12 @@
     "answer": "Se enfocará en IA generativa (Gemini, AI Studio, Gemma), MLOps (Vertex AI) e infraestructura en la nube (Google Cloud) para el desarrollo de aplicaciones reales con IA de Google."
   },
   {
-    "question": "¿Cuánto cuesta el registro al evento presencial del 20 de Junio?",
-    "answer": "El registro cuesta 15 Bs. incluye (refrigerio, landyard, certificado y stickers). Solo necesitas registrarte con anticipación para asegurar tu lugar, ya que los cupos son limitados."
-  },
-  {
     "question": "¿Las charlas online son las mismas que el evento presencial?",
     "answer": "No. Las charlas online previas son sesiones de preparación diseñadas para nivelar conocimientos antes del evento presencial. El evento presencial del 20 de junio es la experiencia completa: keynotes, talleres en profundidad, networking y mucho más."
   },
   {
     "question": "¿Cuánto cuesta el registro a las charlas online?",
     "answer": "El registro es 100% gratuito, Solo necesitas registrarte."
-  },
-  {
-    "question": "¿Qué debo llevar al evento presencial?",
-    "answer": "Te recomendamos traer tu laptop cargada (con cargador y alargador), acceso a internet o datos móviles, y mucha energía. El evento incluirá sesiones de código en vivo, así que asegúrate de tener un navegador actualizado y contar con una cuenta activa de Google."
-  },
-  {
-    "question": "¿Habrá comida y bebidas disponibles en el evento presencial?",
-    "answer": "Sí. El evento contará con coffee breaks durante las sesiones."
-  },
-  {
-    "question": "¿Puedo obtener un certificado de participación?",
-    "answer": "Sí. Todos los asistentes que completen el evento presencial recibirán un certificado digital de participación emitido por GDG Tarija. Asegúrate de registrar tu asistencia en el evento presencial para recibirlo."
   },
   {
     "question": "¿Qué es GDG (Google Developer Groups)?",
