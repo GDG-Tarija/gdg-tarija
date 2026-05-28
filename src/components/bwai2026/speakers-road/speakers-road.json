@@ -6,6 +6,40 @@
     "photo": "/img/events/bwai2026/lesly-zerna.webp",
     "talkTitle": "Herramientas para construir con IA: del prompt a la publicación",
     "talkDescription": "Exploramos las herramientas de Google IA para transformar una idea en un MVP y publicarlo con Google Cloud Run.",
-    "aboutSpeaker": "Lesly es ingeniera en Telecomunicaciones con una maestría en Ciencias de Computación e Ingeniería. Actualmente, trabaja como curriculum developer en la empresa DeepLearning.AI y es facilitadora y mentora de startup weekends y hackathons, además es Google Developer Expert en AI y Cloud. Sus principales intereses son: tecnología, educación y startups."
+    "aboutSpeaker": "Lesly es ingeniera en Telecomunicaciones con una maestría en Ciencias de Computación e Ingeniería. Actualmente, trabaja como curriculum developer en la empresa DeepLearning.AI y es facilitadora y mentora de startup weekends y hackathons, además es Google Developer Expert en AI y Cloud. Sus principales intereses son: tecnología, educación y startups.",
+    "level": "Intermedio",
+    "location": { "city": "Sucre", "country": "Bolivia", "flag": "🇧🇴" },
+    "socials": [
+      { "platform": "linktree", "url": "https://linktr.ee/leslysandra" }
+    ]
+  },
+  {
+    "id": 2,
+    "isRevealed": true,
+    "name": "Maureen Barahona",
+    "photo": "/img/events/bwai2026/Maureen-Barahona.jpg",
+    "talkTitle": "Domina el ML OpenSource con MediaPipe",
+    "talkDescription": "Entra en el fascinante mundo del Machine Learning en dispositivos con esta atractiva sesión sobre MediaPipe. Exploraremos los fundamentos de la tecnología Open Source  mostrándote lo accesibles que pueden ser herramientas multimodales potentes como la detección de objetos y posturas.",
+    "aboutSpeaker": "GDE cloud, WTM , GDG",
+    "level": "Introductorio",
+    "location": { "city": "Tegucigalpa", "country": "Honduras", "flag": "🇭🇳" },
+    "socials": [
+      { "platform": "globe", "url": "https://maureenbarahona.foo/" },
+      { "platform": "instagram", "url": "https://www.linkedin.com/in/maureen-barahona"}
+    ]
+  },
+  {
+    "id": 3,
+    "isRevealed": true,
+    "name": "Rodrigo Torrico",
+    "photo": "/img/events/bwai2026/Rodrigo-Torrico-1.jpg",
+    "talkTitle": "SolveOS: Una metodología que ayuda a llevar tus prompts al siguiente nivel",
+    "talkDescription": "SolveOS es una charla sobre cómo la inteligencia artificial está cambiando la forma en la que pensamos, construimos y ejecutamos soluciones. Más que hablar de una herramienta específica, SolveOS propone un sistema de trabajo donde humanos y agentes de IA colaboran para pasar de una idea a una solución real: entendiendo el problema, investigando, planificando, construyendo, validando y mejorando continuamente.",
+    "aboutSpeaker": "Soy un Senior Full Stack Engineer con más de 7 años de experiencia construyendo productos escalables. En Unosquare, he desarrollado sistemas que sirven a más de 6 millones de usuarios, reduje el tiempo de configuración de proyectos de 4 semanas a 4 días, y construí infraestructura en AWS desde cero para APIs en tiempo real. Paso la mayor parte de mi tiempo trabajando con Node.js, TypeScript, Angular, React y Go, construyendo sistemas escalables sobre AWS.",
+    "level": "Avanzado",
+    "location": { "city": "Santa Cruz", "country": "Bolivia", "flag": "🇧🇴" },
+    "socials": [
+      { "platform": "linkedin", "url": "https://www.linkedin.com/in/tokidev/" }
+    ]
   }
 ]

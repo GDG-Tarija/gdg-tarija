@@ -1,0 +1,27 @@
+---
+const { name, platform, url } = Astro.props;
+
+const icons: Record<string, string> = {
+  facebook: 'fa-brands fa-facebook',
+  instagram: 'fa-brands fa-instagram',
+  linkedin: 'fa-brands fa-linkedin',
+  youtube: 'fa-brands fa-youtube',
+  tiktok: 'fa-brands fa-tiktok',
+  github: 'fa-brands fa-github',
+  twitter: 'fa-brands fa-x-twitter',
+  globe: 'fa-solid fa-globe',
+  linktree: 'fa-brands fa-linktree'
+};
+
+const iconClass = icons[platform] ?? 'fa-solid fa-link';
+---
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  role="listitem"
+  aria-label={`${name} en ${platform}`}
+  class="text-gdg-midnight-blue/60 hover:text-gdg-halftone-blue focus-visible:text-gdg-halftone-blue focus-visible:outline-none transition-colors duration-200"
+>
+  <i class={`${iconClass} text-xl`}></i>
+</a>
