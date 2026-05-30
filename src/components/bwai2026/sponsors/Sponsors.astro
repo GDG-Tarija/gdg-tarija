@@ -70,6 +70,47 @@ const hoverElevation =
         }
       </ul>
     </div>
+
+    <div class="mb-8 flex items-center gap-3">
+      <h2 id="sponsors-title" class="text-xl lg:text-2xl font-medium tracking-tight text-white">
+        Sponsors
+      </h2>
+      <p class="font-medium text-5xl text-gdg-blue" aria-hidden="true">
+        {'#'}
+      </p>
+    </div>
+
+    <div role="group" aria-label="Sponsors">
+      <ul class="flex flex-wrap justify-center gap-5" role="list">
+        {
+          sponsors.map((s) => (
+            <li>
+              <a
+                href={s.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  'flex items-center gap-3 px-5 py-4 rounded-md',
+                  cardBaseClasses,
+                  hoverElevation,
+                  s.ringClass,
+                ]}
+                aria-label={`${s.name}, sitio web del sponsor`}
+              >
+                <Image
+                  src={s.logo}
+                  alt={`${s.name} logo`}
+                  height={76}
+                  width={210}
+                  decoding="async"
+                  class="h-13 md:h-15 lg:h-19 w-auto transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
     <div
       class="mt-18 border-t text-center border md:max-w-xl rounded-md border-white/6 bg-white/1.5 p-8 mx-auto"
     >

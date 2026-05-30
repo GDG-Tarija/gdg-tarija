@@ -32,7 +32,8 @@
     "subtitle": "El gran evento presencial en Tarija, Bolivia",
     "tag": "Evento Principal · Presencial",
     "color": "yellow",
-    "ctaText": "Próximamente",
+    "ctaText": "Registrarse",
+    "ctaHref": "https://eventos.gdgtarija.com/e/build-with-ai-2026",
     "imgSrc": "/img/events/bwai2026/logo-build.webp"
   }
 ]
