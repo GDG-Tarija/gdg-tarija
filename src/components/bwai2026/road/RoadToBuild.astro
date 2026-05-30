@@ -1,9 +1,13 @@
 ---
 import { Image } from 'astro:assets'
 import milestones from './milestones.json'
+import speakersRaw from '../speakers-road/speakers-road.json'
 
-const rawSpeakers = (await import('../speakers-road/speakers-road.json')).default as Array<{ milestoneId?: string }>
-const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(s => s.milestoneId!))
+const milestoneHasSpeakers = new Set(
+  (speakersRaw as Array<{ milestoneId?: string }>)
+    .filter(s => s.milestoneId)
+    .map(s => s.milestoneId!)
+)
 ---
 
 <section
@@ -28,7 +32,7 @@ const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(
       </p>
     </header>
 
-    <!-- ── DESKTOP ─────────────────────────────────────────────── -->
+    <!-- ── DESKTOP ──────────────── -->
     <div class="hidden md:block">
 
       <!-- Stepper -->
@@ -107,13 +111,10 @@ const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(
                 <path d="M2.917 7H11.083M7.583 3.5L11.083 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
-
-            <!-- Tab trigger explícito (elemento interactivo accesible) -->
-            
             {milestoneHasSpeakers.has(m.isoDate) ? (
               <a
                 id={`tab-trigger-${m.isoDate}`}
-                href="#speakers-road" 
+                href="#speakers-road"
                 class={`rtb-speakers-btn rtb-speakers-btn-${m.color} w-full flex items-center cursor-pointer justify-center gap-1.5 py-1.5 text-xs rounded-lg border transition-colors duration-200`}
                 data-tab-trigger
                 data-milestone-id={m.isoDate}
@@ -179,7 +180,7 @@ const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(
             </div>
 
             <div class="flex flex-wrap">
-              <span class={`rtb-tag rtb-tag-${m.color} text-xs font-medium px-2.5 py-0.5 rounded-full border`}>
+              <span class={`rtb-tag rtb-tag-${m.color} text-xs font-medium px-2.5 py-0.5 rounded-full border inline-block`}>
                 {m.tag}
               </span>
             </div>
@@ -333,9 +334,9 @@ const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(
   /* ── "Ver speakers" tab trigger button ───── */
   .rtb-speakers-btn { background: transparent; }
 
-  .rtb-speakers-btn-blue   { color: rgba(66,133,244,.35); border-color: rgba(66,133,244,.15); }
-  .rtb-speakers-btn-green  { color: rgba(52,168,83,.35);  border-color: rgba(52,168,83,.15); }
-  .rtb-speakers-btn-yellow { color: rgba(249,171,0,.35);  border-color: rgba(249,171,0,.15); }
+  .rtb-speakers-btn-blue   { color: rgba(66,133,244,.6); border-color: rgba(66,133,244,.3); }
+  .rtb-speakers-btn-green  { color: rgba(52,168,83,.6);  border-color: rgba(52,168,83,.3); }
+  .rtb-speakers-btn-yellow { color: rgba(249,171,0,.6);  border-color: rgba(249,171,0,.3); }
 
   .rtb-speakers-btn-blue:hover,
   [data-milestone-card][data-tab-selected="true"][data-color="blue"] .rtb-speakers-btn-blue     { color: rgba(66,133,244,.9); border-color: rgba(66,133,244,.4); }
@@ -344,11 +345,11 @@ const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(
   .rtb-speakers-btn-yellow:hover,
   [data-milestone-card][data-tab-selected="true"][data-color="yellow"] .rtb-speakers-btn-yellow { color: rgba(249,171,0,.9);  border-color: rgba(249,171,0,.4); }
 
-  /* Botón "Próximamente" — estado muted, sin color de acento */
-  .rtb-speakers-btn-muted { color: rgba(255,255,255,.2); border-color: rgba(255,255,255,.08); }
-  .rtb-speakers-btn-muted:hover { color: rgba(255,255,255,.38); border-color: rgba(255,255,255,.14); }
-  /* Anula los estilos de selected para botones coming-soon */
-  [data-milestone-card][data-tab-selected="true"] .rtb-speakers-btn-muted { color: rgba(255,255,255,.3); border-color: rgba(255,255,255,.12); }
+  /* Botón "Próximamente" — borde punteado, colores atenuados */
+  .rtb-speakers-btn-muted { color: rgba(255,255,255,.5); border-color: rgba(255,255,255,.3); border-style: dashed; }
+  .rtb-speakers-btn-muted:hover { color: rgba(255,255,255,.6); border-color: rgba(255,255,255,.4); }
+  /* Coming-soon no reacciona al estado selected */
+  [data-milestone-card][data-tab-selected="true"] .rtb-speakers-btn-muted { color: rgba(255,255,255,.4); border-color: rgba(255,255,255,.3); }
 
   [data-tab-trigger][aria-expanded="true"] .rtb-speakers-btn-icon { transform: rotate(180deg); }
 
@@ -389,6 +390,8 @@ const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(
       btn.setAttribute('aria-expanded', String(isSelected));
       // Los botones "próximamente" mantienen su label estático
       if (btn.hasAttribute('data-coming-soon')) return;
+      const label = btn.querySelector('.rtb-speakers-btn-label');
+      if (label) label.textContent = isSelected ? 'Ver speakers' : 'Ver speakers';
     });
   }
 
@@ -424,9 +427,13 @@ const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(
       if (stateMap.get(orderedIsos[i]) === 'past') conn.dataset.active = 'true';
     });
 
-    // Selección automática del milestone activo (sin disparar evento)
-    const activeIso = orderedIsos.find(iso => stateMap.get(iso) === 'active');
-    if (activeIso) setSelected(activeIso);
+    // Selección inicial: primero el milestone activo/próximo; si todos pasaron, el más reciente
+    // (garantiza que el evento con speakers actuales sea el visible por defecto)
+    const initialIso =
+      orderedIsos.find(iso => stateMap.get(iso) === 'active') ??
+      orderedIsos.find(iso => stateMap.get(iso) === 'future')  ??
+      orderedIsos[orderedIsos.length - 1];
+    if (initialIso) setSelected(initialIso);
 
     // ── Delegación de eventos en la sección ─────────────────────────
     // (elemento nuevo en cada navegación → no acumula listeners)

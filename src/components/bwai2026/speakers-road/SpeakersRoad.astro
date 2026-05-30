@@ -1,11 +1,14 @@
 ---
+import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
-import speakers from './speakers-road.json'
-import milestones from '../road/milestones.json';
+import milestones from '../road/milestones.json'
+import speakersJson from './speakers-road.json';
 import SocialNetworksBwai2026 from './SocialNetworksBwai2026.astro';
 
+
+// Agrupa los speakers por milestoneId (= isoDate del milestone)
 const speakersByMilestone = Object.fromEntries(
-  milestones.map(m => [m.isoDate, speakers.filter(s => s.milestoneId === m.isoDate)])
+  milestones.map(m => [m.isoDate, speakersJson.filter(s => s.milestoneId === m.isoDate)])
 );
 ---
 
@@ -32,9 +35,9 @@ const speakersByMilestone = Object.fromEntries(
             aria-labelledby={`tab-trigger-${milestone.isoDate}`}
             data-speakers-panel
             data-milestone-id={milestone.isoDate}
+            data-milestone-color={milestone.color}
             hidden
           >
-            <!-- Encabezado estático de la sección -->
             <header class="mb-6 md:mb-9">
               <p class={`text-gdg-${milestone.color} font-medium text-sm sm:text-base
                         tracking-wider mb-2`}>
@@ -47,7 +50,6 @@ const speakersByMilestone = Object.fromEntries(
                 Speakers Road to Build
               </h2>
             </header>
-            <!-- Eyebrow dinámico por panel -->
             <p
               class={`text-gdg-${milestone.color} font-medium text-sm tracking-wider mb-6`}
               data-animate
@@ -100,8 +102,8 @@ const speakersByMilestone = Object.fromEntries(
                 <p class="spk-badge-date">{milestone.dateLabel}</p>
               </div>
             ) : (
-            <div class={`grid gap-5 justify-items-center ${gridClass}`}>
-              {panelSpeakers.map((speaker, index) => (
+              <div class={`grid gap-5 justify-items-center ${gridClass}`}>
+                {panelSpeakers.map((speaker, index) => (
                 <div
                   class="flex flex-col gap-3 max-w-sm w-full"
                   data-animate
@@ -155,7 +157,7 @@ const speakersByMilestone = Object.fromEntries(
                           )}
 
                           <div class="flex flex-col gap-1.5 mt-4">
-                            <p class={`text-gdg-off-white/60 md:min-h-16 lg:min-h-12 font-medium leading-relaxed`}>
+                            <p class={`text-gdg-off-white/60 text-sm md:min-h-16 lg:min-h-12 font-medium leading-relaxed`}>
                               {speaker.talkTitle}
                             </p>
                           </div>
@@ -170,7 +172,7 @@ const speakersByMilestone = Object.fromEntries(
                           <!-- Expandir bio -->
                           <div class="mt-auto pt-3 border-t border-gdg-midnight-blue/20">
                             <button
-                              class="flex items-center gap-1.5 text-sm font-medium text-gdg-midnight-blue hover:text-gdg-ice-blue focus-visible:text-gdg-ice-blue focus-visible:outline-none transition-colors duration-200 cursor-pointer"
+                              class="flex items-center gap-1.5 text-xs font-medium text-gdg-midnight-blue hover:text-gdg-ice-blue focus-visible:text-gdg-ice-blue focus-visible:outline-none transition-colors duration-200 cursor-pointer"
                               aria-expanded="false"
                               aria-controls={`speaker-details-${speaker.id}`}
                               data-speaker-toggle
@@ -205,12 +207,11 @@ const speakersByMilestone = Object.fromEntries(
                   </article>
                 </div>
               ))}
-            </div>
+              </div>
             )}
           </div>
         );
       })}
-    </div>
 
   </div>
 </section>
@@ -349,6 +350,15 @@ const speakersByMilestone = Object.fromEntries(
     margin-bottom: .6rem;
   }
 
+  /* Badge tematizado según el color del milestone */
+  [data-milestone-color="blue"]   .spk-badge { border-color: rgba(66,133,244,.25);  color: rgba(66,133,244,.75);  background: rgba(66,133,244,.06); }
+  [data-milestone-color="green"]  .spk-badge { border-color: rgba(52,168,83,.25);   color: rgba(52,168,83,.75);   background: rgba(52,168,83,.06); }
+  [data-milestone-color="yellow"] .spk-badge { border-color: rgba(249,171,0,.25);   color: rgba(249,171,0,.75);   background: rgba(249,171,0,.06); }
+
+  [data-milestone-color="blue"]   .spk-badge-dot { background: rgba(66,133,244,.7); }
+  [data-milestone-color="green"]  .spk-badge-dot { background: rgba(52,168,83,.7);  }
+  [data-milestone-color="yellow"] .spk-badge-dot { background: rgba(249,171,0,.7);  }
+
   @keyframes spk-pulse {
     0%, 100% { opacity: 1;  transform: scale(1); }
     50%       { opacity: .3; transform: scale(.7); }
@@ -416,6 +426,9 @@ const speakersByMilestone = Object.fromEntries(
   }
 
   // ── Determinar el milestone activo por fecha ───────────────────────
+  // Prioridad: activo/próximo → si todos pasaron, el más reciente
+  // Esto garantiza que los speakers del siguiente evento sean los visibles por defecto.
+  // Los milestones pasados siguen siendo accesibles mediante click en su card.
   function getActiveId(panels: NodeListOf<HTMLElement>): string | null {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -423,11 +436,12 @@ const speakersByMilestone = Object.fromEntries(
       .map(p => p.dataset.milestoneId!)
       .filter(Boolean)
       .sort();
-    // Primer milestone cuya fecha aún no pasó
+
+    // Primer milestone cuya fecha no ha pasado aún (activo o futuro)
     for (const iso of sorted) {
       if (new Date(iso + 'T00:00:00') >= today) return iso;
     }
-    // Si todos pasaron → mostrar el último
+    // Todos pasaron → mostrar el más reciente (tiene speakers aunque haya terminado)
     return sorted[sorted.length - 1] ?? null;
   }
 
