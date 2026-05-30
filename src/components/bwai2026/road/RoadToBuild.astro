@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets'
 import milestones from './milestones.json'
+
+const rawSpeakers = (await import('../speakers-road/speakers-road.json')).default as Array<{ milestoneId?: string }>
+const milestoneHasSpeakers = new Set(rawSpeakers.filter(s => s.milestoneId).map(s => s.milestoneId!))
 ---
 
 <section
@@ -25,60 +28,31 @@ import milestones from './milestones.json'
       </p>
     </header>
 
+    <!-- ── DESKTOP ─────────────────────────────────────────────── -->
     <div class="hidden md:block">
 
+      <!-- Stepper -->
       <div class="flex items-center justify-between px-16 mb-6">
         {milestones.map((m, i) => (
           <Fragment>
-            <!-- Nodo de hito -->
             <div
               class="flex flex-col items-center relative"
               data-milestone-node
               data-iso={m.isoDate}
               data-color={m.color}
             >
-              <div
-                class="absolute w-5 h-5 rounded-full rtb-pulse-ring"
-                data-pulse-ring
-                aria-hidden="true"
-              ></div>
-              <div
-                class="w-5 h-5 rounded-full z-10 rtb-dot"
-                data-dot
-                aria-hidden="true"
-              ></div>
-              <span
-                class="mt-2.5 font-bold text-white/25 uppercase rtb-step-label"
-                aria-hidden="true"
-              >
+              <div class="absolute w-5 h-5 rounded-full rtb-pulse-ring" data-pulse-ring aria-hidden="true"></div>
+              <div class="w-5 h-5 rounded-full z-10 rtb-dot" data-dot aria-hidden="true"></div>
+              <span class="mt-2.5 font-bold text-white/25 uppercase rtb-step-label" aria-hidden="true">
                 {String(i + 1).padStart(2, '0')}
               </span>
             </div>
 
             {i < milestones.length - 1 && (
               <div class="flex-1 mx-8" aria-hidden="true">
-                <svg
-                  viewBox="0 0 200 6"
-                  class="w-full"
-                  height="6"
-                  preserveAspectRatio="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <line
-                    x1="0" y1="3" x2="200" y2="3"
-                    class="rtb-track"
-                    stroke-width="1.5"
-                    stroke-dasharray="5 5"
-                  />
-                  <line
-                    x1="0" y1="3" x2="200" y2="3"
-                    class="rtb-segment"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    data-segment
-                    data-segment-index={String(i)}
-                    data-color={m.color}
-                  />
+                <svg viewBox="0 0 200 6" class="w-full" height="6" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="0" y1="3" x2="200" y2="3" class="rtb-track" stroke-width="1.5" stroke-dasharray="5 5" />
+                  <line x1="0" y1="3" x2="200" y2="3" class="rtb-segment" stroke-width="2" stroke-linecap="round" data-segment data-segment-index={String(i)} data-color={m.color} />
                 </svg>
               </div>
             )}
@@ -86,26 +60,25 @@ import milestones from './milestones.json'
         ))}
       </div>
 
-      <div class="grid grid-cols-3 gap-5">
+      <!-- Cards con tab trigger -->
+      <div
+        role="tablist"
+        aria-label="Selecciona un evento para ver sus speakers"
+        class="grid grid-cols-3 gap-5"
+      >
         {milestones.map((m) => (
           <article
-            class={`rtb-card rtb-card-${m.color} rtb-card-main group rounded-2xl border p-5 flex flex-col gap-3 transition-transform duration-300 hover:-translate-y-1`}
+            class={`rtb-card rtb-card-${m.color} rtb-card-main group rounded-2xl border p-5 flex flex-col gap-3 transition-transform duration-300 hover:-translate-y-1 cursor-pointer`}
             data-milestone-card
             data-iso={m.isoDate}
             data-color={m.color}
+            data-milestone-id={m.isoDate}
           >
             <div
               class={`rtb-img rtb-img-${m.color} w-full p-4 rounded-xl flex items-center justify-center mb-1`}
-              aria-label="Imagen del evento — próximamente"
+              aria-hidden="true"
             >
-              <Image
-                src={m.imgSrc}
-                alt={m.title}
-                width={624}
-                height={624}
-                decoding="async"
-                class="w-auto rounded-md"
-              />
+              <Image src={m.imgSrc} alt={m.title} width={624} height={624} decoding="async" class="w-auto rounded-md" />
             </div>
 
             <div class="flex flex-wrap gap-2">
@@ -114,10 +87,7 @@ import milestones from './milestones.json'
               </span>
             </div>
 
-            <time
-              class={`rtb-date-${m.color} text-sm font-semibold tracking-wide block`}
-              datetime={m.isoDate}
-            >
+            <time class={`rtb-date-${m.color} text-sm font-semibold tracking-wide block`} datetime={m.isoDate}>
               {m.dateLabel}
             </time>
 
@@ -133,26 +103,54 @@ import milestones from './milestones.json'
               aria-label={`${m.ctaText}: ${m.title}`}
             >
               {m.ctaText}
-              <svg
-                class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5"
-                viewBox="0 0 14 14"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2.917 7H11.083M7.583 3.5L11.083 7l-3.5 3.5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+              <svg class="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2.917 7H11.083M7.583 3.5L11.083 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
+
+            <!-- Tab trigger explícito (elemento interactivo accesible) -->
+            
+            {milestoneHasSpeakers.has(m.isoDate) ? (
+              <a
+                id={`tab-trigger-${m.isoDate}`}
+                href="#speakers-road" 
+                class={`rtb-speakers-btn rtb-speakers-btn-${m.color} w-full flex items-center cursor-pointer justify-center gap-1.5 py-1.5 text-xs rounded-lg border transition-colors duration-200`}
+                data-tab-trigger
+                data-milestone-id={m.isoDate}
+                aria-expanded="false"
+                aria-controls={`speakers-panel-${m.isoDate}`}
+                type="button"
+              >
+                <span class="rtb-speakers-btn-label">Ver speakers</span>
+                <svg class="w-3 h-3 rtb-speakers-btn-icon transition-transform duration-200" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            ) : (
+              <a
+                id={`tab-trigger-${m.isoDate}`}
+                href="#speakers-road"
+                class="rtb-speakers-btn rtb-speakers-btn-muted w-full flex items-center justify-center gap-1.5 py-1.5 text-xs cursor-pointer rounded-lg border transition-colors duration-200"
+                data-tab-trigger
+                data-coming-soon
+                data-milestone-id={m.isoDate}
+                aria-expanded="false"
+                aria-controls={`speakers-panel-${m.isoDate}`}
+                type="button"
+              >
+                <svg class="w-3 h-3 shrink-0" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2"/>
+                  <path d="M6 3.5v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Próximamente</span>
+              </a>
+            )}
           </article>
         ))}
       </div>
     </div>
 
+    <!-- ── MOBILE ────────────────────────── -->
     <ol class="md:hidden" aria-label="Hitos del camino al evento">
       {milestones.map((m, i) => (
         <li
@@ -162,81 +160,85 @@ import milestones from './milestones.json'
           data-color={m.color}
         >
           <div class="flex flex-col items-center shrink-0 pt-1">
-            
-            <div
-              class="absolute w-5 h-5 -mt-1 rounded-full rtb-pulse-ring"
-              data-pulse-ring
-              aria-hidden="true"
-            ></div>
-            <div
-              class="w-3.5 h-3.5 rounded-full z-10 shrink-0 rtb-dot"
-              data-dot
-              aria-hidden="true"
-            ></div>
+            <div class="absolute w-5 h-5 -mt-1 rounded-full rtb-pulse-ring" data-pulse-ring aria-hidden="true"></div>
+            <div class="w-3.5 h-3.5 rounded-full z-10 shrink-0 rtb-dot" data-dot aria-hidden="true"></div>
             {i < milestones.length - 1 && (
-              <div
-                class="w-px flex-1 mt-2 rtb-mobile-line"
-                data-connector
-                data-color={m.color}
-                aria-hidden="true"
-              ></div>
+              <div class="w-px flex-1 mt-2 rtb-mobile-line" data-connector data-color={m.color} aria-hidden="true"></div>
             )}
           </div>
 
           <article
-            class={`rtb-card max-w-77 self-center rtb-card-${m.color} rtb-card-main flex-1 items-center justify-center rounded-2xl border p-4 flex flex-col gap-3 mb-5`}
+            class={`rtb-card max-w-65 rtb-card-${m.color} rtb-card-main flex-1 rounded-2xl border p-4 flex flex-col gap-3 mb-5 cursor-pointer`}
             data-milestone-card
             data-iso={m.isoDate}
             data-color={m.color}
+            data-milestone-id={m.isoDate}
           >
-            <div
-              class={`rtb-img rtb-img-${m.color} p-4 rounded-xl flex items-center justify-center`}
-              aria-hidden="true"
-            >
-              <Image
-                src={m.imgSrc}
-                alt={m.title}
-                width={200}
-                height={200}
-                decoding="async"
-                class="w-auto h-40 rounded-md"
-              />
+            <div class={`rtb-img rtb-img-${m.color} p-4 rounded-xl flex items-center justify-center`} aria-hidden="true">
+              <Image src={m.imgSrc} alt={m.title} width={200} height={200} decoding="async" class="w-auto h-40 rounded-md" />
             </div>
 
-            <span
-              class={`rtb-tag rtb-tag-${m.color} text-xs font-medium px-2.5 py-0.5 rounded-full border inline-block md:self-start`}
-            >
-              {m.tag}
-            </span>
+            <div class="flex flex-wrap">
+              <span class={`rtb-tag rtb-tag-${m.color} text-xs font-medium px-2.5 py-0.5 rounded-full border`}>
+                {m.tag}
+              </span>
+            </div>
 
-            <time
-              class={`rtb-date-${m.color} text-xs font-semibold tracking-wide`}
-              datetime={m.isoDate}
-            >
+            <time class={`rtb-date-${m.color} text-xs font-semibold tracking-wide`} datetime={m.isoDate}>
               {m.dateLabel}
             </time>
 
             <div>
-              <h3 class="text-white text-center font-bold text-sm leading-snug">{m.title}</h3>
-              <p class="text-white/45 text-center text-xs mt-1 leading-relaxed">{m.subtitle}</p>
+              <h3 class="text-white font-bold text-sm leading-snug">{m.title}</h3>
+              <p class="text-white/45 text-xs mt-1 leading-relaxed">{m.subtitle}</p>
             </div>
 
             <a
               href={m.ctaHref}
-              class={`rtb-btn rtb-btn-${m.color} md:self-start inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border text-xs font-medium transition-all duration-200`}
+              class={`rtb-btn rtb-btn-${m.color} w-full inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg border text-xs font-medium transition-all duration-200`}
               target="_blank"
             >
               {m.ctaText}
               <svg class="w-3 h-3" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path
-                  d="M2.917 7H11.083M7.583 3.5L11.083 7l-3.5 3.5"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
+                <path d="M2.917 7H11.083M7.583 3.5L11.083 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
+
+            {milestoneHasSpeakers.has(m.isoDate) ? (
+              <a
+                id={`tab-trigger-mob-${m.isoDate}`}
+                href="#speakers-road"
+                class={`rtb-speakers-btn rtb-speakers-btn-${m.color} w-full flex items-center justify-center gap-1.5 py-1.5 text-xs rounded-lg border transition-colors duration-200`}
+                data-tab-trigger
+                data-milestone-id={m.isoDate}
+                aria-expanded="false"
+                aria-controls={`speakers-panel-${m.isoDate}`}
+                type="button"
+              >
+                <span class="rtb-speakers-btn-label">Ver speakers</span>
+                <svg class="w-3 h-3 rtb-speakers-btn-icon transition-transform duration-200" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            ) : (
+              <a
+                id={`tab-trigger-mob-${m.isoDate}`}
+                href="#speakers-road"
+                class="rtb-speakers-btn rtb-speakers-btn-muted w-full flex items-center justify-center gap-1.5 py-1.5 text-xs rounded-lg border transition-colors duration-200"
+                data-tab-trigger
+                data-coming-soon
+                data-milestone-id={m.isoDate}
+                aria-expanded="false"
+                aria-controls={`speakers-panel-${m.isoDate}`}
+                type="button"
+              >
+                <svg class="w-3 h-3 shrink-0" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.2"/>
+                  <path d="M6 3.5v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Próximamente</span>
+              </a>
+            )}
           </article>
         </li>
       ))}
@@ -246,180 +248,201 @@ import milestones from './milestones.json'
 </section>
 
 <style>
-  .rtb-step-label {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-  }
+  /* ── Stepper ─────────────────────────────── */
+  .rtb-step-label { font-size: 12px; letter-spacing: .1em; }
 
-  .rtb-track   { stroke: rgba(255, 255, 255, 0.1); }
-  .rtb-segment {
-    stroke: transparent;
-    transition: stroke 0.7s ease;
-  }
+  .rtb-track   { stroke: rgba(255,255,255,.1); }
+  .rtb-segment { stroke: transparent; transition: stroke .7s ease; }
 
   [data-segment][data-active="true"][data-color="blue"]   { stroke: var(--color-gdg-blue); }
   [data-segment][data-active="true"][data-color="green"]  { stroke: var(--color-gdg-green); }
   [data-segment][data-active="true"][data-color="yellow"] { stroke: var(--color-gdg-yellow); }
 
+  /* ── Dot ─────────────────────────────────── */
   .rtb-dot {
-    background: rgba(255, 255, 255, 0.12);
-    border: 2px solid rgba(255, 255, 255, 0.18);
-    transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+    background: rgba(255,255,255,.12);
+    border: 2px solid rgba(255,255,255,.18);
+    transition: transform .35s ease, box-shadow .35s ease;
   }
 
   [data-milestone-node][data-color="blue"]   .rtb-dot { background: var(--color-gdg-blue);   border-color: var(--color-gdg-blue); }
   [data-milestone-node][data-color="green"]  .rtb-dot { background: var(--color-gdg-green);  border-color: var(--color-gdg-green); }
   [data-milestone-node][data-color="yellow"] .rtb-dot { background: var(--color-gdg-yellow); border-color: var(--color-gdg-yellow); }
 
-  [data-milestone-node][data-state="active"][data-color="blue"]   .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(66, 133, 244, 0.6); }
-  [data-milestone-node][data-state="active"][data-color="green"]  .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(52, 168, 83, 0.6); }
-  [data-milestone-node][data-state="active"][data-color="yellow"] .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(249, 171, 0, 0.6); }
+  [data-milestone-node][data-state="active"][data-color="blue"]   .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(66,133,244,.6); }
+  [data-milestone-node][data-state="active"][data-color="green"]  .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(52,168,83,.6); }
+  [data-milestone-node][data-state="active"][data-color="yellow"] .rtb-dot { transform: scale(1.45); box-shadow: 0 0 10px 2px rgba(249,171,0,.6); }
+  [data-milestone-node][data-state="past"]   .rtb-dot { opacity: .35; }
 
-  [data-milestone-node][data-state="past"] .rtb-dot { opacity: 0.35; }
-
-  .rtb-pulse-ring {
-    opacity: 0;
-    transform: scale(1);
-    transform-origin: center;
-  }
+  /* ── Pulse ring ──────────────────────────── */
+  .rtb-pulse-ring { opacity: 0; transform: scale(1); transform-origin: center; }
 
   [data-milestone-node][data-color="blue"]   .rtb-pulse-ring { background: var(--color-gdg-blue); }
   [data-milestone-node][data-color="green"]  .rtb-pulse-ring { background: var(--color-gdg-green); }
   [data-milestone-node][data-color="yellow"] .rtb-pulse-ring { background: var(--color-gdg-yellow); }
 
   @keyframes rtb-ping {
-    0%   { transform: scale(1);   opacity: 0.5; }
+    0%   { transform: scale(1);   opacity: .5; }
     100% { transform: scale(3.2); opacity: 0; }
   }
 
-  [data-milestone-node][data-state="active"] .rtb-pulse-ring {
-    animation: rtb-ping 2.2s ease-out infinite;
-  }
+  [data-milestone-node][data-state="active"] .rtb-pulse-ring { animation: rtb-ping 2.2s ease-out infinite; }
 
+  /* ── Cards ───────────────────────────────── */
   .rtb-card { background: var(--color-bwai-border); }
 
-  .rtb-card-blue   { border-color: rgba(66, 133, 244, 0.2); }
-  .rtb-card-green  { border-color: rgba(52, 168, 83, 0.2); }
-  .rtb-card-yellow { border-color: rgba(249, 171, 0, 0.2); }
+  .rtb-card-blue   { border-color: rgba(66,133,244,.2); }
+  .rtb-card-green  { border-color: rgba(52,168,83,.2); }
+  .rtb-card-yellow { border-color: rgba(249,171,0,.2); }
 
-  [data-milestone-card][data-state="active"].rtb-card-blue   { border-color: rgba(66, 133, 244, 0.6); box-shadow: 0 6px 36px -8px rgba(66, 133, 244, 0.2); }
-  [data-milestone-card][data-state="active"].rtb-card-green  { border-color: rgba(52, 168, 83, 0.6);  box-shadow: 0 6px 36px -8px rgba(52, 168, 83, 0.2); }
-  [data-milestone-card][data-state="active"].rtb-card-yellow { border-color: rgba(249, 171, 0, 0.6);  box-shadow: 0 6px 36px -8px rgba(249, 171, 0, 0.2); }
+  [data-milestone-card][data-state="active"].rtb-card-blue,
+  [data-milestone-card][data-tab-selected="true"].rtb-card-blue   { border-color: rgba(66,133,244,.65); box-shadow: 0 6px 36px -8px rgba(66,133,244,.22); }
+  [data-milestone-card][data-state="active"].rtb-card-green,
+  [data-milestone-card][data-tab-selected="true"].rtb-card-green  { border-color: rgba(52,168,83,.65);  box-shadow: 0 6px 36px -8px rgba(52,168,83,.22); }
+  [data-milestone-card][data-state="active"].rtb-card-yellow,
+  [data-milestone-card][data-tab-selected="true"].rtb-card-yellow { border-color: rgba(249,171,0,.65);  box-shadow: 0 6px 36px -8px rgba(249,171,0,.22); }
 
-  [data-milestone-card][data-state="past"] { opacity: 0.5; }
+  [data-milestone-card][data-state="past"] { opacity: .5; }
 
-  .rtb-card-main { outline: 1px solid rgba(249, 171, 0, 0.07); outline-offset: 2px; }
+  .rtb-card-main { outline: 1px solid rgba(249,171,0,.07); outline-offset: 2px; }
 
-  .rtb-img-blue   { background: rgba(66, 133, 244, 0.07); border: 1px solid rgba(66, 133, 244, 0.14); color: var(--color-gdg-blue); }
-  .rtb-img-green  { background: rgba(52, 168, 83, 0.07);  border: 1px solid rgba(52, 168, 83, 0.14);  color: var(--color-gdg-green); }
-  .rtb-img-yellow { background: rgba(249, 171, 0, 0.07);  border: 1px solid rgba(249, 171, 0, 0.14);  color: var(--color-gdg-yellow); }
+  /* ── Image wrappers ──────────────────────── */
+  .rtb-img-blue   { background: rgba(66,133,244,.07); border: 1px solid rgba(66,133,244,.14); }
+  .rtb-img-green  { background: rgba(52,168,83,.07);  border: 1px solid rgba(52,168,83,.14); }
+  .rtb-img-yellow { background: rgba(249,171,0,.07);  border: 1px solid rgba(249,171,0,.14); }
 
-  .rtb-tag-blue   { background: rgba(66, 133, 244, 0.1);  color: var(--color-gdg-blue);   border-color: rgba(66, 133, 244, 0.25); }
-  .rtb-tag-green  { background: rgba(52, 168, 83, 0.1);   color: var(--color-gdg-green);  border-color: rgba(52, 168, 83, 0.25); }
-  .rtb-tag-yellow { background: rgba(249, 171, 0, 0.1);   color: var(--color-gdg-yellow); border-color: rgba(249, 171, 0, 0.25); }
-  .rtb-tag-main   { background: rgba(249, 171, 0, 0.1);   color: var(--color-gdg-yellow); border-color: rgba(249, 171, 0, 0.25); }
+  /* ── Tags ────────────────────────────────── */
+  .rtb-tag-blue   { background: rgba(66,133,244,.1);  color: var(--color-gdg-blue);   border-color: rgba(66,133,244,.25); }
+  .rtb-tag-green  { background: rgba(52,168,83,.1);   color: var(--color-gdg-green);  border-color: rgba(52,168,83,.25); }
+  .rtb-tag-yellow { background: rgba(249,171,0,.1);   color: var(--color-gdg-yellow); border-color: rgba(249,171,0,.25); }
 
-  .rtb-date-blue   { color: rgba(66, 133, 244, 0.65); }
-  .rtb-date-green  { color: rgba(52, 168, 83, 0.65); }
-  .rtb-date-yellow { color: rgba(249, 171, 0, 0.65); }
+  /* ── Dates ───────────────────────────────── */
+  .rtb-date-blue   { color: rgba(66,133,244,.65); }
+  .rtb-date-green  { color: rgba(52,168,83,.65); }
+  .rtb-date-yellow { color: rgba(249,171,0,.65); }
 
-  .rtb-btn-blue   { color: var(--color-gdg-blue);   border-color: rgba(66, 133, 244, 0.4); }
-  .rtb-btn-green  { color: var(--color-gdg-green);  border-color: rgba(52, 168, 83, 0.4); }
-  .rtb-btn-yellow { color: var(--color-gdg-yellow); border-color: rgba(249, 171, 0, 0.4); }
+  /* ── CTA buttons ─────────────────────────── */
+  .rtb-btn-blue   { color: var(--color-gdg-blue);   border-color: rgba(66,133,244,.4); }
+  .rtb-btn-green  { color: var(--color-gdg-green);  border-color: rgba(52,168,83,.4); }
+  .rtb-btn-yellow { color: var(--color-gdg-yellow); border-color: rgba(249,171,0,.4); }
 
   .rtb-btn-blue:hover   { background: var(--color-gdg-blue);   color: var(--color-gdg-black); border-color: var(--color-gdg-blue); }
   .rtb-btn-green:hover  { background: var(--color-gdg-green);  color: var(--color-gdg-black); border-color: var(--color-gdg-green); }
   .rtb-btn-yellow:hover { background: var(--color-gdg-yellow); color: var(--color-gdg-black); border-color: var(--color-gdg-yellow); }
 
-  .rtb-mobile-line {
-    border-left: 1.5px dashed rgba(255, 255, 255, 0.1);
-    transition: border-color 0.6s ease;
-  }
+  /* ── "Ver speakers" tab trigger button ───── */
+  .rtb-speakers-btn { background: transparent; }
 
-  [data-connector][data-active="true"][data-color="blue"]   { border-color: rgba(66, 133, 244, 0.45); }
-  [data-connector][data-active="true"][data-color="green"]  { border-color: rgba(52, 168, 83, 0.45); }
-  [data-connector][data-active="true"][data-color="yellow"] { border-color: rgba(249, 171, 0, 0.45); }
+  .rtb-speakers-btn-blue   { color: rgba(66,133,244,.35); border-color: rgba(66,133,244,.15); }
+  .rtb-speakers-btn-green  { color: rgba(52,168,83,.35);  border-color: rgba(52,168,83,.15); }
+  .rtb-speakers-btn-yellow { color: rgba(249,171,0,.35);  border-color: rgba(249,171,0,.15); }
+
+  .rtb-speakers-btn-blue:hover,
+  [data-milestone-card][data-tab-selected="true"][data-color="blue"] .rtb-speakers-btn-blue     { color: rgba(66,133,244,.9); border-color: rgba(66,133,244,.4); }
+  .rtb-speakers-btn-green:hover,
+  [data-milestone-card][data-tab-selected="true"][data-color="green"] .rtb-speakers-btn-green   { color: rgba(52,168,83,.9);  border-color: rgba(52,168,83,.4); }
+  .rtb-speakers-btn-yellow:hover,
+  [data-milestone-card][data-tab-selected="true"][data-color="yellow"] .rtb-speakers-btn-yellow { color: rgba(249,171,0,.9);  border-color: rgba(249,171,0,.4); }
+
+  /* Botón "Próximamente" — estado muted, sin color de acento */
+  .rtb-speakers-btn-muted { color: rgba(255,255,255,.2); border-color: rgba(255,255,255,.08); }
+  .rtb-speakers-btn-muted:hover { color: rgba(255,255,255,.38); border-color: rgba(255,255,255,.14); }
+  /* Anula los estilos de selected para botones coming-soon */
+  [data-milestone-card][data-tab-selected="true"] .rtb-speakers-btn-muted { color: rgba(255,255,255,.3); border-color: rgba(255,255,255,.12); }
+
+  [data-tab-trigger][aria-expanded="true"] .rtb-speakers-btn-icon { transform: rotate(180deg); }
+
+  /* ── Mobile connector line ───────────────── */
+  .rtb-mobile-line { border-left: 1.5px dashed rgba(255,255,255,.1); transition: border-color .6s ease; }
+
+  [data-connector][data-active="true"][data-color="blue"]   { border-color: rgba(66,133,244,.45); }
+  [data-connector][data-active="true"][data-color="green"]  { border-color: rgba(52,168,83,.45); }
+  [data-connector][data-active="true"][data-color="yellow"] { border-color: rgba(249,171,0,.45); }
 </style>
 
 <script>
-  function initRoadToBuild(): void {
+  // ── Helpers ────────────────────────────────────────────────────────
+  function buildStateMap(nodes: HTMLElement[]): Map<string, 'past' | 'active' | 'future'> {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    const allNodes = Array.from(
-      document.querySelectorAll<HTMLElement>('[data-milestone-node]')
-    );
-
-    // ── Paso 1: construir el mapa de estados por ISO date ──────
-    const stateByIso = new Map<string, 'past' | 'active' | 'future'>();
-    const orderedIsos: string[] = [];
     const seen = new Set<string>();
-    let activeFound = false;
+    const orderedIsos: string[] = [];
+    nodes.forEach(n => { const iso = n.dataset.iso ?? ''; if (iso && !seen.has(iso)) { seen.add(iso); orderedIsos.push(iso); } });
 
-    allNodes.forEach((node) => {
-      const iso = node.dataset.iso ?? '';
-      if (iso && !seen.has(iso)) {
-        seen.add(iso);
-        orderedIsos.push(iso);
-      }
+    const map = new Map<string, 'past' | 'active' | 'future'>();
+    let found = false;
+    orderedIsos.forEach(iso => {
+      const d = new Date(iso + 'T00:00:00');
+      const state: 'past' | 'active' | 'future' = d < today ? 'past' : found ? 'future' : (found = true, 'active');
+      map.set(iso, state);
     });
+    return map;
+  }
 
-    orderedIsos.forEach((iso) => {
-      const milestoneDate = new Date(`${iso}T00:00:00`);
-      let state: 'past' | 'active' | 'future';
-
-      if (milestoneDate < today) {
-        state = 'past';
-      } else if (!activeFound) {
-        state = 'active';
-        activeFound = true;
-      } else {
-        state = 'future';
-      }
-
-      stateByIso.set(iso, state);
+  function setSelected(id: string): void {
+    document.querySelectorAll<HTMLElement>('[data-milestone-card]').forEach(c => {
+      c.dataset.tabSelected = String(c.dataset.milestoneId === id);
     });
-
-    // ── Paso 2: aplicar estado a todos los nodos (desktop + mobile) ──
-    allNodes.forEach((node) => {
-      const state = stateByIso.get(node.dataset.iso ?? '');
-      if (state) node.dataset.state = state;
-    });
-
-    // ── Paso 3: aplicar estado a las cards ───────────────────────
-    document.querySelectorAll<HTMLElement>('[data-milestone-card]').forEach((card) => {
-      const state = stateByIso.get(card.dataset.iso ?? '');
-      if (state) card.dataset.state = state;
-    });
-
-    // ── Paso 4: activar segmentos SVG ─────────────────────────────
-    // Un segmento i conecta milestone[i] → milestone[i+1].
-    // Se activa (data-active="true") si el milestone DESTINO (i+1)
-    // ya pasó o es el próximo (esto "rellena" el camino recorrido).
-    document.querySelectorAll<SVGLineElement>('[data-segment]').forEach((seg) => {
-      const idx = parseInt(seg.dataset.segmentIndex ?? '0', 10);
-      const targetIso = orderedIsos[idx + 1];
-      if (!targetIso) return;
-      const targetState = stateByIso.get(targetIso);
-      if (targetState === 'past' || targetState === 'active') {
-        seg.dataset.active = 'true';
-      }
-    });
-
-    // ── Paso 5: activar líneas verticales mobile ──────────────────
-    // El conector en posición i se colorea si milestone[i] ya pasó
-    // (indica que ese tramo del camino está completado).
-    document.querySelectorAll<HTMLElement>('[data-connector]').forEach((conn, i) => {
-      const iso = orderedIsos[i];
-      if (!iso) return;
-      const state = stateByIso.get(iso);
-      if (state === 'past') conn.dataset.active = 'true';
+    document.querySelectorAll<HTMLButtonElement>('[data-tab-trigger]').forEach(btn => {
+      const isSelected = btn.dataset.milestoneId === id;
+      btn.setAttribute('aria-expanded', String(isSelected));
+      // Los botones "próximamente" mantienen su label estático
+      if (btn.hasAttribute('data-coming-soon')) return;
     });
   }
 
-  // Carga inicial de la página
-  document.addEventListener('DOMContentLoaded', initRoadToBuild);
+  function selectMilestone(id: string): void {
+    setSelected(id);
+    document.dispatchEvent(new CustomEvent('rtb:milestone-select', { detail: { id } }));
+  }
 
-  // Re-ejecutar tras navegación con Astro View Transitions
-  document.addEventListener('astro:page-load', initRoadToBuild);
+  // ── Init ────────────────────────────────────────────────────────────
+  function initRTB(): void {
+    const section = document.getElementById('road-to-build');
+    if (!section) return;
+
+    const allNodes = Array.from(section.querySelectorAll<HTMLElement>('[data-milestone-node]'));
+    const stateMap = buildStateMap(allNodes);
+    const orderedIsos = [...new Set(allNodes.map(n => n.dataset.iso).filter(Boolean))] as string[];
+
+    // Aplicar estados
+    allNodes.forEach(n => { const s = stateMap.get(n.dataset.iso ?? ''); if (s) n.dataset.state = s; });
+    section.querySelectorAll<HTMLElement>('[data-milestone-card]').forEach(c => {
+      const s = stateMap.get(c.dataset.iso ?? ''); if (s) c.dataset.state = s;
+    });
+
+    // Segmentos SVG
+    section.querySelectorAll<SVGLineElement>('[data-segment]').forEach(seg => {
+      const targetIso = orderedIsos[parseInt(seg.dataset.segmentIndex ?? '0', 10) + 1];
+      const ts = stateMap.get(targetIso);
+      if (ts === 'past' || ts === 'active') seg.dataset.active = 'true';
+    });
+
+    // Conectores mobile
+    section.querySelectorAll<HTMLElement>('[data-connector]').forEach((conn, i) => {
+      if (stateMap.get(orderedIsos[i]) === 'past') conn.dataset.active = 'true';
+    });
+
+    // Selección automática del milestone activo (sin disparar evento)
+    const activeIso = orderedIsos.find(iso => stateMap.get(iso) === 'active');
+    if (activeIso) setSelected(activeIso);
+
+    // ── Delegación de eventos en la sección ─────────────────────────
+    // (elemento nuevo en cada navegación → no acumula listeners)
+    section.addEventListener('click', (e: MouseEvent) => {
+      // Botón explícito: click en [data-tab-trigger]
+      const trigger = (e.target as Element).closest<HTMLElement>('[data-tab-trigger]');
+      if (trigger?.dataset.milestoneId) { selectMilestone(trigger.dataset.milestoneId); return; }
+
+      // Click en la card (excepto sobre el link CTA)
+      const card = (e.target as Element).closest<HTMLElement>('[data-milestone-card]');
+      if (card?.dataset.milestoneId && !(e.target as Element).closest('a')) {
+        selectMilestone(card.dataset.milestoneId);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initRTB);
+  document.addEventListener('astro:page-load', initRTB);
 </script>
