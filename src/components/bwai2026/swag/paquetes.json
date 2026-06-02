@@ -1,0 +1,59 @@
+[
+  {
+    "id": "ai-explorer",
+    "name": "AI Explorer",
+    "price": 45,
+    "currency": "Bs.",
+    "image": "/img/events/bwai2026/WEB-PAQUETE-1.webp",
+    "imageAlt": "Paquete AI Explorer: 2 pines, vaso y bolsa con diseño Build with AI",
+    "tierClass": "tier-blue",
+    "badgeText": "Starter",
+    "items": [
+      { "label": "2 Pines exclusivos" },
+      { "label": "Vaso con bombilla" },
+      { "label": "Bolsa temática" }
+    ],
+    "ctaUrl": "https://forms.gle/4D3WsdPNgBq9rogd8",
+    "ctaLabel": "Lo quiero",
+    "animationDelay": "delay-[100ms]"
+  },
+  {
+    "id": "smart-builder",
+    "name": "Smart Builder",
+    "price": 65,
+    "currency": "Bs.",
+    "image": "/img/events/bwai2026/WEB-PAQUETE-2.webp",
+    "imageAlt": "Paquete Smart Builder: 2 pines, vaso, bolsa y portacelular Build with AI",
+    "tierClass": "tier-green",
+    "badgeText": "Popular",
+    "items": [
+      { "label": "2 Pines exclusivos" },
+      { "label": "Vaso con bombilla" },
+      { "label": "Bolsa temática" },
+      { "label": "Portacelular" }
+    ],
+    "ctaUrl": "https://forms.gle/4D3WsdPNgBq9rogd8",
+    "ctaLabel": "Lo quiero",
+    "animationDelay": "delay-[250ms]"
+  },
+  {
+    "id": "elite-builder",
+    "name": "Elite Builder",
+    "price": 110,
+    "currency": "Bs.",
+    "image": "/img/events/bwai2026/WEB-PAQUETE-3.webp",
+    "imageAlt": "Paquete Elite Builder: 2 pines, vaso, bolsa, portacelular y estuche organizador Build with AI",
+    "tierClass": "tier-red",
+    "badgeText": "All-in",
+    "items": [
+      { "label": "2 Pines exclusivos" },
+      { "label": "Vaso con bombilla" },
+      { "label": "Bolsa temática" },
+      { "label": "Portacelular" },
+      { "label": "Estuche organizador" }
+    ],
+    "ctaUrl": "https://forms.gle/4D3WsdPNgBq9rogd8",
+    "ctaLabel": "Lo quiero",
+    "animationDelay": "delay-[400ms]"
+  }
+]
