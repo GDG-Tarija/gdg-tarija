@@ -10,7 +10,7 @@
     "badgeText": "Starter",
     "items": [
       { "label": "2 Pines exclusivos" },
-      { "label": "Vaso con bombilla" },
+      { "label": "Vaso" },
       { "label": "Bolsa temática" }
     ],
     "ctaUrl": "https://forms.gle/4D3WsdPNgBq9rogd8",
@@ -28,7 +28,7 @@
     "badgeText": "Popular",
     "items": [
       { "label": "2 Pines exclusivos" },
-      { "label": "Vaso con bombilla" },
+      { "label": "Vaso" },
       { "label": "Bolsa temática" },
       { "label": "Portacelular" }
     ],
@@ -47,7 +47,7 @@
     "badgeText": "All-in",
     "items": [
       { "label": "2 Pines exclusivos" },
-      { "label": "Vaso con bombilla" },
+      { "label": "Vaso" },
       { "label": "Bolsa temática" },
       { "label": "Portacelular" },
       { "label": "Estuche organizador" }

@@ -28,8 +28,6 @@ const packages: Package[] = paquetesData;
   aria-labelledby="paquetes-heading"
   class="relative w-full overflow-hidden bg-bwai-background border-t border-gray-800 py-14 md:py-20"
 >
-  <div class="bwai-grid-bg pointer-events-none absolute inset-0" aria-hidden="true"></div>
-
   <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
     <!-- Header -->
@@ -183,15 +181,6 @@ const packages: Package[] = paquetesData;
     box-shadow: 0 0 0 1px var(--tier-color), 0 20px 40px rgba(0, 0, 0, 0.4);
   }
   .pkg-card:hover .pkg-image { transform: scale(1.04); }
-
-  /* ── 4. Background grid decorativo ── */
-  .bwai-grid-bg {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
-  }
 
   /* ── 5. Animación de entrada con IntersectionObserver ── */
   @keyframes pkg-in {
