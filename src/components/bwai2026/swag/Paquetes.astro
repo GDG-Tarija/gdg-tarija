@@ -1,0 +1,221 @@
+---
+import { Image } from "astro:assets";
+import paquetesData from "./paquetes.json"
+
+interface PackageItem {
+  label: string;
+}
+
+interface Package {
+  id: string;
+  name: string;
+  price: number;
+  currency: string;
+  image: string;
+  imageAlt: string;
+  tierClass: string;
+  badgeText: string;
+  items: PackageItem[];
+  ctaUrl: string;
+  ctaLabel: string;
+  animationDelay: string;
+}
+
+const packages: Package[] = paquetesData;
+---
+<section
+  id="paquetes"
+  aria-labelledby="paquetes-heading"
+  class="relative w-full overflow-hidden bg-bwai-background border-t border-gray-800 py-14 md:py-20"
+>
+  <div class="bwai-grid-bg pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+  <div class="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="mb-8 text-center">
+      <p class="mb-3 text-sm font-medium tracking-widest text-gdg-blue uppercase opacity-80">
+        Swag oficial
+      </p>
+      <h2
+        id="paquetes-heading"
+        class="text-4xl font-bold text-white md:text-5xl"
+      >
+        Paquetes del evento
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-base text-white/50">
+        Lleva un recuerdo del evento. La compra es opcional y no reemplaza tu inscripción.
+      </p>
+    </div>
+
+    <!-- Cards grid -->
+    <ul role="list" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        packages.map((pkg) => (
+          <li
+            class={`pkg-card ${pkg.tierClass} ${pkg.animationDelay} relative flex flex-col overflow-hidden rounded-[1.25rem] border border-white/[0.07] bg-bwai-border opacity-0 translate-y-6 transition-[transform,box-shadow,border-color] duration-300`}
+            data-animate
+          >
+            <div class="pkg-accent h-0.75 w-full shrink-0" aria-hidden="true" />
+
+            <!-- Image zone -->
+            <div class="flex aspect-4/3 w-full items-center justify-center overflow-hidden bg-[#0d1218]">
+              <Image
+                src={pkg.image}
+                alt={pkg.imageAlt}
+                width="360"
+                height="260"
+                loading="lazy"
+                decoding="async"
+                class="pkg-image size-full object-cover transition-transform duration-500"
+              />
+            </div>
+
+            <!-- Card body -->
+            <div class="flex flex-col gap-5 p-6 pt-4">
+
+              <!-- Name + badge -->
+              <div class="flex items-center justify-between gap-3">
+                <h3 class="text-lg font-bold leading-tight text-white">
+                  {pkg.name}
+                </h3>
+                <span
+                  class={`pkg-badge ${pkg.tierClass} shrink-0 rounded-full px-2.5 py-0.5 text-[0.7rem] font-semibold tracking-widest uppercase`}
+                  aria-label={`Tier: ${pkg.badgeText}`}
+                >
+                  {pkg.badgeText}
+                </span>
+              </div>
+
+              <!-- Items list -->
+              <ul
+                class="flex flex-col gap-2"
+                aria-label={`Contenido del paquete ${pkg.name}`}
+              >
+                {pkg.items.map((item) => (
+                  <li class="flex items-center gap-2.5 text-sm text-white/70">
+                    <!-- Check icon: color y fondo usan var(--tier-color) del ancestro -->
+                    <span
+                      class="pkg-check-icon flex size-4.5 shrink-0 items-center justify-center rounded-full"
+                      aria-hidden="true"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 7L5.5 10L11.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    {item.label}
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Divider -->
+              <div class="h-px bg-white/6" aria-hidden="true" />
+
+              <!-- Price + CTA -->
+              <div class="flex items-center justify-between gap-4">
+                <div
+                  class="flex items-baseline gap-1.5"
+                  aria-label={`Precio: ${pkg.price} bolivianos`}
+                >
+                  <span class="text-3xl font-bold tabular-nums text-white">
+                    {pkg.price}
+                  </span>
+                  <span class="text-sm font-medium text-white/40">
+                    {pkg.currency}
+                  </span>
+                </div>
+
+                <a
+                  href={pkg.ctaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`pkg-cta ${pkg.tierClass} inline-flex shrink-0 items-center gap-1.5 rounded-[0.625rem] px-4.5 py-2.25 text-sm font-semibold no-underline transition-[opacity,transform] duration-200 hover:opacity-85 active:scale-[0.98]`}
+                  aria-label={`${pkg.ctaLabel} — Paquete ${pkg.name} por ${pkg.price} ${pkg.currency}`}
+                >
+                  {pkg.ctaLabel}
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Disclaimer -->
+    <p class="mt-10 text-center text-xs text-white/30" role="note">
+      <svg
+        class="mr-1.5 inline-block"
+        width="13"
+        height="13"
+        viewBox="0 0 14 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M7 6.5V9.5M7 4.5V5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      El paquete es opcional y no reemplaza la inscripción oficial al evento. Envíos previamente coordinados.
+    </p>
+
+  </div>
+</section>
+
+<style>
+  /* ── 1. Tokens de color por tier ── */
+  .tier-blue  { --tier-color: #57caff; --tier-color-dim: rgba(66,133,244,0.15); --tier-color-text: #c3ecf6; --tier-border: rgba(66,133,244, 0.3); }
+  .tier-red{ --tier-color: #ff7daf; --tier-color-dim: rgba(255,125,175,0.15);  --tier-color-text: #f8d8d8; --tier-border: rgba(255,125,175, 0.3); }
+  .tier-green { --tier-color: #5cdb6d; --tier-color-dim: rgba(52,168,83,0.15);  --tier-color-text: #ccf6c5; --tier-border: rgba(52, 168, 83, 0.3); }
+
+  /* ── 2. Elementos que consumen las variables ── */
+  .pkg-accent         { background-color: var(--tier-color); }
+  .pkg-check-icon     { background-color: var(--tier-color-dim); color: var(--tier-color); }
+  .pkg-cta            { background-color: var(--tier-color); color: #0f1419; }
+  .pkg-badge          { background-color: var(--tier-color-dim); color: var(--tier-color-text); border: 1px solid var(--tier-border); }
+
+  /* ── 3. Hover dinámico de card (borde + sombra) ── */
+  .pkg-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--tier-color);
+    box-shadow: 0 0 0 1px var(--tier-color), 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  .pkg-card:hover .pkg-image { transform: scale(1.04); }
+
+  /* ── 4. Background grid decorativo ── */
+  .bwai-grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+  }
+
+  /* ── 5. Animación de entrada con IntersectionObserver ── */
+  @keyframes pkg-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .pkg-card.is-visible {
+    animation: pkg-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+</style>
+
+<script>
+  const cards = document.querySelectorAll<HTMLElement>('[data-animate]');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          (entry.target as HTMLElement).classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+</script>
