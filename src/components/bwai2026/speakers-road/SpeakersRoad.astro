@@ -1,12 +1,9 @@
 ---
-import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import milestones from '../road/milestones.json'
 import speakersJson from './speakers-road.json';
 import SocialNetworksBwai2026 from './SocialNetworksBwai2026.astro';
 
-
-// Agrupa los speakers por milestoneId (= isoDate del milestone)
 const speakersByMilestone = Object.fromEntries(
   milestones.map(m => [m.isoDate, speakersJson.filter(s => s.milestoneId === m.isoDate)])
 );
@@ -26,7 +23,7 @@ const speakersByMilestone = Object.fromEntries(
         // Grid adaptado: 4 speakers → 2×2 en md / 4 en xl | 3 speakers → 3 en md
         const gridClass = panelSpeakers.length >= 4
           ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-4'
-          : 'grid-cols-1 md:grid-cols-3';
+          : 'max-w-3xl grid-cols-1 md:grid-cols-2';
 
         return (
           <div
@@ -102,6 +99,7 @@ const speakersByMilestone = Object.fromEntries(
                 <p class="spk-badge-date">{milestone.dateLabel}</p>
               </div>
             ) : (
+              <div class="justify-self-center">
               <div class={`grid gap-5 justify-items-center ${gridClass}`}>
                 {panelSpeakers.map((speaker, index) => (
                 <div
@@ -207,6 +205,7 @@ const speakersByMilestone = Object.fromEntries(
                   </article>
                 </div>
               ))}
+              </div>
               </div>
             )}
           </div>

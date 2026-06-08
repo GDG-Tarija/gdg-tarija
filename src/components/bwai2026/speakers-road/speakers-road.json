@@ -31,15 +31,29 @@
   {
     "id": 3,
     "isRevealed": true,
-    "milestoneId": "2026-05-30",
-    "name": "Rodrigo Torrico",
-    "photo": "/img/events/bwai2026/Rodrigo-Torrico-1.jpg",
-    "talkTitle": "SolveOS: Una metodología que ayuda a llevar tus prompts al siguiente nivel",
-    "talkDescription": "SolveOS es una charla sobre cómo la inteligencia artificial está cambiando la forma en la que pensamos, construimos y ejecutamos soluciones. Más que hablar de una herramienta específica, SolveOS propone un sistema de trabajo donde humanos y agentes de IA colaboran para pasar de una idea a una solución real: entendiendo el problema, investigando, planificando, construyendo, validando y mejorando continuamente.",
-    "aboutSpeaker": "Soy un Senior Full Stack Engineer con más de 7 años de experiencia construyendo productos escalables. En Unosquare, he desarrollado sistemas que sirven a más de 6 millones de usuarios, reduje el tiempo de configuración de proyectos de 4 semanas a 4 días, y construí infraestructura en AWS desde cero para APIs en tiempo real. Paso la mayor parte de mi tiempo trabajando con Node.js, TypeScript, Angular, React y Go, construyendo sistemas escalables sobre AWS.",
-    "location": { "city": "Santa Cruz", "country": "Bolivia", "flag": "🇧🇴" },
+    "milestoneId": "2026-06-13",
+    "name": "Mauricio Arce Torrez",
+    "photo": "/img/events/bwai2026/Mauricio-Arce-Torrez.webp",
+    "talkTitle": "Generative Models for Generative UIs",
+    "talkDescription": "En esta charla exploraremos el concepto de Generative UI, el pasado y presente que nos trajeron al estado actual de las interfaces de usuario, además del futuro que pretende definir este nuevo concepto. Veremos los diferentes tipos de Generative UI, los jugadores que ya se han montado al juego, las bibliotecas y protocolos que desde ya podemos empezar a utilizar para construir este tipo de interfaces y alguna demo, para no perder la costumbre.",
+    "aboutSpeaker": "Soy Ingeniero de Software y GDE en Angular. Actualmente desempeño tareas como Tech Lead de un equipo de desarrollo front-end.",
+    "location": { "city": "Cochabamba", "country": "Bolivia", "flag": "🇧🇴" },
     "socials": [
-      { "platform": "linkedin", "url": "https://www.linkedin.com/in/tokidev/" }
+      { "platform": "linkedin", "url": "https://linkedin.com/in/combimauri" }
+    ]
+  },
+  {
+    "id": 4,
+    "isRevealed": true,
+    "milestoneId": "2026-06-13",
+    "name": "Alejandro Núñez Arroyo",
+    "photo": "/img/events/bwai2026/AleNunezArroyo.webp",
+    "talkTitle": "Modelos locales con Gemma: pesos, plataformas y ecosistema",
+    "talkDescription": "Exploraremos el ecosistema de modelos locales a través de Gemma, la familia de modelos open-weight de Google DeepMind. Fundamentos: qué son los pesos, sus formatos y el impacto de la cuantización, para luego revisar las principales plataformas de inferencia local como Ollama y HuggingFace. Cerraremos con un panorama del estado actual del ecosistema y cuándo tiene sentido elegir un modelo local sobre una API en la nube.",
+    "aboutSpeaker": "Investigador en IA con más de 4 años de experiencia y estudiante de Maestría en Ciencias de la Computación en la Universidade Estadual de Campinas (UNICAMP) en Brasil, su tema de investigación se centra en la evaluación para Sistemas Multi-Agente basados en LLMs.",
+    "location": { "city": "Campinas", "country": "Brasil", "flag": "🇧🇷" },
+    "socials": [
+      { "platform": "beacons", "url": "https://beacons.ai/alenunezarroyo" }
     ]
   }
 ]
