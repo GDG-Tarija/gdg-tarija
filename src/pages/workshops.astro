@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Loader from '../components/common/Loader.astro';
+
+const title = 'Workshops Build With AI 2026 | GDG Tarija';
+const description =
+  'Inscripciones abiertas para los talleres del Build with AI 2026. Aprende de la mano de expertos en inteligencia artificial y lleva tus habilidades al siguiente nivel.🚀';
+const image =
+  'https://res.cloudinary.com/startup-grind/image/upload/c_fill,w_500,h_500,g_center/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/events/blob_bSpSUbb';
+
+const redirectUrl = 'https://eventos.gdgtarija.com/e/build-with-ai-2026';
+---
+
+<Layout title={title} description={description} image={image}>
+  <Fragment slot="head">
+    <meta http-equiv="refresh" content={`2;url=${redirectUrl}`} />
+  </Fragment>
+
+  <main class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
+    <Loader text="Redirigiendo..." subtext="Te estamos llevando a los talleres de Build with AI." />
+  </main>
+</Layout>
