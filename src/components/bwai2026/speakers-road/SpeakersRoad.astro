@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import milestones from '../road/milestones.json'
 import speakersJson from './speakers-road.json';
 import SocialNetworksBwai2026 from './SocialNetworksBwai2026.astro';
+import GDGIcon from '../../../assets/images/bwai2026/google-developers.svg';
+
 
 const speakersByMilestone = Object.fromEntries(
   milestones.map(m => [m.isoDate, speakersJson.filter(s => s.milestoneId === m.isoDate)])
@@ -20,7 +22,6 @@ const speakersByMilestone = Object.fromEntries(
     <div class="relative">
       {milestones.map((milestone) => {
         const panelSpeakers = speakersByMilestone[milestone.isoDate] ?? [];
-        // Grid adaptado: 4 speakers → 2×2 en md / 4 en xl | 3 speakers → 3 en md
         const gridClass = panelSpeakers.length >= 4
           ? 'grid-cols-1 sm:grid-cols-2 xl:grid-cols-4'
           : 'max-w-3xl grid-cols-1 md:grid-cols-2';
@@ -44,7 +45,9 @@ const speakersByMilestone = Object.fromEntries(
                 id="speakers-road-title"
                 class="text-2xl md:text-3xl font-bold text-gdg-off-white mb-3 leading-tight"
               >
-                Speakers Road to Build
+                {milestone.dateLabel === '20 de Junio - 08:30 AM'
+                  ? 'Speakers'
+                  : 'Speakers Road to Build'}                
               </h2>
             </header>
             <p
@@ -116,13 +119,30 @@ const speakersByMilestone = Object.fromEntries(
 
                         <!-- Foto -->
                         <div class="relative overflow-hidden h-70 shrink-0">
-                          <span
-                            class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-bwai-background/80 text-gdg-off-white text-[10px] font-medium px-2.5 py-1 rounded-full"
-                            aria-label={`Speaker de ${speaker.location.city}, ${speaker.location.country}`}
-                          >
-                            <span aria-hidden="true">{speaker.location.flag}</span>
-                            {speaker.location.city}, {speaker.location.country}
-                          </span>
+                          {speaker.expert && (
+                            <span
+                              class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-bwai-background/80 text-gdg-off-white text-sm font-medium px-2.5 py-1 rounded-full"
+                              aria-label={`Speaker experto: ${speaker.name}`}
+                            >
+                              <Image
+                                src={GDGIcon}
+                                alt=""
+                                width={14}
+                                height={14}
+                                aria-hidden="true"
+                              />
+                              Expert
+                            </span>
+                          )}
+                          {speaker.location && (
+                            <span
+                              class="absolute bottom-3 right-3 flex items-center gap-1.5 bg-bwai-background/80 text-gdg-off-white text-[10px] font-medium px-2.5 py-1 rounded-full"
+                              aria-label={`Speaker de ${speaker.location.city}, ${speaker.location.country}`}
+                            >
+                              <span aria-hidden="true">{speaker.location.flag}</span>
+                              {speaker.location.city}, {speaker.location.country}
+                            </span>
+                          )}
                           <Image
                             src={speaker.photo}
                             alt={`Foto de ${speaker.name}`}

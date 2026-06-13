@@ -27,10 +27,10 @@
   {
     "id": 3,
     "isoDate": "2026-06-20",
-    "dateLabel": "20 de Junio",
+    "dateLabel": "20 de Junio - 08:30 AM",
     "title": "Build with AI Tarija",
     "subtitle": "El gran evento presencial en Tarija, Bolivia",
-    "tag": "Evento Principal · Presencial",
+    "tag": "Evento Presencial",
     "color": "yellow",
     "ctaText": "Registrarse",
     "ctaHref": "https://eventos.gdgtarija.com/e/build-with-ai-2026",

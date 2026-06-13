@@ -55,5 +55,64 @@
     "socials": [
       { "platform": "beacons", "url": "https://beacons.ai/alenunezarroyo" }
     ]
+  },
+  {
+    "id": 5,
+    "isRevealed": true,
+    "milestoneId": "2026-06-20",
+    "name": "Alvaro Baldiviezo Rodríguez",
+    "photo": "/img/events/bwai2026/Alvaro-Baldiviezo.webp",
+    "talkTitle": "Tu primer MCP server",
+    "talkDescription": "Los Modelos de Lenguaje (LLMs) son increíbles, pero tienen un gran límite: están aislados del mundo real y de nuestros datos locales. En este taller aprenderemos a romper esa barrera utilizando el Model Context Protocol (MCP), el nuevo estándar de código abierto que permite conectar modelos con bases de datos, APIs y archivos locales de forma segura. A través de un enfoque 100% práctico y desde cero, construiremos nuestro primer Servidor MCP paso a paso. Veremos cómo integrar herramientas personalizadas para que la IA interactúe con ellas en tiempo real, demostrando que no se necesita ser un experto en Machine Learning para crear asistentes verdaderamente útiles y conectados. Saldrán del taller con su propio servidor MCP funcionando!",
+    "aboutSpeaker": "I am a Systems Engineering student at Universidad Católica Boliviana San Pablo, with a strong interest in building reliable, scalable, and well-structured technology solutions. My focus is on software architecture and software development, especially in web and mobile applications, where I enjoy turning ideas into practical products that create value. Throughout my academic journey, I have developed a solid technical mindset and a strong appreciation for clean design, maintainability, and problem-solving. I am especially interested in creating solutions that are not only functional, but also efficient, user-centered, and prepared to grow with real-world demands. In addition to my technical background, I have strengthened my communication skills through English certification from Edusoft and the CBA institution, with achievement levels including Intermediate 3 and B2. This has allowed me to work with greater confidence in multilingual environments and to engage with technical content, documentation, and collaboration in English.I value professionalism, integrity, and continuous learning in every project I take on. My goal is to keep growing as a software professional while contributing to meaningful digital solutions through thoughtful architecture, disciplined development, and a strong commitment to quality.",
+    
+    "socials": [
+      { "platform": "linkedin", "url": "https://www.linkedin.com/in/alvarofabianbaldiviezorodriguez" },
+      { "platform": "instagram", "url": "https://www.instagram.com/_alvaritobr_/" },
+      { "platform": "twitter", "url": "https://x.com/AlvaroFabinBal1" }
+    ]
+  },
+  {
+    "id": 6,
+    "isRevealed": true,
+    "milestoneId": "2026-06-20",
+    "name": "Nathaly Alarcón Torrico",
+    "photo": "/img/events/bwai2026/Nathaly.webp",
+    "talkTitle": "Agentes de IA y Contenido Multimedia: La Evolución Más Allá del Texto",
+    "talkDescription": "Exploraremos cómo usar los modelos de Google para generar contenido más allá del texto. Es decir: audio, imágenes etc. Exploraremos las herramientas y frameworks que Google nos brinda para crear fácilmente nuestros agentes.",
+    "aboutSpeaker": "Google Developer Expert en IA y Cloud. AI Manager en Coderoad. Docente de Posgrado",
+    "expert": true,
+    "socials": [
+      { "platform": "linkedin", "url": "https://www.linkedin.com/in/nathalyalarcont/" },
+      { "platform": "instagram", "url": "https://www.instagram.com/nathalyAlarconT/" }
+    ]
+  },
+  {
+    "id": 7,
+    "isRevealed": true,
+    "milestoneId": "2026-06-20",
+    "name": "Angel Arturo España Vacaflor",
+    "photo": "/img/events/bwai2026/Arturo.jpeg",
+    "talkTitle": "Despliegue de Agentes de Automatización Robustos basados en Google AI",
+    "talkDescription": "El taller aborda el diseño y la implementación de agentes de automatización capaces de ejecutar tareas lógicas e interactuar con otros sistemas sin caer en la impredictibilidad o las alucinaciones comunes de los LLMs. Se demostrará técnicamente cómo utilizar el SDK oficial de Google GenAI en Python junto con Pydantic para estructurar las decisiones del agente mediante el patrón de Salidas Estructuradas (Structured Outputs), garantizando flujos de automatización deterministas y validados a nivel de tipos. Adicionalmente, se analizarán mecanismos de arquitectura defensiva para asegurar el agente contra riesgos de seguridad como el Prompt Injection. Finalmente, se guiará en el despliegue del microservicio en una infraestructura serverless sobre Vercel de forma gratuita y sin requerir tarjetas de crédito, proporcionando a los asistentes una metodología replicable para construir componentes de automatización seguros y listos para producción.",
+    "aboutSpeaker": "Angel Arturo España Vacaflor es Ingeniero de Sistemas enfocado en la arquitectura de software, automatización avanzada de procesos y DevSecOps. Cuenta con experiencia en el diseño de pipelines de integración de IA y automatización para MSI Technologies, además de un sólido trasfondo en aseguramiento de la calidad de software (QA). Como Instructor de Ciencias de la Computación, se especializa en traducir conceptos complejos de infraestructura, contenedores y modelos de lenguaje en soluciones lógicas, seguras y deterministas listas para producción.",
+    
+    "socials": [
+      { "platform": "linkedin", "url": "https://www.linkedin.com/arthur-espana" }
+    ]
+  },
+  {
+    "id": 8,
+    "isRevealed": true,
+    "milestoneId": "2026-06-20",
+    "name": "Marlene Choque Pérez",
+    "photo": "/img/events/bwai2026/Marlene.jpg",
+    "talkTitle": "¡Hola Mundo en la Nube! Tu Primer proyecto con Google Cloud",
+    "talkDescription": "¡Atrévete a dar tu primer paso en el mundo tecnológico! Si siempre quisiste entender qué es la nube pero te asustaban los tecnicismos, este taller interactivo es ideal para comenzar. Vamos a empezar desde el principio, guiándote paso a paso de forma amigable para que descubras el funcionamiento de Google Cloud y logres crear con éxito tu primer proyecto real en la nube.",
+    "aboutSpeaker": "Soy Ingeniera de Sistemas, actualmente me dedico al desarrollo y arquitectura de software en la industria de la Banca, formo parte del GDG Organizar en Tarija y Women Teachmakers Ambasador. Me gusta colaborar y ser participe de la comunidad tecnológica. ",
+    
+    "socials": [
+      { "platform": "linkedin", "url": "https://www.linkedin.com/in/marlenechoqueperez" }
+    ]
   }
 ]
