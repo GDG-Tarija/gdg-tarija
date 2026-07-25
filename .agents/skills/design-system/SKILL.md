@@ -14,20 +14,24 @@ Este documento define el **contexto completo de UI** para GDG Events Platform.
 La home pública reemplazó el hero anterior y ahora es una **landing de próximos eventos**.
 
 ### 1.1. Hero
+
 - Título: `Próximos Eventos` en `gdg-h1`.
 - Sin descripción larga ni CTA hero (la conversión ocurre en las cards).
 
 ### 1.2. Lista de eventos
+
 - Columna única, cards horizontales con `flex flex-col sm:flex-row`.
 - Cards blancas (`gdg-card`), `rounded-3xl`, `shadow-sm`.
 - Mientras `isEventLoading`: mostrar skeletons (misma estructura que la card).
 - Si no hay eventos: empty state simple.
 
 ### 1.3. Footer público
+
 - 4 iconos Material Symbols Rounded centrados.
 - Texto: `Plataforma hecha en casa por GDG Tarija`.
 
 ### 1.4. Event Card
+
 - Layout horizontal: `flex flex-col sm:flex-row` con imagen a la izquierda (sm:w-72).
 - Imagen `aspect-video` en mobile, altura completa en desktop.
 - Placeholder si no hay imagen: `event-image-placeholder` (bloques con acentos Google sin degradados).
@@ -37,10 +41,12 @@ La home pública reemplazó el hero anterior y ahora es una **landing de próxim
 - Click en body (menos botón) navega a `/e/:slug`.
 
 ### 1.5. Skeleton
+
 - Usar componente `event-card-skeleton` con `animate-pulse`.
 - Misma estructura exacta que `event-card` para evitar layout shift.
 
 ### 1.6. Ruta de detalle
+
 - `/e/:slug` — componente placeholder por ahora.
 - Se completa cuando se integre el backend.
 
@@ -63,6 +69,7 @@ La home pública reemplazó el hero anterior y ahora es una **landing de próxim
 - Persistencia: `localStorage['mecha-theme']` (`light` | `dark`).
 
 Archivos:
+
 - `src/app/core/services/theme.ts`
 - `src/material-theme.scss`
 - `src/styles/_variables.scss`
@@ -76,11 +83,13 @@ Archivos:
 - Fuente global: se aplica a nivel `html/body` (no hay que declarar `font-google` en cada componente).
 
 Fuentes locales:
+
 - Carpeta: `src/assets/fonts/google-sans/`
 - Carga: `@font-face` en `src/styles.scss`
 - El build copia assets via `angular.json` a `/assets/**`.
 
 Tailwind:
+
 - `font-google` => `['Google Sans', 'system-ui', 'sans-serif']`
 
 ---
@@ -91,6 +100,7 @@ Tailwind:
 - Material Icons se mantiene para `<mat-icon>` existente.
 
 Archivo:
+
 - `src/index.html`
 
 ---
@@ -99,13 +109,14 @@ Archivo:
 
 Los logos están servidos desde **Cloudinary** y referenciados en `src/app/core/config/logos.ts`:
 
-| Constante | Descripción | URL |
-|---|---|---|
-| `LOGOS.icon` | Solo icono GDG, sin texto | `logoGDG_Tarija_nox4y2` |
+| Constante          | Descripción                  | URL                      |
+| ------------------ | ---------------------------- | ------------------------ |
+| `LOGOS.icon`       | Solo icono GDG, sin texto    | `logoGDG_Tarija_nox4y2`  |
 | `LOGOS.horizontal` | Horizontal con icono + texto | `gdg_tarija_logo_t3xzpo` |
-| `LOGOS.square` | Cuadrado con icono + texto | `logoGDGTarija_lyzyzo` |
+| `LOGOS.square`     | Cuadrado con icono + texto   | `logoGDGTarija_lyzyzo`   |
 
 Modo de uso:
+
 ```ts
 import { LOGOS } from '../../core/config/logos';
 // LOGOS.icon, LOGOS.horizontal, LOGOS.square
@@ -113,6 +124,7 @@ import { LOGOS } from '../../core/config/logos';
 ```
 
 Uso en template:
+
 ```html
 <img [src]="logo.src" [alt]="logo.alt" class="h-8 w-auto" />
 ```
@@ -122,7 +134,9 @@ Uso en template:
 ## 7. Color Tokens
 
 ### 7.1. Tailwind colors
+
 Definidos en `tailwind.config.js`:
+
 - `google-blue` `#4285F4`
 - `google-red` `#EA4335`
 - `google-yellow` `#FBBC05`
@@ -134,7 +148,9 @@ Definidos en `tailwind.config.js`:
 - `text-secondary` `#5F6368`
 
 ### 7.2. CSS variables
+
 En `src/styles/_variables.scss`:
+
 - `--gdg-google-blue|red|yellow|green`
 - `--gdg-google-*-light`
 - tokens existentes para tablas, borders, danger, etc. (con override dark)
@@ -169,6 +185,7 @@ En `src/styles/_variables.scss`:
 ## 11. Component Classes
 
 Definidas en `src/styles.scss` bajo `@layer components`:
+
 - Botones:
   - `.gdg-btn-filled`
   - `.gdg-btn-outlined`
@@ -190,6 +207,7 @@ Definidas en `src/styles.scss` bajo `@layer components`:
 Regla de UX: en navbar publico **no mostrar “Iniciar sesion” mientras `auth.loading()`**.
 
 Archivo:
+
 - `src/app/layouts/public-layout/public-layout.html`
 
 ---

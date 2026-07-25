@@ -3,7 +3,7 @@ Crea un nuevo CRUD para la entidad `$ARGUMENTS`
 utiliza un razonamiento: adaptive thinking
 
 1. Toma como ejemplo el CRUD de product-category en `src\app\features\admin\sponsor` analizalo para mantener el estilo
-Con la siguientes consideraciones
+   Con la siguientes consideraciones
 2. Analiza y actualiza la base de datos `supabase\migrations` que sea compatible con supabase con todos las configuraciones necesarios, toma como ejemplo `supabase\migrations\sponsors.sql` y crea el archivo `supabase\migrations\$ARGUMENTS.sql`
 3. Todos los componentes, class de estilo y variables deben estar en ingles, solo los labels y registros en ES, no agregues iconos innecesarios y conserva el estilo base.
 4. Ruta base para todo el CRUD en `src/app/features/admin/$ARGUMENTS/`.
@@ -22,6 +22,6 @@ Con la siguientes consideraciones
 8. Ajustar el menu de navegacion para coincidir con modulos y categorias definidos en `.opencode\docs\features.md`
 9. La ruta lazy en `app.routes.ts` bajo AdminLayout
 10. Agrega el servicio correspondiente `sb-$ARGUMENTS.ts` en `core/services/supabase/` para poder registrar el crud correspondiente
-11. Realiza los ajutes necesarios si es pertinente en otros componentes compatidos en `src/app/shared/components/`, directivas en  `src/app/shared/directives/` y pipes en `src/app/shared/pipes/`
+11. Realiza los ajutes necesarios si es pertinente en otros componentes compatidos en `src/app/shared/components/`, directivas en `src/app/shared/directives/` y pipes en `src/app/shared/pipes/`
 12. Comprueba que todo esta funcionando correntamente con las versiones de angular 21
 13. Sigue las convenciones del AGENTS.md: signals, sin HTTP, Angular Material.

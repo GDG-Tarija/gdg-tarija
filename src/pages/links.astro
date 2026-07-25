@@ -5,7 +5,8 @@ import Layout from '../layouts/Layout.astro';
 const community = {
   name: 'GDG Tarija',
   tagline: 'La comunidad de tecnología más vibrante de Tarija, Bolivia.',
-  photo: 'https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png',
+  photo:
+    'https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png',
   links: [
     {
       label: 'Sitio Web Oficial',
@@ -44,7 +45,6 @@ const community = {
 <Layout title="Enlaces Oficiales | GDG Tarija">
   <main class="min-h-screen bg-[#f8f9fa] py-12 px-4 sm:px-6">
     <div class="max-w-md mx-auto flex flex-col items-center">
-      
       <!-- Contenedor del Perfil (Logo oficial de GDG Tarija) -->
       <div class="relative w-40 h-40 mb-6 flex items-center justify-center">
         <!-- Círculo de fondo estético -->
@@ -78,7 +78,9 @@ const community = {
               <span class="text-base font-semibold text-gray-800 group-hover:text-google-blue transition-colors duration-200">
                 {link.label}
               </span>
-              <i class={`${link.icon} text-lg text-gray-400 group-hover:text-google-blue transition-colors duration-200`} />
+              <i
+                class={`${link.icon} text-lg text-gray-400 group-hover:text-google-blue transition-colors duration-200`}
+              />
             </a>
           ))
         }
@@ -93,7 +95,10 @@ const community = {
 
         <!-- Contenedor dinámico de eventos -->
         <div id="events-loader" class="w-full text-center py-6">
-          <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-google-blue border-t-transparent"></div>
+          <div
+            class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-google-blue border-t-transparent"
+          >
+          </div>
           <p class="text-xs text-gray-500 mt-2">Cargando eventos...</p>
         </div>
 
@@ -109,7 +114,6 @@ const community = {
           <p class="text-sm text-gray-500">No hay eventos publicados por el momento.</p>
         </div>
       </div>
-
     </div>
   </main>
 </Layout>
@@ -133,11 +137,11 @@ const community = {
         {
           method: 'GET',
           headers: {
-            'apikey': SUPABASE_KEY,
-            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            apikey: SUPABASE_KEY,
+            Authorization: `Bearer ${SUPABASE_KEY}`,
             'Content-Type': 'application/json',
           },
-        }
+        },
       );
 
       if (!response.ok) {
@@ -164,13 +168,16 @@ const community = {
           });
 
           // Banner por defecto oficial de la plataforma si no hay image_url
-          const imageSrc = event.image_url || 'https://res.cloudinary.com/dopkch3x9/image/upload/v1779579233/GDG_Bevy_DefaultEventBanner_VKOwYjb_c913np.webp';
+          const imageSrc =
+            event.image_url ||
+            'https://res.cloudinary.com/dopkch3x9/image/upload/v1779579233/GDG_Bevy_DefaultEventBanner_VKOwYjb_c913np.webp';
 
           const card = document.createElement('a');
           card.href = `${PLATFORM_URL}/e/${event.slug}`;
           card.target = '_blank';
           card.rel = 'noopener noreferrer';
-          card.className = 'flex items-center gap-4 w-full p-3 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 group';
+          card.className =
+            'flex items-center gap-4 w-full p-3 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 group';
 
           card.innerHTML = `
             <div class="w-16 h-16 rounded-xl overflow-hidden bg-gray-50 flex-shrink-0">

@@ -9,9 +9,7 @@
     "talkDescription": "Exploramos las herramientas de Google IA para transformar una idea en un MVP y publicarlo con Google Cloud Run.",
     "aboutSpeaker": "Lesly es ingeniera en Telecomunicaciones con una maestría en Ciencias de Computación e Ingeniería. Actualmente, trabaja como curriculum developer en la empresa DeepLearning.AI y es facilitadora y mentora de startup weekends y hackathons, además es Google Developer Expert en AI y Cloud. Sus principales intereses son: tecnología, educación y startups.",
     "location": { "city": "Sucre", "country": "Bolivia", "flag": "🇧🇴" },
-    "socials": [
-      { "platform": "linktree", "url": "https://linktr.ee/leslysandra" }
-    ]
+    "socials": [{ "platform": "linktree", "url": "https://linktr.ee/leslysandra" }]
   },
   {
     "id": 2,
@@ -25,7 +23,7 @@
     "location": { "city": "Tegucigalpa", "country": "Honduras", "flag": "🇭🇳" },
     "socials": [
       { "platform": "globe", "url": "https://maureenbarahona.foo/" },
-      { "platform": "instagram", "url": "https://www.linkedin.com/in/maureen-barahona"}
+      { "platform": "instagram", "url": "https://www.linkedin.com/in/maureen-barahona" }
     ]
   },
   {
@@ -38,9 +36,7 @@
     "talkDescription": "En esta charla exploraremos el concepto de Generative UI, el pasado y presente que nos trajeron al estado actual de las interfaces de usuario, además del futuro que pretende definir este nuevo concepto. Veremos los diferentes tipos de Generative UI, los jugadores que ya se han montado al juego, las bibliotecas y protocolos que desde ya podemos empezar a utilizar para construir este tipo de interfaces y alguna demo, para no perder la costumbre.",
     "aboutSpeaker": "Soy Ingeniero de Software y GDE en Angular. Actualmente desempeño tareas como Tech Lead de un equipo de desarrollo front-end.",
     "location": { "city": "Cochabamba", "country": "Bolivia", "flag": "🇧🇴" },
-    "socials": [
-      { "platform": "linkedin", "url": "https://linkedin.com/in/combimauri" }
-    ]
+    "socials": [{ "platform": "linkedin", "url": "https://linkedin.com/in/combimauri" }]
   },
   {
     "id": 4,
@@ -52,9 +48,7 @@
     "talkDescription": "Exploraremos el ecosistema de modelos locales a través de Gemma, la familia de modelos open-weight de Google DeepMind. Fundamentos: qué son los pesos, sus formatos y el impacto de la cuantización, para luego revisar las principales plataformas de inferencia local como Ollama y HuggingFace. Cerraremos con un panorama del estado actual del ecosistema y cuándo tiene sentido elegir un modelo local sobre una API en la nube.",
     "aboutSpeaker": "Investigador en IA con más de 4 años de experiencia y estudiante de Maestría en Ciencias de la Computación en la Universidade Estadual de Campinas (UNICAMP) en Brasil, su tema de investigación se centra en la evaluación para Sistemas Multi-Agente basados en LLMs.",
     "location": { "city": "Campinas", "country": "Brasil", "flag": "🇧🇷" },
-    "socials": [
-      { "platform": "beacons", "url": "https://beacons.ai/alenunezarroyo" }
-    ]
+    "socials": [{ "platform": "beacons", "url": "https://beacons.ai/alenunezarroyo" }]
   },
   {
     "id": 5,
@@ -65,9 +59,12 @@
     "talkTitle": "Tu primer MCP server",
     "talkDescription": "Los Modelos de Lenguaje (LLMs) son increíbles, pero tienen un gran límite: están aislados del mundo real y de nuestros datos locales. En este taller aprenderemos a romper esa barrera utilizando el Model Context Protocol (MCP), el nuevo estándar de código abierto que permite conectar modelos con bases de datos, APIs y archivos locales de forma segura. A través de un enfoque 100% práctico y desde cero, construiremos nuestro primer Servidor MCP paso a paso. Veremos cómo integrar herramientas personalizadas para que la IA interactúe con ellas en tiempo real, demostrando que no se necesita ser un experto en Machine Learning para crear asistentes verdaderamente útiles y conectados. Saldrán del taller con su propio servidor MCP funcionando!",
     "aboutSpeaker": "I am a Systems Engineering student at Universidad Católica Boliviana San Pablo, with a strong interest in building reliable, scalable, and well-structured technology solutions. My focus is on software architecture and software development, especially in web and mobile applications, where I enjoy turning ideas into practical products that create value. Throughout my academic journey, I have developed a solid technical mindset and a strong appreciation for clean design, maintainability, and problem-solving. I am especially interested in creating solutions that are not only functional, but also efficient, user-centered, and prepared to grow with real-world demands. In addition to my technical background, I have strengthened my communication skills through English certification from Edusoft and the CBA institution, with achievement levels including Intermediate 3 and B2. This has allowed me to work with greater confidence in multilingual environments and to engage with technical content, documentation, and collaboration in English.I value professionalism, integrity, and continuous learning in every project I take on. My goal is to keep growing as a software professional while contributing to meaningful digital solutions through thoughtful architecture, disciplined development, and a strong commitment to quality.",
-    
+
     "socials": [
-      { "platform": "linkedin", "url": "https://www.linkedin.com/in/alvarofabianbaldiviezorodriguez" },
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/alvarofabianbaldiviezorodriguez"
+      },
       { "platform": "instagram", "url": "https://www.instagram.com/_alvaritobr_/" },
       { "platform": "twitter", "url": "https://x.com/AlvaroFabinBal1" }
     ]
@@ -96,10 +93,8 @@
     "talkTitle": "Despliegue de Agentes de Automatización Robustos basados en Google AI",
     "talkDescription": "El taller aborda el diseño y la implementación de agentes de automatización capaces de ejecutar tareas lógicas e interactuar con otros sistemas sin caer en la impredictibilidad o las alucinaciones comunes de los LLMs. Se demostrará técnicamente cómo utilizar el SDK oficial de Google GenAI en Python junto con Pydantic para estructurar las decisiones del agente mediante el patrón de Salidas Estructuradas (Structured Outputs), garantizando flujos de automatización deterministas y validados a nivel de tipos. Adicionalmente, se analizarán mecanismos de arquitectura defensiva para asegurar el agente contra riesgos de seguridad como el Prompt Injection. Finalmente, se guiará en el despliegue del microservicio en una infraestructura serverless sobre Vercel de forma gratuita y sin requerir tarjetas de crédito, proporcionando a los asistentes una metodología replicable para construir componentes de automatización seguros y listos para producción.",
     "aboutSpeaker": "Angel Arturo España Vacaflor es Ingeniero de Sistemas enfocado en la arquitectura de software, automatización avanzada de procesos y DevSecOps. Cuenta con experiencia en el diseño de pipelines de integración de IA y automatización para MSI Technologies, además de un sólido trasfondo en aseguramiento de la calidad de software (QA). Como Instructor de Ciencias de la Computación, se especializa en traducir conceptos complejos de infraestructura, contenedores y modelos de lenguaje en soluciones lógicas, seguras y deterministas listas para producción.",
-    
-    "socials": [
-      { "platform": "linkedin", "url": "https://www.linkedin.com/arthur-espana" }
-    ]
+
+    "socials": [{ "platform": "linkedin", "url": "https://www.linkedin.com/arthur-espana" }]
   },
   {
     "id": 8,
@@ -110,9 +105,7 @@
     "talkTitle": "¡Hola Mundo en la Nube! Tu Primer proyecto con Google Cloud",
     "talkDescription": "¡Atrévete a dar tu primer paso en el mundo tecnológico! Si siempre quisiste entender qué es la nube pero te asustaban los tecnicismos, este taller interactivo es ideal para comenzar. Vamos a empezar desde el principio, guiándote paso a paso de forma amigable para que descubras el funcionamiento de Google Cloud y logres crear con éxito tu primer proyecto real en la nube.",
     "aboutSpeaker": "Soy Ingeniera de Sistemas, actualmente me dedico al desarrollo y arquitectura de software en la industria de la Banca, formo parte del GDG Organizar en Tarija y Women Teachmakers Ambasador. Me gusta colaborar y ser participe de la comunidad tecnológica. ",
-    
-    "socials": [
-      { "platform": "linkedin", "url": "https://www.linkedin.com/in/marlenechoqueperez" }
-    ]
+
+    "socials": [{ "platform": "linkedin", "url": "https://www.linkedin.com/in/marlenechoqueperez" }]
   }
 ]

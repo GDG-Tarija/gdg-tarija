@@ -67,6 +67,7 @@ CREATE POLICY "public_read_session_registrations"
 ```
 
 Luego de aplicar la migración, regenerar tipos:
+
 ```bash
 supabase gen types typescript --local > src/app/core/supabase/supabase.client.ts
 ```
@@ -93,6 +94,7 @@ saveSessionRegistrations(registrationId: string, sessionIds: string[]): Observab
 ```
 
 Interfaz de dominio:
+
 ```typescript
 export interface SessionWithTrack {
   id: string;
@@ -100,21 +102,22 @@ export interface SessionWithTrack {
   title: string;
   description: string | null;
   capacity: number;
-  time_slot: number;        // slot concurrente (1, 2, ...)
+  time_slot: number; // slot concurrente (1, 2, ...)
   track_id: string | null;
   track_name: string | null; // nombre del track (ej. "Track A")
-  enrolled_count: number;    // inscritos actuales (calculado en la query)
+  enrolled_count: number; // inscritos actuales (calculado en la query)
 }
 ```
 
 Usar el patrón existente de `sb-sponsor.ts` (RxJS + BehaviorSubject). Para `listByEvent` hacer un join:
+
 ```typescript
 this.supabase
   .from('sessions')
   .select(`*, tracks(nombre)`)
   .eq('event_id', eventId)
   .order('time_slot')
-  .order('track_id')
+  .order('track_id');
 ```
 
 ---
@@ -124,6 +127,7 @@ this.supabase
 **Archivo**: `src/app/features/public/events/registration/components/session-picker/session-picker.ts`
 
 Componente standalone que recibe:
+
 - `input: sessions` — lista de `SessionWithTrack[]`
 - `output: selectionChange` — emite `string[]` (IDs de sesiones seleccionadas)
 
@@ -176,39 +180,39 @@ readonly hasSessions = computed(() => this.sessions().length > 0);
 ```
 
 En `init()`, cargar sesiones:
+
 ```typescript
 const sessionList = await firstValueFrom(this.sbSessions.listByEvent(this.event().id));
 this.sessions.set(sessionList ?? []);
 ```
 
 En el template, agregar la sección:
+
 ```html
 @if (hasSessions()) {
-  <hr class="border-t border-black/5 my-4" />
-  <div class="space-y-4">
-    <div class="flex items-center gap-2 pb-2 border-b border-black/5">
-      <span class="material-symbols-rounded text-base text-google-blue" aria-hidden="true">
-        event_seat
-      </span>
-      <h3 class="text-xs font-bold text-text-primary uppercase tracking-wider m-0">
-        Elige tus sesiones
-      </h3>
-    </div>
-    <app-session-picker
-      [sessions]="sessions()"
-      (selectionChange)="selectedSessionIds.set($event)"
-    />
+<hr class="border-t border-black/5 my-4" />
+<div class="space-y-4">
+  <div class="flex items-center gap-2 pb-2 border-b border-black/5">
+    <span class="material-symbols-rounded text-base text-google-blue" aria-hidden="true">
+      event_seat
+    </span>
+    <h3 class="text-xs font-bold text-text-primary uppercase tracking-wider m-0">
+      Elige tus sesiones
+    </h3>
   </div>
+  <app-session-picker [sessions]="sessions()" (selectionChange)="selectedSessionIds.set($event)" />
+</div>
 }
 ```
 
 En `canSubmit`, **no bloquear** si el usuario no elige sesiones — la inscripción al evento es válida sin sesiones (las sesiones son opt-in). Solo agregar una advertencia visual si `hasSessions() && selectedSessionIds().length === 0`.
 
 En `submit()`, después de `await this.registrations.createRegistration(...)`, si hay sesiones seleccionadas:
+
 ```typescript
 if (this.selectedSessionIds().length > 0) {
   await firstValueFrom(
-    this.sbSessions.saveSessionRegistrations(registration.id, this.selectedSessionIds())
+    this.sbSessions.saveSessionRegistrations(registration.id, this.selectedSessionIds()),
   );
 }
 ```

@@ -13,20 +13,21 @@ description: Directrices técnicas de Angular 21, Signals, Supabase Client y pat
 
 ## 1. Stack y versiones
 
-| Capa | Tecnología | Versión |
-|---|---|---|
-| Framework | Angular | 21 (standalone + signals) |
-| UI | Angular Material | 3 (Material You) |
-| Forms | Signal Forms | (incluido en Angular 21) |
-| Backend / BaaS | Supabase | latest |
-| Cliente Supabase | `@supabase/supabase-js` | v2 |
-| Lenguaje | TypeScript | 5.x estricto |
-| Test runner | Karma + Jasmine | (default Angular) |
-| Lint | ESLint + `@angular-eslint` | |
-| Formato | Prettier | |
-| PWA | `@angular-service-worker` | |
+| Capa             | Tecnología                 | Versión                   |
+| ---------------- | -------------------------- | ------------------------- |
+| Framework        | Angular                    | 21 (standalone + signals) |
+| UI               | Angular Material           | 3 (Material You)          |
+| Forms            | Signal Forms               | (incluido en Angular 21)  |
+| Backend / BaaS   | Supabase                   | latest                    |
+| Cliente Supabase | `@supabase/supabase-js`    | v2                        |
+| Lenguaje         | TypeScript                 | 5.x estricto              |
+| Test runner      | Karma + Jasmine            | (default Angular)         |
+| Lint             | ESLint + `@angular-eslint` |                           |
+| Formato          | Prettier                   |                           |
+| PWA              | `@angular-service-worker`  |                           |
 
 **Restricciones:**
+
 - No introducir librerías UI adicionales (nada de Bootstrap, Tailwind, PrimeNG).
 - No usar RxJS para estado de UI; usar **signals**. RxJS solo para flujos HTTP o eventos asíncronos donde aporte (ej. debounce de búsqueda).
 - No usar `NgModule`. Todo es standalone.
@@ -215,11 +216,7 @@ export class EventsService {
   }
 
   async create(input: EventInsert): Promise<Event> {
-    const { data, error } = await this.supabase
-      .from('events')
-      .insert(input)
-      .select()
-      .single();
+    const { data, error } = await this.supabase.from('events').insert(input).select().single();
 
     if (error) throw error;
     return data;
@@ -500,7 +497,9 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./layouts/public-layout/public-layout.component').then((m) => m.PublicLayoutComponent),
+      import('./layouts/public-layout/public-layout.component').then(
+        (m) => m.PublicLayoutComponent,
+      ),
     children: [
       {
         path: '',
@@ -567,22 +566,53 @@ Para producción usar `environment.prod.ts`. **Nunca** poner `service_role` aqu�
 @use '@angular/material' as mat;
 
 // Paleta oficial GDG: azul, rojo, amarillo, verde
-$gdg-primary: mat.define-palette((
-  50: #e8f0fe, 100: #d2e3fc, 500: #4285f4, 700: #1a73e8, 900: #174ea6,
-  contrast: (500: white, 700: white)
-));
-$gdg-accent: mat.define-palette((
-  500: #ea4335, 700: #c5221f, contrast: (500: white, 700: white)
-));
-$gdg-warn: mat.define-palette((
-  500: #fbbc04, 700: #f29900, contrast: (500: black, 700: black)
-));
+$gdg-primary: mat.define-palette(
+  (
+    50: #e8f0fe,
+    100: #d2e3fc,
+    500: #4285f4,
+    700: #1a73e8,
+    900: #174ea6,
+    contrast: (
+      500: white,
+      700: white,
+    ),
+  )
+);
+$gdg-accent: mat.define-palette(
+  (
+    500: #ea4335,
+    700: #c5221f,
+    contrast: (
+      500: white,
+      700: white,
+    ),
+  )
+);
+$gdg-warn: mat.define-palette(
+  (
+    500: #fbbc04,
+    700: #f29900,
+    contrast: (
+      500: black,
+      700: black,
+    ),
+  )
+);
 
-$theme: mat.define-light-theme((
-  color: (primary: $gdg-primary, accent: $gdg-accent, warn: $gdg-warn),
-  typography: mat.define-typography-config($font-family: 'Google Sans, Roboto, sans-serif'),
-  density: 0,
-));
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $gdg-primary,
+      accent: $gdg-accent,
+      warn: $gdg-warn,
+    ),
+    typography: mat.define-typography-config(
+        $font-family: 'Google Sans, Roboto, sans-serif',
+      ),
+    density: 0,
+  )
+);
 
 @include mat.all-component-themes($theme);
 ```

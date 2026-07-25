@@ -17,21 +17,7 @@
     "About": "Pedro es Ingeniero de Sistemas con +3 años de experiencia y mindset de scale. Perfil hands-on con fuerte ownership en el delivery de producto. Lead Organizer en GDG Tarija.",
     "Commission": ["Organizer"]
   },
-  {
-    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774972360/Kevin_Flores_gkrscg.jpg",
-    "Name": "Kevin Flores",
-    "Linkedin": "https://www.linkedin.com/in/kevin-flores-631a16189?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    "Github": "https://github.com/kevinfloresvallejos",
-    "About": "Apasionado por la tecnología, low code in AppSheet",
-    "Commission": ["Decoración", "Staff"]
-  },
-  {
-    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774973459/Miguel_Teran_hcdemz.jpg",
-    "Name": "Miguel Terán",
-    "Github": "https://github.com/MiguelT18",
-    "About": "Ingeniero de software full-stack enfocado en crear productos tecnológicos y explorar nuevas tecnologías. Interesado en IA, ciberseguridad y sistemas; participo en GDG para aprender, compartir y colaborar en innovación.",
-    "Commission": ["Marketing"]
-  },
+
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774971369/FRANZ_CARLOS_CACERES_AUCA_swptlh.jpg",
     "Name": "Carlos Cáceres",
@@ -68,13 +54,7 @@
     "About": "Me gusta bailar , leer , me gusta escuchar alas personas, conocer nuevos lugares",
     "Commission": ["Marketing", "Decoración"]
   },
-  {
-    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774971079/Valeria_Burgos_v05203.jpg",
-    "Name": "Valeria Burgos",
-    "Instagram": "https://www.instagram.com/pvaleriaburgos/",
-    "About": "Soy una persona apasionada por la tecnología y el conocimiento, me encuentro constantemente actualizándome y capacitándome en nuevas tecnologías y habilidades.",
-    "Commission": ["Organizer"]
-  },
+
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981653/Jose_Luis_Iba%C3%B1ez_Manguia_bl9g0o.png",
     "Name": "Jose Luis Ibañez",
