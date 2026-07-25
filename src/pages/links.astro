@@ -1,0 +1,200 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Datos de perfil de GDG Tarija
+const community = {
+  name: 'GDG Tarija',
+  tagline: 'La comunidad de tecnología más vibrante de Tarija, Bolivia.',
+  photo: 'https://res.cloudinary.com/dopkch3x9/image/upload/w_1200,h_1200,c_fill,f_auto,q_auto:good/v1751748539/logo_GDG_dgigmw.png',
+  links: [
+    {
+      label: 'Sitio Web Oficial',
+      url: 'https://gdgtarija.com',
+      icon: 'fa-solid fa-globe',
+    },
+    {
+      label: 'LinkedIn',
+      url: 'https://www.linkedin.com/company/gdg-tarija/',
+      icon: 'fa-brands fa-linkedin-in',
+    },
+    {
+      label: 'Instagram',
+      url: 'https://www.instagram.com/gdgtarija',
+      icon: 'fa-brands fa-instagram',
+    },
+    {
+      label: 'Facebook',
+      url: 'https://www.facebook.com/gdgtarija',
+      icon: 'fa-brands fa-facebook-f',
+    },
+    {
+      label: 'YouTube',
+      url: 'https://www.youtube.com/channel/UCrXfaMnZX5hDpH85iBrmo1w/videos',
+      icon: 'fa-brands fa-youtube',
+    },
+    {
+      label: 'TikTok',
+      url: 'https://www.tiktok.com/@gdgtarija',
+      icon: 'fa-brands fa-tiktok',
+    },
+  ],
+};
+---
+
+<Layout title="Enlaces Oficiales | GDG Tarija">
+  <main class="min-h-screen bg-[#f8f9fa] py-12 px-4 sm:px-6">
+    <div class="max-w-md mx-auto flex flex-col items-center">
+      
+      <!-- Contenedor del Perfil (Logo oficial de GDG Tarija) -->
+      <div class="relative w-40 h-40 mb-6 flex items-center justify-center">
+        <!-- Círculo de fondo estético -->
+        <div class="absolute inset-0 bg-white rounded-full border border-gray-100 shadow-xs"></div>
+        <!-- Logo con escalado sutil en hover -->
+        <img
+          src={community.photo}
+          alt={community.name}
+          class="relative z-10 w-36 h-36 rounded-full object-contain p-4 transition-transform duration-300 hover:scale-105"
+        />
+      </div>
+
+      <!-- Nombre de la Comunidad y Slogan -->
+      <h1 class="text-2xl font-bold text-gray-900 tracking-tight text-center mb-1">
+        {community.name}
+      </h1>
+      <p class="text-sm text-gray-500 font-medium text-center mb-8 px-4">
+        {community.tagline}
+      </p>
+
+      <!-- Botones de Enlaces Oficiales -->
+      <div class="w-full space-y-3.5 mb-10">
+        {
+          community.links.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-between w-full px-6 py-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 group active:scale-[0.98]"
+            >
+              <span class="text-base font-semibold text-gray-800 group-hover:text-google-blue transition-colors duration-200">
+                {link.label}
+              </span>
+              <i class={`${link.icon} text-lg text-gray-400 group-hover:text-google-blue transition-colors duration-200`} />
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- Sección de Últimos Eventos (Dinámico con Supabase) -->
+      <div class="w-full">
+        <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+          <i class="fa-regular fa-calendar text-google-blue"></i>
+          Últimos Eventos
+        </h2>
+
+        <!-- Contenedor dinámico de eventos -->
+        <div id="events-loader" class="w-full text-center py-6">
+          <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-google-blue border-t-transparent"></div>
+          <p class="text-xs text-gray-500 mt-2">Cargando eventos...</p>
+        </div>
+
+        <div id="events-container" class="w-full space-y-4 hidden">
+          <!-- Las tarjetas de eventos se inyectarán aquí -->
+        </div>
+
+        <div id="events-error" class="w-full text-center py-6 hidden">
+          <p class="text-sm text-red-500">Error al cargar eventos.</p>
+        </div>
+
+        <div id="events-empty" class="w-full text-center py-6 hidden">
+          <p class="text-sm text-gray-500">No hay eventos publicados por el momento.</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Configuración de Supabase (valores obtenidos de la app de eventos)
+  const SUPABASE_URL = 'https://tclwfkjhehdhhyxczdhy.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_X6JNZ2Yctb2EwbYjYyqQ-Q_YcoggME2';
+  const PLATFORM_URL = 'https://eventos.gdgtarija.com';
+
+  async function fetchLatestEvents() {
+    const loader = document.getElementById('events-loader');
+    const container = document.getElementById('events-container');
+    const errorDiv = document.getElementById('events-error');
+    const emptyDiv = document.getElementById('events-empty');
+
+    try {
+      // Petición REST a Supabase buscando eventos publicados ordenados de forma descendente por fecha de inicio
+      const response = await fetch(
+        `${SUPABASE_URL}/rest/v1/events?select=id,title,slug,date_start,image_url,is_published&is_published=eq.true&order=date_start.desc&limit=3`,
+        {
+          method: 'GET',
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const events = await response.json();
+
+      if (loader) loader.style.display = 'none';
+
+      if (!events || events.length === 0) {
+        if (emptyDiv) emptyDiv.style.display = 'block';
+        return;
+      }
+
+      if (container) {
+        container.innerHTML = '';
+        events.forEach((event: any) => {
+          const date = new Date(event.date_start);
+          const formattedDate = date.toLocaleDateString('es-BO', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric',
+          });
+
+          // Banner por defecto oficial de la plataforma si no hay image_url
+          const imageSrc = event.image_url || 'https://res.cloudinary.com/dopkch3x9/image/upload/v1779579233/GDG_Bevy_DefaultEventBanner_VKOwYjb_c913np.webp';
+
+          const card = document.createElement('a');
+          card.href = `${PLATFORM_URL}/e/${event.slug}`;
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
+          card.className = 'flex items-center gap-4 w-full p-3 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 group';
+
+          card.innerHTML = `
+            <div class="w-16 h-16 rounded-xl overflow-hidden bg-gray-50 flex-shrink-0">
+              <img src="${imageSrc}" alt="${event.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="min-w-0 flex-1">
+              <span class="text-xs text-google-blue font-semibold block mb-0.5">${formattedDate}</span>
+              <h3 class="text-sm font-bold text-gray-800 truncate group-hover:text-google-blue transition-colors duration-200">${event.title}</h3>
+            </div>
+            <i class="fa-solid fa-angle-right text-gray-400 group-hover:text-google-blue group-hover:translate-x-0.5 transition-all duration-200 pr-2"></i>
+          `;
+
+          container.appendChild(card);
+        });
+
+        container.classList.remove('hidden');
+      }
+    } catch (err) {
+      console.error('Error fetching events from Supabase:', err);
+      if (loader) loader.style.display = 'none';
+      if (errorDiv) errorDiv.style.display = 'block';
+    }
+  }
+
+  // Ejecutar cuando se cargue el DOM
+  document.addEventListener('DOMContentLoaded', fetchLatestEvents);
+</script>
