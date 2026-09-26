@@ -1,0 +1,631 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T19:09:19.106Z",
+  "title": "Design System: GDG Tarija",
+  "extensions": {
+    "colorMeta": {
+      "gdg-blue": {
+        "role": "primary",
+        "displayName": "Azul Google",
+        "canonical": "#4285f4",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 260.0)",
+          "oklch(25.0% 0.130 260.0)",
+          "oklch(36.0% 0.152 260.0)",
+          "oklch(48.0% 0.176 260.0)",
+          "oklch(60.0% 0.180 260.0)",
+          "oklch(72.0% 0.176 260.0)",
+          "oklch(84.0% 0.152 260.0)",
+          "oklch(95.0% 0.130 260.0)"
+        ]
+      },
+      "gdg-blue-deep": {
+        "role": "primary",
+        "displayName": "Azul Google Profundo",
+        "canonical": "#3367d6",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 262.9)",
+          "oklch(25.0% 0.130 262.9)",
+          "oklch(36.0% 0.152 262.9)",
+          "oklch(48.0% 0.176 262.9)",
+          "oklch(60.0% 0.180 262.9)",
+          "oklch(72.0% 0.176 262.9)",
+          "oklch(84.0% 0.152 262.9)",
+          "oklch(95.0% 0.130 262.9)"
+        ]
+      },
+      "gdg-red": {
+        "role": "secondary",
+        "displayName": "Rojo Google",
+        "canonical": "#ea4335",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 29.1)",
+          "oklch(25.0% 0.130 29.1)",
+          "oklch(36.0% 0.152 29.1)",
+          "oklch(48.0% 0.176 29.1)",
+          "oklch(60.0% 0.200 29.1)",
+          "oklch(72.0% 0.176 29.1)",
+          "oklch(84.0% 0.152 29.1)",
+          "oklch(95.0% 0.130 29.1)"
+        ]
+      },
+      "gdg-yellow": {
+        "role": "secondary",
+        "displayName": "Amarillo Google",
+        "canonical": "#f9ab00",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 76.0)",
+          "oklch(25.0% 0.130 76.0)",
+          "oklch(36.0% 0.152 76.0)",
+          "oklch(48.0% 0.167 76.0)",
+          "oklch(60.0% 0.167 76.0)",
+          "oklch(72.0% 0.167 76.0)",
+          "oklch(84.0% 0.152 76.0)",
+          "oklch(95.0% 0.130 76.0)"
+        ]
+      },
+      "gdg-green": {
+        "role": "secondary",
+        "displayName": "Verde Google",
+        "canonical": "#34a853",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 148.5)",
+          "oklch(25.0% 0.130 148.5)",
+          "oklch(36.0% 0.152 148.5)",
+          "oklch(48.0% 0.160 148.5)",
+          "oklch(60.0% 0.160 148.5)",
+          "oklch(72.0% 0.160 148.5)",
+          "oklch(84.0% 0.152 148.5)",
+          "oklch(95.0% 0.130 148.5)"
+        ]
+      },
+      "gdg-halftone-blue": {
+        "role": "tertiary",
+        "displayName": "Halftone Azul",
+        "canonical": "#57caff",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 231.5)",
+          "oklch(25.0% 0.127 231.5)",
+          "oklch(36.0% 0.127 231.5)",
+          "oklch(48.0% 0.127 231.5)",
+          "oklch(60.0% 0.127 231.5)",
+          "oklch(72.0% 0.127 231.5)",
+          "oklch(84.0% 0.127 231.5)",
+          "oklch(95.0% 0.127 231.5)"
+        ]
+      },
+      "gdg-halftone-green": {
+        "role": "tertiary",
+        "displayName": "Halftone Verde",
+        "canonical": "#5cdb6d",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 146.0)",
+          "oklch(25.0% 0.130 146.0)",
+          "oklch(36.0% 0.152 146.0)",
+          "oklch(48.0% 0.176 146.0)",
+          "oklch(60.0% 0.188 146.0)",
+          "oklch(72.0% 0.176 146.0)",
+          "oklch(84.0% 0.152 146.0)",
+          "oklch(95.0% 0.130 146.0)"
+        ]
+      },
+      "gdg-halftone-yellow": {
+        "role": "tertiary",
+        "displayName": "Halftone Amarillo",
+        "canonical": "#ffd427",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 93.2)",
+          "oklch(25.0% 0.130 93.2)",
+          "oklch(36.0% 0.152 93.2)",
+          "oklch(48.0% 0.173 93.2)",
+          "oklch(60.0% 0.173 93.2)",
+          "oklch(72.0% 0.173 93.2)",
+          "oklch(84.0% 0.152 93.2)",
+          "oklch(95.0% 0.130 93.2)"
+        ]
+      },
+      "gdg-halftone-red": {
+        "role": "tertiary",
+        "displayName": "Halftone Rosa",
+        "canonical": "#ff7daf",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 357.6)",
+          "oklch(25.0% 0.130 357.6)",
+          "oklch(36.0% 0.152 357.6)",
+          "oklch(48.0% 0.166 357.6)",
+          "oklch(60.0% 0.166 357.6)",
+          "oklch(72.0% 0.166 357.6)",
+          "oklch(84.0% 0.152 357.6)",
+          "oklch(95.0% 0.130 357.6)"
+        ]
+      },
+      "gdg-pastel-blue": {
+        "role": "tertiary",
+        "displayName": "Pastel Azul",
+        "canonical": "#c3ecf6",
+        "tonalRamp": [
+          "oklch(15.0% 0.045 214.2)",
+          "oklch(25.0% 0.045 214.2)",
+          "oklch(36.0% 0.045 214.2)",
+          "oklch(48.0% 0.045 214.2)",
+          "oklch(60.0% 0.045 214.2)",
+          "oklch(72.0% 0.045 214.2)",
+          "oklch(84.0% 0.045 214.2)",
+          "oklch(95.0% 0.045 214.2)"
+        ]
+      },
+      "gdg-pastel-green": {
+        "role": "tertiary",
+        "displayName": "Pastel Verde",
+        "canonical": "#ccf6c5",
+        "tonalRamp": [
+          "oklch(15.0% 0.078 141.1)",
+          "oklch(25.0% 0.078 141.1)",
+          "oklch(36.0% 0.078 141.1)",
+          "oklch(48.0% 0.078 141.1)",
+          "oklch(60.0% 0.078 141.1)",
+          "oklch(72.0% 0.078 141.1)",
+          "oklch(84.0% 0.078 141.1)",
+          "oklch(95.0% 0.078 141.1)"
+        ]
+      },
+      "gdg-pastel-red": {
+        "role": "tertiary",
+        "displayName": "Pastel Rosa",
+        "canonical": "#f8d8d8",
+        "tonalRamp": [
+          "oklch(15.0% 0.036 17.8)",
+          "oklch(25.0% 0.036 17.8)",
+          "oklch(36.0% 0.036 17.8)",
+          "oklch(48.0% 0.036 17.8)",
+          "oklch(60.0% 0.036 17.8)",
+          "oklch(72.0% 0.036 17.8)",
+          "oklch(84.0% 0.036 17.8)",
+          "oklch(95.0% 0.036 17.8)"
+        ]
+      },
+      "gdg-ice-blue": {
+        "role": "tertiary",
+        "displayName": "Azul Hielo",
+        "canonical": "#cae6ff",
+        "tonalRamp": [
+          "oklch(15.0% 0.045 245.3)",
+          "oklch(25.0% 0.045 245.3)",
+          "oklch(36.0% 0.045 245.3)",
+          "oklch(48.0% 0.045 245.3)",
+          "oklch(60.0% 0.045 245.3)",
+          "oklch(72.0% 0.045 245.3)",
+          "oklch(84.0% 0.045 245.3)",
+          "oklch(95.0% 0.045 245.3)"
+        ]
+      },
+      "gdg-midnight-blue": {
+        "role": "tertiary",
+        "displayName": "Azul Medianoche",
+        "canonical": "#165185",
+        "tonalRamp": [
+          "oklch(15.0% 0.105 249.7)",
+          "oklch(25.0% 0.105 249.7)",
+          "oklch(36.0% 0.105 249.7)",
+          "oklch(48.0% 0.105 249.7)",
+          "oklch(60.0% 0.105 249.7)",
+          "oklch(72.0% 0.105 249.7)",
+          "oklch(84.0% 0.105 249.7)",
+          "oklch(95.0% 0.105 249.7)"
+        ]
+      },
+      "gdg-deep-ocean-blue": {
+        "role": "tertiary",
+        "displayName": "Azul Océano",
+        "canonical": "#2480f0",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 256.3)",
+          "oklch(25.0% 0.130 256.3)",
+          "oklch(36.0% 0.152 256.3)",
+          "oklch(48.0% 0.176 256.3)",
+          "oklch(60.0% 0.188 256.3)",
+          "oklch(72.0% 0.176 256.3)",
+          "oklch(84.0% 0.152 256.3)",
+          "oklch(95.0% 0.130 256.3)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Blanco Superficie",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0.0)",
+          "oklch(25.0% 0.000 0.0)",
+          "oklch(36.0% 0.000 0.0)",
+          "oklch(48.0% 0.000 0.0)",
+          "oklch(60.0% 0.000 0.0)",
+          "oklch(72.0% 0.000 0.0)",
+          "oklch(84.0% 0.000 0.0)",
+          "oklch(95.0% 0.000 0.0)"
+        ]
+      },
+      "gdg-off-white": {
+        "role": "neutral",
+        "displayName": "Blanco Tablón",
+        "canonical": "#f0f0f0",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0.0)",
+          "oklch(25.0% 0.000 0.0)",
+          "oklch(36.0% 0.000 0.0)",
+          "oklch(48.0% 0.000 0.0)",
+          "oklch(60.0% 0.000 0.0)",
+          "oklch(72.0% 0.000 0.0)",
+          "oklch(84.0% 0.000 0.0)",
+          "oklch(95.0% 0.000 0.0)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Línea",
+        "canonical": "#e5e7eb",
+        "tonalRamp": [
+          "oklch(15.0% 0.006 0.0)",
+          "oklch(25.0% 0.006 0.0)",
+          "oklch(36.0% 0.006 0.0)",
+          "oklch(48.0% 0.006 0.0)",
+          "oklch(60.0% 0.006 0.0)",
+          "oklch(72.0% 0.006 0.0)",
+          "oklch(84.0% 0.006 0.0)",
+          "oklch(95.0% 0.006 0.0)"
+        ]
+      },
+      "hairline-soft": {
+        "role": "neutral",
+        "displayName": "Línea Suave",
+        "canonical": "#f3f4f6",
+        "tonalRamp": [
+          "oklch(15.0% 0.003 0.0)",
+          "oklch(25.0% 0.003 0.0)",
+          "oklch(36.0% 0.003 0.0)",
+          "oklch(48.0% 0.003 0.0)",
+          "oklch(60.0% 0.003 0.0)",
+          "oklch(72.0% 0.003 0.0)",
+          "oklch(84.0% 0.003 0.0)",
+          "oklch(95.0% 0.003 0.0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta",
+        "canonical": "#1f2937",
+        "tonalRamp": [
+          "oklch(15.0% 0.030 256.8)",
+          "oklch(25.0% 0.030 256.8)",
+          "oklch(36.0% 0.030 256.8)",
+          "oklch(48.0% 0.030 256.8)",
+          "oklch(60.0% 0.030 256.8)",
+          "oklch(72.0% 0.030 256.8)",
+          "oklch(84.0% 0.030 256.8)",
+          "oklch(95.0% 0.030 256.8)"
+        ]
+      },
+      "ink-strong": {
+        "role": "neutral",
+        "displayName": "Tinta Fuerte",
+        "canonical": "#111827",
+        "tonalRamp": [
+          "oklch(15.0% 0.032 264.7)",
+          "oklch(25.0% 0.032 264.7)",
+          "oklch(36.0% 0.032 264.7)",
+          "oklch(48.0% 0.032 264.7)",
+          "oklch(60.0% 0.032 264.7)",
+          "oklch(72.0% 0.032 264.7)",
+          "oklch(84.0% 0.032 264.7)",
+          "oklch(95.0% 0.032 264.7)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Tinta Tenue",
+        "canonical": "#6b7280",
+        "tonalRamp": [
+          "oklch(15.0% 0.023 264.4)",
+          "oklch(25.0% 0.023 264.4)",
+          "oklch(36.0% 0.023 264.4)",
+          "oklch(48.0% 0.023 264.4)",
+          "oklch(60.0% 0.023 264.4)",
+          "oklch(72.0% 0.023 264.4)",
+          "oklch(84.0% 0.023 264.4)",
+          "oklch(95.0% 0.023 264.4)"
+        ]
+      },
+      "gdg-black": {
+        "role": "neutral",
+        "displayName": "Negro GDG",
+        "canonical": "#1e1e1e",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0.0)",
+          "oklch(25.0% 0.000 0.0)",
+          "oklch(36.0% 0.000 0.0)",
+          "oklch(48.0% 0.000 0.0)",
+          "oklch(60.0% 0.000 0.0)",
+          "oklch(72.0% 0.000 0.0)",
+          "oklch(84.0% 0.000 0.0)",
+          "oklch(95.0% 0.000 0.0)"
+        ]
+      },
+      "band-dark": {
+        "role": "neutral",
+        "displayName": "Banda Oscura",
+        "canonical": "#262626",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0.0)",
+          "oklch(25.0% 0.000 0.0)",
+          "oklch(36.0% 0.000 0.0)",
+          "oklch(48.0% 0.000 0.0)",
+          "oklch(60.0% 0.000 0.0)",
+          "oklch(72.0% 0.000 0.0)",
+          "oklch(84.0% 0.000 0.0)",
+          "oklch(95.0% 0.000 0.0)"
+        ]
+      },
+      "bwai-background": {
+        "role": "event",
+        "displayName": "Noche Build",
+        "canonical": "#0f1419",
+        "tonalRamp": [
+          "oklch(15.0% 0.013 248.5)",
+          "oklch(25.0% 0.013 248.5)",
+          "oklch(36.0% 0.013 248.5)",
+          "oklch(48.0% 0.013 248.5)",
+          "oklch(60.0% 0.013 248.5)",
+          "oklch(72.0% 0.013 248.5)",
+          "oklch(84.0% 0.013 248.5)",
+          "oklch(95.0% 0.013 248.5)"
+        ]
+      },
+      "bwai-border": {
+        "role": "event",
+        "displayName": "Borde Build",
+        "canonical": "#181e24",
+        "tonalRamp": [
+          "oklch(15.0% 0.015 248.5)",
+          "oklch(25.0% 0.015 248.5)",
+          "oklch(36.0% 0.015 248.5)",
+          "oklch(48.0% 0.015 248.5)",
+          "oklch(60.0% 0.015 248.5)",
+          "oklch(72.0% 0.015 248.5)",
+          "oklch(84.0% 0.015 248.5)",
+          "oklch(95.0% 0.015 248.5)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Títulos de campaña de primera pantalla; de 3rem a 7.5rem. Uno por página."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de sección."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos de bloque y slides."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Párrafos; 65–75 caracteres por línea."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Navegación, tabs, chips y metadatos."
+      }
+    },
+    "shadows": [
+      {
+        "name": "rest",
+        "value": "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)",
+        "purpose": "shadow-sm: cards, filas y botones en reposo."
+      },
+      {
+        "name": "hover",
+        "value": "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)",
+        "purpose": "shadow-md: respuesta al hover con lift de 2px."
+      },
+      {
+        "name": "overlay",
+        "value": "0 25px 50px -12px rgba(0,0,0,0.25)",
+        "purpose": "shadow-2xl: solo menú móvil y modal de fotos."
+      },
+      {
+        "name": "event-glow",
+        "value": "0 0 20px rgba(66,133,244,0.35)",
+        "purpose": "Glow del CTA de Build with AI. Exclusivo de temas de evento."
+      },
+      {
+        "name": "event-glow-hover",
+        "value": "0 8px 28px rgba(66,133,244,0.35)",
+        "purpose": "Hover del CTA de Build with AI."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entradas: carrusel de Quiénes somos y cascada del menú móvil (80ms entre items)."
+      },
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Trazo de SVG y cambios de estado."
+      },
+      {
+        "name": "duration-hover",
+        "value": "200ms–300ms",
+        "purpose": "Hover de botones, cards y enlaces."
+      },
+      {
+        "name": "border-spin",
+        "value": "10s linear infinite",
+        "purpose": "Borde animado de la tarjeta de miembro (en revisión por The No-Gradient Rule)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1536px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón primario",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal del sitio: inscribirse, postularse, ver más.",
+      "html": "<button class=\"ds-btn-primary\">Regístrate</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;background:var(--color-gdg-blue,#4285f4);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}.ds-btn-primary:hover{background:#3367d6;transform:translateY(-2px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+    },
+    {
+      "name": "Botón secundario",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Acción alternativa junto a una primaria.",
+      "html": "<button class=\"ds-btn-secondary\">Ver galería</button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;background:#e5e7eb;color:#1f2937;box-shadow:0 1px 3px rgba(0,0,0,.1);cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}.ds-btn-secondary:hover{background:#d1d5db;transform:translateY(-2px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}.ds-btn-secondary:active{transform:scale(.97)}.ds-btn-secondary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Contenedor de contenido del sitio principal: 24px de radio, borde suave, sombra sutil.",
+      "html": "<article class=\"ds-card\"><span class=\"ds-card-date\">15 de noviembre 2025</span><h3 class=\"ds-card-title\">DevFest Tarija 2025</h3><p class=\"ds-card-body\">Talleres y charlas con la comunidad de desarrolladores de Tarija.</p></article>",
+      "css": ".ds-card{font-family:'Google Sans', system-ui, sans-serif;background:#fff;color:#1f2937;border:1px solid #f3f4f6;border-radius:24px;padding:24px;max-width:320px;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}.ds-card:hover{transform:translateY(-2px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-card-date{display:block;font-size:.75rem;font-weight:600;color:#4285f4;margin-bottom:4px}.ds-card-title{font-size:1.5rem;font-weight:700;line-height:1.333;margin:0 0 8px;color:#111827}.ds-card-body{font-size:1rem;line-height:1.625;color:#6b7280;margin:0}"
+    },
+    {
+      "name": "Fila de enlace",
+      "kind": "card",
+      "refersTo": "link-row",
+      "description": "Fila táctil de /links: texto que pasa a azul y flecha que se desplaza.",
+      "html": "<a class=\"ds-link-row\" href=\"#\"><span>Instagram</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18l6-6-6-6\"/></svg></a>",
+      "css": ".ds-link-row{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:420px;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1rem;color:#1f2937;text-decoration:none;background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:16px 24px;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:transform .3s,box-shadow .3s,color .2s}.ds-link-row svg{color:#9ca3af;transition:transform .2s,color .2s}.ds-link-row:hover{color:#4285f4;transform:translateY(-2px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}.ds-link-row:hover svg{color:#4285f4;transform:translateX(2px)}.ds-link-row:active{transform:scale(.98)}.ds-link-row:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+    },
+    {
+      "name": "Barra de navegación",
+      "kind": "nav",
+      "refersTo": "nav-bar",
+      "description": "Barra flotante translúcida con enlaces que pasan a rojo Google.",
+      "html": "<nav class=\"ds-nav\"><strong class=\"ds-nav-logo\">GDG Tarija</strong><ul><li><a href=\"#\">¿Quiénes Somos?</a></li><li><a href=\"#\">Eventos</a></li></ul></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;font-family:'Google Sans', system-ui, sans-serif;background:rgba(255,255,255,.8);backdrop-filter:blur(16px);border:1px solid #e5e7eb;border-radius:16px;padding:8px 32px;min-height:64px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.ds-nav-logo{font-size:1.125rem;color:#1f2937}.ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0}.ds-nav a{color:#374151;font-weight:500;font-size:1rem;text-decoration:none;transition:color .2s}.ds-nav a:hover{color:#ea4335}.ds-nav a:focus-visible{outline:2px solid #4285f4;outline-offset:4px;border-radius:4px}"
+    },
+    {
+      "name": "Chips de comisión",
+      "kind": "chip",
+      "refersTo": "chip-commission",
+      "description": "Color fijo por comisión del equipo (The Pushpin Rule).",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-chip\" style=\"background:#162440;color:#57caff\">Organizer</span><span class=\"ds-chip\" style=\"background:#003462;color:#c3ecf6\">Developer</span><span class=\"ds-chip\" style=\"background:#2a2000;color:#ffd427\">Marketing</span><span class=\"ds-chip\" style=\"background:#072012;color:#5cdb6d\">Logística</span><span class=\"ds-chip\" style=\"background:#220d40;color:#ff7daf\">Transmisión</span></div>",
+      "css": ".ds-chips{display:flex;flex-wrap:wrap;gap:4px;padding:16px;background:#262626;border-radius:16px}.ds-chip{font-family:'Google Sans', system-ui, sans-serif;font-size:.75rem;font-weight:500;padding:2px 10px;border-radius:9999px;white-space:nowrap}"
+    },
+    {
+      "name": "Tabs de filtro",
+      "kind": "chip",
+      "refersTo": "chip-commission",
+      "description": "Filtro de miembros por comisión; el tab activo toma el color de su comisión.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab\" aria-selected=\"true\" style=\"border-color:#a1a1aa;color:#a1a1aa\">Todos <span>35</span></button><button class=\"ds-tab\" aria-selected=\"false\">Organizer <span>2</span></button><button class=\"ds-tab\" aria-selected=\"false\">Marketing <span>6</span></button></div>",
+      "css": ".ds-tabs{display:flex;gap:8px;flex-wrap:wrap;padding:16px;background:#262626;border-radius:16px}.ds-tab{font-family:'Google Sans', system-ui, sans-serif;font-size:.875rem;font-weight:500;padding:6px 16px;border-radius:9999px;border:1px solid #52525b;background:transparent;color:#a1a1aa;cursor:pointer;transition:color .2s,border-color .2s}.ds-tab span{font-size:.75rem;opacity:.5;margin-left:4px}.ds-tab:hover{color:#e4e4e7;border-color:#a1a1aa}.ds-tab:focus-visible{outline:2px solid #57caff;outline-offset:2px}"
+    },
+    {
+      "name": "CTA Build with AI",
+      "kind": "custom",
+      "refersTo": "bwai-cta",
+      "description": "CTA del tema de evento: 6px de radio y glow azul. Solo en landings de evento.",
+      "html": "<div class=\"ds-bwai\"><p class=\"ds-bwai-tag\">// The Future is ours to build</p><a class=\"ds-bwai-cta\" href=\"#\">Regístrate ahora <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></div>",
+      "css": ".ds-bwai{background:#0f1419;padding:32px;border-radius:16px;font-family:'Google Sans', system-ui, sans-serif}.ds-bwai-tag{color:#4285f4;font-weight:500;letter-spacing:.05em;margin:0 0 16px;font-size:.875rem}.ds-bwai-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;background:#4285f4;color:#fff;font-weight:600;letter-spacing:-.02em;text-decoration:none;border-radius:6px;border:1px solid rgba(66,133,244,.5);box-shadow:0 0 20px rgba(66,133,244,.35);transition:transform .2s,box-shadow .2s,background .2s}.ds-bwai-cta svg{transition:transform .2s}.ds-bwai-cta:hover{background:#3367d6;transform:translateY(-2px);box-shadow:0 8px 28px rgba(66,133,244,.35)}.ds-bwai-cta:hover svg{transform:translateX(4px)}.ds-bwai-cta:active{transform:scale(.97)}.ds-bwai-cta:focus-visible{outline:2px solid #fff;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "El Tablón de la Comunidad",
+    "overview": "El sitio es un tablón de anuncios vivo de una comunidad real: personas con nombre y foto, eventos con fecha, fotos de salas llenas. El fondo es claro y tranquilo, como papel de tablón. Los cuatro colores de Google funcionan como chinchetas: marcan qué es importante, quién pertenece a qué comisión y dónde hay que tocar. El color nunca decora de forma pareja; señala.\n\nLa referencia de tacto son las landings de **Google for Developers**: superficies blancas, Google Sans, botones en píldora, cards de esquinas amplias, sombras apenas perceptibles y respuestas pequeñas pero claras al pasar el dedo o el cursor. Los componentes son amables y táctiles: invitan a tocar desde el celular, responden con un leve lift y nunca gritan. La marca de Google Developer Groups se aplica con disciplina (lockups oficiales, colores oficiales, Google Sans), y la identidad local vive en el contenido: el equipo, las fotos y el historial de eventos de Tarija.\n\n**Temas de evento.** Los eventos insignia (hoy Build with AI 2026) pueden llevar un tema propio que hereda la tipografía, los logos y los cuatro colores de Google, pero puede cambiar el fondo (incluido un modo totalmente oscuro), sumar motivos gráficos propios, usar otra geometría de botones y usar degradados y glows. Esas libertades valen solo dentro de la landing del evento; nunca vuelven al sitio principal.",
+    "keyCharacteristics": [
+      "Claro por defecto; las bandas oscuras son excepciones puntuales.",
+      "Los cuatro colores de Google como acentos que señalan, no como fondos.",
+      "Google Sans en todo; jerarquía por peso y tamaño, sin segunda familia en el sitio principal.",
+      "Botones en píldora, cards con esquinas de 24px, sombras sutiles.",
+      "Interacciones táctiles y breves: lift pequeño, cambio de tono, nada de rebotes exagerados.",
+      "Personas y fotos reales como protagonistas visuales."
+    ],
+    "rules": [
+      {
+        "name": "The Pushpin Rule",
+        "body": "Los colores de Google son chinchetas: van donde hay algo que señalar (una acción, una comisión, una fecha). Si un acento no señala nada, sobra.",
+        "section": "colors"
+      },
+      {
+        "name": "The Blue Means Go Rule",
+        "body": "En el sitio principal, la acción principal siempre es Azul Google. Ningún otro color compite por ese rol.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Gradient Rule",
+        "body": "El sitio principal no usa degradados en fondos de cards, contenedores ni texto. El color es plano; los degradados y glows son un recurso exclusivo de los temas de evento.",
+        "section": "colors"
+      },
+      {
+        "name": "The Token-Only Rule",
+        "body": "Todo color sale de `@theme` en `src/styles/global.css`. Nada de hex sueltos en clases (`bg-[#3367D6]`) ni de nombres que no existen (`text-google-blue` no está definido y no pinta nada).",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "El sitio principal usa solo Google Sans. La monoespaciada y los motivos de código (`//`, `{}`) pertenecen al tema de Build with AI y no se importan al home.",
+        "section": "typography"
+      },
+      {
+        "name": "The Light Ground Rule",
+        "body": "Una sección nueva del sitio principal es clara salvo que haya una razón editorial para oscurecerla. No se agregan bandas oscuras nuevas para \"dar variedad\".",
+        "section": "layout"
+      },
+      {
+        "name": "The Quiet Shadow Rule",
+        "body": "Nada en el sitio principal pasa de `shadow-md` salvo que flote sobre la página. Los botones con `shadow-lg` y `hover:shadow-xl` actuales son una desviación a corregir.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Pill-and-Card Rule",
+        "body": "Si se toca y ejecuta una acción, es una píldora. Si agrupa contenido, es una card de 24px. No hay botones cuadrados ni cards con esquinas chicas en el sitio principal.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do usar el fondo claro (`gdg-off-white` / `surface`) como punto de partida de cualquier sección nueva del sitio principal.",
+      "Do usar Azul Google para la acción principal y Azul Google Profundo para su hover.",
+      "Do usar píldoras (`rounded-full`) para botones y chips, y cards de 24px (`rounded-3xl`) con `shadow-sm` para agrupar contenido.",
+      "Do responder al hover con un lift de 2px y `shadow-md`, y al clic con `scale(0.97)`.",
+      "Do tomar colores solo de los tokens de `@theme`; si falta uno, agregarlo ahí primero.",
+      "Do usar fotos reales de la comunidad y del equipo como imagen principal.",
+      "Do respetar los lockups oficiales de GDG y usar Google Sans desde los archivos locales.",
+      "Do mantener un foco visible (anillo azul de 2px) en todo lo que se puede tocar."
+    ],
+    "donts": [
+      "Don't usar degradados en fondos de cards, contenedores o texto en el sitio principal (The No-Gradient Rule). El título de \"Fotos de nuestros eventos\", el CTA de Call 4 Members y el footer claro tienen degradados que son deuda.",
+      "Don't pasar de `shadow-md` en elementos que no flotan sobre la página.",
+      "Don't escalar botones o portadas más de 1.05 al hover.",
+      "Don't usar hex sueltos en clases (`bg-[#3367D6]`, `bg-[#0f0f0f]`) ni tokens inexistentes como `text-google-blue`.",
+      "Don't llevar motivos de un tema de evento (monospace, `//`, auroras, glows, CTAs de 6px) al sitio principal.",
+      "Don't agregar nuevas bandas oscuras al home; las tres actuales ya son el techo.",
+      "Don't usar los cuatro colores de Google como bloques de fondo que compiten entre sí."
+    ]
+  }
+}
