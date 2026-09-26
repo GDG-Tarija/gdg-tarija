@@ -33,6 +33,15 @@
     "Commission": ["Organizer"]
   },
   {
+    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981445/Jhoselyn_Fernandez_Ojeda_yxbig8.png",
+    "Name": "Jhoselyn Fernández",
+    "Linkedin": "https://www.linkedin.com/in/jhoselynfernández",
+    "Facebook": "https://www.facebook.com/share/1NhVCFhqiC/",
+    "Instagram": "https://www.instagram.com/jhose_fer14?igsh=dmxsaGpuYmQxZzI3",
+    "About": "Me apasiona la tecnología y el aprendizaje constante. Me gusta compartir conocimientos, aportar a la comunidad tech y seguir creciendo personal y profesionalmente.",
+    "Commission": ["Organizer"]
+  },
+  {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981526/Alex_M_lekxcz.png",
     "Name": "Alex Márquez",
     "Linkedin": "https://www.linkedin.com/in/ruth-paola-gomez-marquez-2538b9363?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -128,15 +137,7 @@
     "About": "Hola! soy Fabiola Ortega Soruco, egresada en Derecho y Técnica en Mkt & Publicidad, actualmente trabajo en ambos rubros. Me encanta leer sobre temas de mis profesiones, actualizarme en el área Marketera.",
     "Commission": ["Decoración", "Marketing"]
   },
-  {
-    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981445/Jhoselyn_Fernandez_Ojeda_yxbig8.png",
-    "Name": "Jhoselyn Fernández",
-    "Linkedin": "https://www.linkedin.com/in/jhoselynfernández",
-    "Facebook": "https://www.facebook.com/share/1NhVCFhqiC/",
-    "Instagram": "https://www.instagram.com/jhose_fer14?igsh=dmxsaGpuYmQxZzI3",
-    "About": "Me apasiona la tecnología y el aprendizaje constante. Me gusta compartir conocimientos, aportar a la comunidad tech y seguir creciendo personal y profesionalmente.",
-    "Commission": ["Organizer"]
-  },
+
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775219341/Joel_Mamani_h8wmyz.jpg",
     "Name": "Joel Mamani",
@@ -188,7 +189,7 @@
     "Facebook": "https://www.facebook.com/marcia.m.andrade.ll",
     "Instagram": "https://www.instagram.com/marcia.andrade.4?igsh=MTZwb3BkZWFxbmp0Yg==",
     "About": "Ingeniera Informática y autodidacta. Me motiva resolver problemas complejos y seguir aprendiendo cada día. Fuera del código, disfruto de los videojuegos, la música y la compañía de los animales.",
-    "Commission": ["Organizer"]
+    "Commission": ["Decoración", "Diseño", "Staff"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981755/Mauricio_Rosas_Vel%C3%A1squez_xdpfnz.jpg",
