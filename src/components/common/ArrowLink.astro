@@ -12,7 +12,7 @@ const { href, external = false, class: className = '' } = Astro.props;
   href={href}
   target={external ? '_blank' : undefined}
   rel={external ? 'noopener noreferrer' : undefined}
-  class={`group -my-2.5 inline-flex items-center gap-2 rounded-sm py-2.5 font-semibold text-gdg-blue transition-colors duration-200 hover:text-gdg-blue-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gdg-blue ${className}`}
+  class={`group -my-2.5 inline-flex items-center gap-2 rounded-sm py-2.5 font-semibold text-gdg-blue-deep transition-colors duration-200 hover:text-gdg-blue-press focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gdg-blue ${className}`}
 >
   <slot />
   <i

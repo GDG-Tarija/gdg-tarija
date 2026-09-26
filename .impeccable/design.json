@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-26T21:27:33.198Z",
+  "generatedAt": "2026-09-26T21:39:28.181Z",
   "title": "Design System: GDG Tarija",
   "extensions": {
     "colorMeta": {
@@ -32,6 +32,21 @@
           "oklch(72.0% 0.176 262.9)",
           "oklch(84.0% 0.152 262.9)",
           "oklch(95.0% 0.130 262.9)"
+        ]
+      },
+      "gdg-blue-press": {
+        "role": "primary",
+        "displayName": "Azul Presionado",
+        "canonical": "#2851b8",
+        "tonalRamp": [
+          "oklch(15.0% 0.110 264.3)",
+          "oklch(25.0% 0.130 264.3)",
+          "oklch(36.0% 0.152 264.3)",
+          "oklch(48.0% 0.170 264.3)",
+          "oklch(60.0% 0.170 264.3)",
+          "oklch(72.0% 0.170 264.3)",
+          "oklch(84.0% 0.152 264.3)",
+          "oklch(95.0% 0.130 264.3)"
         ]
       },
       "gdg-red": {
@@ -415,7 +430,7 @@
       "refersTo": "button-primary",
       "description": "Acción principal: unirse a la comunidad.",
       "html": "<button class=\"ds-btn-primary\">Únete a la comunidad <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);transition:background-color .2s,box-shadow .2s,translate .2s,scale .2s;background:#4285f4;color:#fff}.ds-btn-primary:hover{background:#3367d6}.ds-btn-primary:hover{translate:0 -2px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-primary:active{translate:0 0;scale:.97}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);transition:background-color .2s,box-shadow .2s,translate .2s,scale .2s;background:#3367d6;color:#fff}.ds-btn-primary:hover{background:#2851b8}.ds-btn-primary:hover{translate:0 -2px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-primary:active{translate:0 0;scale:.97}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
     },
     {
       "name": "Botón outline",
@@ -431,7 +446,7 @@
       "refersTo": "button-primary",
       "description": "Acción secundaria de los encabezados de sección.",
       "html": "<a class=\"ds-arrow-link\" href=\"#\">Ver próximos eventos <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-arrow-link{display:inline-flex;align-items:center;gap:8px;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;color:#4285f4;text-decoration:none;transition:color .2s}.ds-arrow-link svg{transition:transform .2s}.ds-arrow-link:hover{color:#3367d6}.ds-arrow-link:hover svg{transform:translateX(2px)}.ds-arrow-link:focus-visible{outline:2px solid #4285f4;outline-offset:4px;border-radius:2px}"
+      "css": ".ds-arrow-link{display:inline-flex;align-items:center;gap:8px;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;color:#3367d6;text-decoration:none;transition:color .2s}.ds-arrow-link svg{transition:transform .2s}.ds-arrow-link:hover{color:#3367d6}.ds-arrow-link:hover svg{transform:translateX(2px)}.ds-arrow-link:focus-visible{outline:2px solid #4285f4;outline-offset:4px;border-radius:2px}"
     },
     {
       "name": "Barra de navegación",
@@ -501,7 +516,7 @@
       },
       {
         "name": "The Blue Means Go Rule",
-        "body": "En el sitio principal, la acción principal siempre es Azul Google. Ningún otro color compite por ese rol.",
+        "body": "En el sitio principal, la acción principal siempre es azul (Azul Google Profundo, por contraste). Ningún otro color compite por ese rol.",
         "section": "colors"
       },
       {
@@ -542,7 +557,7 @@
     ],
     "dos": [
       "Do armar cada sección nueva con `Section.astro` y `SectionHeading.astro`, sobre fondo claro.",
-      "Do usar Azul Google para la acción principal y Azul Google Profundo para su hover.",
+      "Do usar Azul Google Profundo para acciones y texto azul, y Azul Presionado para su hover; texto y metadatos siempre ≥ 4.5:1.",
       "Do usar píldoras para botones, 12px para cards y fotos, y bordes de 1px.",
       "Do mostrar fotos reales en grillas rectas, alineadas al contenedor.",
       "Do escribir un título, una frase y una acción; decir \"developers\".",

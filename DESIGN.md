@@ -4,6 +4,7 @@ description: Sitio oficial de Google Developer Group Tarija, vitrina y puerta de
 colors:
   gdg-blue: '#4285f4'
   gdg-blue-deep: '#3367d6'
+  gdg-blue-press: '#2851b8'
   gdg-red: '#ea4335'
   gdg-yellow: '#f9ab00'
   gdg-green: '#34a853'
@@ -76,13 +77,13 @@ spacing:
   section-lg: '112px'
 components:
   button-primary:
-    backgroundColor: '{colors.gdg-blue}'
+    backgroundColor: '{colors.gdg-blue-deep}'
     textColor: '{colors.surface}'
     typography: '{typography.label}'
     rounded: '{rounded.full}'
     padding: '12px 28px'
   button-primary-hover:
-    backgroundColor: '{colors.gdg-blue-deep}'
+    backgroundColor: '{colors.gdg-blue-press}'
     textColor: '{colors.surface}'
   button-outline:
     backgroundColor: '{colors.surface}'
@@ -167,8 +168,9 @@ Una base neutra clara con los cuatro colores de Google como señales y una famil
 
 ### Primary
 
-- **Azul Google** (`gdg-blue`): el color de la acción. Botones primarios, enlaces con flecha y el acento de cualquier llamada a la acción.
-- **Azul Google Profundo** (`gdg-blue-deep`): hover del azul primario y fondo del bloque CTA de cierre (el blanco sobre este azul pasa 4.5:1; sobre `gdg-blue` no).
+- **Azul Google** (`gdg-blue`): el azul de marca para señales no textuales: puntos, anillos de foco, íconos y el resaltado del código. No lleva texto blanco encima (3.56:1) ni se usa como color de texto.
+- **Azul Google Profundo** (`gdg-blue-deep`): el color de la acción. Fondo de botones primarios (blanco encima: 5.2:1), texto de enlaces y "Ver perfil", y fondo del bloque CTA de cierre.
+- **Azul Presionado** (`gdg-blue-press`): hover y presionado de botones y enlaces azules.
 
 ### Secondary
 
@@ -198,7 +200,7 @@ Una base neutra clara con los cuatro colores de Google como señales y una famil
 
 **The Signal Rule.** Un color de Google aparece solo donde señala algo: una acción, una comisión, un pilar. Si un acento no señala nada, sobra.
 
-**The Blue Means Go Rule.** En el sitio principal, la acción principal siempre es Azul Google. Ningún otro color compite por ese rol.
+**The Blue Means Go Rule.** En el sitio principal, la acción principal siempre es azul (Azul Google Profundo, por contraste). Ningún otro color compite por ese rol.
 
 **The No-Gradient Rule.** El sitio principal no usa degradados en fondos, contenedores ni texto. El color es plano; los degradados y glows son un recurso exclusivo de los temas de evento.
 
@@ -267,8 +269,8 @@ Las fotos van en grillas rectas: sin marco, sin inclinación, sin superposición
 Una píldora que cambia de tono y se levanta 2px al hover (`src/components/common/Button.astro`).
 
 - **Shape:** píldora completa (`rounded-full`), texto sin cortes (`whitespace-nowrap`).
-- **Primary:** fondo Azul Google, texto blanco, semibold. Tamaños `sm` (8px 20px), `md` (12px 28px) y `lg` (16px 32px).
-- **Hover / Focus:** fondo Azul Google Profundo, lift de 2px y `shadow-md`; presionado baja a `scale(0.97)`. Foco visible solo con teclado: anillo azul de 2px con offset de 2px.
+- **Primary:** fondo Azul Google Profundo, texto blanco, semibold. Tamaños `sm` (8px 20px), `md` (12px 28px) y `lg` (16px 32px).
+- **Hover / Focus:** fondo Azul Presionado, lift de 2px y `shadow-md`; presionado baja a `scale(0.97)`. Foco visible solo con teclado: anillo azul de 2px con offset de 2px.
 - **Outline:** fondo blanco con anillo interno de 1px gris; es el secundario sobre fondos grises ("Ver eventos", "Ver todos").
 - **Inverse:** fondo blanco con texto Azul Google Profundo; solo sobre el bloque CTA azul. Hover en Azul Hielo.
 - **Secondary:** fondo `hairline`, texto `ink`; solo sobre fondo blanco.
@@ -276,7 +278,7 @@ Una píldora que cambia de tono y se levanta 2px al hover (`src/components/commo
 
 ### Links con flecha
 
-`ArrowLink.astro`: texto semibold en Azul Google con una flecha que se desplaza 2px al hover. Si el enlace sale del sitio, la flecha es de "abrir afuera". Es la acción secundaria de los encabezados de sección.
+`ArrowLink.astro`: texto semibold en Azul Google Profundo con una flecha que se desplaza 2px al hover. Si el enlace sale del sitio, la flecha es de "abrir afuera". Es la acción secundaria de los encabezados de sección.
 
 ### Chips
 
@@ -350,7 +352,7 @@ Anillo que gira con un color de Google por lado alrededor del logo de GDG Tarija
 ### Do:
 
 - **Do** armar cada sección nueva con `Section.astro` y `SectionHeading.astro`, sobre fondo claro.
-- **Do** usar Azul Google para la acción principal y Azul Google Profundo para su hover.
+- **Do** usar Azul Google Profundo para acciones y texto azul, y Azul Presionado para su hover; texto y metadatos siempre ≥ 4.5:1.
 - **Do** usar píldoras para botones, 12px para cards y fotos, y bordes de 1px.
 - **Do** mostrar fotos reales en grillas rectas, alineadas al contenedor.
 - **Do** escribir un título, una frase y una acción; decir "developers".

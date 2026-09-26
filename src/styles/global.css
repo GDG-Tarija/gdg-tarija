@@ -9,6 +9,7 @@
   --color-gdg-yellow: #f9ab00;
   --color-gdg-blue: #4285f4;
   --color-gdg-blue-deep: #3367d6;
+  --color-gdg-blue-press: #2851b8;
   --color-gdg-green: #34a853;
   --color-gdg-black: #1e1e1e;
   --color-gdg-off-white: #f0f0f0;
@@ -87,6 +88,14 @@ body {
 
 html {
   scroll-behavior: smooth;
+  /* La navbar es fija: sin esto, anclas y elementos enfocados con teclado quedan escondidos debajo */
+  scroll-padding-top: 7rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 ::selection {

@@ -75,11 +75,11 @@ const community = {
               rel="noopener noreferrer"
               class="flex items-center justify-between w-full px-6 py-4 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 group active:scale-[0.98]"
             >
-              <span class="text-base font-semibold text-gray-800 group-hover:text-gdg-blue transition-colors duration-200">
+              <span class="text-base font-semibold text-gray-800 group-hover:text-gdg-blue-deep transition-colors duration-200">
                 {link.label}
               </span>
               <i
-                class={`${link.icon} text-lg text-gray-400 group-hover:text-gdg-blue transition-colors duration-200`}
+                class={`${link.icon} text-lg text-gray-400 group-hover:text-gdg-blue-deep transition-colors duration-200`}
               />
             </a>
           ))
@@ -89,7 +89,7 @@ const community = {
       <!-- Sección de Últimos Eventos (Dinámico con Supabase) -->
       <div class="w-full">
         <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-          <i class="fa-regular fa-calendar text-gdg-blue"></i>
+          <i class="fa-regular fa-calendar text-gdg-blue-deep"></i>
           Últimos Eventos
         </h2>
 
@@ -194,10 +194,10 @@ const community = {
               <img src="${imageSrc}" alt="${event.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             </div>
             <div class="min-w-0 flex-1">
-              <span class="text-xs text-gdg-blue font-semibold block mb-0.5">${formattedDate}</span>
-              <h3 class="text-sm font-bold text-gray-800 truncate group-hover:text-gdg-blue transition-colors duration-200">${event.title}</h3>
+              <span class="text-xs text-gdg-blue-deep font-semibold block mb-0.5">${formattedDate}</span>
+              <h3 class="text-sm font-bold text-gray-800 truncate group-hover:text-gdg-blue-deep transition-colors duration-200">${event.title}</h3>
             </div>
-            <i class="fa-solid fa-angle-right text-gray-400 group-hover:text-gdg-blue group-hover:translate-x-0.5 transition-all duration-200 pr-2"></i>
+            <i class="fa-solid fa-angle-right text-gray-400 group-hover:text-gdg-blue-deep group-hover:translate-x-0.5 transition-all duration-200 pr-2"></i>
           `;
 
           container.appendChild(card);
