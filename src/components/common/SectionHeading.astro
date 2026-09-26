@@ -9,7 +9,10 @@ const { id, title, lead } = Astro.props;
 const hasAction = Astro.slots.has('action');
 ---
 
-<div class="mb-10 flex flex-col gap-5 md:mb-14 md:flex-row md:items-end md:justify-between">
+<div
+  data-reveal
+  class="mb-10 flex flex-col gap-5 md:mb-14 md:flex-row md:items-end md:justify-between"
+>
   <div class="max-w-2xl">
     <h2
       id={id}

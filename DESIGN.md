@@ -56,6 +56,11 @@ typography:
     fontSize: '0.875rem'
     fontWeight: 500
     lineHeight: 1.43
+  code:
+    fontFamily: "ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace"
+    fontSize: '0.8125rem'
+    fontWeight: 400
+    lineHeight: 1.9
 rounded:
   tag: '6px'
   control: '8px'
@@ -203,7 +208,7 @@ Una base neutra clara con los cuatro colores de Google como señales y una famil
 
 **Display Font:** Google Sans (con `sans-serif`)
 **Body Font:** Google Sans (con `sans-serif`)
-**Label/Mono Font:** solo en temas de evento, la pila monoespaciada por defecto de Tailwind (`font-mono`)
+**Code Font:** pila monoespaciada del sistema (`ui-monospace, SFMono-Regular, Menlo, Consolas`), solo para código real: el fondo del hero y la línea de terminal del footer
 
 **Character:** Una sola familia, la de Google, cargada en local desde `src/assets/fonts/google-sans/` (400, 500, 700 y sus itálicas). La jerarquía se hace con peso, tamaño y un tracking negativo leve en los títulos grandes.
 
@@ -220,7 +225,7 @@ Una base neutra clara con los cuatro colores de Google como señales y una famil
 
 **The Short Copy Rule.** Un título, una frase y una acción. No se listan tipos de eventos, cifras ni audiencias segmentadas en los textos principales; se dice "developers".
 
-**The One Family Rule.** El sitio principal usa solo Google Sans. La monoespaciada y los motivos de código (`//`, `{}`) pertenecen al tema de Build with AI.
+**The One Family Rule.** El sitio principal usa Google Sans. La monoespaciada solo aparece como código real: el fondo del hero y la línea de terminal del footer.
 
 ## Layout
 
@@ -294,7 +299,11 @@ Una píldora que cambia de tono y se levanta 2px al hover (`src/components/commo
 
 ### Hero Photo
 
-Una sola foto fija a la derecha del texto (4:3, 16px de radio): la foto grupal de Google I/O Extended Tarija 2024. Sin rotación, indicadores ni leyendas. Archivo: `src/assets/images/photos-comunity/io-extended-2024-grupal.jpg` (JPEG de 2000 px, recortado sin la mesa del primer plano); Astro genera las variantes WebP.
+Una sola foto fija a la derecha del texto (4:3, 16px de radio): la foto grupal de Google I/O Extended Tarija 2024. Entra con un `clip-path` de abajo hacia arriba y un acercamiento que se asienta (1.12 → 1). Archivo: `src/assets/images/photos-comunity/io-extended-2024-grupal.jpg`.
+
+### Code Field (signature)
+
+Fondo del hero (`src/components/main/hero/CodeField.astro`): siete columnas de código real del ecosistema Google (Flutter, Compose, Firebase, Gemini, Go, JS) que suben y bajan en loops de 70–110s, en gris al 32%. Una segunda capa idéntica con resaltado de sintaxis en los cuatro colores Google (keywords azul, strings verde, números rojo, funciones amarillo) solo se ve dentro de una "linterna" de 15rem que sigue al cursor con inercia; sin cursor (móvil) recorre el fondo sola. El campo se apaga detrás del bloque de texto para no competir con la lectura, se pausa fuera de pantalla y tiene parallax de columnas opuestas al hacer scroll. El título entra palabra por palabra desde una máscara. Es el único lugar del sitio principal donde vive la monoespaciada.
 
 ### Pestañas de Nosotros (signature)
 
@@ -310,7 +319,19 @@ Card vertical centrada: foto circular grande (96px a 128px, recortada a la cara 
 
 ### Closing CTA (signature)
 
-Bloque Azul Google Profundo de 16px dentro de una sección blanca, con el contenido centrado: título Display en blanco, una frase, botón inverso y el correo como enlace con ícono. Los chevrons de GDG en blanco al 12% enmarcan el contenido a ambos lados ("< Únete a la comunidad >"); en móvil asoman cortados por los bordes. Sin fotos de personas.
+Bloque Azul Google Profundo de 16px dentro de una sección blanca, con el contenido centrado: título Display en blanco, una frase, botón inverso y el correo. Los chevrons de GDG en blanco al 12% enmarcan el contenido ("< Únete a la comunidad >"): al entrar en pantalla llegan desde afuera y se cierran sobre el texto, flotan en direcciones opuestas y siguen levemente al cursor.
+
+### Footer terminal
+
+Bajo el footer, una línea monoespaciada `$ git commit -m "hecho en Tarija, por developers de Tarija"` que se escribe tecla a tecla al entrar en pantalla, con un cursor azul parpadeante. El texto completo está en el HTML; el JS solo lo re-escribe.
+
+### Motion
+
+- **Scroll reveals** (`src/scripts/reveal.ts`, Motion `inView` + `animate`): `[data-reveal]` sube 28px y aparece; `[data-reveal-group]` hace lo mismo en cascada con sus hijos (desfase total ≤ 0.4s). Solo se ocultan elementos bajo el pliegue, así nada parpadea al cargar.
+- **Acciones:** las cards que aparecen por un filtro o por "Ver todos" entran en cascada (`revealItems`).
+- **Estado:** en Nosotros el fondo de la pestaña activa se desliza entre pestañas; la navbar gana opacidad y sombra al hacer scroll y marca con un punto azul la sección visible; la foto de cada miembro toma un anillo del color de su comisión al hover.
+- **Curva:** `cubic-bezier(0.16, 1, 0.3, 1)` en todas las llegadas.
+- **Reduced motion:** sin loops, sin reveals espaciales ni tipeo; los estados siguen funcionando.
 
 ### Loader
 
@@ -345,6 +366,6 @@ Anillo que gira con un color de Google por lado alrededor del logo de GDG Tarija
 - **Don't** pasar de `shadow-md` en elementos que no flotan sobre la página, ni escalar más de 1.03 al hover.
 - **Don't** usar carruseles para contenido que cabe a la vista; muestra el texto completo.
 - **Don't** usar hex sueltos en clases ni tokens inexistentes como `text-google-blue`.
-- **Don't** llevar motivos de un tema de evento (monospace, `//`, auroras, glows, CTAs de 6px) al sitio principal.
+- **Don't** llevar motivos de un tema de evento (auroras, glows, CTAs de 6px) al sitio principal; la monoespaciada solo como código real.
 - **Don't** agregar bandas oscuras al home.
 - **Don't** recortar en cuadrado portadas pensadas para círculo, ni dejar items de grilla sin fondo ni borde.

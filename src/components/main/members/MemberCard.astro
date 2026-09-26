@@ -26,6 +26,7 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 ---
 
 <article
+  style={`--commission: ${commissionColor(Commission[0])};`}
   class="member-card relative flex h-full flex-col items-center rounded-xl border border-gray-200 bg-white p-4 text-center transition-[border-color,box-shadow] duration-200 hover:border-gray-300 hover:shadow-md lg:p-6"
 >
   <div class="relative size-24 shrink-0 sm:size-28 lg:size-32">
@@ -43,7 +44,7 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
       height="128"
       loading="lazy"
       decoding="async"
-      class="relative size-full rounded-full object-cover"
+      class="member-photo relative size-full rounded-full object-cover"
       onerror="this.remove()"
     />
   </div>
@@ -111,6 +112,21 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
     to {
       opacity: 1;
     }
+  }
+
+  /* La foto toma el color de la comisión principal: el mismo código de color que las etiquetas */
+  .member-photo {
+    transition:
+      box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .member-card:hover .member-photo,
+  .member-card:focus-within .member-photo {
+    box-shadow:
+      0 0 0 3px #fff,
+      0 0 0 5px var(--commission);
+    transform: scale(1.03);
   }
 
   .member-bio-text {

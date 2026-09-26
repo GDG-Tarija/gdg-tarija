@@ -29,7 +29,7 @@ const typeTone = (type: string) => {
     <ArrowLink slot="action" href={EVENTS_URL} external>Ver próximos eventos</ArrowLink>
   </SectionHeading>
 
-  <ul class="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4">
+  <ul class="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4" data-reveal-group>
     {
       events.map((event, index) => (
         <li
@@ -90,12 +90,14 @@ const typeTone = (type: string) => {
 </Section>
 
 <script>
+  import { revealItems } from '../../../scripts/reveal';
+
   const showAllButton = document.getElementById('show-all-events');
 
   showAllButton?.addEventListener('click', () => {
-    document.querySelectorAll<HTMLElement>('[data-extra-event="true"]').forEach((item) => {
-      item.classList.remove('hidden');
-    });
+    const extra = Array.from(document.querySelectorAll<HTMLElement>('[data-extra-event="true"]'));
+    extra.forEach((item) => item.classList.remove('hidden'));
     showAllButton.parentElement?.remove();
+    revealItems(extra);
   });
 </script>

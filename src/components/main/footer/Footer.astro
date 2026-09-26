@@ -10,6 +10,9 @@ const {
   logo = 'https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg',
 } = Astro.props;
 
+// Guiño de developer al cierre del sitio, escrito como un commit
+const COMMIT_LINE = 'git commit -m "hecho en Tarija, por developers de Tarija"';
+
 const footerLinks = [
   { label: 'Eventos', href: 'https://eventos.gdgtarija.com', external: true },
   { label: 'Código de conducta', href: '/code-of-conduct', external: false },
@@ -45,5 +48,55 @@ const footerLinks = [
         {redesSociales.map((red_social) => <SocialNetworks {...red_social} />)}
       </div>
     </div>
+    <p
+      class="mt-6 flex items-center justify-center gap-2 border-t border-gray-100 pt-5 font-mono text-xs text-gray-500"
+      data-terminal
+    >
+      <span class="text-gdg-green" aria-hidden="true">$</span>
+      <span data-terminal-text>{COMMIT_LINE}</span>
+      <span class="terminal-caret inline-block h-3.5 w-1.5 bg-gdg-blue" aria-hidden="true"></span>
+    </p>
   </div>
 </footer>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .terminal-caret {
+      animation: caret-blink 1.1s steps(1) infinite;
+    }
+  }
+
+  @keyframes caret-blink {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script>
+  import { inView } from 'motion';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // El texto completo ya está en el HTML (sin JS se lee igual); aquí solo se re-escribe tecla a tecla
+  document.querySelectorAll<HTMLElement>('[data-terminal]').forEach((line) => {
+    const target = line.querySelector<HTMLElement>('[data-terminal-text]');
+    const full = target?.textContent ?? '';
+    if (!target || reduceMotion) return;
+
+    target.textContent = '';
+    const stop = inView(
+      line,
+      () => {
+        stop();
+        let index = 0;
+        const type = () => {
+          target.textContent = full.slice(0, ++index);
+          if (index < full.length) window.setTimeout(type, 38 + Math.random() * 45);
+        };
+        window.setTimeout(type, 250);
+      },
+      { amount: 1 },
+    );
+  });
+</script>

@@ -33,7 +33,7 @@ const pillars = infoAbout.map((pillar, index) => ({
 
 <Section id="about" tone="surface" labelledby="about-title">
   <div class="about-tabs grid gap-8 lg:grid-cols-12 lg:gap-12" data-about-tabs>
-    <div class="lg:col-span-5">
+    <div class="lg:col-span-5" data-reveal>
       <h2
         id="about-title"
         class="text-3xl leading-tight font-bold tracking-[-0.02em] text-gray-900 md:text-[2.5rem]"
@@ -41,11 +41,14 @@ const pillars = infoAbout.map((pillar, index) => ({
         Nosotros
       </h2>
       <div
-        class="mt-8 grid grid-cols-3 gap-2 lg:mt-10 lg:grid-cols-1"
+        class="mt-8 grid grid-cols-3 gap-2 lg:mt-10 lg:grid-cols-1 relative"
         role="tablist"
         aria-label="Nosotros"
         aria-orientation="vertical"
       >
+        <span
+          class="about-indicator pointer-events-none absolute top-0 left-0 rounded-xl bg-background"
+          aria-hidden="true"></span>
         {
           pillars.map((pillar, index) => (
             <button
@@ -55,7 +58,7 @@ const pillars = infoAbout.map((pillar, index) => ({
               aria-controls={`${pillar.id}-panel`}
               aria-selected={index === 0 ? 'true' : 'false'}
               tabindex={index === 0 ? '0' : '-1'}
-              class="about-tab group flex cursor-pointer flex-col items-center gap-2 rounded-xl p-3 text-center text-sm font-semibold text-gray-500 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue aria-selected:bg-background aria-selected:text-gray-900 sm:text-base lg:flex-row lg:gap-4 lg:p-4 lg:text-left lg:text-lg"
+              class="about-tab group flex cursor-pointer flex-col items-center gap-2 rounded-xl p-3 text-center text-sm font-semibold text-gray-500 transition-colors duration-200 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue relative z-10 aria-selected:text-gray-900 sm:text-base lg:flex-row lg:gap-4 lg:p-4 lg:text-left lg:text-lg"
             >
               <span
                 class={`flex size-10 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-500 transition-colors duration-200 group-aria-selected:text-white ${pillar.tileSelected}`}
@@ -76,7 +79,10 @@ const pillars = infoAbout.map((pillar, index) => ({
       </div>
     </div>
 
-    <div class="relative flex flex-col rounded-2xl bg-background p-7 md:p-12 lg:col-span-7">
+    <div
+      class="relative flex flex-col rounded-2xl bg-background p-7 md:p-12 lg:col-span-7"
+      data-reveal
+    >
       {
         /* Los paneles se apilan en la misma celda: el bloque toma la altura del texto más largo y no salta al cambiar */
       }
@@ -108,7 +114,7 @@ const pillars = infoAbout.map((pillar, index) => ({
           <button
             type="button"
             data-about-prev
-            class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+            class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors duration-200 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
             aria-label="Anterior"
           >
             <i class="fa-solid fa-arrow-left text-sm" aria-hidden="true"></i>
@@ -116,7 +122,7 @@ const pillars = infoAbout.map((pillar, index) => ({
           <button
             type="button"
             data-about-next
-            class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+            class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors duration-200 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
             aria-label="Siguiente"
           >
             <i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
@@ -126,7 +132,7 @@ const pillars = infoAbout.map((pillar, index) => ({
     </div>
   </div>
 
-  <div class="mt-16 grid gap-3 sm:grid-cols-12 md:mt-20 md:gap-4">
+  <div class="mt-16 grid gap-3 sm:grid-cols-12 md:mt-20 md:gap-4" data-reveal-group>
     <Image
       src={FotoIoExtended}
       alt="Sala llena en Google I/O Extended Tarija"
@@ -148,6 +154,18 @@ const pillars = infoAbout.map((pillar, index) => ({
 </Section>
 
 <style>
+  /* El fondo de la pestaña activa viaja de una a otra: se entiende qué cambió y hacia dónde */
+  .about-indicator {
+    transition:
+      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .about-indicator.no-transition {
+    transition: none;
+  }
+
   .about-panel[data-active='false'] {
     visibility: hidden;
   }
@@ -175,7 +193,17 @@ const pillars = infoAbout.map((pillar, index) => ({
     const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
     const panels = Array.from(root.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
     const counter = root.querySelector('[data-about-current]');
+    const indicator = root.querySelector<HTMLElement>('.about-indicator');
     let current = 0;
+
+    const moveIndicator = (instant = false) => {
+      const tab = tabs[current];
+      if (!indicator || !tab) return;
+      indicator.classList.toggle('no-transition', instant);
+      indicator.style.width = `${tab.offsetWidth}px`;
+      indicator.style.height = `${tab.offsetHeight}px`;
+      indicator.style.transform = `translate(${tab.offsetLeft}px, ${tab.offsetTop}px)`;
+    };
 
     const select = (index: number, focusTab = false) => {
       current = (index + tabs.length) % tabs.length;
@@ -191,6 +219,7 @@ const pillars = infoAbout.map((pillar, index) => ({
         panel.inert = !active;
       });
       if (counter) counter.textContent = String(current + 1);
+      moveIndicator();
       if (focusTab) tabs[current].focus();
     };
 
@@ -207,6 +236,9 @@ const pillars = infoAbout.map((pillar, index) => ({
         }
       });
     });
+
+    moveIndicator(true);
+    window.addEventListener('resize', () => moveIndicator(true));
 
     root.querySelector('[data-about-prev]')?.addEventListener('click', () => select(current - 1));
     root.querySelector('[data-about-next]')?.addEventListener('click', () => select(current + 1));

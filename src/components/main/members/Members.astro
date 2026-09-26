@@ -35,6 +35,7 @@ const countFor = (c: string) =>
     class="-mx-4 mb-8 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"
     role="group"
     aria-label="Filtrar equipo por comisión"
+    data-reveal
   >
     {
       comisiones.map((c) => (
@@ -58,7 +59,11 @@ const countFor = (c: string) =>
     }
   </div>
 
-  <ul id="members-grid" class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 lg:gap-5">
+  <ul
+    id="members-grid"
+    class="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4 lg:gap-5"
+    data-reveal-group
+  >
     {
       sortedMembers.map((member, index) => (
         <li
@@ -84,6 +89,8 @@ const countFor = (c: string) =>
 </Section>
 
 <script>
+  import { revealItems } from '../../../scripts/reveal';
+
   const INITIAL_VISIBLE = 8;
   const chips = document.querySelectorAll<HTMLButtonElement>('.filter-chip');
   const items = Array.from(document.querySelectorAll<HTMLElement>('.member-item'));
@@ -98,6 +105,7 @@ const countFor = (c: string) =>
     });
 
     const showAll = selected === 'Todos';
+    const wasHidden = new Set(items.filter((item) => item.hidden));
     items.forEach((item, index) => {
       const comisiones: string[] = JSON.parse(item.dataset.comision ?? '[]');
       const matches = showAll || comisiones.includes(selected);
@@ -106,6 +114,8 @@ const countFor = (c: string) =>
     });
 
     if (moreContainer) moreContainer.hidden = expanded || !showAll;
+    // Las cards que aparecen por el filtro o por "Ver todo" entran en cascada: se ve qué cambió
+    revealItems(items.filter((item) => !item.hidden && wasHidden.has(item)));
   }
 
   chips.forEach((chip) =>

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-26T20:38:38.646Z",
+  "generatedAt": "2026-09-26T21:27:33.198Z",
   "title": "Design System: GDG Tarija",
   "extensions": {
     "colorMeta": {
@@ -521,7 +521,7 @@
       },
       {
         "name": "The One Family Rule",
-        "body": "El sitio principal usa solo Google Sans. La monoespaciada y los motivos de código (`//`, `{}`) pertenecen al tema de Build with AI.",
+        "body": "El sitio principal usa Google Sans. La monoespaciada solo aparece como código real: el fondo del hero y la línea de terminal del footer.",
         "section": "typography"
       },
       {
@@ -557,7 +557,7 @@
       "Don't pasar de `shadow-md` en elementos que no flotan sobre la página, ni escalar más de 1.03 al hover.",
       "Don't usar carruseles para contenido que cabe a la vista; muestra el texto completo.",
       "Don't usar hex sueltos en clases ni tokens inexistentes como `text-google-blue`.",
-      "Don't llevar motivos de un tema de evento (monospace, `//`, auroras, glows, CTAs de 6px) al sitio principal.",
+      "Don't llevar motivos de un tema de evento (auroras, glows, CTAs de 6px) al sitio principal; la monoespaciada solo como código real.",
       "Don't agregar bandas oscuras al home.",
       "Don't recortar en cuadrado portadas pensadas para círculo, ni dejar items de grilla sin fondo ni borde."
     ]

@@ -1,28 +1,53 @@
 ---
 import { Image } from 'astro:assets';
 import Button from '../../common/Button.astro';
+import CodeField from './CodeField.astro';
 import FotoGrupal from '../../../assets/images/photos-comunity/io-extended-2024-grupal.jpg';
 
 const JOIN_URL = 'https://gdg.community.dev/gdg-tarija/';
 const EVENTS_URL = 'https://eventos.gdgtarija.com';
+
+const TITLE = 'La comunidad de desarrolladores de Tarija';
+// Cada palabra entra desde una máscara con un pequeño desfase; se calcula en build para que no dependa de JS
+const titleWords = TITLE.split(' ');
 ---
 
-<section id="inicio" class="bg-background" aria-labelledby="hero-title">
+<section
+  id="inicio"
+  class="relative isolate overflow-hidden bg-background"
+  aria-labelledby="hero-title"
+>
+  <CodeField />
+
   <div
-    class="mx-auto grid max-w-6xl items-center gap-12 px-4 pt-32 pb-20 md:px-8 md:pt-40 lg:grid-cols-12 lg:gap-12 lg:pb-28"
+    class="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-4 pt-32 pb-20 md:px-8 md:pt-40 lg:grid-cols-12 lg:gap-12 lg:pb-28"
   >
     <div class="lg:col-span-6">
       <h1
         id="hero-title"
         class="text-[clamp(2.25rem,10.5vw,2.625rem)] leading-[1.04] font-bold tracking-[-0.03em] text-balance text-gray-900 sm:text-6xl lg:text-[3.5rem] xl:text-[3.875rem]"
       >
-        La comunidad de desarrolladores de Tarija
+        {
+          titleWords.map((word, index) => (
+            <>
+              <span class="hero-word">
+                <span style={`--i: ${index};`}>{word}</span>
+              </span>{' '}
+            </>
+          ))
+        }
       </h1>
-      <p class="mt-6 max-w-md text-lg leading-relaxed text-pretty text-gray-600 md:text-xl">
+      <p
+        class="hero-rise mt-6 max-w-md text-lg leading-relaxed text-pretty text-gray-600 md:text-xl"
+        style="--delay: 0.45s;"
+      >
         Somos el capítulo local de Google Developer Groups y organizamos eventos para developers
         desde 2013.
       </p>
-      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div
+        class="hero-rise mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
+        style="--delay: 0.58s;"
+      >
         <Button href={JOIN_URL} target="_blank" rel="noopener noreferrer" iconPosition="right">
           Únete a la comunidad
           <i slot="icon" class="fa-solid fa-arrow-right text-base" aria-hidden="true"></i>
@@ -33,14 +58,90 @@ const EVENTS_URL = 'https://eventos.gdgtarija.com';
       </div>
     </div>
 
-    <Image
-      src={FotoGrupal}
-      alt="Foto grupal de los asistentes a Google I/O Extended Tarija 2024"
-      widths={[480, 720, 960, 1280]}
-      sizes="(min-width: 1152px) 540px, (min-width: 1024px) 46vw, 92vw"
-      class="aspect-4/3 w-full rounded-2xl object-cover object-[50%_45%] lg:col-span-6"
-      loading="eager"
-      fetchpriority="high"
-    />
+    <div class="hero-photo lg:col-span-6">
+      <Image
+        src={FotoGrupal}
+        alt="Foto grupal de los asistentes a Google I/O Extended Tarija 2024"
+        widths={[480, 720, 960, 1280]}
+        sizes="(min-width: 1152px) 540px, (min-width: 1024px) 46vw, 92vw"
+        class="aspect-4/3 w-full rounded-2xl object-cover object-[50%_45%] shadow-sm"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
   </div>
 </section>
+
+<style>
+  /* La máscara recorta cada palabra: entra desde abajo como una línea que se escribe */
+  .hero-word {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+  }
+
+  .hero-word > span {
+    display: inline-block;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-word > span {
+      animation: word-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: calc(0.08s + var(--i) * 0.055s);
+    }
+
+    .hero-rise {
+      animation: rise-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation-delay: var(--delay, 0s);
+    }
+
+    /* La foto se descubre de abajo hacia arriba, con un leve acercamiento que se asienta */
+    .hero-photo {
+      animation: photo-reveal 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+
+    .hero-photo :global(img) {
+      animation: photo-settle 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+    }
+  }
+
+  @keyframes word-in {
+    from {
+      transform: translateY(105%);
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes photo-reveal {
+    from {
+      clip-path: inset(100% 0 0 0 round 1rem);
+    }
+    to {
+      clip-path: inset(0 0 0 0 round 1rem);
+    }
+  }
+
+  @keyframes photo-settle {
+    from {
+      transform: scale(1.12);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+</style>
