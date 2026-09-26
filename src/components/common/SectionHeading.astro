@@ -1,0 +1,29 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  lead?: string;
+}
+
+const { id, title, lead } = Astro.props;
+const hasAction = Astro.slots.has('action');
+---
+
+<div class="mb-10 flex flex-col gap-5 md:mb-14 md:flex-row md:items-end md:justify-between">
+  <div class="max-w-2xl">
+    <h2
+      id={id}
+      class="text-3xl leading-tight font-bold tracking-[-0.02em] text-balance text-gray-900 md:text-[2.5rem]"
+    >
+      {title}
+    </h2>
+    {lead && <p class="mt-4 text-lg leading-relaxed text-pretty text-gray-600">{lead}</p>}
+  </div>
+  {
+    hasAction && (
+      <div class="shrink-0">
+        <slot name="action" />
+      </div>
+    )
+  }
+</div>

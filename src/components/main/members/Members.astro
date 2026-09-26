@@ -1,7 +1,16 @@
 ---
+import Section from '../../common/Section.astro';
+import SectionHeading from '../../common/SectionHeading.astro';
 import members from './members.json';
 import MemberCard from './MemberCard.astro';
+import Button from '../../common/Button.astro';
+import { commissionColor } from './commissions';
 
+const ALL = 'Todos';
+// Con 35 personas la lista se vuelve muy larga en celular; se muestran dos filas de escritorio y el resto a pedido
+const INITIAL_VISIBLE = 8;
+
+// Organizers primero; el resto por comisión principal y nombre, para que el orden sea estable al agregar gente
 const sortedMembers = [...members].sort((a, b) => {
   const aIsOrg = a.Commission[0] === 'Organizer';
   const bIsOrg = b.Commission[0] === 'Organizer';
@@ -14,87 +23,100 @@ const sortedMembers = [...members].sort((a, b) => {
   return a.Name.localeCompare(b.Name, 'es');
 });
 
-// Tabs
-const comisiones = ['Todos', ...new Set(sortedMembers.flatMap((m) => m.Commission))];
+const comisiones = [ALL, ...new Set(sortedMembers.flatMap((m) => m.Commission))];
 const countFor = (c: string) =>
-  c === 'Todos'
-    ? sortedMembers.length
-    : sortedMembers.filter((m) => m.Commission.includes(c)).length;
+  c === ALL ? sortedMembers.length : sortedMembers.filter((m) => m.Commission.includes(c)).length;
 ---
 
-<section id="members" class="bg-neutral-800 content-container mt-8 p-10">
-  <h2 class="text-3xl font-bold text-center mb-8 text-zinc-100">Miembros</h2>
-  <!-- Tabs por comisión -->
+<Section id="members" tone="surface" labelledby="members-title">
+  <SectionHeading id="members-title" title="Equipo" lead="Las personas que organizan GDG Tarija." />
+
   <div
-    class="flex flex-wrap gap-2 justify-center mb-10"
-    role="tablist"
-    aria-label="Filtrar miembros por comisión"
+    class="-mx-4 mb-8 flex gap-2 overflow-x-auto px-4 pb-1 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"
+    role="group"
+    aria-label="Filtrar equipo por comisión"
   >
     {
       comisiones.map((c) => (
         <button
-          class="tab-btn px-4 py-1.5 rounded-full text-sm font-medium
-						border border-zinc-600 text-zinc-400
-						hover:text-zinc-200 hover:border-zinc-400
-						transition-all duration-200 cursor-pointer"
-          data-tab={c}
-          role="tab"
-          aria-selected={c === 'Todos' ? 'true' : 'false'}
+          type="button"
+          class="filter-chip inline-flex h-9 shrink-0 cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-3 text-sm font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue aria-pressed:border-transparent aria-pressed:bg-gdg-ice-blue aria-pressed:text-gray-900"
+          data-filter={c}
+          aria-pressed={c === ALL ? 'true' : 'false'}
         >
+          {c !== ALL && (
+            <span
+              class="size-2 rounded-full"
+              style={`background: ${commissionColor(c)};`}
+              aria-hidden="true"
+            />
+          )}
           {c}
-          <span class="text-xs opacity-50 ml-1">{countFor(c)}</span>
+          <span class="text-gray-500 tabular-nums">{countFor(c)}</span>
         </button>
       ))
     }
   </div>
-  <!-- Grid de miembros -->
-  <div
-    id="members-grid"
-    class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-16 place-content-center justify-items-center"
-  >
+
+  <ul id="members-grid" class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5 lg:grid-cols-4">
     {
-      sortedMembers.map((member) => (
-        <div class="member-item" data-comision={JSON.stringify(member.Commission)}>
+      sortedMembers.map((member, index) => (
+        <li
+          class="member-item"
+          data-comision={JSON.stringify(member.Commission)}
+          hidden={index >= INITIAL_VISIBLE}
+        >
           <MemberCard {...member} />
-        </div>
+        </li>
       ))
     }
-  </div>
-</section>
-<script>
-  const cssVars = getComputedStyle(document.documentElement);
-  const v = (name: string) => cssVars.getPropertyValue(name).trim();
-  const TAB_COLORS: Record<string, string> = {
-    Organizer: v('--color-gdg-halftone-blue'),
-    Decoración: v('--color-gdg-pastel-red'),
-    Developer: v('--color-gdg-pastel-blue'),
-    Diseño: v('--color-gdg-red'),
-    Logística: v('--color-gdg-halftone-green'),
-    Marketing: v('--color-gdg-halftone-yellow'),
-    Staff: v('--color-gdg-pastel-green'),
-    Transmisión: v('--color-gdg-halftone-red'),
-  };
+  </ul>
 
-  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
-  const items = document.querySelectorAll<HTMLElement>('.member-item');
-
-  function setTab(selected: string) {
-    tabs.forEach((tab) => {
-      const isActive = tab.dataset.tab === selected;
-      tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
-      tab.style.borderColor = '';
-      tab.style.color = '';
-      if (isActive) {
-        const color = selected === 'Todos' ? '#a1a1aa' : (TAB_COLORS[selected] ?? '#a1a1aa');
-        tab.style.borderColor = color;
-        tab.style.color = color;
-      }
-    });
-    items.forEach((item) => {
-      const comisiones = JSON.parse(item.dataset.comision ?? '[]');
-      item.style.display = selected === 'Todos' || comisiones.includes(selected) ? '' : 'none';
-    });
+  {
+    sortedMembers.length > INITIAL_VISIBLE && (
+      <div id="members-more" class="mt-10 flex justify-center">
+        <Button id="show-all-members" variant="outline">
+          Ver todo el equipo ({sortedMembers.length})
+        </Button>
+      </div>
+    )
   }
-  tabs.forEach((tab) => tab.addEventListener('click', () => setTab(tab.dataset.tab ?? 'Todos')));
-  setTab('Todos');
+</Section>
+
+<script>
+  const INITIAL_VISIBLE = 8;
+  const chips = document.querySelectorAll<HTMLButtonElement>('.filter-chip');
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.member-item'));
+  const moreContainer = document.getElementById('members-more');
+  let expanded = false;
+  let selected = 'Todos';
+
+  // Un filtro por comisión siempre muestra a todos sus miembros; el recorte inicial solo aplica a "Todos"
+  function render() {
+    chips.forEach((chip) => {
+      chip.setAttribute('aria-pressed', chip.dataset.filter === selected ? 'true' : 'false');
+    });
+
+    const showAll = selected === 'Todos';
+    items.forEach((item, index) => {
+      const comisiones: string[] = JSON.parse(item.dataset.comision ?? '[]');
+      const matches = showAll || comisiones.includes(selected);
+      const withinLimit = expanded || !showAll || index < INITIAL_VISIBLE;
+      item.hidden = !(matches && withinLimit);
+    });
+
+    if (moreContainer) moreContainer.hidden = expanded || !showAll;
+  }
+
+  chips.forEach((chip) =>
+    chip.addEventListener('click', () => {
+      selected = chip.dataset.filter ?? 'Todos';
+      render();
+    }),
+  );
+
+  document.getElementById('show-all-members')?.addEventListener('click', () => {
+    expanded = true;
+    render();
+  });
 </script>

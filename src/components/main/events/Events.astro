@@ -1,73 +1,101 @@
 ---
+import Section from '../../common/Section.astro';
+import SectionHeading from '../../common/SectionHeading.astro';
+import ArrowLink from '../../common/ArrowLink.astro';
 import Button from '../../common/Button.astro';
+import rawEvents from '../../../../public/events.json';
+import { formatShortDate, parseSpanishDate, toIsoDate } from '../../../utils/dates';
+
+const EVENTS_URL = 'https://eventos.gdgtarija.com';
+// Se muestran dos filas completas en escritorio; el resto queda detrás de "Ver todos"
+const INITIAL_VISIBLE = 8;
+
+// Se renderiza en el build (antes era un fetch en el cliente) para que el contenido exista sin JavaScript
+const events = rawEvents
+  .map((event) => ({ ...event, parsedDate: parseSpanishDate(event.date) }))
+  .sort((a, b) => (b.parsedDate?.getTime() ?? 0) - (a.parsedDate?.getTime() ?? 0));
+
+// Tono de la etiqueta según el formato principal del evento (la primera palabra de "Conferencia/Taller")
+const typeTone = (type: string) => {
+  const main = type.split('/')[0].toLowerCase();
+  if (main.startsWith('taller')) return 'bg-gdg-pastel-green';
+  if (main.startsWith('hack')) return 'bg-gdg-pastel-yellow';
+  return 'bg-gdg-ice-blue';
+};
 ---
 
-<section
-  id="events"
-  class="content-container mt-14 max-w-7xl mx-auto px-6 scroll-mt-24 md:scroll-mt-28"
->
-  <h2 class="text-3xl font-bold text-center mb-8">Eventos Pasados</h2>
-  <div
-    id="event-list"
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center"
-  >
-  </div>
-  <div class="flex justify-center mt-8" id="load-more-container">
-    <Button id="load-more">
-      <i class="fa-solid fa-angle-down mr-2"></i>
-      Ver Más
-    </Button>
-  </div>
-</section>
+<Section id="events" tone="base" labelledby="events-title">
+  <SectionHeading id="events-title" title="Eventos pasados">
+    <ArrowLink slot="action" href={EVENTS_URL} external>Ver próximos eventos</ArrowLink>
+  </SectionHeading>
 
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    let visibleEvents = 4;
-
-    const eventList = document.getElementById('event-list');
-    const loadMoreBtn = document.getElementById('load-more');
-    const loadMoreContainer = document.getElementById('load-more-container');
-
-    const loadEvents = (events) => {
-      eventList.innerHTML = '';
-
-      events.slice(0, visibleEvents).forEach((event) => {
-        const eventElement = document.createElement('div');
-        eventElement.className = 'text-center mb-4';
-
-        eventElement.innerHTML = `
-          <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="block transition-transform duration-300 hover:scale-110">
-            <img src="${event.src}" alt="${event.title}" class="w-48 h-48 rounded-full object-cover mx-auto">
+  <ul class="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-4">
+    {
+      events.map((event, index) => (
+        <li
+          class:list={['flex', { hidden: index >= INITIAL_VISIBLE }]}
+          data-extra-event={index >= INITIAL_VISIBLE}
+        >
+          <a
+            href={event.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex w-full flex-col items-center rounded-xl border border-gray-200 bg-white p-4 text-center transition-[border-color,box-shadow,translate] duration-200 hover:-translate-y-0.5 hover:border-gray-300 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue md:p-6"
+          >
+            {/* Las portadas se diseñaron para verse en círculo; recortarlas en cuadrado rompe su composición */}
+            <div class="size-28 overflow-hidden rounded-full bg-gray-100 ring-1 ring-gray-200 sm:size-32 md:size-40">
+              <img
+                src={event.src}
+                alt=""
+                width="500"
+                height="500"
+                loading="lazy"
+                decoding="async"
+                class="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+            </div>
+            <span
+              class={`mt-5 inline-flex rounded-md px-2 py-0.5 text-xs font-semibold text-gray-800 ${typeTone(event.title)}`}
+            >
+              {event.title}
+            </span>
+            <h3 class="mt-3 leading-snug font-semibold text-balance text-gray-900 transition-colors duration-200 group-hover:text-gdg-blue">
+              {event.fullName}
+            </h3>
+            <p class="mt-auto flex items-center gap-1.5 pt-4 text-sm text-gray-500">
+              <i class="fa-regular fa-calendar text-xs" aria-hidden="true" />
+              {event.parsedDate ? (
+                <time datetime={toIsoDate(event.parsedDate)}>
+                  {formatShortDate(event.parsedDate)}
+                </time>
+              ) : (
+                <span>{event.date.trim()}</span>
+              )}
+            </p>
           </a>
-          <p class="text-gray-500 mt-5">${event.date}</p>
-          <p class="text-gray-800 font-semibold mt-5">${event.title}</p>
-          <p class="text-gray-900 mt-5">${event.fullName}</p>
-        `;
+        </li>
+      ))
+    }
+  </ul>
 
-        eventList.appendChild(eventElement);
-      });
+  {
+    events.length > INITIAL_VISIBLE && (
+      <div class="mt-12 flex justify-center">
+        <Button id="show-all-events" variant="outline">
+          Ver todos los eventos ({events.length})
+        </Button>
+      </div>
+    )
+  }
+</Section>
 
-      if (visibleEvents >= events.length) {
-        loadMoreContainer.style.display = 'none';
-      } else {
-        loadMoreContainer.style.display = 'flex';
-      }
-    };
+<script>
+  const showAllButton = document.getElementById('show-all-events');
 
-    const loadMoreEvents = () => {
-      visibleEvents += 4;
-      loadEvents(events);
-    };
-
-    loadMoreBtn?.addEventListener('click', loadMoreEvents);
-
-    // Cargar eventos desde el archivo JSON
-    fetch('/events.json')
-      .then((response) => response.json())
-      .then((data) => {
-        events = data;
-        loadEvents(events);
-      })
-      .catch((error) => console.error('Error al cargar eventos desde JSON:', error));
+  showAllButton?.addEventListener('click', () => {
+    document.querySelectorAll<HTMLElement>('[data-extra-event="true"]').forEach((item) => {
+      item.classList.remove('hidden');
+    });
+    showAllButton.parentElement?.remove();
   });
 </script>

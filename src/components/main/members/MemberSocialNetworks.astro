@@ -2,93 +2,51 @@
 import { Image } from 'astro:assets';
 import ImgBeacons from '../../../assets/images/beacons.svg';
 
-const {
-  Linkedin: linkedinUrl,
-  Github: githubUrl,
-  Facebook: facebookUrl,
-  Instagram: instagramUrl,
-  Sitio_web,
-  Beacons: beaconsUrl,
-} = Astro.props;
+interface Props {
+  name: string;
+  Linkedin?: string;
+  Github?: string;
+  Facebook?: string;
+  Instagram?: string;
+  Sitio_web?: string;
+  Beacons?: string;
+}
+
+const { name, Linkedin, Github, Facebook, Instagram, Sitio_web, Beacons } = Astro.props;
+
+// Algunos perfiles se cargaron sin protocolo ("www.linkedin.com/..."); sin esto el enlace sería relativo al sitio
+const withProtocol = (url: string) => (/^https?:\/\//.test(url) ? url : `https://${url}`);
+
+const links = [
+  { label: 'LinkedIn', url: Linkedin, icon: 'fa-brands fa-linkedin' },
+  { label: 'GitHub', url: Github, icon: 'fa-brands fa-github' },
+  { label: 'Sitio web', url: Sitio_web, icon: 'fa-solid fa-globe' },
+  { label: 'Instagram', url: Instagram, icon: 'fa-brands fa-instagram' },
+  { label: 'Facebook', url: Facebook, icon: 'fa-brands fa-facebook' },
+  { label: 'Beacons', url: Beacons, icon: null },
+].filter((link): link is typeof link & { url: string } => Boolean(link.url?.trim()));
 ---
 
-<div class="flex flex-wrap gap-3 mt-1 justify-center">
-  {
-    linkedinUrl && linkedinUrl !== '' && (
-      <a
-        href={linkedinUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex p-1.5 rounded bg-white/20 text-white hover:bg-blue-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs "
-        aria-label="LinkedIn"
-      >
-        <i class="fa-brands fa-linkedin" />
-      </a>
-    )
-  }
-  {
-    Sitio_web && Sitio_web !== '' && (
-      <a
-        href={Sitio_web}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex p-1.5 rounded bg-white/20 text-white hover:bg-green-600 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
-        aria-label="Sitio Web"
-      >
-        <i class="fa-solid fa-globe" />
-      </a>
-    )
-  }
-  {
-    githubUrl && githubUrl !== '' && (
-      <a
-        href={githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex p-1.5 rounded bg-white/20 text-white hover:bg-gray-800 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
-        aria-label="GitHub"
-      >
-        <i class="fa-brands fa-github" />
-      </a>
-    )
-  }
-  {
-    instagramUrl && instagramUrl !== '' && (
-      <a
-        href={instagramUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex p-1.5 rounded bg-white/20 text-white hover:bg-linear-to-r hover:from-purple-500 hover:to-pink-500 hover:scale-110 transition-all duration-300 hover:shadow-xl backdrop-blur-xs"
-        aria-label="Instagram"
-      >
-        <i class="fa-brands fa-instagram" />
-      </a>
-    )
-  }
-  {
-    facebookUrl && facebookUrl !== '' && (
-      <a
-        href={facebookUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex p-1.5 rounded bg-white/20 text-white hover:bg-blue-700 hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
-        aria-label="Facebook"
-      >
-        <i class="fa-brands fa-facebook" />
-      </a>
-    )
-  }
-  {
-    beaconsUrl && beaconsUrl !== '' && (
-      <a
-        href={beaconsUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex p-1.5 rounded bg-white/20 text-white hover:bg-gdg-black hover:scale-110 transition-all duration-300 hover:shadow-lg backdrop-blur-xs"
-        aria-label="Beacons"
-      >
-        <Image src={ImgBeacons} alt="Beacons Icon" class="size-4 object-contain" />
-      </a>
-    )
-  }
-</div>
+{
+  links.length > 0 && (
+    <ul class="mt-4 flex flex-wrap gap-1">
+      {links.map((link) => (
+        <li>
+          <a
+            href={withProtocol(link.url)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${link.label} de ${name}`}
+            class="flex size-9 items-center justify-center rounded-lg text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+          >
+            {link.icon ? (
+              <i class={`${link.icon} text-base`} aria-hidden="true" />
+            ) : (
+              <Image src={ImgBeacons} alt="" class="size-4 object-contain opacity-60" />
+            )}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-26T19:09:19.106Z",
+  "generatedAt": "2026-09-26T20:38:38.646Z",
   "title": "Design System: GDG Tarija",
   "extensions": {
     "colorMeta": {
@@ -79,54 +79,39 @@
           "oklch(95.0% 0.130 148.5)"
         ]
       },
-      "gdg-halftone-blue": {
+      "gdg-sunset-orange": {
         "role": "tertiary",
-        "displayName": "Halftone Azul",
-        "canonical": "#57caff",
+        "displayName": "Naranja Atardecer",
+        "canonical": "#f46831",
         "tonalRamp": [
-          "oklch(15.0% 0.110 231.5)",
-          "oklch(25.0% 0.127 231.5)",
-          "oklch(36.0% 0.127 231.5)",
-          "oklch(48.0% 0.127 231.5)",
-          "oklch(60.0% 0.127 231.5)",
-          "oklch(72.0% 0.127 231.5)",
-          "oklch(84.0% 0.127 231.5)",
-          "oklch(95.0% 0.127 231.5)"
+          "oklch(15.0% 0.110 40.2)",
+          "oklch(25.0% 0.130 40.2)",
+          "oklch(36.0% 0.152 40.2)",
+          "oklch(48.0% 0.176 40.2)",
+          "oklch(60.0% 0.185 40.2)",
+          "oklch(72.0% 0.176 40.2)",
+          "oklch(84.0% 0.152 40.2)",
+          "oklch(95.0% 0.130 40.2)"
         ]
       },
-      "gdg-halftone-green": {
+      "gdg-accent-purple": {
         "role": "tertiary",
-        "displayName": "Halftone Verde",
-        "canonical": "#5cdb6d",
+        "displayName": "Púrpura",
+        "canonical": "#9334e6",
         "tonalRamp": [
-          "oklch(15.0% 0.110 146.0)",
-          "oklch(25.0% 0.130 146.0)",
-          "oklch(36.0% 0.152 146.0)",
-          "oklch(48.0% 0.176 146.0)",
-          "oklch(60.0% 0.188 146.0)",
-          "oklch(72.0% 0.176 146.0)",
-          "oklch(84.0% 0.152 146.0)",
-          "oklch(95.0% 0.130 146.0)"
-        ]
-      },
-      "gdg-halftone-yellow": {
-        "role": "tertiary",
-        "displayName": "Halftone Amarillo",
-        "canonical": "#ffd427",
-        "tonalRamp": [
-          "oklch(15.0% 0.110 93.2)",
-          "oklch(25.0% 0.130 93.2)",
-          "oklch(36.0% 0.152 93.2)",
-          "oklch(48.0% 0.173 93.2)",
-          "oklch(60.0% 0.173 93.2)",
-          "oklch(72.0% 0.173 93.2)",
-          "oklch(84.0% 0.152 93.2)",
-          "oklch(95.0% 0.130 93.2)"
+          "oklch(15.0% 0.110 303.1)",
+          "oklch(25.0% 0.130 303.1)",
+          "oklch(36.0% 0.152 303.1)",
+          "oklch(48.0% 0.176 303.1)",
+          "oklch(60.0% 0.200 303.1)",
+          "oklch(72.0% 0.176 303.1)",
+          "oklch(84.0% 0.152 303.1)",
+          "oklch(95.0% 0.130 303.1)"
         ]
       },
       "gdg-halftone-red": {
         "role": "tertiary",
-        "displayName": "Halftone Rosa",
+        "displayName": "Rosa Halftone",
         "canonical": "#ff7daf",
         "tonalRamp": [
           "oklch(15.0% 0.110 357.6)",
@@ -139,49 +124,19 @@
           "oklch(95.0% 0.130 357.6)"
         ]
       },
-      "gdg-pastel-blue": {
+      "gdg-halftone-blue": {
         "role": "tertiary",
-        "displayName": "Pastel Azul",
-        "canonical": "#c3ecf6",
+        "displayName": "Celeste Halftone",
+        "canonical": "#57caff",
         "tonalRamp": [
-          "oklch(15.0% 0.045 214.2)",
-          "oklch(25.0% 0.045 214.2)",
-          "oklch(36.0% 0.045 214.2)",
-          "oklch(48.0% 0.045 214.2)",
-          "oklch(60.0% 0.045 214.2)",
-          "oklch(72.0% 0.045 214.2)",
-          "oklch(84.0% 0.045 214.2)",
-          "oklch(95.0% 0.045 214.2)"
-        ]
-      },
-      "gdg-pastel-green": {
-        "role": "tertiary",
-        "displayName": "Pastel Verde",
-        "canonical": "#ccf6c5",
-        "tonalRamp": [
-          "oklch(15.0% 0.078 141.1)",
-          "oklch(25.0% 0.078 141.1)",
-          "oklch(36.0% 0.078 141.1)",
-          "oklch(48.0% 0.078 141.1)",
-          "oklch(60.0% 0.078 141.1)",
-          "oklch(72.0% 0.078 141.1)",
-          "oklch(84.0% 0.078 141.1)",
-          "oklch(95.0% 0.078 141.1)"
-        ]
-      },
-      "gdg-pastel-red": {
-        "role": "tertiary",
-        "displayName": "Pastel Rosa",
-        "canonical": "#f8d8d8",
-        "tonalRamp": [
-          "oklch(15.0% 0.036 17.8)",
-          "oklch(25.0% 0.036 17.8)",
-          "oklch(36.0% 0.036 17.8)",
-          "oklch(48.0% 0.036 17.8)",
-          "oklch(60.0% 0.036 17.8)",
-          "oklch(72.0% 0.036 17.8)",
-          "oklch(84.0% 0.036 17.8)",
-          "oklch(95.0% 0.036 17.8)"
+          "oklch(15.0% 0.110 231.5)",
+          "oklch(25.0% 0.127 231.5)",
+          "oklch(36.0% 0.127 231.5)",
+          "oklch(48.0% 0.127 231.5)",
+          "oklch(60.0% 0.127 231.5)",
+          "oklch(72.0% 0.127 231.5)",
+          "oklch(84.0% 0.127 231.5)",
+          "oklch(95.0% 0.127 231.5)"
         ]
       },
       "gdg-ice-blue": {
@@ -197,36 +152,6 @@
           "oklch(72.0% 0.045 245.3)",
           "oklch(84.0% 0.045 245.3)",
           "oklch(95.0% 0.045 245.3)"
-        ]
-      },
-      "gdg-midnight-blue": {
-        "role": "tertiary",
-        "displayName": "Azul Medianoche",
-        "canonical": "#165185",
-        "tonalRamp": [
-          "oklch(15.0% 0.105 249.7)",
-          "oklch(25.0% 0.105 249.7)",
-          "oklch(36.0% 0.105 249.7)",
-          "oklch(48.0% 0.105 249.7)",
-          "oklch(60.0% 0.105 249.7)",
-          "oklch(72.0% 0.105 249.7)",
-          "oklch(84.0% 0.105 249.7)",
-          "oklch(95.0% 0.105 249.7)"
-        ]
-      },
-      "gdg-deep-ocean-blue": {
-        "role": "tertiary",
-        "displayName": "Azul Océano",
-        "canonical": "#2480f0",
-        "tonalRamp": [
-          "oklch(15.0% 0.110 256.3)",
-          "oklch(25.0% 0.130 256.3)",
-          "oklch(36.0% 0.152 256.3)",
-          "oklch(48.0% 0.176 256.3)",
-          "oklch(60.0% 0.188 256.3)",
-          "oklch(72.0% 0.176 256.3)",
-          "oklch(84.0% 0.152 256.3)",
-          "oklch(95.0% 0.130 256.3)"
         ]
       },
       "surface": {
@@ -319,6 +244,21 @@
           "oklch(95.0% 0.032 264.7)"
         ]
       },
+      "ink-body": {
+        "role": "neutral",
+        "displayName": "Tinta Cuerpo",
+        "canonical": "#4b5563",
+        "tonalRamp": [
+          "oklch(15.0% 0.026 256.8)",
+          "oklch(25.0% 0.026 256.8)",
+          "oklch(36.0% 0.026 256.8)",
+          "oklch(48.0% 0.026 256.8)",
+          "oklch(60.0% 0.026 256.8)",
+          "oklch(72.0% 0.026 256.8)",
+          "oklch(84.0% 0.026 256.8)",
+          "oklch(95.0% 0.026 256.8)"
+        ]
+      },
       "ink-muted": {
         "role": "neutral",
         "displayName": "Tinta Tenue",
@@ -338,21 +278,6 @@
         "role": "neutral",
         "displayName": "Negro GDG",
         "canonical": "#1e1e1e",
-        "tonalRamp": [
-          "oklch(15.0% 0.000 0.0)",
-          "oklch(25.0% 0.000 0.0)",
-          "oklch(36.0% 0.000 0.0)",
-          "oklch(48.0% 0.000 0.0)",
-          "oklch(60.0% 0.000 0.0)",
-          "oklch(72.0% 0.000 0.0)",
-          "oklch(84.0% 0.000 0.0)",
-          "oklch(95.0% 0.000 0.0)"
-        ]
-      },
-      "band-dark": {
-        "role": "neutral",
-        "displayName": "Banda Oscura",
-        "canonical": "#262626",
         "tonalRamp": [
           "oklch(15.0% 0.000 0.0)",
           "oklch(25.0% 0.000 0.0)",
@@ -398,15 +323,19 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Títulos de campaña de primera pantalla; de 3rem a 7.5rem. Uno por página."
+        "purpose": "h1 del hero y título del cierre; de 2.625rem a 3.875rem."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Títulos de sección."
+        "purpose": "Títulos de sección; de 1.875rem a 2.5rem."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Frase de apoyo bajo un título; máximo dos líneas."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Títulos de bloque y slides."
+        "purpose": "Nombres de eventos y personas."
       },
       "body": {
         "displayName": "Body",
@@ -414,56 +343,46 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Navegación, tabs, chips y metadatos."
+        "purpose": "Navegación, filtros y metadatos."
       }
     },
     "shadows": [
       {
-        "name": "rest",
+        "name": "control",
         "value": "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)",
-        "purpose": "shadow-sm: cards, filas y botones en reposo."
+        "purpose": "shadow-sm: botones en reposo y cards abiertas."
       },
       {
         "name": "hover",
         "value": "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)",
-        "purpose": "shadow-md: respuesta al hover con lift de 2px."
+        "purpose": "shadow-md: botones al hover."
       },
       {
         "name": "overlay",
-        "value": "0 25px 50px -12px rgba(0,0,0,0.25)",
-        "purpose": "shadow-2xl: solo menú móvil y modal de fotos."
+        "value": "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)",
+        "purpose": "shadow-xl: solo el menú móvil desplegado."
       },
       {
         "name": "event-glow",
         "value": "0 0 20px rgba(66,133,244,0.35)",
         "purpose": "Glow del CTA de Build with AI. Exclusivo de temas de evento."
-      },
-      {
-        "name": "event-glow-hover",
-        "value": "0 8px 28px rgba(66,133,244,0.35)",
-        "purpose": "Hover del CTA de Build with AI."
       }
     ],
     "motion": [
       {
         "name": "ease-out-expo",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Entradas: carrusel de Quiénes somos y cascada del menú móvil (80ms entre items)."
+        "purpose": "Entrada breve de las fotos del hero (0.8s, 12px)."
       },
       {
-        "name": "ease-standard",
-        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
-        "purpose": "Trazo de SVG y cambios de estado."
+        "name": "duration-control",
+        "value": "200ms",
+        "purpose": "Hover y press de botones, links y chips."
       },
       {
-        "name": "duration-hover",
-        "value": "200ms–300ms",
-        "purpose": "Hover de botones, cards y enlaces."
-      },
-      {
-        "name": "border-spin",
-        "value": "10s linear infinite",
-        "purpose": "Borde animado de la tarjeta de miembro (en revisión por The No-Gradient Rule)."
+        "name": "duration-media",
+        "value": "500ms",
+        "purpose": "Zoom de 1.03 de las portadas de eventos al hover."
       }
     ],
     "breakpoints": [
@@ -494,82 +413,90 @@
       "name": "Botón primario",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Acción principal del sitio: inscribirse, postularse, ver más.",
-      "html": "<button class=\"ds-btn-primary\">Regístrate</button>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;background:var(--color-gdg-blue,#4285f4);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}.ds-btn-primary:hover{background:#3367d6;transform:translateY(-2px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+      "description": "Acción principal: unirse a la comunidad.",
+      "html": "<button class=\"ds-btn-primary\">Únete a la comunidad <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);transition:background-color .2s,box-shadow .2s,translate .2s,scale .2s;background:#4285f4;color:#fff}.ds-btn-primary:hover{background:#3367d6}.ds-btn-primary:hover{translate:0 -2px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-primary:active{translate:0 0;scale:.97}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
     },
     {
-      "name": "Botón secundario",
+      "name": "Botón outline",
       "kind": "button",
-      "refersTo": "button-secondary",
-      "description": "Acción alternativa junto a una primaria.",
-      "html": "<button class=\"ds-btn-secondary\">Ver galería</button>",
-      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;justify-content:center;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;background:#e5e7eb;color:#1f2937;box-shadow:0 1px 3px rgba(0,0,0,.1);cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}.ds-btn-secondary:hover{background:#d1d5db;transform:translateY(-2px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}.ds-btn-secondary:active{transform:scale(.97)}.ds-btn-secondary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+      "refersTo": "button-outline",
+      "description": "Secundario sobre fondos grises: \"Ver eventos\", \"Ver todos\".",
+      "html": "<button class=\"ds-btn-outline\">Ver eventos</button>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);transition:background-color .2s,box-shadow .2s,translate .2s,scale .2s;background:#fff;color:#1f2937;box-shadow:inset 0 0 0 1px #d1d5db,0 1px 3px rgba(0,0,0,.1)}.ds-btn-outline:hover{background:#f9fafb}.ds-btn-outline:hover{translate:0 -2px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-outline:active{translate:0 0;scale:.97}.ds-btn-outline:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
     },
     {
-      "name": "Card",
-      "kind": "card",
-      "refersTo": "card",
-      "description": "Contenedor de contenido del sitio principal: 24px de radio, borde suave, sombra sutil.",
-      "html": "<article class=\"ds-card\"><span class=\"ds-card-date\">15 de noviembre 2025</span><h3 class=\"ds-card-title\">DevFest Tarija 2025</h3><p class=\"ds-card-body\">Talleres y charlas con la comunidad de desarrolladores de Tarija.</p></article>",
-      "css": ".ds-card{font-family:'Google Sans', system-ui, sans-serif;background:#fff;color:#1f2937;border:1px solid #f3f4f6;border-radius:24px;padding:24px;max-width:320px;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}.ds-card:hover{transform:translateY(-2px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-card-date{display:block;font-size:.75rem;font-weight:600;color:#4285f4;margin-bottom:4px}.ds-card-title{font-size:1.5rem;font-weight:700;line-height:1.333;margin:0 0 8px;color:#111827}.ds-card-body{font-size:1rem;line-height:1.625;color:#6b7280;margin:0}"
-    },
-    {
-      "name": "Fila de enlace",
-      "kind": "card",
-      "refersTo": "link-row",
-      "description": "Fila táctil de /links: texto que pasa a azul y flecha que se desplaza.",
-      "html": "<a class=\"ds-link-row\" href=\"#\"><span>Instagram</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 18l6-6-6-6\"/></svg></a>",
-      "css": ".ds-link-row{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:420px;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1rem;color:#1f2937;text-decoration:none;background:#fff;border:1px solid #f3f4f6;border-radius:16px;padding:16px 24px;box-shadow:0 1px 3px rgba(0,0,0,.1);transition:transform .3s,box-shadow .3s,color .2s}.ds-link-row svg{color:#9ca3af;transition:transform .2s,color .2s}.ds-link-row:hover{color:#4285f4;transform:translateY(-2px);box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}.ds-link-row:hover svg{color:#4285f4;transform:translateX(2px)}.ds-link-row:active{transform:scale(.98)}.ds-link-row:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+      "name": "Link con flecha",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Acción secundaria de los encabezados de sección.",
+      "html": "<a class=\"ds-arrow-link\" href=\"#\">Ver próximos eventos <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-arrow-link{display:inline-flex;align-items:center;gap:8px;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;color:#4285f4;text-decoration:none;transition:color .2s}.ds-arrow-link svg{transition:transform .2s}.ds-arrow-link:hover{color:#3367d6}.ds-arrow-link:hover svg{transform:translateX(2px)}.ds-arrow-link:focus-visible{outline:2px solid #4285f4;outline-offset:4px;border-radius:2px}"
     },
     {
       "name": "Barra de navegación",
       "kind": "nav",
       "refersTo": "nav-bar",
-      "description": "Barra flotante translúcida con enlaces que pasan a rojo Google.",
-      "html": "<nav class=\"ds-nav\"><strong class=\"ds-nav-logo\">GDG Tarija</strong><ul><li><a href=\"#\">¿Quiénes Somos?</a></li><li><a href=\"#\">Eventos</a></li></ul></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;justify-content:space-between;font-family:'Google Sans', system-ui, sans-serif;background:rgba(255,255,255,.8);backdrop-filter:blur(16px);border:1px solid #e5e7eb;border-radius:16px;padding:8px 32px;min-height:64px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.ds-nav-logo{font-size:1.125rem;color:#1f2937}.ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0}.ds-nav a{color:#374151;font-weight:500;font-size:1rem;text-decoration:none;transition:color .2s}.ds-nav a:hover{color:#ea4335}.ds-nav a:focus-visible{outline:2px solid #4285f4;outline-offset:4px;border-radius:4px}"
+      "description": "Barra flotante con enlaces y botón \"Únete\".",
+      "html": "<nav class=\"ds-nav\"><strong class=\"ds-nav-logo\">GDG Tarija</strong><ul><li><a href=\"#\">Nosotros</a></li><li><a href=\"#\">Eventos</a></li><li><a href=\"#\">Equipo</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Únete</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;font-family:'Google Sans', system-ui, sans-serif;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border:1px solid #e5e7eb;border-radius:12px;padding:8px 32px;min-height:64px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.ds-nav-logo{font-size:1.125rem;color:#1f2937;margin-right:auto}.ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0}.ds-nav ul a{color:#374151;font-weight:500;text-decoration:none;transition:color .2s}.ds-nav ul a:hover{color:#111827}.ds-nav-cta{background:#4285f4;color:#fff;font-weight:600;font-size:.875rem;padding:8px 20px;border-radius:9999px;text-decoration:none}.ds-nav-cta:hover{background:#3367d6}"
     },
     {
-      "name": "Chips de comisión",
+      "name": "Chips de filtro",
       "kind": "chip",
-      "refersTo": "chip-commission",
-      "description": "Color fijo por comisión del equipo (The Pushpin Rule).",
-      "html": "<div class=\"ds-chips\"><span class=\"ds-chip\" style=\"background:#162440;color:#57caff\">Organizer</span><span class=\"ds-chip\" style=\"background:#003462;color:#c3ecf6\">Developer</span><span class=\"ds-chip\" style=\"background:#2a2000;color:#ffd427\">Marketing</span><span class=\"ds-chip\" style=\"background:#072012;color:#5cdb6d\">Logística</span><span class=\"ds-chip\" style=\"background:#220d40;color:#ff7daf\">Transmisión</span></div>",
-      "css": ".ds-chips{display:flex;flex-wrap:wrap;gap:4px;padding:16px;background:#262626;border-radius:16px}.ds-chip{font-family:'Google Sans', system-ui, sans-serif;font-size:.75rem;font-weight:500;padding:2px 10px;border-radius:9999px;white-space:nowrap}"
+      "refersTo": "chip-filter",
+      "description": "Filtro del equipo por comisión; el seleccionado es tonal.",
+      "html": "<div class=\"ds-filters\"><button class=\"ds-filter\" aria-pressed=\"true\">Todos <span>35</span></button><button class=\"ds-filter\" aria-pressed=\"false\"><i style=\"background:#4285f4\"></i>Organizer <span>4</span></button><button class=\"ds-filter\" aria-pressed=\"false\"><i style=\"background:#f9ab00\"></i>Marketing <span>18</span></button><button class=\"ds-filter\" aria-pressed=\"false\"><i style=\"background:#9334e6\"></i>Transmisión <span>3</span></button></div>",
+      "css": ".ds-filters{display:flex;flex-wrap:wrap;gap:8px}.ds-filter{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:1px solid #d1d5db;border-radius:8px;background:#fff;color:#374151;font-family:'Google Sans', system-ui, sans-serif;font-size:.875rem;font-weight:500;cursor:pointer;transition:background-color .2s}.ds-filter i{width:8px;height:8px;border-radius:9999px}.ds-filter span{color:#6b7280;font-variant-numeric:tabular-nums}.ds-filter:hover{background:#f9fafb}.ds-filter[aria-pressed=true]{background:#cae6ff;border-color:transparent;color:#111827}.ds-filter:focus-visible{outline:2px solid #4285f4;outline-offset:2px}"
     },
     {
-      "name": "Tabs de filtro",
-      "kind": "chip",
-      "refersTo": "chip-commission",
-      "description": "Filtro de miembros por comisión; el tab activo toma el color de su comisión.",
-      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button class=\"ds-tab\" aria-selected=\"true\" style=\"border-color:#a1a1aa;color:#a1a1aa\">Todos <span>35</span></button><button class=\"ds-tab\" aria-selected=\"false\">Organizer <span>2</span></button><button class=\"ds-tab\" aria-selected=\"false\">Marketing <span>6</span></button></div>",
-      "css": ".ds-tabs{display:flex;gap:8px;flex-wrap:wrap;padding:16px;background:#262626;border-radius:16px}.ds-tab{font-family:'Google Sans', system-ui, sans-serif;font-size:.875rem;font-weight:500;padding:6px 16px;border-radius:9999px;border:1px solid #52525b;background:transparent;color:#a1a1aa;cursor:pointer;transition:color .2s,border-color .2s}.ds-tab span{font-size:.75rem;opacity:.5;margin-left:4px}.ds-tab:hover{color:#e4e4e7;border-color:#a1a1aa}.ds-tab:focus-visible{outline:2px solid #57caff;outline-offset:2px}"
+      "name": "Card de miembro",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Card vertical con foto grande, etiquetas de comisión y \"Ver perfil\".",
+      "html": "<article class=\"ds-member\"><span class=\"ds-avatar\">PA</span><strong>Pedro Anze</strong><span class=\"ds-tag\"><i style=\"background:#4285f4\"></i>Organizer</span><button class=\"ds-member-open\">Ver perfil +</button></article>",
+      "css": ".ds-member{display:flex;flex-direction:column;align-items:center;gap:8px;width:240px;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;font-family:'Google Sans', system-ui, sans-serif;text-align:center;transition:border-color .2s,box-shadow .2s}.ds-member:hover{border-color:#d1d5db;box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}.ds-avatar{display:flex;align-items:center;justify-content:center;width:128px;height:128px;margin-bottom:8px;border-radius:9999px;background:#f3f4f6;color:#6b7280;font-weight:600;font-size:1.25rem}.ds-member strong{color:#111827;font-weight:600;font-size:1.125rem}.ds-tag{display:inline-flex;align-items:center;gap:6px;background:#f3f4f6;color:#374151;font-size:.75rem;font-weight:500;padding:2px 8px;border-radius:6px}.ds-tag i{width:6px;height:6px;border-radius:9999px}.ds-member-open{margin-top:12px;border:none;background:none;color:#4285f4;font-family:inherit;font-weight:600;font-size:.875rem;cursor:pointer}.ds-member-open:hover{color:#3367d6}"
+    },
+    {
+      "name": "Item de evento",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Card con portada circular, etiqueta de tipo, nombre y fecha.",
+      "html": "<a class=\"ds-event\" href=\"#\"><span class=\"ds-event-cover\">DevFest</span><span class=\"ds-event-meta\">15 nov 2025 · Taller</span><strong>DevFest Tarija 2025</strong></a>",
+      "css": ".ds-event{display:flex;flex-direction:column;align-items:center;text-align:center;width:240px;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;font-family:'Google Sans', system-ui, sans-serif;text-decoration:none;transition:border-color .2s,box-shadow .2s,translate .2s}.ds-event:hover{border-color:#d1d5db;box-shadow:0 4px 6px -1px rgba(0,0,0,.1);translate:0 -2px}.ds-event-cover{display:flex;align-items:center;justify-content:center;width:160px;height:160px;border-radius:9999px;background:#e5e7eb;color:#6b7280;font-weight:700;font-size:1.5rem;transition:transform .5s}.ds-event:hover .ds-event-cover{transform:scale(1.03)}.ds-event-meta{display:block;margin-top:16px;font-size:.875rem;color:#6b7280}.ds-event strong{display:block;margin-top:4px;color:#111827;font-weight:600;transition:color .2s}.ds-event:hover strong{color:#4285f4}"
+    },
+    {
+      "name": "Bloque CTA de cierre",
+      "kind": "custom",
+      "refersTo": "cta-block",
+      "description": "Cierre azul con botón inverso y caras del equipo.",
+      "html": "<section class=\"ds-cta\"><h2>Únete a la comunidad</h2><p>Entérate de los próximos eventos y conecta con otros developers de Tarija.</p><a class=\"ds-cta-btn\" href=\"#\">Únete a la comunidad →</a></section>",
+      "css": ".ds-cta{max-width:640px;padding:48px;border-radius:16px;background:#3367d6;color:#fff;font-family:'Google Sans', system-ui, sans-serif}.ds-cta h2{margin:0;font-size:2.5rem;line-height:1.05;letter-spacing:-.03em}.ds-cta p{margin:16px 0 32px;color:rgba(255,255,255,.9);font-size:1.125rem;line-height:1.625}.ds-cta-btn{display:inline-flex;padding:12px 28px;border-radius:9999px;background:#fff;color:#3367d6;font-weight:600;text-decoration:none;transition:background-color .2s,translate .2s}.ds-cta-btn:hover{background:#cae6ff;translate:0 -2px}.ds-cta-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}"
     },
     {
       "name": "CTA Build with AI",
       "kind": "custom",
       "refersTo": "bwai-cta",
       "description": "CTA del tema de evento: 6px de radio y glow azul. Solo en landings de evento.",
-      "html": "<div class=\"ds-bwai\"><p class=\"ds-bwai-tag\">// The Future is ours to build</p><a class=\"ds-bwai-cta\" href=\"#\">Regístrate ahora <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></div>",
-      "css": ".ds-bwai{background:#0f1419;padding:32px;border-radius:16px;font-family:'Google Sans', system-ui, sans-serif}.ds-bwai-tag{color:#4285f4;font-weight:500;letter-spacing:.05em;margin:0 0 16px;font-size:.875rem}.ds-bwai-cta{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;background:#4285f4;color:#fff;font-weight:600;letter-spacing:-.02em;text-decoration:none;border-radius:6px;border:1px solid rgba(66,133,244,.5);box-shadow:0 0 20px rgba(66,133,244,.35);transition:transform .2s,box-shadow .2s,background .2s}.ds-bwai-cta svg{transition:transform .2s}.ds-bwai-cta:hover{background:#3367d6;transform:translateY(-2px);box-shadow:0 8px 28px rgba(66,133,244,.35)}.ds-bwai-cta:hover svg{transform:translateX(4px)}.ds-bwai-cta:active{transform:scale(.97)}.ds-bwai-cta:focus-visible{outline:2px solid #fff;outline-offset:3px}"
+      "html": "<div class=\"ds-bwai\"><p class=\"ds-bwai-tag\">// The Future is ours to build</p><a class=\"ds-bwai-cta\" href=\"#\">Regístrate ahora</a></div>",
+      "css": ".ds-bwai{background:#0f1419;padding:32px;border-radius:12px;font-family:'Google Sans', system-ui, sans-serif}.ds-bwai-tag{color:#4285f4;font-weight:500;margin:0 0 16px;font-size:.875rem}.ds-bwai-cta{display:inline-flex;padding:14px 24px;background:#4285f4;color:#fff;font-weight:600;text-decoration:none;border-radius:6px;box-shadow:0 0 20px rgba(66,133,244,.35);transition:transform .2s,box-shadow .2s,background .2s}.ds-bwai-cta:hover{background:#3367d6;transform:translateY(-2px);box-shadow:0 8px 28px rgba(66,133,244,.35)}"
     }
   ],
   "narrative": {
     "northStar": "El Tablón de la Comunidad",
-    "overview": "El sitio es un tablón de anuncios vivo de una comunidad real: personas con nombre y foto, eventos con fecha, fotos de salas llenas. El fondo es claro y tranquilo, como papel de tablón. Los cuatro colores de Google funcionan como chinchetas: marcan qué es importante, quién pertenece a qué comisión y dónde hay que tocar. El color nunca decora de forma pareja; señala.\n\nLa referencia de tacto son las landings de **Google for Developers**: superficies blancas, Google Sans, botones en píldora, cards de esquinas amplias, sombras apenas perceptibles y respuestas pequeñas pero claras al pasar el dedo o el cursor. Los componentes son amables y táctiles: invitan a tocar desde el celular, responden con un leve lift y nunca gritan. La marca de Google Developer Groups se aplica con disciplina (lockups oficiales, colores oficiales, Google Sans), y la identidad local vive en el contenido: el equipo, las fotos y el historial de eventos de Tarija.\n\n**Temas de evento.** Los eventos insignia (hoy Build with AI 2026) pueden llevar un tema propio que hereda la tipografía, los logos y los cuatro colores de Google, pero puede cambiar el fondo (incluido un modo totalmente oscuro), sumar motivos gráficos propios, usar otra geometría de botones y usar degradados y glows. Esas libertades valen solo dentro de la landing del evento; nunca vuelven al sitio principal.",
+    "overview": "El sitio es el tablón de una comunidad real de developers: personas con nombre y foto, eventos con fecha, fotos de salas llenas. La metáfora vive en el contenido y en cómo se usa el color, nunca en utilería: no hay chinchetas, fotos inclinadas ni marcos de polaroid. Los cuatro colores de Google funcionan como señales: marcan la acción, la comisión de una persona o la estructura de un bloque. El color nunca decora de forma pareja; señala.\n\nLa referencia visual son las landings de **Google for Developers**: superficies claras y planas, Google Sans, botones en píldora, esquinas contenidas (12px), bordes finos, grillas rectas y fotos sin marco. El tono es adulto y técnico: una comunidad de developers, no un espacio infantil. Los componentes responden con cambios breves de tono o un lift de 2px, y el texto es corto: un título claro, una frase de apoyo y una acción.\n\n**Temas de evento.** Los eventos insignia (hoy Build with AI 2026) pueden llevar un tema propio que hereda la tipografía, los logos y los cuatro colores de Google, pero puede cambiar el fondo (incluido un modo totalmente oscuro), sumar motivos gráficos propios, usar otra geometría de botones y usar degradados y glows. Esas libertades valen solo dentro de la landing del evento; nunca vuelven al sitio principal.",
     "keyCharacteristics": [
-      "Claro por defecto; las bandas oscuras son excepciones puntuales.",
-      "Los cuatro colores de Google como acentos que señalan, no como fondos.",
-      "Google Sans en todo; jerarquía por peso y tamaño, sin segunda familia en el sitio principal.",
-      "Botones en píldora, cards con esquinas de 24px, sombras sutiles.",
-      "Interacciones táctiles y breves: lift pequeño, cambio de tono, nada de rebotes exagerados.",
-      "Personas y fotos reales como protagonistas visuales."
+      "Claro por defecto; el cierre es un bloque azul con las caras del equipo, no una banda oscura.",
+      "Los colores de Google como señales pequeñas (puntos, acciones), no como fondos.",
+      "Google Sans en todo; jerarquía por peso y tamaño.",
+      "Botones en píldora; cards y fotos con 12px; paneles grandes (hero, Nosotros, CTA) con 16px.",
+      "Grillas rectas y alineadas; nada flota ni se inclina. La vida viene de las fotos reales y de la interacción (pestañas, perfiles), no de la decoración.",
+      "Texto corto y directo; fotos reales como protagonistas."
     ],
     "rules": [
       {
-        "name": "The Pushpin Rule",
-        "body": "Los colores de Google son chinchetas: van donde hay algo que señalar (una acción, una comisión, una fecha). Si un acento no señala nada, sobra.",
+        "name": "The Signal Rule",
+        "body": "Un color de Google aparece solo donde señala algo: una acción, una comisión, un pilar. Si un acento no señala nada, sobra.",
         "section": "colors"
       },
       {
@@ -579,7 +506,7 @@
       },
       {
         "name": "The No-Gradient Rule",
-        "body": "El sitio principal no usa degradados en fondos de cards, contenedores ni texto. El color es plano; los degradados y glows son un recurso exclusivo de los temas de evento.",
+        "body": "El sitio principal no usa degradados en fondos, contenedores ni texto. El color es plano; los degradados y glows son un recurso exclusivo de los temas de evento.",
         "section": "colors"
       },
       {
@@ -588,44 +515,51 @@
         "section": "colors"
       },
       {
+        "name": "The Short Copy Rule",
+        "body": "Un título, una frase y una acción. No se listan tipos de eventos, cifras ni audiencias segmentadas en los textos principales; se dice \"developers\".",
+        "section": "typography"
+      },
+      {
         "name": "The One Family Rule",
-        "body": "El sitio principal usa solo Google Sans. La monoespaciada y los motivos de código (`//`, `{}`) pertenecen al tema de Build with AI y no se importan al home.",
+        "body": "El sitio principal usa solo Google Sans. La monoespaciada y los motivos de código (`//`, `{}`) pertenecen al tema de Build with AI.",
         "section": "typography"
       },
       {
         "name": "The Light Ground Rule",
-        "body": "Una sección nueva del sitio principal es clara salvo que haya una razón editorial para oscurecerla. No se agregan bandas oscuras nuevas para \"dar variedad\".",
+        "body": "Una sección nueva del sitio principal es clara. El único bloque de color fuerte es el CTA de cierre.",
         "section": "layout"
       },
       {
         "name": "The Quiet Shadow Rule",
-        "body": "Nada en el sitio principal pasa de `shadow-md` salvo que flote sobre la página. Los botones con `shadow-lg` y `hover:shadow-xl` actuales son una desviación a corregir.",
+        "body": "Nada en el sitio principal pasa de `shadow-md` salvo que flote sobre la página. Fotos y cards no llevan sombra decorativa.",
         "section": "elevation"
       },
       {
         "name": "The Pill-and-Card Rule",
-        "body": "Si se toca y ejecuta una acción, es una píldora. Si agrupa contenido, es una card de 24px. No hay botones cuadrados ni cards con esquinas chicas en el sitio principal.",
+        "body": "Si ejecuta una acción, es una píldora. Si agrupa contenido, lleva 12px; si es un panel protagonista, 16px. Nada pasa de 16px salvo la píldora y los círculos.",
         "section": "shapes"
       }
     ],
     "dos": [
-      "Do usar el fondo claro (`gdg-off-white` / `surface`) como punto de partida de cualquier sección nueva del sitio principal.",
+      "Do armar cada sección nueva con `Section.astro` y `SectionHeading.astro`, sobre fondo claro.",
       "Do usar Azul Google para la acción principal y Azul Google Profundo para su hover.",
-      "Do usar píldoras (`rounded-full`) para botones y chips, y cards de 24px (`rounded-3xl`) con `shadow-sm` para agrupar contenido.",
-      "Do responder al hover con un lift de 2px y `shadow-md`, y al clic con `scale(0.97)`.",
-      "Do tomar colores solo de los tokens de `@theme`; si falta uno, agregarlo ahí primero.",
-      "Do usar fotos reales de la comunidad y del equipo como imagen principal.",
-      "Do respetar los lockups oficiales de GDG y usar Google Sans desde los archivos locales.",
-      "Do mantener un foco visible (anillo azul de 2px) en todo lo que se puede tocar."
+      "Do usar píldoras para botones, 12px para cards y fotos, y bordes de 1px.",
+      "Do mostrar fotos reales en grillas rectas, alineadas al contenedor.",
+      "Do escribir un título, una frase y una acción; decir \"developers\".",
+      "Do tomar colores solo de los tokens de `@theme`, y los colores de comisión solo de `commissions.ts`.",
+      "Do mantener un foco visible con teclado en todo lo que se puede tocar.",
+      "Do respetar los lockups oficiales de GDG y usar Google Sans desde los archivos locales."
     ],
     "donts": [
-      "Don't usar degradados en fondos de cards, contenedores o texto en el sitio principal (The No-Gradient Rule). El título de \"Fotos de nuestros eventos\", el CTA de Call 4 Members y el footer claro tienen degradados que son deuda.",
-      "Don't pasar de `shadow-md` en elementos que no flotan sobre la página.",
-      "Don't escalar botones o portadas más de 1.05 al hover.",
-      "Don't usar hex sueltos en clases (`bg-[#3367D6]`, `bg-[#0f0f0f]`) ni tokens inexistentes como `text-google-blue`.",
+      "Don't usar utilería \"family friendly\": chinchetas, fotos inclinadas o flotantes, marcos tipo polaroid, leyendas con fechas sobre las fotos.",
+      "Don't pasar de 12px de radio fuera de las píldoras.",
+      "Don't usar degradados en fondos, contenedores o texto en el sitio principal.",
+      "Don't pasar de `shadow-md` en elementos que no flotan sobre la página, ni escalar más de 1.03 al hover.",
+      "Don't usar carruseles para contenido que cabe a la vista; muestra el texto completo.",
+      "Don't usar hex sueltos en clases ni tokens inexistentes como `text-google-blue`.",
       "Don't llevar motivos de un tema de evento (monospace, `//`, auroras, glows, CTAs de 6px) al sitio principal.",
-      "Don't agregar nuevas bandas oscuras al home; las tres actuales ya son el techo.",
-      "Don't usar los cuatro colores de Google como bloques de fondo que compiten entre sí."
+      "Don't agregar bandas oscuras al home.",
+      "Don't recortar en cuadrado portadas pensadas para círculo, ni dejar items de grilla sin fondo ni borde."
     ]
   }
 }

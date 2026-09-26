@@ -1,0 +1,29 @@
+---
+interface Props {
+  id?: string;
+  tone?: 'base' | 'surface' | 'dark';
+  labelledby?: string;
+  // Sin padding superior cuando la sección continúa visualmente a la anterior (mismo fondo)
+  flushTop?: boolean;
+  class?: string;
+}
+
+const { id, tone = 'surface', labelledby, flushTop = false, class: className = '' } = Astro.props;
+
+// El ritmo claro/oscuro del home se decide aquí para que todas las secciones compartan fondo y espaciado
+const toneClasses = {
+  base: 'bg-background text-gray-900',
+  surface: 'bg-white text-gray-900',
+  dark: 'bg-gdg-black text-white',
+};
+---
+
+<section
+  id={id}
+  aria-labelledby={labelledby}
+  class={`scroll-mt-24 pb-20 md:scroll-mt-28 md:pb-28 ${flushTop ? '' : 'pt-20 md:pt-28'} ${toneClasses[tone]} ${className}`}
+>
+  <div class="mx-auto max-w-6xl px-4 md:px-8">
+    <slot />
+  </div>
+</section>

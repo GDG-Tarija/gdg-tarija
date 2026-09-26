@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import Button from '../../common/Button.astro';
+import FotoGrupal from '../../../assets/images/photos-comunity/io-extended-2024-grupal.jpg';
+
+const JOIN_URL = 'https://gdg.community.dev/gdg-tarija/';
+const EVENTS_URL = 'https://eventos.gdgtarija.com';
+---
+
+<section id="inicio" class="bg-background" aria-labelledby="hero-title">
+  <div
+    class="mx-auto grid max-w-6xl items-center gap-12 px-4 pt-32 pb-20 md:px-8 md:pt-40 lg:grid-cols-12 lg:gap-12 lg:pb-28"
+  >
+    <div class="lg:col-span-6">
+      <h1
+        id="hero-title"
+        class="text-[2.625rem] leading-[1.04] font-bold tracking-[-0.03em] text-balance text-gray-900 sm:text-6xl lg:text-[3.5rem] xl:text-[3.875rem]"
+      >
+        La comunidad de desarrolladores de Tarija
+      </h1>
+      <p class="mt-6 max-w-md text-lg leading-relaxed text-pretty text-gray-600 md:text-xl">
+        Somos el capítulo local de Google Developer Groups y organizamos eventos para developers
+        desde 2013.
+      </p>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Button href={JOIN_URL} target="_blank" rel="noopener noreferrer" iconPosition="right">
+          Únete a la comunidad
+          <i slot="icon" class="fa-solid fa-arrow-right text-base" aria-hidden="true"></i>
+        </Button>
+        <Button href={EVENTS_URL} target="_blank" rel="noopener noreferrer" variant="outline">
+          Ver eventos
+        </Button>
+      </div>
+    </div>
+
+    <Image
+      src={FotoGrupal}
+      alt="Foto grupal de los asistentes a Google I/O Extended Tarija 2024"
+      widths={[480, 720, 960, 1280]}
+      sizes="(min-width: 1152px) 540px, (min-width: 1024px) 46vw, 92vw"
+      class="aspect-4/3 w-full rounded-2xl object-cover object-[50%_45%] lg:col-span-6"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </div>
+</section>

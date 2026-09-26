@@ -1,5 +1,7 @@
 ---
 import MemberSocialNetworks from './MemberSocialNetworks.astro';
+import { commissionColor } from './commissions';
+import { cloudinaryAvatar } from '../../../utils/cloudinary';
 
 interface Props {
   Photo: string;
@@ -14,204 +16,127 @@ interface Props {
   Beacons?: string;
 }
 
-const {
-  Photo,
-  Name,
-  About,
-  Linkedin,
-  Github,
-  Facebook,
-  Instagram,
-  Sitio_web,
-  Commission,
-  Beacons,
-} = Astro.props;
-const BADGE_COLORS: Record<string, { bg: string; text: string }> = {
-  Organizer: { bg: '#162440', text: 'var(--color-gdg-halftone-blue)' },
-  Decoración: { bg: '#57220d', text: 'var(--color-gdg-pastel-red)' },
-  Developer: { bg: '#003462', text: 'var(--color-gdg-pastel-blue)' },
-  Diseño: { bg: '#2a0e0e', text: 'var(--color-gdg-red)' },
-  Logística: { bg: '#072012', text: 'var(--color-gdg-halftone-green)' },
-  Marketing: { bg: '#2a2000', text: 'var(--color-gdg-halftone-yellow)' },
-  Staff: { bg: '#042424', text: 'var(--color-gdg-pastel-green)' },
-  Transmisión: { bg: '#220d40', text: 'var(--color-gdg-halftone-red)' },
-};
-
-const frontBadges = Commission.slice(0, 2);
-const backBadges = Commission;
-const primaryColor = (BADGE_COLORS[Commission[0]] ?? BADGE_COLORS['Organizer']).text;
+const { Photo, Name, About, Commission, ...socials } = Astro.props;
 
 const initials = Name.split(' ')
   .map((w) => w[0])
   .slice(0, 2)
   .join('');
+const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 ---
 
-<div
-  class="member-card relative h-70 w-57.5 justify-self-center shadow-lg shadow-slate-900
-		cursor-pointer perspective:[900px]
-		transition-all duration-300 hover:scale-105 hover:shadow-xl"
-  aria-label={`Perfil de ${Name}`}
+<article
+  class="member-card relative flex h-full flex-col items-center rounded-xl border border-gray-200 bg-white p-4 text-center transition-[border-color,box-shadow] duration-200 hover:border-gray-300 hover:shadow-md md:p-6"
 >
-  <div
-    class="flip-inner absolute inset-0 rounded-2xl
-			transform-3d
-			transition-transform duration-500 ease-in-out"
-  >
-    <!-- CARA FRONTAL -->
-    <div
-      class="card-wrapper absolute! inset-0
-				backface-hidden [-webkit-backface-visibility:hidden]
-				shadow-lg shadow-slate-900"
+  <div class="relative size-24 shrink-0 sm:size-28 md:size-32">
+    <!-- Iniciales de respaldo si la foto de Cloudinary no carga -->
+    <span
+      class="absolute inset-0 flex items-center justify-center rounded-full bg-gray-100 text-xl font-semibold text-gray-500"
+      aria-hidden="true"
     >
-      <div class="card-content flex flex-col items-center justify-center gap-2 p-4 text-center">
-        <div
-          class="hidden w-32 h-32 rounded-full items-center justify-center
-						text-xl font-semibold shrink-0 bg-slate-700 text-zinc-300"
-          aria-hidden="true"
-        >
-          {initials}
-        </div>
-        <img
-          src={Photo}
-          alt={`Foto de ${Name}`}
-          class="rounded-full w-32 h-32 object-cover border-2 border-neutral-700 shrink-0"
-          loading="lazy"
-          onerror="this.style.display='none'; this.previousElementSibling.classList.replace('hidden','flex');"
-        />
-        <p class="font-semibold text-zinc-100 leading-snug mb-2">{Name}</p>
-        <div class="flex flex-wrap gap-1 justify-center">
-          {
-            frontBadges.map((c) => {
-              const colors = BADGE_COLORS[c] ?? BADGE_COLORS['Organizer'];
-              return (
-                <span
-                  class="text-xs font-medium px-2.5 py-0.5 rounded-full whitespace-nowrap"
-                  style={`background: ${colors.bg}; color: ${colors.text};`}
-                >
-                  {c}
-                </span>
-              );
-            })
-          }
-        </div>
-        <span class="flex items-center gap-1 text-[10px] text-zinc-300 mt-0.5" aria-hidden="true">
-          <i class="fa-regular fa-file-lines"></i>
-          Ver perfil
-        </span>
-      </div>
-    </div>
-    <!-- CARA TRASERA -->
-    <div
-      class="face-back absolute inset-0 rounded-2xl
-				bg-linear-to-b from-gray-600 to-gray-700
-				border border-zinc-600
-				backface-hidden [-webkit-backface-visibility:hidden]
-				transform-[rotateY(180deg)]
-				flex flex-col gap-2 p-6"
-    >
-      <div class="flex justify-between items-start shrink-0 gap-2">
-        <div class="min-w-0">
-          <p class="text-sm font-semibold m-0 mb-2 truncate" style={`color: ${primaryColor};`}>
-            {Name}
-          </p>
-          <div class="flex flex-wrap gap-1">
-            {
-              backBadges.map((c) => {
-                const colors = BADGE_COLORS[c] ?? BADGE_COLORS['Organizer'];
-                return (
-                  <span
-                    class="text-[10px] font-medium px-2 py-0.5 rounded-full whitespace-nowrap"
-                    style={`background: ${colors.bg}; color: ${colors.text};`}
-                  >
-                    {c}
-                  </span>
-                );
-              })
-            }
-          </div>
-        </div>
-        <button
-          class="close-btn shrink-0 flex items-center justify-center w-6 h-6
-						rounded-full bg-zinc-500 hover:bg-zinc-400 text-zinc-400 text-[11px]
-						leading-none border-none cursor-pointer transition-colors duration-150"
-          aria-label="Cerrar perfil"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            enable-background="new 0 0 24 24"
-            height="16"
-            viewBox="0 0 24 24"
-            width="16"
-          >
-            <g><rect fill="none" height="24" width="24"></rect></g>
-            <g
-              ><g>
-                <path
-                  d="M9,12c0,1.66,1.34,3,3,3s3-1.34,3-3s-1.34-3-3-3S9,10.34,9,12z"
-                  fill="#f0f0f2"></path>
-                <path
-                  d="M8,10V8H5.09C6.47,5.61,9.05,4,12,4c3.72,0,6.85,2.56,7.74,6h2.06c-0.93-4.56-4.96-8-9.8-8C8.73,2,5.82,3.58,4,6.01V4H2v6H8z"
-                  fill="#f0f0f2"></path>
-                <path
-                  d="M16,14v2h2.91c-1.38,2.39-3.96,4-6.91,4c-3.72,0-6.85-2.56-7.74-6H2.2c0.93,4.56,4.96,8,9.8,8c3.27,0,6.18-1.58,8-4.01V20h2v-6H16z"
-                  fill="#f0f0f2"></path>
-              </g></g
-            >
-          </svg>
-        </button>
-      </div>
-      <p class="about-text flex-1 text-xs text-zinc-400 leading-relaxed overflow-y-auto m-0 pr-0.5">
-        {About}
-      </p>
-      <div class="shrink-0 mt-auto">
-        <MemberSocialNetworks
-          Linkedin={Linkedin}
-          Github={Github}
-          Facebook={Facebook}
-          Instagram={Instagram}
-          Sitio_web={Sitio_web}
-          Beacons={Beacons}
-        />
-      </div>
-    </div>
+      {initials}
+    </span>
+    <img
+      src={cloudinaryAvatar(Photo, 256)}
+      alt={`Foto de ${Name}`}
+      width="128"
+      height="128"
+      loading="lazy"
+      decoding="async"
+      class="relative size-full rounded-full object-cover"
+      onerror="this.remove()"
+    />
   </div>
-</div>
+  <h3 class="mt-4 leading-snug font-semibold text-balance text-gray-900 md:text-lg">{Name}</h3>
+  <ul class="mt-2 flex flex-wrap justify-center gap-1.5" aria-label="Comisiones">
+    {
+      Commission.map((c) => (
+        <li class="inline-flex items-center gap-1.5 rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">
+          <span
+            class="size-1.5 rounded-full"
+            style={`background: ${commissionColor(c)};`}
+            aria-hidden="true"
+          />
+          {c}
+        </li>
+      ))
+    }
+  </ul>
+  <button
+    type="button"
+    class="member-open mt-auto inline-flex cursor-pointer items-center gap-1.5 rounded-full px-3 pt-5 pb-1 text-sm font-semibold text-gdg-blue transition-colors duration-200 hover:text-gdg-blue-deep focus-visible:outline-2 focus-visible:outline-gdg-blue"
+    aria-expanded="false"
+    aria-controls={bioId}
+  >
+    Ver perfil
+    <i class="fa-solid fa-plus text-xs" aria-hidden="true"></i>
+  </button>
+
+  <!-- La bio se superpone dentro de la misma card para no mover la grilla al abrirla -->
+  <div
+    id={bioId}
+    class="member-bio absolute inset-0 flex flex-col rounded-xl bg-white p-4 text-left md:p-6"
+    hidden
+  >
+    <div class="flex items-start justify-between gap-3">
+      <p class="leading-snug font-semibold text-gray-900">{Name}</p>
+      <button
+        type="button"
+        class="member-close -mt-1 -mr-1 flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+        aria-label={`Cerrar perfil de ${Name}`}
+      >
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <p
+      class="member-bio-text mt-3 flex-1 overflow-y-auto pr-1 text-sm leading-relaxed text-pretty text-gray-600"
+    >
+      {About}
+    </p>
+    <MemberSocialNetworks name={Name} {...socials} />
+  </div>
+</article>
+
 <style>
-  .member-card.is-flipped .flip-inner {
-    transform: rotateY(180deg);
+  @media (prefers-reduced-motion: no-preference) {
+    .member-bio:not([hidden]) {
+      animation: bio-in 0.25s ease-out both;
+    }
   }
 
-  .member-card.is-flipped .card-wrapper {
-    pointer-events: none;
+  @keyframes bio-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
-  .about-text {
+  .member-bio-text {
     scrollbar-width: thin;
-    scrollbar-color: #52525b transparent;
-  }
-  .about-text::-webkit-scrollbar {
-    width: 3px;
-  }
-  .about-text::-webkit-scrollbar-thumb {
-    background: #52525b;
-    border-radius: 2px;
+    scrollbar-color: var(--color-gray-300) transparent;
   }
 </style>
 
 <script>
   document.querySelectorAll<HTMLElement>('.member-card').forEach((card) => {
-    card.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
+    const openButton = card.querySelector<HTMLButtonElement>('.member-open');
+    const closeButton = card.querySelector<HTMLButtonElement>('.member-close');
+    const bio = card.querySelector<HTMLElement>('.member-bio');
+    if (!openButton || !closeButton || !bio) return;
 
-      if (target.closest('.close-btn')) {
-        card.classList.remove('is-flipped');
-        return;
-      }
+    const setOpen = (open: boolean) => {
+      bio.hidden = !open;
+      openButton.setAttribute('aria-expanded', String(open));
+      // El foco sigue al contenido para que el teclado no quede atrapado detrás de la capa
+      (open ? closeButton : openButton).focus();
+    };
 
-      if (target.closest('a')) return;
-
-      card.classList.toggle('is-flipped');
+    openButton.addEventListener('click', () => setOpen(true));
+    closeButton.addEventListener('click', () => setOpen(false));
+    bio.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setOpen(false);
     });
   });
 </script>

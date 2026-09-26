@@ -1,20 +1,14 @@
 [
   {
     "titulo": "¿Quiénes somos?",
-    "descripcion": "Somos GDG Tarija, una comunidad apasionada por la tecnología y la innovación. Formamos parte de los Google Developer Groups (GDG), una red global de comunidades locales de desarrolladores respaldada por Google. Nos dedicamos a compartir conocimientos, fomentar el aprendizaje y promover el desarrollo tecnológico en nuestra región.",
-    "bg_button": "bg-red-500",
-    "position": "0"
+    "descripcion": "Somos GDG Tarija, una comunidad apasionada por la tecnología y la innovación. Formamos parte de los Google Developer Groups (GDG), una red global de comunidades locales de desarrolladores respaldada por Google. Nos dedicamos a compartir conocimientos, fomentar el aprendizaje y promover el desarrollo tecnológico en nuestra región."
   },
   {
     "titulo": "Misión",
-    "descripcion": "Nuestra misión es empoderar a desarrolladores y entusiastas de la tecnología en Tarija mediante la creación de un entorno colaborativo y de apoyo. Nos enfocamos en ofrecer oportunidades de aprendizaje, networking y crecimiento profesional a través de eventos, talleres y charlas sobre las últimas tendencias y tecnologías de Google y el ecosistema tecnológico en general.",
-    "bg_button": "bg-blue-500",
-    "position": "1"
+    "descripcion": "Nuestra misión es empoderar a desarrolladores y entusiastas de la tecnología en Tarija mediante la creación de un entorno colaborativo y de apoyo. Nos enfocamos en ofrecer oportunidades de aprendizaje, networking y crecimiento profesional a través de eventos, talleres y charlas sobre las últimas tendencias y tecnologías de Google y el ecosistema tecnológico en general."
   },
   {
     "titulo": "Visión",
-    "descripcion": "Nuestra visión es convertirnos en una comunidad líder en innovación y desarrollo tecnológico en Tarija, impulsando el talento local y contribuyendo al avance tecnológico de nuestra región. Aspiramos a ser un referente de excelencia y un punto de encuentro para quienes desean transformar ideas en realidades a través del poder de la tecnología.",
-    "bg_button": "bg-green-500",
-    "position": "2"
+    "descripcion": "Nuestra visión es convertirnos en una comunidad líder en innovación y desarrollo tecnológico en Tarija, impulsando el talento local y contribuyendo al avance tecnológico de nuestra región. Aspiramos a ser un referente de excelencia y un punto de encuentro para quienes desean transformar ideas en realidades a través del poder de la tecnología."
   }
 ]

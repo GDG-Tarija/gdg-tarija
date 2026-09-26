@@ -27,7 +27,7 @@ El éxito es que cada audiencia llegue sin fricción a su siguiente paso: inscri
 
 ## Positioning
 
-Es el capítulo oficial de Google Developer Groups en Tarija, Bolivia: una comunidad local de voluntarios organizada por comisiones, con una trayectoria continua de eventos desde 2022 (DevFest, Google I/O Extended, International Women's Day, Build with AI, talleres propios) y su propia plataforma de eventos. Lo que otro sitio no puede copiar son sus personas reales, su historial de eventos en Tarija y su pertenencia a la red global de GDG.
+Es el capítulo oficial de Google Developer Groups en Tarija, Bolivia: una comunidad local de voluntarios organizada por comisiones, que organiza eventos para developers desde 2013 (DevFest, Google I/O Extended, International Women's Day, Build with AI, talleres propios) y tiene su propia plataforma de eventos. El historial detallado de `public/events.json` cubre solo desde 2022. Lo que otro sitio no puede copiar son sus personas reales, su historial de eventos en Tarija y su pertenencia a la red global de GDG.
 
 ## Operating Context
 
@@ -52,7 +52,9 @@ Es el capítulo oficial de Google Developer Groups en Tarija, Bolivia: una comun
 
 - **Guías de marca de GDG/Google obligatorias**: lockups oficiales de GDG, nombre "Google Developer Groups" / "GDG Tarija", colores de Google y la tipografía Google Sans (archivos locales en `src/assets/fonts/google-sans/`).
 - Logos disponibles: `src/assets/images/bwai2026/gdg_tarija_logo.svg`, `GDG_Blue_H.svg`, `GDG_Blue_mini.svg`, `google-developers.svg`, y el logo cuadrado en Cloudinary usado como imagen OG por defecto.
-- Voz observada en el copy actual (no confirmada como regla): cercana, entusiasta y de tuteo ("¡Únete a la comunidad!", "Postúlate", "Conviértete en speaker").
+- **Tono adulto y técnico (confirmado):** es una comunidad de developers, no un espacio infantil. Nada de recursos "family friendly" en visual ni en copy: chinchetas, fotos inclinadas, marcos tipo polaroid, radios exagerados.
+- **Copy directo y corto:** decir "developers", sin segmentar en "estudiantes y profesionales"; no listar tipos de eventos ni cifras en los textos principales.
+- Voz observada en el copy actual (no confirmada como regla): cercana y de tuteo ("¡Únete a la comunidad!", "Postúlate", "Conviértete en speaker").
 
 ## Evidence on Hand
 

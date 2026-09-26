@@ -1,170 +1,214 @@
 ---
+import { Image } from 'astro:assets';
+import Section from '../../common/Section.astro';
+import ArrowLink from '../../common/ArrowLink.astro';
 import infoAbout from './infoAbout.json';
-import Slide from './Slide.astro';
-import ButtonsNavigate from './ButtonsNavigate.astro';
+import FotoIoExtended from '../../../assets/images/photos-comunity/io-extended.png';
+import FotoIwd from '../../../assets/images/photos-comunity/iwd.png';
+
+const GALLERY_URL = 'https://photos.app.goo.gl/T1r7dZUf3RAypyXd8';
+
+// Ícono y color Google por pilar: la pestaña se reconoce sin leer el texto (The Signal Rule)
+const pillarStyles = [
+  {
+    icon: 'fa-solid fa-user-group',
+    tileSelected: 'group-aria-selected:bg-gdg-blue',
+  },
+  {
+    icon: 'fa-solid fa-bullseye',
+    tileSelected: 'group-aria-selected:bg-gdg-red',
+  },
+  {
+    icon: 'fa-solid fa-binoculars',
+    tileSelected: 'group-aria-selected:bg-gdg-green',
+  },
+];
+
+const pillars = infoAbout.map((pillar, index) => ({
+  ...pillar,
+  ...pillarStyles[index % pillarStyles.length],
+  id: `pilar-${index}`,
+}));
 ---
 
-<!-- About Section -->
-<section
-  id="about"
-  class="w-full bg-neutral-800 text-zinc-100 py-16 md:py-20 animate-fade-up animate-duration-[1500ms] animate-ease-in animate-fill-forwards scroll-mt-24 md:scroll-mt-28"
->
-  <div
-    id="default-carousel"
-    class="relative flex flex-col items-center max-w-6xl mx-auto px-4"
-    data-carousel="static"
-  >
-    <!-- Carousel wrapper -->
-    <div
-      class="overflow-hidden w-full relative min-h-95 sm:min-h-90 md:min-h-85 lg:min-h-80 rounded-xl shadow-2xl bg-neutral-900/50 backdrop-blur-xs border border-neutral-700/50"
-      id="carousel-wrapper"
-    >
-      <!-- Slider items -->
-      {infoAbout.map((info) => <Slide {...info} />)}
-
-      <!-- Slider indicators -->
-      <div class="flex absolute bottom-4 left-1/2 z-30 space-x-2 -translate-x-1/2">
-        {infoAbout.map((info) => <ButtonsNavigate {...info} />)}
+<Section id="about" tone="surface" labelledby="about-title">
+  <div class="about-tabs grid gap-8 lg:grid-cols-12 lg:gap-12" data-about-tabs>
+    <div class="lg:col-span-5">
+      <h2
+        id="about-title"
+        class="text-3xl leading-tight font-bold tracking-[-0.02em] text-gray-900 md:text-[2.5rem]"
+      >
+        Nosotros
+      </h2>
+      <div
+        class="mt-8 grid grid-cols-3 gap-2 lg:mt-10 lg:grid-cols-1"
+        role="tablist"
+        aria-label="Nosotros"
+        aria-orientation="vertical"
+      >
+        {
+          pillars.map((pillar, index) => (
+            <button
+              type="button"
+              role="tab"
+              id={`${pillar.id}-tab`}
+              aria-controls={`${pillar.id}-panel`}
+              aria-selected={index === 0 ? 'true' : 'false'}
+              tabindex={index === 0 ? '0' : '-1'}
+              class="about-tab group flex cursor-pointer flex-col items-center gap-2 rounded-xl p-3 text-center text-sm font-semibold text-gray-500 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue aria-selected:bg-background aria-selected:text-gray-900 sm:text-base lg:flex-row lg:gap-4 lg:p-4 lg:text-left lg:text-lg"
+            >
+              <span
+                class={`flex size-10 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-500 transition-colors duration-200 group-aria-selected:text-white ${pillar.tileSelected}`}
+                aria-hidden="true"
+              >
+                <i class={pillar.icon} />
+              </span>
+              <span class="flex-1">{pillar.titulo}</span>
+              <span
+                class="hidden text-sm text-gray-400 opacity-0 transition-opacity group-aria-selected:opacity-100 lg:inline"
+                aria-hidden="true"
+              >
+                <i class="fa-solid fa-arrow-right" />
+              </span>
+            </button>
+          ))
+        }
       </div>
+    </div>
 
-      <!-- Slider controls -->
-      <button
-        type="button"
-        class="absolute top-1/2 left-2 md:left-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-xs hover:bg-black/50 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200 hover:scale-110 active:scale-95"
-        data-carousel-prev
-        aria-label="Slide anterior"
-      >
-        <i class="fa-solid fa-chevron-left text-white/90 group-hover:text-white transition-colors"
-        ></i>
-      </button>
-      <button
-        type="button"
-        class="absolute top-1/2 right-2 md:right-4 z-30 -translate-y-1/2 w-10 h-10 bg-black/30 backdrop-blur-xs hover:bg-black/50 rounded-full flex items-center justify-center cursor-pointer group focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-200 hover:scale-110 active:scale-95"
-        data-carousel-next
-        aria-label="Slide siguiente"
-      >
-        <i class="fa-solid fa-chevron-right text-white/90 group-hover:text-white transition-colors"
-        ></i>
-      </button>
+    <div class="relative flex flex-col rounded-2xl bg-background p-7 md:p-12 lg:col-span-7">
+      {
+        /* Los paneles se apilan en la misma celda: el bloque toma la altura del texto más largo y no salta al cambiar */
+      }
+      <div class="grid flex-1">
+        {
+          pillars.map((pillar, index) => (
+            <div
+              role="tabpanel"
+              id={`${pillar.id}-panel`}
+              aria-labelledby={`${pillar.id}-tab`}
+              class="about-panel [grid-area:1/1]"
+              data-active={index === 0 ? 'true' : 'false'}
+              aria-hidden={index === 0 ? 'false' : 'true'}
+              inert={index !== 0}
+            >
+              <h3 class="text-2xl font-bold tracking-[-0.01em] text-gray-900">{pillar.titulo}</h3>
+              <p class="mt-4 text-lg leading-relaxed text-pretty text-gray-600 md:text-xl md:leading-relaxed">
+                {pillar.descripcion}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="mt-10 flex items-center justify-between border-t border-gray-300/70 pt-6">
+        <p class="text-sm font-medium text-gray-500 tabular-nums" aria-live="polite">
+          <span data-about-current>1</span> de {pillars.length}
+        </p>
+        <div class="flex gap-2">
+          <button
+            type="button"
+            data-about-prev
+            class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+            aria-label="Anterior"
+          >
+            <i class="fa-solid fa-arrow-left text-sm" aria-hidden="true"></i>
+          </button>
+          <button
+            type="button"
+            data-about-next
+            class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors duration-200 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+            aria-label="Siguiente"
+          >
+            <i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-</section>
+
+  <div class="mt-16 grid gap-3 sm:grid-cols-12 md:mt-20 md:gap-4">
+    <Image
+      src={FotoIoExtended}
+      alt="Sala llena en Google I/O Extended Tarija"
+      widths={[480, 720, 960]}
+      sizes="(min-width: 1152px) 620px, (min-width: 640px) 58vw, 100vw"
+      class="aspect-16/10 w-full rounded-xl object-cover sm:col-span-7"
+    />
+    <Image
+      src={FotoIwd}
+      alt="Equipo de International Women's Day Tarija"
+      widths={[480, 720]}
+      sizes="(min-width: 1152px) 440px, (min-width: 640px) 42vw, 100vw"
+      class="aspect-16/10 w-full rounded-xl object-cover sm:col-span-5 sm:aspect-auto sm:h-full"
+    />
+  </div>
+  <div class="mt-6 flex justify-end">
+    <ArrowLink href={GALLERY_URL} external>Ver galería completa</ArrowLink>
+  </div>
+</Section>
+
+<style>
+  .about-panel[data-active='false'] {
+    visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .about-panel[data-active='true'] {
+      animation: panel-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+  }
+
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
 
 <script>
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
-      const carousel = document.getElementById('default-carousel');
-      if (!carousel) return;
+  document.querySelectorAll<HTMLElement>('[data-about-tabs]').forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const panels = Array.from(root.querySelectorAll<HTMLElement>('[role="tabpanel"]'));
+    const counter = root.querySelector('[data-about-current]');
+    let current = 0;
 
-      const items = Array.from(carousel.querySelectorAll('[data-carousel-item]'));
-      const prevButton = carousel.querySelector('[data-carousel-prev]');
-      const nextButton = carousel.querySelector('[data-carousel-next]');
-      const indicators = Array.from(carousel.querySelectorAll('[data-carousel-slide-to]'));
-
-      let currentIndex = 0;
-      let direction: 'left' | 'right' = 'right';
-
-      const showSlide = (index: number, slideDirection?: 'left' | 'right') => {
-        // Asegurar que el índice esté en rango
-        if (index < 0) index = items.length - 1;
-        if (index >= items.length) index = 0;
-
-        const previousIndex = currentIndex;
-        currentIndex = index;
-
-        // Determinar dirección si no se especifica
-        if (!slideDirection) {
-          if (index > previousIndex || (index === 0 && previousIndex === items.length - 1)) {
-            direction = 'right';
-          } else {
-            direction = 'left';
-          }
-        } else {
-          direction = slideDirection;
-        }
-
-        // Ocultar todos los slides y preparar animación
-        items.forEach((item, i) => {
-          const element = item as HTMLElement;
-
-          if (i === currentIndex) {
-            // Slide entrante
-            element.classList.remove('hidden');
-            void element.offsetHeight; // Forzar reflow
-
-            // Posicionar fuera de la vista según dirección
-            if (direction === 'right') {
-              element.style.transform = 'translateX(100%)';
-            } else {
-              element.style.transform = 'translateX(-100%)';
-            }
-            element.style.opacity = '0';
-
-            // Animar hacia el centro con transición suave
-            requestAnimationFrame(() => {
-              element.style.transition =
-                'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
-              element.style.opacity = '1';
-              element.style.transform = 'translateX(0)';
-            });
-          } else if (i === previousIndex) {
-            // Slide saliente
-            const exitDirection = direction === 'right' ? '-100%' : '100%';
-            element.style.transition =
-              'opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)';
-            element.style.opacity = '0';
-            element.style.transform = `translateX(${exitDirection})`;
-
-            setTimeout(() => {
-              element.classList.add('hidden');
-            }, 700);
-          } else {
-            // Otros slides - mantener ocultos
-            element.style.opacity = '0';
-            element.style.transform = 'translateX(0)';
-            element.classList.add('hidden');
-          }
-        });
-
-        // Actualizar indicadores
-        indicators.forEach((indicator, i) => {
-          const btn = indicator as HTMLElement;
-          if (i === currentIndex) {
-            indicator.setAttribute('aria-current', 'true');
-            btn.classList.remove('bg-white/50', 'dark:bg-gray-800/50');
-            btn.classList.add('bg-white', 'dark:bg-gray-800');
-          } else {
-            indicator.setAttribute('aria-current', 'false');
-            btn.classList.remove('bg-white', 'dark:bg-gray-800');
-            btn.classList.add('bg-white/50', 'dark:bg-gray-800/50');
-          }
-        });
-      };
-
-      const nextSlide = () => {
-        showSlide(currentIndex + 1, 'right');
-      };
-
-      const prevSlide = () => {
-        showSlide(currentIndex - 1, 'left');
-      };
-
-      const goToSlide = (index: number) => {
-        // Determinar dirección basada en el índice
-        const slideDirection = index > currentIndex ? 'right' : 'left';
-        showSlide(index, slideDirection);
-      };
-
-      // Event listeners
-      prevButton?.addEventListener('click', prevSlide);
-      nextButton?.addEventListener('click', nextSlide);
-
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => goToSlide(index));
+    const select = (index: number, focusTab = false) => {
+      current = (index + tabs.length) % tabs.length;
+      tabs.forEach((tab, i) => {
+        const selected = i === current;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
       });
+      panels.forEach((panel, i) => {
+        const active = i === current;
+        panel.dataset.active = String(active);
+        panel.setAttribute('aria-hidden', String(!active));
+        panel.inert = !active;
+      });
+      if (counter) counter.textContent = String(current + 1);
+      if (focusTab) tabs[current].focus();
+    };
 
-      // Inicializar - mostrar el primer slide
-      showSlide(0);
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(index));
+      // Navegación con flechas entre pestañas, como indica el patrón de tabs de ARIA
+      tab.addEventListener('keydown', (event) => {
+        if (['ArrowDown', 'ArrowRight'].includes(event.key)) {
+          event.preventDefault();
+          select(current + 1, true);
+        } else if (['ArrowUp', 'ArrowLeft'].includes(event.key)) {
+          event.preventDefault();
+          select(current - 1, true);
+        }
+      });
     });
-  }
+
+    root.querySelector('[data-about-prev]')?.addEventListener('click', () => select(current - 1));
+    root.querySelector('[data-about-next]')?.addEventListener('click', () => select(current + 1));
+  });
 </script>

@@ -3,43 +3,47 @@ import redesSociales from './social-networks.json';
 import SocialNetworks from './SocialNetworks.astro';
 
 interface Props {
-  darkMode?: boolean;
   logo?: string;
 }
 
 const {
-  darkMode = false,
   logo = 'https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg',
 } = Astro.props;
+
+const footerLinks = [
+  { label: 'Eventos', href: 'https://eventos.gdgtarija.com', external: true },
+  { label: 'Código de conducta', href: '/code-of-conduct', external: false },
+  { label: 'Enlaces', href: '/links', external: false },
+];
 ---
 
-<footer
-  class={`${
-    darkMode
-      ? 'bg-linear-to-b from-black to-gray-900 border-t border-black'
-      : 'bg-linear-to-r from-gray-50 to-gray-100 border-t border-gray-200'
-  }`}
->
-  <div class="container mx-auto px-4 py-4">
-    <div
-      class="flex flex-col items-center space-y-3 lg:flex-row lg:justify-between lg:items-center lg:space-y-0"
-    >
-      <!-- Logo -->
-      <div class="flex items-center">
-        <img class="h-8 w-auto" src={logo} alt="GDG Tarija Logo" />
-      </div>
-
-      <!-- Redes sociales -->
-      <div class="flex items-center space-x-2">
+<footer class="border-t border-gray-200 bg-white">
+  <div class="mx-auto max-w-6xl px-4 py-8 md:px-8">
+    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <a href="/" aria-label="GDG Tarija, inicio" class="w-fit">
+        <img class="h-9 w-auto" src={logo} alt="" width="160" height="36" />
+      </a>
+      <nav aria-label="Pie de página">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-gray-600">
+          {
+            footerLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                  class="transition-colors duration-200 hover:text-gray-900"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div class="-ml-2.5 flex items-center gap-1 md:ml-0">
         {redesSociales.map((red_social) => <SocialNetworks {...red_social} />)}
       </div>
-    </div>
-
-    <!-- Copyright -->
-    <div class={`mt-4 pt-3 ${darkMode ? 'border-t border-gray-700' : 'border-t border-gray-200'}`}>
-      <p class={`text-center text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-        © {new Date().getFullYear()} GDG Tarija. Todos los derechos reservados.
-      </p>
     </div>
   </div>
 </footer>

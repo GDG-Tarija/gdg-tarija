@@ -2,7 +2,7 @@
 interface Props {
   href?: string;
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'outline' | 'inverse';
   size?: 'sm' | 'md' | 'lg';
   iconPosition?: 'left' | 'right';
   class?: string;
@@ -25,12 +25,18 @@ const {
   id,
 } = Astro.props;
 
+// Lift de 2px y sombra sutil al hover: respuesta táctil definida en DESIGN.md (The Quiet Shadow Rule)
 const baseClasses =
-  'inline-flex cursor-pointer items-center justify-center font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500';
+  'inline-flex cursor-pointer items-center justify-center whitespace-nowrap font-semibold rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97] transition-[background-color,box-shadow,translate,scale] duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gdg-blue';
 
 const variantClasses = {
-  primary: 'bg-gdg-blue hover:bg-blue-600 text-white',
+  primary: 'bg-gdg-blue hover:bg-gdg-blue-deep text-white',
   secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-800',
+  // Para fondos grises claros, donde el secundario gris se pierde contra el fondo
+  outline: 'bg-white hover:bg-gray-50 text-gray-800 ring-1 ring-inset ring-gray-300',
+  // Para bloques de color (el CTA azul): el botón blanco mantiene el contraste que el azul sobre azul perdería
+  inverse:
+    'bg-white hover:bg-gdg-ice-blue text-gdg-blue-deep focus-visible:ring-white focus-visible:ring-offset-gdg-blue-deep',
 };
 
 const sizeClasses = {
@@ -40,18 +46,20 @@ const sizeClasses = {
 };
 
 const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+// Evita renderizar un contenedor vacío con margen cuando no se pasa icono
+const hasIcon = Astro.slots.has('icon');
 ---
 
 {
   href ? (
     <a href={href} class={buttonClasses} target={target} rel={rel} id={id}>
-      {iconPosition === 'left' && (
+      {hasIcon && iconPosition === 'left' && (
         <span class="mr-3">
           <slot name="icon" />
         </span>
       )}
       <slot />
-      {iconPosition === 'right' && (
+      {hasIcon && iconPosition === 'right' && (
         <span class="ml-3">
           <slot name="icon" />
         </span>
@@ -59,13 +67,13 @@ const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[s
     </a>
   ) : (
     <button type={type} class={buttonClasses} onclick={onclick} id={id}>
-      {iconPosition === 'left' && (
+      {hasIcon && iconPosition === 'left' && (
         <span class="mr-3">
           <slot name="icon" />
         </span>
       )}
       <slot />
-      {iconPosition === 'right' && (
+      {hasIcon && iconPosition === 'right' && (
         <span class="ml-3">
           <slot name="icon" />
         </span>

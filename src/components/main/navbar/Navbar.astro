@@ -1,135 +1,114 @@
 ---
 import MenuList from '../navbar/menuList.json';
+import Button from '../../common/Button.astro';
+
+const JOIN_URL = 'https://gdg.community.dev/gdg-tarija/';
 ---
 
-<header
-  class="fixed top-3 md:top-5 inset-x-0 z-50 flex justify-center w-full px-4 transition-all duration-300"
->
+<header class="fixed inset-x-0 top-3 z-50 flex w-full justify-center px-4 md:top-5">
   <nav
-    class="w-full max-w-6xl bg-white/80 backdrop-blur-lg border border-gray-200 shadow-xs rounded-2xl flex flex-wrap justify-between items-center py-2 px-4 md:px-8 relative"
+    class="relative flex w-full max-w-6xl items-center justify-between rounded-xl border border-gray-200 bg-white/85 px-4 py-2 shadow-xs backdrop-blur-lg md:px-8"
+    aria-label="Principal"
   >
-    <div class="h-12 flex items-center">
-      <a href="/" aria-label="Home">
-        <img
-          class="h-10 w-auto md:hidden"
-          src="https://res.cloudinary.com/dopkch3x9/image/upload/v1769174223/logoGDG_Tarija_nox4y2.svg"
-          alt="GDG Tarija Logo Mobile"
-        />
-        <img
-          class="h-10 w-auto hidden md:flex"
-          src="https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg"
-          alt="GDG Tarija Logo Desktop"
-        />
-      </a>
-    </div>
-    <button
-      id="menu-button"
-      class="text-gray-700 text-xl hover:text-gdg-red md:hidden cursor-pointer p-2 rounded-lg hover:bg-gray-100 transition-all duration-200"
-    >
-      <i class="fa-solid fa-bars"></i>
-    </button>
-    <!-- Menú desktop -->
-    <div
-      id="menu-open"
-      class="items-center text-center w-full hidden md:flex md:w-auto animate-fade-down animate-duration-300"
-    >
-      <ul
-        class="font-medium text-sm lg:text-lg text-gray-700 bg-white/95 backdrop-blur-xs flex flex-col pt-6 md:flex-row md:pt-0 gap-6 md:gap-x-8 lg:gap-x-10 md:bg-transparent md:backdrop-blur-none rounded-lg md:rounded-none md:shadow-none mt-2 md:mt-0"
-      >
+    <a href="/" aria-label="GDG Tarija, inicio" class="flex h-12 items-center">
+      <img
+        class="h-10 w-auto md:hidden"
+        src="https://res.cloudinary.com/dopkch3x9/image/upload/v1769174223/logoGDG_Tarija_nox4y2.svg"
+        alt=""
+      />
+      <img
+        class="hidden h-10 w-auto md:block"
+        src="https://res.cloudinary.com/dopkch3x9/image/upload/v1752286109/gdg_tarija_logo_t3xzpo.svg"
+        alt=""
+      />
+    </a>
+
+    <!-- Menú de escritorio -->
+    <div class="hidden items-center gap-8 md:flex lg:gap-10">
+      <ul class="flex items-center gap-6 text-sm font-medium text-gray-700 lg:gap-8 lg:text-base">
         {
           MenuList.map((menu) => (
             <li>
-              <a
-                href={menu.href}
-                class="block px-4 py-3 md:px-0 md:py-0 hover:text-gdg-red hover:bg-gray-50 md:hover:bg-transparent transition-all duration-200 rounded-md"
-              >
+              <a href={menu.href} class="transition-colors duration-200 hover:text-gray-900">
                 {menu.title}
               </a>
             </li>
           ))
         }
       </ul>
+      <Button href={JOIN_URL} target="_blank" rel="noopener noreferrer" size="sm">Únete</Button>
     </div>
-    <!-- Menú móvil mejorado -->
+
+    <button
+      id="menu-button"
+      type="button"
+      class="flex size-11 cursor-pointer items-center justify-center rounded-lg text-xl text-gray-700 transition-colors duration-200 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-gdg-blue md:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Abrir menú"
+    >
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+
+    <!-- Menú móvil -->
     <div
       id="mobile-menu"
-      class="w-full hidden md:hidden bg-white/95 absolute top-full left-0 mt-2 border border-gray-100 shadow-xl overflow-hidden rounded-2xl pb-2"
+      class="absolute top-full left-0 mt-2 hidden w-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-xl md:hidden"
     >
-      <nav class="px-8 py-2">
-        <ul class="flex flex-col">
-          {
-            MenuList.map((menu, index) => (
-              <li class="border-b border-gray-100 last:border-none">
-                <a
-                  href={menu.href}
-                  class="block py-5 text-xl font-bold text-gray-900 hover:text-gdg-red transition-colors duration-200"
-                >
-                  {menu.title}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
+      <ul class="flex flex-col px-6 py-2">
+        {
+          MenuList.map((menu) => (
+            <li class="border-b border-gray-100">
+              <a
+                href={menu.href}
+                class="block py-4 text-lg font-semibold text-gray-900 transition-colors duration-200 hover:text-gdg-blue"
+              >
+                {menu.title}
+              </a>
+            </li>
+          ))
+        }
+        <li class="py-4">
+          <Button
+            href={JOIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full"
+            iconPosition="right"
+          >
+            Únete a la comunidad
+            <i slot="icon" class="fa-solid fa-arrow-right text-base" aria-hidden="true"></i>
+          </Button>
+        </li>
+      </ul>
     </div>
   </nav>
 </header>
 
 <script>
-  const button = document.querySelector('#menu-button');
-  const menuOpen = document.querySelector('#menu-open');
-  const mobileMenu = document.querySelector('#mobile-menu');
-  const menuIcon = button.querySelector('svg');
+  const button = document.getElementById('menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const icon = button?.querySelector('i');
 
-  const toggleMobileMenu = () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-
-    if (isHidden) {
-      mobileMenu.classList.remove('hidden');
-      // Animar los items del menú con stagger
-      const menuItems = mobileMenu.querySelectorAll('li');
-      menuItems.forEach((item, index) => {
-        const link = item.querySelector('a') as HTMLElement;
-        link.style.opacity = '0';
-        link.style.transform = 'translateX(-30px)';
-        setTimeout(() => {
-          link.style.transition =
-            'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
-          link.style.opacity = '1';
-          link.style.transform = 'translateX(0)';
-        }, index * 80);
-      });
-      menuIcon.innerHTML =
-        '<path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
-    } else {
-      // Animar salida
-      const menuItems = mobileMenu.querySelectorAll('li');
-      menuItems.forEach((item, index) => {
-        const link = item.querySelector('a') as HTMLElement;
-        setTimeout(() => {
-          link.style.transition = 'opacity 0.2s ease-out, transform 0.2s ease-out';
-          link.style.opacity = '0';
-          link.style.transform = 'translateX(-30px)';
-        }, index * 30);
-      });
-      setTimeout(() => {
-        mobileMenu.classList.add('hidden');
-      }, 300);
-      menuIcon.innerHTML =
-        '<path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
-    }
+  const setMenuOpen = (open: boolean) => {
+    if (!button || !mobileMenu) return;
+    mobileMenu.classList.toggle('hidden', !open);
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    icon?.classList.toggle('fa-bars', !open);
+    icon?.classList.toggle('fa-xmark', open);
   };
 
-  button.addEventListener('click', () => {
-    toggleMobileMenu();
+  button?.addEventListener('click', () => {
+    setMenuOpen(button.getAttribute('aria-expanded') !== 'true');
   });
 
-  window.addEventListener('scroll', () => {
-    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-      toggleMobileMenu();
-    }
-    if (menuOpen && !menuOpen.classList.contains('hidden')) {
-      menuOpen.classList.add('hidden');
-    }
+  // Al elegir una sección o hacer scroll, el menú se cierra para no tapar el contenido
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+  window.addEventListener('scroll', () => setMenuOpen(false), { passive: true });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenuOpen(false);
   });
 </script>

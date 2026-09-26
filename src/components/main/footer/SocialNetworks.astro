@@ -1,4 +1,10 @@
 ---
+interface Props {
+  red_social: string;
+  url: string;
+  logo: string;
+}
+
 const { red_social, url, logo } = Astro.props;
 
 const icons: Record<string, string> = {
@@ -13,12 +19,15 @@ const icons: Record<string, string> = {
 };
 
 const iconClass = icons[logo] ?? 'fa-solid fa-link';
+const label = red_social.charAt(0).toUpperCase() + red_social.slice(1);
 ---
 
 <a
   href={url}
-  class="p-2 rounded-full bg-gray-100 text-gray-600 transition-opacity duration-200 hover:opacity-70"
-  aria-label={red_social}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="flex size-10 items-center justify-center rounded-lg text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+  aria-label={`GDG Tarija en ${label}`}
 >
-  <i class={`${iconClass} text-xl`}></i>
+  <i class={`${iconClass} text-lg`} aria-hidden="true"></i>
 </a>

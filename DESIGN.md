@@ -7,43 +7,45 @@ colors:
   gdg-red: '#ea4335'
   gdg-yellow: '#f9ab00'
   gdg-green: '#34a853'
-  gdg-halftone-blue: '#57caff'
-  gdg-halftone-green: '#5cdb6d'
-  gdg-halftone-yellow: '#ffd427'
+  gdg-sunset-orange: '#f46831'
+  gdg-accent-purple: '#9334e6'
   gdg-halftone-red: '#ff7daf'
-  gdg-pastel-blue: '#c3ecf6'
-  gdg-pastel-green: '#ccf6c5'
-  gdg-pastel-red: '#f8d8d8'
+  gdg-halftone-blue: '#57caff'
   gdg-ice-blue: '#cae6ff'
-  gdg-midnight-blue: '#165185'
-  gdg-deep-ocean-blue: '#2480f0'
   surface: '#ffffff'
   gdg-off-white: '#f0f0f0'
   hairline: '#e5e7eb'
   hairline-soft: '#f3f4f6'
   ink: '#1f2937'
   ink-strong: '#111827'
+  ink-body: '#4b5563'
   ink-muted: '#6b7280'
   gdg-black: '#1e1e1e'
-  band-dark: '#262626'
   bwai-background: '#0f1419'
   bwai-border: '#181e24'
 typography:
   display:
     fontFamily: 'Google Sans, sans-serif'
-    fontSize: '3rem'
+    fontSize: '2.625rem'
     fontWeight: 700
-    lineHeight: 1
+    lineHeight: 1.04
+    letterSpacing: '-0.03em'
   headline:
     fontFamily: 'Google Sans, sans-serif'
     fontSize: '1.875rem'
     fontWeight: 700
-    lineHeight: 1.2
+    lineHeight: 1.25
+    letterSpacing: '-0.02em'
+  lead:
+    fontFamily: 'Google Sans, sans-serif'
+    fontSize: '1.125rem'
+    fontWeight: 400
+    lineHeight: 1.625
   title:
     fontFamily: 'Google Sans, sans-serif'
-    fontSize: '1.5rem'
-    fontWeight: 700
-    lineHeight: 1.333
+    fontSize: '1rem'
+    fontWeight: 600
+    lineHeight: 1.375
   body:
     fontFamily: 'Google Sans, sans-serif'
     fontSize: '1rem'
@@ -55,17 +57,18 @@ typography:
     fontWeight: 500
     lineHeight: 1.43
 rounded:
-  md: '6px'
-  lg: '16px'
-  card: '24px'
+  tag: '6px'
+  control: '8px'
+  card: '12px'
+  panel: '16px'
   full: '9999px'
 spacing:
   gutter-mobile: '16px'
-  gutter: '24px'
-  gap: '24px'
-  gap-lg: '32px'
-  section: '64px'
-  section-lg: '80px'
+  gutter: '32px'
+  gap: '16px'
+  gap-lg: '24px'
+  section: '80px'
+  section-lg: '112px'
 components:
   button-primary:
     backgroundColor: '{colors.gdg-blue}'
@@ -76,6 +79,16 @@ components:
   button-primary-hover:
     backgroundColor: '{colors.gdg-blue-deep}'
     textColor: '{colors.surface}'
+  button-outline:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink}'
+    rounded: '{rounded.full}'
+    padding: '12px 28px'
+  button-inverse:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.gdg-blue-deep}'
+    rounded: '{rounded.full}'
+    padding: '12px 28px'
   button-secondary:
     backgroundColor: '{colors.hairline}'
     textColor: '{colors.ink}'
@@ -86,23 +99,39 @@ components:
     textColor: '{colors.ink}'
     rounded: '{rounded.card}'
     padding: '24px'
-  link-row:
-    backgroundColor: '{colors.surface}'
+  panel-tonal:
+    backgroundColor: '{colors.gdg-off-white}'
     textColor: '{colors.ink}'
-    rounded: '{rounded.lg}'
-    padding: '16px 24px'
+    rounded: '{rounded.panel}'
+    padding: '48px'
+  cta-block:
+    backgroundColor: '{colors.gdg-blue-deep}'
+    textColor: '{colors.surface}'
+    rounded: '{rounded.panel}'
+    padding: '64px'
   nav-bar:
     backgroundColor: '{colors.surface}'
     textColor: '{colors.ink}'
-    rounded: '{rounded.lg}'
+    rounded: '{rounded.card}'
     padding: '8px 32px'
-  chip-commission:
-    rounded: '{rounded.full}'
-    padding: '2px 10px'
+  chip-filter:
+    backgroundColor: '{colors.surface}'
+    textColor: '{colors.ink}'
+    rounded: '{rounded.control}'
+    height: '36px'
+    padding: '0 12px'
+  chip-filter-selected:
+    backgroundColor: '{colors.gdg-ice-blue}'
+    textColor: '{colors.ink-strong}'
+  tag-commission:
+    backgroundColor: '{colors.hairline-soft}'
+    textColor: '{colors.ink}'
+    rounded: '{rounded.tag}'
+    padding: '2px 8px'
   bwai-cta:
     backgroundColor: '{colors.gdg-blue}'
     textColor: '{colors.surface}'
-    rounded: '{rounded.md}'
+    rounded: '{rounded.tag}'
     padding: '14px 24px'
 ---
 
@@ -112,53 +141,47 @@ components:
 
 **Creative North Star: "El Tablón de la Comunidad"**
 
-El sitio es un tablón de anuncios vivo de una comunidad real: personas con nombre y foto, eventos con fecha, fotos de salas llenas. El fondo es claro y tranquilo, como papel de tablón. Los cuatro colores de Google funcionan como chinchetas: marcan qué es importante, quién pertenece a qué comisión y dónde hay que tocar. El color nunca decora de forma pareja; señala.
+El sitio es el tablón de una comunidad real de developers: personas con nombre y foto, eventos con fecha, fotos de salas llenas. La metáfora vive en el contenido y en cómo se usa el color, nunca en utilería: no hay chinchetas, fotos inclinadas ni marcos de polaroid. Los cuatro colores de Google funcionan como señales: marcan la acción, la comisión de una persona o la estructura de un bloque. El color nunca decora de forma pareja; señala.
 
-La referencia de tacto son las landings de **Google for Developers**: superficies blancas, Google Sans, botones en píldora, cards de esquinas amplias, sombras apenas perceptibles y respuestas pequeñas pero claras al pasar el dedo o el cursor. Los componentes son amables y táctiles: invitan a tocar desde el celular, responden con un leve lift y nunca gritan. La marca de Google Developer Groups se aplica con disciplina (lockups oficiales, colores oficiales, Google Sans), y la identidad local vive en el contenido: el equipo, las fotos y el historial de eventos de Tarija.
+La referencia visual son las landings de **Google for Developers**: superficies claras y planas, Google Sans, botones en píldora, esquinas contenidas (12px), bordes finos, grillas rectas y fotos sin marco. El tono es adulto y técnico: una comunidad de developers, no un espacio infantil. Los componentes responden con cambios breves de tono o un lift de 2px, y el texto es corto: un título claro, una frase de apoyo y una acción.
 
 **Temas de evento.** Los eventos insignia (hoy Build with AI 2026) pueden llevar un tema propio que hereda la tipografía, los logos y los cuatro colores de Google, pero puede cambiar el fondo (incluido un modo totalmente oscuro), sumar motivos gráficos propios, usar otra geometría de botones y usar degradados y glows. Esas libertades valen solo dentro de la landing del evento; nunca vuelven al sitio principal.
 
 **Key Characteristics:**
 
-- Claro por defecto; las bandas oscuras son excepciones puntuales.
-- Los cuatro colores de Google como acentos que señalan, no como fondos.
-- Google Sans en todo; jerarquía por peso y tamaño, sin segunda familia en el sitio principal.
-- Botones en píldora, cards con esquinas de 24px, sombras sutiles.
-- Interacciones táctiles y breves: lift pequeño, cambio de tono, nada de rebotes exagerados.
-- Personas y fotos reales como protagonistas visuales.
+- Claro por defecto; el cierre es un bloque azul con las caras del equipo, no una banda oscura.
+- Los colores de Google como señales pequeñas (puntos, acciones), no como fondos.
+- Google Sans en todo; jerarquía por peso y tamaño.
+- Botones en píldora; cards y fotos con 12px; paneles grandes (hero, Nosotros, CTA) con 16px.
+- Grillas rectas y alineadas; nada flota ni se inclina. La vida viene de las fotos reales y de la interacción (pestañas, perfiles), no de la decoración.
+- Texto corto y directo; fotos reales como protagonistas.
 
 ## Colors
 
-Una base neutra clara con los cuatro colores de Google como acentos y una familia extendida (halftone, pastel) para codificar comisiones y estados.
+Una base neutra clara con los cuatro colores de Google como señales y una familia extendida para codificar comisiones.
 
 ### Primary
 
-- **Azul Google** (`gdg-blue`): el color de la acción. Botones primarios, enlaces destacados, fechas de eventos y el acento principal de cualquier llamada a la acción.
-- **Azul Google Profundo** (`gdg-blue-deep`): hover y estado presionado del azul primario. Es el mismo tono que ya usan los CTA de Build with AI.
+- **Azul Google** (`gdg-blue`): el color de la acción. Botones primarios, enlaces con flecha y el acento de cualquier llamada a la acción.
+- **Azul Google Profundo** (`gdg-blue-deep`): hover del azul primario y fondo del bloque CTA de cierre (el blanco sobre este azul pasa 4.5:1; sobre `gdg-blue` no).
 
 ### Secondary
 
-- **Rojo Google** (`gdg-red`): hover de enlaces de navegación y acentos puntuales. No se usa para errores decorativos ni fondos grandes.
-- **Amarillo Google** (`gdg-yellow`): acento de apoyo en contadores, separadores y detalles gráficos.
-- **Verde Google** (`gdg-green`): acento de apoyo; confirmaciones y detalles gráficos.
-
-Juntos, los cuatro aparecen como firma de marca en piezas pequeñas (el anillo del loader, los separadores del contador, los indicadores del carrusel), nunca como cuatro bloques de fondo compitiendo.
+- **Rojo Google** (`gdg-red`), **Amarillo Google** (`gdg-yellow`) y **Verde Google** (`gdg-green`): señales puntuales. Hoy son los íconos de las pestañas de Nosotros (en color solo la activa) y los colores de comisión. Juntos forman la firma de marca en piezas pequeñas (el anillo del loader), nunca como cuatro bloques de fondo compitiendo.
 
 ### Tertiary
 
-- **Familia Halftone** (`gdg-halftone-blue`, `gdg-halftone-green`, `gdg-halftone-yellow`, `gdg-halftone-red`): versiones luminosas para texto y bordes sobre superficies oscuras. Codifican las comisiones del equipo.
-- **Familia Pastel** (`gdg-pastel-blue`, `gdg-pastel-green`, `gdg-pastel-red`, `gdg-ice-blue`): tintes suaves para chips, fondos de etiquetas y superficies de apoyo en modo claro.
-- **Azul Medianoche** (`gdg-midnight-blue`) y **Azul Océano** (`gdg-deep-ocean-blue`): azules de profundidad para piezas de marca y bordes sobre blanco.
-- En `@theme` también existen `gdg-sunset-orange`, `gdg-forest-green`, `gdg-pastel-yellow` y `gdg-accent-purple` como reserva de la paleta GDG. Hoy no se usan; tómalos de ahí antes de inventar un color nuevo.
+- **Colores de comisión**: completan el mapa de comisiones del equipo junto a los cuatro de Google. **Naranja Atardecer** (`gdg-sunset-orange`) para Logística, **Púrpura** (`gdg-accent-purple`) para Transmisión, **Rosa Halftone** (`gdg-halftone-red`) para Decoración y **Celeste Halftone** (`gdg-halftone-blue`) para Staff.
+- **Azul Hielo** (`gdg-ice-blue`): fondo tonal del chip de filtro seleccionado, de la etiqueta "Conferencia" y hover del botón inverso. **Pastel Verde** y **Pastel Amarillo** (`gdg-pastel-green`, `gdg-pastel-yellow`, en `@theme`) tiñen las etiquetas "Taller" y "Hackathon".
+- En `@theme` quedan otros tonos de la paleta GDG (pastel, midnight, forest, halftone verde y amarillo) como reserva. Tómalos de ahí antes de inventar un color nuevo.
 
 ### Neutral
 
-- **Blanco Superficie** (`surface`): fondo de cards, barra de navegación y secciones informativas.
-- **Blanco Tablón** (`gdg-off-white`, alias `--color-background`): fondo base de página y superficies hundidas.
-- **Línea** (`hairline`) y **Línea Suave** (`hairline-soft`): bordes de 1px en navegación, cards y separadores.
-- **Tinta** (`ink`): texto principal. **Tinta Fuerte** (`ink-strong`): títulos de mayor peso. **Tinta Tenue** (`ink-muted`): fechas, metadatos y texto secundario.
-- **Negro GDG** (`gdg-black`): negro de marca para piezas oscuras.
-- **Banda Oscura** (`band-dark`): fondo de las bandas oscuras actuales del home (Quiénes somos, Fotos, Miembros).
+- **Blanco Superficie** (`surface`): secciones alternas, cards, navegación, footer.
+- **Blanco Tablón** (`gdg-off-white`, alias `--color-background`): fondo del hero y de las secciones alternas.
+- **Línea** (`hairline`) y **Línea Suave** (`hairline-soft`): bordes de 1px, divisores y fondo de las etiquetas de comisión.
+- **Tinta Fuerte** (`ink-strong`): títulos. **Tinta** (`ink`): texto de controles y nombres. **Tinta Cuerpo** (`ink-body`): párrafos y leads. **Tinta Tenue** (`ink-muted`): fechas, contadores y metadatos.
+- **Negro GDG** (`gdg-black`): negro de marca, reservado; el home ya no tiene bandas oscuras.
 
 ### Event Theme (Build with AI 2026)
 
@@ -168,11 +191,11 @@ Juntos, los cuatro aparecen como firma de marca en piezas pequeñas (el anillo d
 
 ### Named Rules
 
-**The Pushpin Rule.** Los colores de Google son chinchetas: van donde hay algo que señalar (una acción, una comisión, una fecha). Si un acento no señala nada, sobra.
+**The Signal Rule.** Un color de Google aparece solo donde señala algo: una acción, una comisión, un pilar. Si un acento no señala nada, sobra.
 
 **The Blue Means Go Rule.** En el sitio principal, la acción principal siempre es Azul Google. Ningún otro color compite por ese rol.
 
-**The No-Gradient Rule.** El sitio principal no usa degradados en fondos de cards, contenedores ni texto. El color es plano; los degradados y glows son un recurso exclusivo de los temas de evento.
+**The No-Gradient Rule.** El sitio principal no usa degradados en fondos, contenedores ni texto. El color es plano; los degradados y glows son un recurso exclusivo de los temas de evento.
 
 **The Token-Only Rule.** Todo color sale de `@theme` en `src/styles/global.css`. Nada de hex sueltos en clases (`bg-[#3367D6]`) ni de nombres que no existen (`text-google-blue` no está definido y no pinta nada).
 
@@ -182,93 +205,112 @@ Juntos, los cuatro aparecen como firma de marca en piezas pequeñas (el anillo d
 **Body Font:** Google Sans (con `sans-serif`)
 **Label/Mono Font:** solo en temas de evento, la pila monoespaciada por defecto de Tailwind (`font-mono`)
 
-**Character:** Una sola familia, la de Google, cargada en local desde `src/assets/fonts/google-sans/` (400, 500, 700 y sus itálicas). La jerarquía se hace con peso y tamaño; la voz es amable y clara, nunca técnica en el sitio principal.
+**Character:** Una sola familia, la de Google, cargada en local desde `src/assets/fonts/google-sans/` (400, 500, 700 y sus itálicas). La jerarquía se hace con peso, tamaño y un tracking negativo leve en los títulos grandes.
 
 ### Hierarchy
 
-- **Display** (700, de 3rem en móvil hasta 7.5rem en pantallas grandes, line-height 1): títulos de campaña de primera pantalla, como "Call 4 Members". Uno por página como máximo.
-- **Headline** (700, 1.875rem, 1.2): títulos de sección ("Eventos Pasados", "Miembros", "Fotos de nuestros eventos").
-- **Title** (700, 1.5rem y hasta 2.25rem en escritorio, 1.333): títulos de bloque, como los slides de Quiénes somos, Misión y Visión.
-- **Body** (400, 1rem, 1.625): párrafos. Los textos largos se limitan a unos 65–75 caracteres por línea (`max-w-4xl` como techo).
-- **Label** (500, 0.875rem): navegación, tabs, chips y metadatos. Los chips más pequeños bajan a 0.75rem.
+- **Display** (700, de 2.625rem en móvil a 3.875rem en `xl`, 1.04, -0.03em): el `h1` del hero y el título del cierre. Uno por bloque.
+- **Headline** (700, de 1.875rem a 2.5rem desde `md`, 1.25, -0.02em): títulos de sección ("¿Quiénes somos?", "Eventos pasados", "Equipo").
+- **Lead** (400, 1.125rem a 1.25rem, 1.625, `ink-body`): la frase de apoyo bajo un título. Máximo unas dos líneas en escritorio.
+- **Title** (600, 1rem, 1.375): nombres de eventos y de personas.
+- **Body** (400, 1rem, 1.625): párrafos, con medida de 65–75 caracteres.
+- **Label** (500, 0.875rem): navegación, filtros, metadatos. Las etiquetas de comisión bajan a 0.75rem.
 
 ### Named Rules
 
-**The One Family Rule.** El sitio principal usa solo Google Sans. La monoespaciada y los motivos de código (`//`, `{}`) pertenecen al tema de Build with AI y no se importan al home.
+**The Short Copy Rule.** Un título, una frase y una acción. No se listan tipos de eventos, cifras ni audiencias segmentadas en los textos principales; se dice "developers".
+
+**The One Family Rule.** El sitio principal usa solo Google Sans. La monoespaciada y los motivos de código (`//`, `{}`) pertenecen al tema de Build with AI.
 
 ## Layout
 
-Columna centrada con contenedores de ancho máximo según el tipo de contenido: 72rem (`max-w-6xl`) para navegación y secciones de texto, 80rem (`max-w-7xl`) para grillas de eventos y landings de evento, 64rem (`max-w-5xl`) para la grilla de miembros. Los márgenes laterales son 16px en móvil y 24px desde tablet.
+Columna centrada de 72rem (`max-w-6xl`) con márgenes de 16px en móvil y 32px desde `md`, la misma medida que la barra de navegación, para que el borde del logo y el borde del contenido coincidan. Todas las secciones del home se arman con `src/components/common/Section.astro`: 80px de padding vertical, 112px desde `md`, y `scroll-mt` para compensar la navegación fija.
 
-Las secciones respiran con 64px de padding vertical y suben a 80px desde `md`. Las grillas son de una columna en móvil, dos en `sm`, tres en `md` y cuatro en `lg`, con separación de 24–32px. La barra de navegación flota fija arriba, así que las anclas llevan `scroll-mt-24` / `md:scroll-mt-28`.
+Los encabezados de sección (`SectionHeading.astro`) van alineados a la izquierda, con la acción secundaria (un enlace con flecha) a la derecha en escritorio. Los bloques de título más texto usan una grilla de 12 columnas: título en 6 columnas y lead más botones en las otras 6, alineados abajo.
 
-El ritmo por defecto es claro: `gdg-off-white` y `surface` alternan para separar secciones. Las bandas oscuras son excepciones deliberadas; el home actual tiene tres (Quiénes somos, Fotos, Miembros), que ya son el techo y no un patrón a repetir.
+El ritmo alterna `gdg-off-white` y `surface`: hero (tablón), Nosotros (superficie), Eventos (tablón), Equipo (superficie) y el bloque CTA azul dentro de una sección blanca con `flushTop`, que continúa a Equipo sin doble padding. Eventos y Equipo usan 2 columnas en móvil y 4 en escritorio (Equipo pasa por 3 en `md`). Las listas largas muestran dos filas de escritorio (8 eventos, 8 personas) y el resto detrás de un botón "Ver todos".
 
-**The Light Ground Rule.** Una sección nueva del sitio principal es clara salvo que haya una razón editorial para oscurecerla. No se agregan bandas oscuras nuevas para "dar variedad".
+**The Light Ground Rule.** Una sección nueva del sitio principal es clara. El único bloque de color fuerte es el CTA de cierre.
 
 ## Elevation & Depth
 
-Sistema casi plano. La profundidad viene del contraste entre `surface` y `gdg-off-white`, de bordes de 1px (`hairline`, `hairline-soft`) y de sombras muy suaves. En reposo, las cards y filas usan `shadow-sm`; al hover suben a `shadow-md` con un lift de 2px. Los overlays (menú móvil, modal de fotos) son los únicos que usan sombras grandes, porque de verdad flotan sobre la página.
+Sistema plano. La profundidad viene del contraste entre `surface` y `gdg-off-white` y de bordes de 1px. Las cards no tienen sombra en reposo; al abrirse o al hover cambian el borde o suman `shadow-sm`. Los botones llevan `shadow-sm` y suben a `shadow-md` con un lift de 2px al hover. Solo el menú móvil desplegado usa una sombra grande, porque de verdad flota sobre la página.
 
 ### Shadow Vocabulary
 
-- **Reposo** (`shadow-sm`): cards, filas de enlaces y botones en reposo.
-- **Hover** (`shadow-md`): respuesta al hover de cualquier elemento que se puede tocar.
-- **Overlay** (`shadow-xl` / `shadow-2xl`): solo menú móvil desplegado y modal de fotos.
+- **Control** (`shadow-sm`): botones en reposo y cards abiertas.
+- **Hover** (`shadow-md`): botones al hover.
+- **Overlay** (`shadow-xl`): solo el menú móvil desplegado.
 - **Glow de evento** (`0 0 20px rgba(66,133,244,0.35)`, hasta `0 8px 28px rgba(66,133,244,0.35)` al hover): exclusivo del tema de evento.
 
 ### Named Rules
 
-**The Quiet Shadow Rule.** Nada en el sitio principal pasa de `shadow-md` salvo que flote sobre la página. Los botones con `shadow-lg` y `hover:shadow-xl` actuales son una desviación a corregir.
+**The Quiet Shadow Rule.** Nada en el sitio principal pasa de `shadow-md` salvo que flote sobre la página. Fotos y cards no llevan sombra decorativa.
 
 ## Shapes
 
-Formas amplias y suaves, como en las landings de Google for Developers. Tres radios en el sitio principal: píldora completa (`rounded-full`) para botones, chips, tabs y avatares; 24px (`rounded-3xl`) para cards; 16px (`rounded-2xl`) para la barra de navegación, el menú desplegable y los elementos internos. Los avatares de personas y las portadas de eventos son círculos. Los bordes son de 1px, nunca más gruesos salvo en avatares (2px).
+Esquinas contenidas, como en las páginas de Google. Radios del sitio principal: píldora completa (`rounded-full`) para botones, avatares y portadas de eventos (que se diseñaron para verse en círculo); 16px (`rounded-2xl`) para los paneles grandes: la foto del hero, el panel de Nosotros y el bloque CTA; 12px (`rounded-xl`) para cards, fotos de galería, la barra de navegación y el menú móvil; 8px (`rounded-lg`) para chips de filtro y los íconos de pestaña; 6px (`rounded-md`) para etiquetas. Los bordes son siempre de 1px.
 
-El tema de Build with AI usa esquinas de 6px (`rounded-md`) en CTAs y paneles, coherente con su estética de terminal.
+Las fotos van en grillas rectas: sin marco, sin inclinación, sin superposición.
 
-**The Pill-and-Card Rule.** Si se toca y ejecuta una acción, es una píldora. Si agrupa contenido, es una card de 24px. No hay botones cuadrados ni cards con esquinas chicas en el sitio principal.
+**The Pill-and-Card Rule.** Si ejecuta una acción, es una píldora. Si agrupa contenido, lleva 12px; si es un panel protagonista, 16px. Nada pasa de 16px salvo la píldora y los círculos.
 
 ## Components
 
 ### Buttons
 
-Amables y táctiles: una píldora azul que se levanta un poco al hover.
+Una píldora que cambia de tono y se levanta 2px al hover (`src/components/common/Button.astro`).
 
-- **Shape:** píldora completa (`rounded-full`).
-- **Primary:** fondo Azul Google, texto blanco, Label en semibold. Tamaños `sm` (8px 20px), `md` (12px 28px) y `lg` (16px 32px), definidos en `src/components/common/Button.astro`.
-- **Hover / Focus:** fondo Azul Google Profundo, lift de 2px y `shadow-md`; presionado baja a `scale(0.97)`. Foco visible con anillo azul de 2px y offset de 2px.
-- **Secondary:** fondo `hairline`, texto `ink`, mismo comportamiento.
-- **Desviaciones actuales:** el hover usa `blue-600` de Tailwind en vez de Azul Google Profundo, la sombra en reposo es `shadow-lg` y el hover escala a 1.05. El CTA de Call 4 Members escala hasta 1.25 y usa degradado. Todo eso se alinea con esta sección cuando se toque el componente.
+- **Shape:** píldora completa (`rounded-full`), texto sin cortes (`whitespace-nowrap`).
+- **Primary:** fondo Azul Google, texto blanco, semibold. Tamaños `sm` (8px 20px), `md` (12px 28px) y `lg` (16px 32px).
+- **Hover / Focus:** fondo Azul Google Profundo, lift de 2px y `shadow-md`; presionado baja a `scale(0.97)`. Foco visible solo con teclado: anillo azul de 2px con offset de 2px.
+- **Outline:** fondo blanco con anillo interno de 1px gris; es el secundario sobre fondos grises ("Ver eventos", "Ver todos").
+- **Inverse:** fondo blanco con texto Azul Google Profundo; solo sobre el bloque CTA azul. Hover en Azul Hielo.
+- **Secondary:** fondo `hairline`, texto `ink`; solo sobre fondo blanco.
+- **Icono:** el slot `icon` solo se renderiza si se pasa un ícono; la flecha a la derecha marca la acción principal.
+
+### Links con flecha
+
+`ArrowLink.astro`: texto semibold en Azul Google con una flecha que se desplaza 2px al hover. Si el enlace sale del sitio, la flecha es de "abrir afuera". Es la acción secundaria de los encabezados de sección.
 
 ### Chips
 
-- **Style:** píldora pequeña (Label 0.75rem, padding 2px 10px) con fondo oscuro teñido y texto en el color halftone o pastel de la comisión.
-- **State:** los tabs de filtro de Miembros son píldoras con borde de 1px; el tab activo toma el color de su comisión en borde y texto.
+- **Filtro** (Equipo): 36px de alto, borde de 1px, 8px de radio, punto de color de la comisión y contador en `ink-muted`. Seleccionado: fondo Azul Hielo sin borde (`aria-pressed`).
+- **Etiqueta de comisión:** fondo `hairline-soft`, 6px de radio, 0.75rem, con un punto de 6px del color de la comisión.
 
 ### Cards / Containers
 
-- **Corner Style:** 24px (`rounded-3xl`).
-- **Background:** `surface` sobre `gdg-off-white`.
-- **Shadow Strategy:** `shadow-sm` en reposo y `shadow-md` más lift de 2px al hover (ver Elevation & Depth).
-- **Border:** 1px `hairline-soft`.
-- **Internal Padding:** 24px.
-- La fila de enlace de `/links` (card blanca, borde suave, texto que pasa a azul y flecha que se desplaza al hover) es la referencia más fiel de esta card hoy.
+- **Corner Style:** 12px (`rounded-xl`).
+- **Background:** `surface`.
+- **Shadow Strategy:** sin sombra en reposo (ver Elevation & Depth).
+- **Border:** 1px `hairline`, que se oscurece al hover junto con `shadow-md` (las de eventos además suben 2px).
+- **Internal Padding:** 16px en móvil, 24px desde `md`. Contenido centrado.
 
 ### Navigation
 
-- **Style:** barra flotante centrada (`max-w-6xl`), blanco al 80% con desenfoque, borde `hairline`, esquinas de 16px, fija a 12–20px del borde superior.
-- **Typography:** Label en medium, `ink` a 70%; hover en Rojo Google.
-- **Mobile:** botón de menú que despliega un panel blanco de 16px de radio con enlaces grandes (1.25rem, bold) que entran en cascada de 80ms con `cubic-bezier(0.16, 1, 0.3, 1)`.
-- Logo: versión compacta en móvil y horizontal desde `md`, ambas desde Cloudinary.
+- **Style:** barra flotante centrada (`max-w-6xl`), blanco al 85% con desenfoque, borde `hairline`, esquinas de 12px, fija a 12–20px del borde superior.
+- **Contenido:** logo, enlaces Nosotros, Eventos y Equipo (Label, `ink` a 70%, pasan a `ink-strong` al hover) y un botón primario `sm` "Únete".
+- **Mobile:** botón de menú de 44px con `aria-expanded`; despliega un panel blanco de 12px con enlaces de 1.125rem y el botón "Únete a la comunidad". Se cierra al elegir un enlace, al hacer scroll o con Escape.
 
-### Commission Badge (signature)
+### Hero Photo
 
-Cada comisión del equipo tiene un color fijo: Organizer en halftone azul, Developer en pastel azul, Diseño en rojo Google, Logística en halftone verde, Marketing en halftone amarillo, Staff en pastel verde, Transmisión en halftone rojo y Decoración en pastel rojo. El mismo mapa colorea los chips de la tarjeta de miembro y el tab activo del filtro. Es la aplicación más clara de The Pushpin Rule y debe mantenerse en un solo mapa compartido.
+Una sola foto fija a la derecha del texto (4:3, 16px de radio): la foto grupal de Google I/O Extended Tarija 2024. Sin rotación, indicadores ni leyendas. Archivo: `src/assets/images/photos-comunity/io-extended-2024-grupal.jpg` (JPEG de 2000 px, recortado sin la mesa del primer plano); Astro genera las variantes WebP.
+
+### Pestañas de Nosotros (signature)
+
+Carrusel en forma de pestañas: a la izquierda la lista (vertical en escritorio, tres columnas en móvil) con un ícono de 40px que es gris en reposo y toma su color Google al activarse; a la derecha un panel tonal (`gdg-off-white`, 16px) con el título, el texto (sin ícono: el ícono vive solo en la pestaña) y un pie con "1 de 3" y flechas circulares. Los paneles se apilan en la misma celda para que el bloque no cambie de altura. Navegable con flechas del teclado (patrón de tabs de ARIA).
+
+### Event Card
+
+Card blanca centrada: portada circular (112px en móvil a 160px en escritorio) con zoom de 1.05 al hover, etiqueta del tipo teñida por formato (Taller verde, Conferencia azul, Hackathon amarillo), nombre en Title que pasa a azul y fecha con ícono de calendario al pie. Se genera en el build desde `public/events.json`, ordenado por fecha, con `src/utils/dates.ts` como parser.
 
 ### Member Card (signature)
 
-Tarjeta que gira al tocarla: el frente muestra foto circular, nombre y hasta dos chips de comisión; el reverso muestra la bio, todas las comisiones y las redes. Hoy usa un borde animado con los cuatro colores de Google y fondos degradados gris; por The No-Gradient Rule, esos degradados son deuda a revisar.
+Card vertical centrada: foto circular grande (96px a 128px, recortada a la cara con `src/utils/cloudinary.ts`), nombre, etiquetas de comisión y "Ver perfil +" al pie. El perfil se abre como una capa blanca dentro de la misma card (bio con scroll y redes como botones de ícono de 36px), así la grilla no se mueve; se cierra con la X o Escape y el foco vuelve al botón. El color de cada comisión sale de un único mapa en `src/components/main/members/commissions.ts`, que comparten etiquetas y filtros: Organizer azul, Developer verde, Diseño rojo, Marketing amarillo, Logística naranja, Transmisión púrpura, Decoración rosa y Staff celeste. En móvil, los filtros se desplazan en una sola fila.
+
+### Closing CTA (signature)
+
+Bloque Azul Google Profundo de 16px dentro de una sección blanca, con el contenido centrado: título Display en blanco, una frase, botón inverso y el correo como enlace con ícono. Los chevrons de GDG en blanco al 12% enmarcan el contenido a ambos lados ("< Únete a la comunidad >"); en móvil asoman cortados por los bordes. Sin fotos de personas.
 
 ### Loader
 
@@ -286,21 +328,23 @@ Anillo que gira con un color de Google por lado alrededor del logo de GDG Tarija
 
 ### Do:
 
-- **Do** usar el fondo claro (`gdg-off-white` / `surface`) como punto de partida de cualquier sección nueva del sitio principal.
+- **Do** armar cada sección nueva con `Section.astro` y `SectionHeading.astro`, sobre fondo claro.
 - **Do** usar Azul Google para la acción principal y Azul Google Profundo para su hover.
-- **Do** usar píldoras (`rounded-full`) para botones y chips, y cards de 24px (`rounded-3xl`) con `shadow-sm` para agrupar contenido.
-- **Do** responder al hover con un lift de 2px y `shadow-md`, y al clic con `scale(0.97)`.
-- **Do** tomar colores solo de los tokens de `@theme`; si falta uno, agregarlo ahí primero.
-- **Do** usar fotos reales de la comunidad y del equipo como imagen principal.
+- **Do** usar píldoras para botones, 12px para cards y fotos, y bordes de 1px.
+- **Do** mostrar fotos reales en grillas rectas, alineadas al contenedor.
+- **Do** escribir un título, una frase y una acción; decir "developers".
+- **Do** tomar colores solo de los tokens de `@theme`, y los colores de comisión solo de `commissions.ts`.
+- **Do** mantener un foco visible con teclado en todo lo que se puede tocar.
 - **Do** respetar los lockups oficiales de GDG y usar Google Sans desde los archivos locales.
-- **Do** mantener un foco visible (anillo azul de 2px) en todo lo que se puede tocar.
 
 ### Don't:
 
-- **Don't** usar degradados en fondos de cards, contenedores o texto en el sitio principal (The No-Gradient Rule). El título de "Fotos de nuestros eventos", el CTA de Call 4 Members y el footer claro tienen degradados que son deuda.
-- **Don't** pasar de `shadow-md` en elementos que no flotan sobre la página.
-- **Don't** escalar botones o portadas más de 1.05 al hover.
-- **Don't** usar hex sueltos en clases (`bg-[#3367D6]`, `bg-[#0f0f0f]`) ni tokens inexistentes como `text-google-blue`.
+- **Don't** usar utilería "family friendly": chinchetas, fotos inclinadas o flotantes, marcos tipo polaroid, leyendas con fechas sobre las fotos.
+- **Don't** pasar de 12px de radio fuera de las píldoras.
+- **Don't** usar degradados en fondos, contenedores o texto en el sitio principal.
+- **Don't** pasar de `shadow-md` en elementos que no flotan sobre la página, ni escalar más de 1.03 al hover.
+- **Don't** usar carruseles para contenido que cabe a la vista; muestra el texto completo.
+- **Don't** usar hex sueltos en clases ni tokens inexistentes como `text-google-blue`.
 - **Don't** llevar motivos de un tema de evento (monospace, `//`, auroras, glows, CTAs de 6px) al sitio principal.
-- **Don't** agregar nuevas bandas oscuras al home; las tres actuales ya son el techo.
-- **Don't** usar los cuatro colores de Google como bloques de fondo que compiten entre sí.
+- **Don't** agregar bandas oscuras al home.
+- **Don't** recortar en cuadrado portadas pensadas para círculo, ni dejar items de grilla sin fondo ni borde.

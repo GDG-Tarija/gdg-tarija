@@ -1,10 +1,14 @@
 [
   {
-    "title": "¿Quiénes Somos?",
+    "title": "Nosotros",
     "href": "/#about"
   },
   {
     "title": "Eventos",
     "href": "/#events"
+  },
+  {
+    "title": "Equipo",
+    "href": "/#members"
   }
 ]

@@ -1,0 +1,21 @@
+---
+interface Props {
+  href: string;
+  external?: boolean;
+  class?: string;
+}
+
+const { href, external = false, class: className = '' } = Astro.props;
+---
+
+<a
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  class={`group inline-flex items-center gap-2 rounded-sm font-semibold text-gdg-blue transition-colors duration-200 hover:text-gdg-blue-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gdg-blue ${className}`}
+>
+  <slot />
+  <i
+    class={`${external ? 'fa-solid fa-arrow-up-right-from-square text-xs' : 'fa-solid fa-arrow-right text-sm'} transition-transform duration-200 group-hover:translate-x-0.5`}
+    aria-hidden="true"></i>
+</a>
