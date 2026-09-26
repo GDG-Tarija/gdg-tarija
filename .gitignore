@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # vscode setting folder
 .vscode/
+
+# capturas de revisión de diseño (se regeneran)
+.impeccable/review/

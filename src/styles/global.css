@@ -26,37 +26,32 @@
   --color-gdg-pastel-yellow: #ffe7a5;
   --color-gdg-pastel-red: #f8d8d8;
   --color-gdg-accent-purple: #9334e6;
-
-  /* Animación para el delineado vector */
-  --animate-draw-stroke: draw-stroke 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-
-  @keyframes draw-stroke {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
 }
 
 @font-face {
   font-family: 'Google Sans';
+  font-display: swap;
   src: url(../assets/fonts/google-sans/GoogleSans-Regular.ttf) format('truetype');
   font-weight: 400;
 }
 
 @font-face {
   font-family: 'Google Sans';
+  font-display: swap;
   src: url(../assets/fonts/google-sans/GoogleSans-Medium.ttf) format('truetype');
   font-weight: 500;
 }
 
 @font-face {
   font-family: 'Google Sans';
+  font-display: swap;
   src: url(../assets/fonts/google-sans/GoogleSans-Bold.ttf) format('truetype');
   font-weight: 700;
 }
 
 @font-face {
   font-family: 'Google Sans';
+  font-display: swap;
   src: url(../assets/fonts/google-sans/GoogleSans-Italic.ttf) format('truetype');
   font-weight: 400;
   font-style: italic;
@@ -64,6 +59,7 @@
 
 @font-face {
   font-family: 'Google Sans';
+  font-display: swap;
   src: url(../assets/fonts/google-sans/GoogleSans-MediumItalic.ttf) format('truetype');
   font-weight: 500;
   font-style: italic;
@@ -71,6 +67,7 @@
 
 @font-face {
   font-family: 'Google Sans';
+  font-display: swap;
   src: url(../assets/fonts/google-sans/GoogleSans-BoldItalic.ttf) format('truetype');
   font-weight: 700;
   font-style: italic;

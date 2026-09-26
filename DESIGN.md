@@ -209,7 +209,7 @@ Una base neutra clara con los cuatro colores de Google como señales y una famil
 
 ### Hierarchy
 
-- **Display** (700, de 2.625rem en móvil a 3.875rem en `xl`, 1.04, -0.03em): el `h1` del hero y el título del cierre. Uno por bloque.
+- **Display** (700, de `clamp(2.25rem, 10.5vw, 2.625rem)` en móvil a 3.875rem en `xl`, 1.04, -0.03em): el `h1` del hero y el título del cierre. Uno por bloque.
 - **Headline** (700, de 1.875rem a 2.5rem desde `md`, 1.25, -0.02em): títulos de sección ("¿Quiénes somos?", "Eventos pasados", "Equipo").
 - **Lead** (400, 1.125rem a 1.25rem, 1.625, `ink-body`): la frase de apoyo bajo un título. Máximo unas dos líneas en escritorio.
 - **Title** (600, 1rem, 1.375): nombres de eventos y de personas.
@@ -228,7 +228,7 @@ Columna centrada de 72rem (`max-w-6xl`) con márgenes de 16px en móvil y 32px d
 
 Los encabezados de sección (`SectionHeading.astro`) van alineados a la izquierda, con la acción secundaria (un enlace con flecha) a la derecha en escritorio. Los bloques de título más texto usan una grilla de 12 columnas: título en 6 columnas y lead más botones en las otras 6, alineados abajo.
 
-El ritmo alterna `gdg-off-white` y `surface`: hero (tablón), Nosotros (superficie), Eventos (tablón), Equipo (superficie) y el bloque CTA azul dentro de una sección blanca con `flushTop`, que continúa a Equipo sin doble padding. Eventos y Equipo usan 2 columnas en móvil y 4 en escritorio (Equipo pasa por 3 en `md`). Las listas largas muestran dos filas de escritorio (8 eventos, 8 personas) y el resto detrás de un botón "Ver todos".
+El ritmo alterna `gdg-off-white` y `surface`: hero (tablón), Nosotros (superficie), Eventos (tablón), Equipo (superficie) y el bloque CTA azul dentro de una sección blanca con `flushTop`, que continúa a Equipo sin doble padding. Eventos usa 2 columnas en móvil y 4 desde `lg`; Equipo, 2 en móvil y 4 desde `md`, así las 8 personas iniciales siempre llenan dos filas. El footer se apila hasta `lg`. Las listas largas muestran dos filas de escritorio (8 eventos, 8 personas) y el resto detrás de un botón "Ver todos".
 
 **The Light Ground Rule.** Una sección nueva del sitio principal es clara. El único bloque de color fuerte es el CTA de cierre.
 
