@@ -42,14 +42,6 @@
     "Commission": ["Organizer"]
   },
   {
-    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981526/Alex_M_lekxcz.png",
-    "Name": "Alex Márquez",
-    "Linkedin": "https://www.linkedin.com/in/ruth-paola-gomez-marquez-2538b9363?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    "Instagram": "https://www.instagram.com/marqueezalex?igsh=MXJ2Ync3MmZheDEzbQ==",
-    "About": "Desarrollador en formación con enfoque en backend, arquitectura de sistemas y desarrollo full stack. Interesado en inteligencia artificial y construcción de soluciones escalables",
-    "Commission": ["Marketing"]
-  },
-  {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775219820/Cristian_Garcia_r8hqmo.jpg",
     "Name": "Santiago Garcia",
     "Instagram": "https://www.instagram.com/san_gm__?igsh=MW53dWlldXM1NWFpZw==",
@@ -105,16 +97,7 @@
     "About": "Soy un desarrollador Full-stack trabajo con el stack de .Net/Angular en Jalasoft. Me interesa aprender sobre IA y programación a bajo nivel.",
     "Commission": ["Developer", "Logística", "Decoración", "Staff"]
   },
-  {
-    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774971373/Ana_Gabriel_ipbf0c.jpg",
-    "Name": "Ana Gabriel",
-    "Linkedin": "https://www.linkedin.com/in/ana-belen-gabriel-mercado-2985a4297/",
-    "Instagram": "https://www.instagram.com/g2a00bo4?igsh=MWNhNGZ0ejRwc2p3OQ==",
-    "Github": "https://github.com/gabiamer",
-    "About": "Estudiante de Ingeniería de Sistemas con interés en ciberseguridad y desarrollo web. Disfruto aprender por mi cuenta y aplicarlo en proyectos. Fuera de la facultad, practico piano o hago algo de deporte.",
-    "Commission": ["Logística", "Marketing"]
-  },
-  {
+{
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1774981388/Daniel_Medrano_Mollo_t9wvqw.png",
     "Name": "Daniel Medrano",
     "Instagram": "https://www.instagram.com/danimedran0/",
@@ -233,14 +216,6 @@
     "Instagram": "https://www.instagram.com/jesusmiranda9634/",
     "About": "Soy un estudiante de ing en software, con una gran pasión por la programación, y entusiasmado en aprender sobre las nuevas tecnologías, me gusta participar en \nproyectos en equipos que amplíen mis conocimientos, y me brindan la oportunidad de crear proyectos personales, me esfuerzo continuamente por mejorar mis habilidades para crecer como desarrollador",
     "Commission": ["Marketing", "Staff", "Decoración"]
-  },
-  {
-    "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/v1778098132/Neyl_Angola_yg6uth.jpg",
-    "Name": "Neyl Angola",
-    "Facebook": "https://www.facebook.com/angel.angola.52",
-    "Github": "https://github.com/NeylAngola",
-    "About": "Me gustan los videojuegos, los animes y los conocimientos científicos y tecnológicos",
-    "Commission": ["Diseño"]
   },
   {
     "Photo": "https://res.cloudinary.com/dopkch3x9/image/upload/q_auto/f_auto/v1775218146/Luis_Yanarico_etk4zf.jpg",
