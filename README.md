@@ -47,8 +47,8 @@ El enrutamiento de Astro mapea los archivos en `src/pages/` directamente a URLs 
 
 - `/` ([`index.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/index.astro)): Página principal de la comunidad GDG Tarija.
 - `/build-with-ai` ([`build-with-ai.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/build-with-ai.astro)): Landing page del evento "Build with AI 2026".
-- `/call4speakers` ([`call4speakers.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/call4speakers.astro)): Formulario e información para postulaciones de ponentes.
-- `/call4sponsors` ([`call4sponsors.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/call4sponsors.astro)): Convocatoria y beneficios para patrocinadores de eventos.
+- `/speaker` y `/speakers` ([`speakers.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/speakers.astro)): Redirigen al formulario de postulación de ponentes.
+- `/sponsor` y `/sponsors` ([`sponsors.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/sponsors.astro)): Redirigen al formulario para patrocinadores.
 - `/code-of-conduct` ([`code-of-conduct.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/code-of-conduct.astro)): Código de conducta oficial de la comunidad.
 - `/member-code-of-conduct` ([`member-code-of-conduct.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/member-code-of-conduct.astro)): Código de conducta específico para miembros y colaboradores.
 - `/road` ([`road.astro`](file:///Users/pedroanze/Documents/gdg/gdg-tarija/src/pages/road.astro)): Hoja de ruta y planes de la comunidad.

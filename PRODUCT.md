@@ -33,7 +33,7 @@ Es el capítulo oficial de Google Developer Groups en Tarija, Bolivia: una comun
 
 - **Home (`/`)**: banner de campaña temporal (Call 4 Members, con fecha límite), Quiénes somos / Misión / Visión, fotos de la comunidad, historial de eventos, miembros del equipo y contacto.
 - **Landings de eventos insignia**: `/build-with-ai` (Build with AI 2026, con agenda, speakers, sponsors, FAQ, paquetes de swag y Road to Build).
-- **Rutas de redirección cortas** para compartir en redes y WhatsApp: `/call4speakers`, `/call4sponsors`, `/convocatoria-sponsor`, `/workshops`, `/road`, `/manual-gdg`. Muestran un loader breve y redirigen con `meta refresh`. Se crean con el workflow `.agents/workflows/create-redirect.md`.
+- **Rutas de redirección cortas** para compartir en redes y WhatsApp: `/speakers`, `/sponsors`, `/workshops`, `/road`, `/manual-gdg`. Muestran un loader breve y redirigen con `meta refresh`. Se crean con el workflow `.agents/workflows/create-redirect.md`.
 - **`/links`**: hub de enlaces para las bios de redes sociales.
 - **Códigos de conducta**: `/code-of-conduct` (eventos) y `/member-code-of-conduct` (miembros y colaboradores).
 - **Distribución** (inferida del código, no medida): los enlaces se comparten sobre todo por WhatsApp y redes; por eso las imágenes Open Graph se optimizan para la vista previa de WhatsApp (cuadradas, menos de 300 KB).
