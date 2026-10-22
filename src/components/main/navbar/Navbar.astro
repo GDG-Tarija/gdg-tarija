@@ -5,7 +5,9 @@ import Button from '../../common/Button.astro';
 const JOIN_URL = 'https://gdg.community.dev/gdg-tarija/';
 ---
 
-<header class="fixed inset-x-0 top-3 z-50 flex w-full justify-center px-4 md:top-5">
+<header
+  class="fixed inset-x-0 top-[calc(var(--banner-offset,0px)+0.75rem)] z-50 flex w-full justify-center px-4 md:top-[calc(var(--banner-offset,0px)+1.25rem)]"
+>
   <nav
     id="site-nav"
     class="relative flex w-full max-w-6xl items-center justify-between rounded-xl border border-gray-200 bg-white/85 px-4 py-2 shadow-xs backdrop-blur-lg transition-[background-color,box-shadow] duration-300 data-[scrolled=true]:bg-white/95 data-[scrolled=true]:shadow-md md:px-8"

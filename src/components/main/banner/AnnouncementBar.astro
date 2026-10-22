@@ -1,0 +1,56 @@
+---
+const MESSAGE = 'Save the date';
+const DETAIL = '21 de noviembre es el DevFest Tarija';
+---
+
+<div
+  id="announcement-bar"
+  class="relative z-40 flex h-10 items-center justify-center bg-gdg-black px-12 text-sm text-white"
+  role="region"
+  aria-label="Anuncio"
+>
+  <p class="truncate">
+    <strong class="font-semibold text-gdg-halftone-yellow">{MESSAGE}:</strong>
+    {DETAIL}
+  </p>
+  <button
+    id="announcement-close"
+    type="button"
+    class="absolute right-2 flex size-8 cursor-pointer items-center justify-center rounded-lg text-white/80 transition-colors duration-200 hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-gdg-blue"
+    aria-label="Cerrar anuncio"
+  >
+    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+  </button>
+</div>
+
+<script>
+  const STORAGE_KEY = 'announcement-devfest-2026-closed';
+  const bar = document.getElementById('announcement-bar');
+  const root = document.documentElement;
+
+  // La navbar es fixed: se corre por debajo de la barra mientras esta sigue visible en pantalla
+  function syncOffset() {
+    const visible = bar && !bar.hidden ? Math.max(bar.offsetHeight - window.scrollY, 0) : 0;
+    root.style.setProperty('--banner-offset', `${visible}px`);
+  }
+
+  function close() {
+    if (bar) bar.hidden = true;
+    try {
+      sessionStorage.setItem(STORAGE_KEY, '1');
+    } catch {
+      // Sin storage la barra simplemente reaparece en la próxima visita
+    }
+    syncOffset();
+  }
+
+  try {
+    if (sessionStorage.getItem(STORAGE_KEY) && bar) bar.hidden = true;
+  } catch {
+    // Sin storage se muestra siempre
+  }
+
+  document.getElementById('announcement-close')?.addEventListener('click', close);
+  window.addEventListener('scroll', syncOffset, { passive: true });
+  syncOffset();
+</script>
