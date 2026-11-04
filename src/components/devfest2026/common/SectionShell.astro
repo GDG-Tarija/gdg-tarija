@@ -1,0 +1,24 @@
+---
+// Contenedor de todas las secciones: fondo por tono, columna central y gutters iguales
+interface Props {
+  id?: string;
+  label: string;
+  tone?: 'surface' | 'ground' | 'blue' | 'green' | 'yellow';
+}
+
+const { id, label, tone = 'surface' } = Astro.props;
+
+const toneClasses = {
+  surface: 'df-tone-surface',
+  ground: 'df-tone-ground',
+  blue: 'df-tone-blue',
+  green: 'df-tone-green',
+  yellow: 'df-tone-yellow',
+};
+---
+
+<section id={id} aria-label={label} class={`scroll-mt-24 ${toneClasses[tone]}`}>
+  <div class="mx-auto max-w-df px-df-gutter-mobile py-df-section md:px-df-gutter">
+    <slot />
+  </div>
+</section>
