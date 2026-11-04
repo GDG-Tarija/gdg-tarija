@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Loader from '../components/common/Loader.astro';
+
+const title = 'DevFest Tarija 2026 | 28 de noviembre en la UPDS | GDG Tarija';
+const description =
+  'DevFest Tarija 2026: el evento tech de GDG Tarija el 28 de noviembre en la UPDS. Charlas, talleres y networking con la comunidad de desarrolladores. Regístrate gratis.';
+const image =
+  'https://res.cloudinary.com/startup-grind/image/upload/c_scale,w_2560/c_crop,h_640,w_2560,y_0.0_mul_h_sub_0.0_mul_640/c_crop,h_640,w_2560/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/event_banners/blob_uL3wAoK';
+const canonical = 'https://gdgtarija.com/devfest';
+const redirectUrl = 'https://eventos.gdgtarija.com/e/devfest';
+
+// Datos estructurados para que Google pueda mostrar el evento como resultado enriquecido
+const eventSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'DevFest Tarija 2026',
+  description,
+  startDate: '2026-11-28',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+  location: {
+    '@type': 'Place',
+    name: 'Universidad Privada Domingo Savio (UPDS)',
+    address: { '@type': 'PostalAddress', addressLocality: 'Tarija', addressCountry: 'BO' },
+  },
+  image: [image],
+  organizer: { '@type': 'Organization', name: 'GDG Tarija', url: 'https://gdgtarija.com' },
+  offers: { '@type': 'Offer', url: redirectUrl, price: '0', priceCurrency: 'BOB' },
+};
+---
+
+<Layout
+  title={title}
+  description={description}
+  image={image}
+  canonical={canonical}
+  imageAlt="DevFest Tarija 2026 - GDG Tarija"
+  imageWidth={2560}
+  imageHeight={640}
+>
+  <Fragment slot="head">
+    <!-- Un refresh corto deja que los rastreadores lean los metatags antes de enviar al usuario -->
+    <meta http-equiv="refresh" content={`1;url=${redirectUrl}`} />
+    <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+  </Fragment>
+
+  <main class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
+    <Loader
+      text="Redirigiendo..."
+      subtext="Te estamos llevando al DevFest Tarija 2026 · 28 de noviembre · UPDS."
+    />
+  </main>
+</Layout>

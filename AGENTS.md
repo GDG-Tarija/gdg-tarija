@@ -35,7 +35,7 @@ npm run format:check # Verifica que el código cumpla con las directivas de form
 4. **Tailwind CSS v4 nativo:** Se utiliza Tailwind CSS v4 mediante `@tailwindcss/vite` (declarado en `astro.config.mjs`). No agregues clases inline redundantes si el archivo se vuelve complejo; prefiere modularizar el código o usar CSS modules/archivos CSS puros para estructurar componentes complejos.
 5. **Variables CSS globales:** Usa variables CSS (`:root`) definidas para temas de colores, espaciados y componentes globales.
 6. **No degradados no autorizados:** Evita el uso de gradientes complejos en fondos de tarjetas y contenedores a menos que el diseño lo exija específicamente.
-7. **Diseño Limpio y Premium:** Mantén bordes redondeados contenidos, al estilo de las páginas de Google (`rounded-xl` para cards, fotos y contenedores; `rounded-full` para botones), sombras sutiles (`shadow-sm`) y una paleta de colores limpia (los colores oficiales de Google). El detalle vive en `DESIGN.md`.
+7. **Diseño Limpio y Sobrio:** Mantén bordes redondeados contenidos, al estilo de las páginas de Google (`rounded-lg` para botones, cards y fotos; `rounded-xl` solo para paneles protagonistas; sin píldoras), títulos en peso medio, botones compactos, sombras sutiles (máximo `shadow-sm`), animaciones discretas y una paleta de colores limpia (los colores oficiales de Google). El detalle vive en `DESIGN.md`.
 
 ### Estilo de Código y Filosofía
 

@@ -50,11 +50,10 @@ const footerLinks = [
     </div>
     <p
       class="mt-6 flex items-center justify-center gap-2 border-t border-gray-100 pt-5 font-mono text-xs text-gray-500"
-      data-terminal
     >
       <span class="text-gdg-green" aria-hidden="true">$</span>
-      <span data-terminal-text>{COMMIT_LINE}</span>
-      <span class="terminal-caret inline-block h-3.5 w-1.5 bg-gdg-blue" aria-hidden="true"></span>
+      <span>{COMMIT_LINE}</span>
+      <span class="terminal-caret inline-block h-3.5 w-1.5 bg-gray-400" aria-hidden="true"></span>
     </p>
   </div>
 </footer>
@@ -72,31 +71,3 @@ const footerLinks = [
     }
   }
 </style>
-
-<script>
-  import { inView } from 'motion';
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // El texto completo ya está en el HTML (sin JS se lee igual); aquí solo se re-escribe tecla a tecla
-  document.querySelectorAll<HTMLElement>('[data-terminal]').forEach((line) => {
-    const target = line.querySelector<HTMLElement>('[data-terminal-text]');
-    const full = target?.textContent ?? '';
-    if (!target || reduceMotion) return;
-
-    target.textContent = '';
-    const stop = inView(
-      line,
-      () => {
-        stop();
-        let index = 0;
-        const type = () => {
-          target.textContent = full.slice(0, ++index);
-          if (index < full.length) window.setTimeout(type, 38 + Math.random() * 45);
-        };
-        window.setTimeout(type, 250);
-      },
-      { amount: 1 },
-    );
-  });
-</script>

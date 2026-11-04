@@ -53,14 +53,15 @@ Es el capítulo oficial de Google Developer Groups en Tarija, Bolivia: una comun
 - **Guías de marca de GDG/Google obligatorias**: lockups oficiales de GDG, nombre "Google Developer Groups" / "GDG Tarija", colores de Google y la tipografía Google Sans (archivos locales en `src/assets/fonts/google-sans/`).
 - Logos disponibles: `src/assets/images/bwai2026/gdg_tarija_logo.svg`, `GDG_Blue_H.svg`, `GDG_Blue_mini.svg`, `google-developers.svg`, y el logo cuadrado en Cloudinary usado como imagen OG por defecto.
 - **Tono adulto y técnico (confirmado):** es una comunidad de developers, no un espacio infantil. Nada de recursos "family friendly" en visual ni en copy: chinchetas, fotos inclinadas, marcos tipo polaroid, radios exagerados.
+- **Sobrio como Google, sin ser corporativo (confirmado):** la referencia son las páginas de Google: botones compactos, esquinas contenidas, títulos en peso medio y animaciones discretas. GDG Tarija es una comunidad, no una empresa: la calidez la ponen las personas, las fotos y el código, no componentes grandes, muy redondeados o con animaciones llamativas.
 - **Copy directo y corto:** decir "developers", sin segmentar en "estudiantes y profesionales"; no listar tipos de eventos ni cifras en los textos principales.
 - Voz observada en el copy actual (no confirmada como regla): cercana y de tuteo ("¡Únete a la comunidad!", "Postúlate", "Conviértete en speaker").
 
 ## Evidence on Hand
 
 - **Historial de 19 eventos** (2022–2026) con fecha, tipo, imagen y enlace, en `public/events.json`; imágenes en `public/img/events/`.
-- **Equipo real**: 35 miembros con foto, bio, redes y comisión en `members.json`.
-- **Fotos de la comunidad** en `public/img/photos-comunity/` y `src/assets/images/gdg-grupal-Call4.png`.
+- **Equipo real**: miembros con foto, bio, redes y comisión en `src/components/main/members/members.json` (32 a octubre de 2026).
+- **Fotos de la comunidad** en `src/assets/images/photos-comunity/` (foto grupal a color de I/O Extended 2024, sala de I/O Extended, equipo IWD).
 - **Textos institucionales** (Quiénes somos, Misión, Visión) en `src/components/main/about/infoAbout.json`.
 - **Build with AI 2026**: speakers, sponsors, colaboradores, agenda Road to Build, FAQ, paquetes de swag y la sede UCB (`src/components/bwai2026/`).
 - **Ausencias que no se deben inventar**: no hay testimonios, cifras de asistentes o de alcance, logos de sponsors históricos más allá de los de Build with AI 2026, ni menciones de prensa. No fabricar métricas ("+1000 devs") ni citas.

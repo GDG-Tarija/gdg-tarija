@@ -193,7 +193,7 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, col) => {
 
   .code-layer--base {
     color: var(--color-gray-400);
-    opacity: 0.32;
+    opacity: 0.26;
   }
 
   @media (min-width: 1024px) {
@@ -210,7 +210,7 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, col) => {
   .code-layer--lit {
     color: var(--color-gray-500);
     mask-image: radial-gradient(
-      circle 15rem at var(--x) var(--y),
+      circle 13rem at var(--x) var(--y),
       #000 0%,
       rgb(0 0 0 / 0.55) 45%,
       transparent 75%
@@ -219,7 +219,7 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, col) => {
 
   .code-layer--lit :global(.tk-kw) {
     color: var(--color-gdg-blue);
-    font-weight: 600;
+    font-weight: 500;
   }
   .code-layer--lit :global(.tk-str) {
     color: var(--color-gdg-green);
@@ -230,7 +230,7 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, col) => {
   }
   .code-layer--lit :global(.tk-fn) {
     color: var(--color-gdg-yellow);
-    font-weight: 600;
+    font-weight: 500;
   }
   .code-layer--lit :global(.tk-com) {
     color: var(--color-gray-400);
@@ -303,8 +303,8 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, col) => {
           y: 0.45 + 0.3 * Math.sin(time / 3700 + 1.3),
         };
       }
-      current.x += (target.x - current.x) * 0.08;
-      current.y += (target.y - current.y) * 0.08;
+      current.x += (target.x - current.x) * 0.06;
+      current.y += (target.y - current.y) * 0.06;
       field.style.setProperty('--x', `${(current.x * 100).toFixed(2)}%`);
       field.style.setProperty('--y', `${(current.y * 100).toFixed(2)}%`);
       if (visible) frame = requestAnimationFrame(tick);
@@ -342,7 +342,7 @@ const columns = Array.from({ length: COLUMN_COUNT }, (_, col) => {
           if (ticking || !visible) return;
           ticking = true;
           requestAnimationFrame(() => {
-            const offset = window.scrollY * 0.12;
+            const offset = window.scrollY * 0.05;
             columns.forEach((column) => {
               column.style.transform = `translate3d(0, ${Number(column.dataset.parallax) * offset}px, 0)`;
             });

@@ -41,7 +41,7 @@ const countFor = (c: string) =>
       comisiones.map((c) => (
         <button
           type="button"
-          class="filter-chip inline-flex h-9 shrink-0 cursor-pointer items-center gap-2 rounded-lg border border-gray-300 px-3 text-sm font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue aria-pressed:border-transparent aria-pressed:bg-gdg-ice-blue aria-pressed:text-gray-900"
+          class="filter-chip inline-flex h-8 shrink-0 cursor-pointer items-center gap-2 rounded-md border border-gray-300 px-3 text-sm font-medium text-gray-700 transition-colors duration-150 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue aria-pressed:border-transparent aria-pressed:bg-gdg-ice-blue aria-pressed:text-gray-900"
           data-filter={c}
           aria-pressed={c === ALL ? 'true' : 'false'}
         >
@@ -53,7 +53,7 @@ const countFor = (c: string) =>
             />
           )}
           {c}
-          <span class="text-gray-600 tabular-nums">{countFor(c)}</span>
+          <span class="text-xs text-gray-600 tabular-nums">{countFor(c)}</span>
         </button>
       ))
     }

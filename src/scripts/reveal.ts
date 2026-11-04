@@ -1,7 +1,7 @@
 import { animate, inView, stagger } from 'motion';
 
-// Curva de llegada confiada (ease-out expo), la misma que usan las entradas CSS del hero
-const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+// Ease-out-quart: llegada suave y discreta, sin el impulso dramático de una expo
+const EASE: [number, number, number, number] = [0.25, 1, 0.5, 1];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Solo se ocultan elementos que aún no se ven: lo que ya está en pantalla al cargar nunca parpadea
@@ -10,8 +10,8 @@ const isBelowFold = (el: Element) => el.getBoundingClientRect().top > window.inn
 const isShown = (el: Element) =>
   (el as HTMLElement).offsetParent !== null && !(el as HTMLElement).hidden;
 
-// El desfase total de una cascada se limita a ~0.4s para que listas largas no hagan esperar
-const staggerFor = (count: number) => stagger(Math.min(0.07, 0.4 / Math.max(count, 1)));
+// El desfase total de una cascada se limita a ~0.25s para que listas largas no hagan esperar
+const staggerFor = (count: number) => stagger(Math.min(0.04, 0.25 / Math.max(count, 1)));
 
 const onceInView = (el: Element, run: () => void, amount = 0.2) => {
   const stop = inView(
@@ -33,8 +33,8 @@ export function revealItems(items: Element[]) {
   }
   animate(
     items,
-    { opacity: [0, 1], y: [16, 0] },
-    { duration: 0.55, delay: staggerFor(items.length), ease: EASE },
+    { opacity: [0, 1], y: [8, 0] },
+    { duration: 0.35, delay: staggerFor(items.length), ease: EASE },
   );
 }
 
@@ -44,21 +44,21 @@ export function initReveals() {
 
   document.querySelectorAll('[data-reveal]').forEach((el) => {
     if (!isBelowFold(el)) return;
-    animate(el, { opacity: 0, y: 28 }, { duration: 0 });
-    onceInView(el, () => animate(el, { opacity: 1, y: 0 }, { duration: 0.8, ease: EASE }));
+    animate(el, { opacity: 0, y: 12 }, { duration: 0 });
+    onceInView(el, () => animate(el, { opacity: 1, y: 0 }, { duration: 0.5, ease: EASE }));
   });
 
   document.querySelectorAll('[data-reveal-group]').forEach((group) => {
     if (!isBelowFold(group)) return;
     const items = Array.from(group.children).filter(isShown);
-    animate(items, { opacity: 0, y: 24 }, { duration: 0 });
+    animate(items, { opacity: 0, y: 10 }, { duration: 0 });
     onceInView(
       group,
       () =>
         animate(
           items,
           { opacity: 1, y: 0 },
-          { duration: 0.7, delay: staggerFor(items.length), ease: EASE },
+          { duration: 0.45, delay: staggerFor(items.length), ease: EASE },
         ),
       0.1,
     );

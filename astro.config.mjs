@@ -5,9 +5,6 @@ export default defineConfig({
   site: 'https://gdgtarija.com',
   base: '/',
   integrations: [],
-  redirects: {
-    '/devfest': 'https://eventos.gdgtarija.com/e/devfest',
-  },
   vite: {
     plugins: [tailwindcss()],
   },

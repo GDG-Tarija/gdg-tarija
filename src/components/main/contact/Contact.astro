@@ -9,37 +9,29 @@ const email = contactos.find((c) => c.medio === 'gmail')?.contacto;
 
 <Section id="contact" tone="surface" labelledby="contact-title" flushTop>
   <div
-    data-cta-block
-    class="relative isolate overflow-hidden rounded-2xl bg-gdg-blue-deep px-6 py-14 text-center text-white md:px-12 md:py-20"
+    class="relative isolate overflow-hidden rounded-xl bg-gdg-blue-deep px-6 py-12 text-center text-white md:px-12 md:py-14"
   >
-    <!-- Los chevrons de GDG enmarcan el contenido a ambos lados: el bloque se lee como "< Únete >" y no deja un lado vacío -->
+    <!-- Los chevrons de GDG enmarcan el contenido a ambos lados ("< Únete >"): textura de marca quieta, sin animación -->
     {
       [
         {
-          id: 'left',
           path: 'M62 14 14 60l48 46',
-          side: 'left-0 -translate-x-[35%] md:translate-x-0 md:left-8 lg:left-14',
+          side: 'left-0 -translate-x-[40%] md:translate-x-0 md:left-8 lg:left-12',
         },
         {
-          id: 'right',
           path: 'M18 14l48 46-48 46',
-          side: 'right-0 translate-x-[35%] md:translate-x-0 md:right-8 lg:right-14',
+          side: 'right-0 translate-x-[40%] md:translate-x-0 md:right-8 lg:right-12',
         },
       ].map((chevron) => (
         <div
-          class={`cta-chevron pointer-events-none absolute inset-y-0 -z-10 my-auto h-40 md:h-64 ${chevron.side}`}
-          data-chevron={chevron.id}
+          class={`pointer-events-none absolute inset-y-0 -z-10 my-auto h-28 md:h-40 ${chevron.side}`}
           aria-hidden="true"
         >
-          <svg
-            class="cta-chevron-float h-full w-auto text-white/[0.12]"
-            viewBox="0 0 80 120"
-            fill="none"
-          >
+          <svg class="h-full w-auto text-white/[0.1]" viewBox="0 0 80 120" fill="none">
             <path
               d={chevron.path}
               stroke="currentColor"
-              stroke-width="20"
+              stroke-width="16"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
@@ -51,14 +43,16 @@ const email = contactos.find((c) => c.medio === 'gmail')?.contacto;
     <div class="mx-auto max-w-2xl" data-reveal>
       <h2
         id="contact-title"
-        class="text-4xl leading-[1.05] font-bold tracking-[-0.03em] text-balance md:text-5xl lg:text-6xl"
+        class="text-3xl leading-tight font-medium tracking-[-0.01em] text-balance md:text-4xl"
       >
         Únete a la comunidad
       </h2>
-      <p class="mx-auto mt-5 max-w-md text-lg leading-relaxed text-pretty text-white/90">
+      <p
+        class="mx-auto mt-3 max-w-md text-base leading-relaxed text-pretty text-white/90 md:text-lg"
+      >
         Entérate de los próximos eventos y conecta con otros developers de Tarija.
       </p>
-      <div class="mt-9 flex flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-8">
+      <div class="mt-7 flex flex-col items-center gap-4 sm:flex-row sm:justify-center sm:gap-6">
         <Button
           href={JOIN_URL}
           target="_blank"
@@ -67,13 +61,13 @@ const email = contactos.find((c) => c.medio === 'gmail')?.contacto;
           iconPosition="right"
         >
           Únete a la comunidad
-          <i slot="icon" class="fa-solid fa-arrow-right text-base" aria-hidden="true"></i>
+          <i slot="icon" class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
         </Button>
         {
           email && (
             <a
               href={`mailto:${email}`}
-              class="-my-2.5 inline-flex items-center gap-2.5 rounded-sm py-2.5 font-medium text-white/90 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              class="-my-2.5 inline-flex items-center gap-2 rounded-sm py-2.5 text-sm font-medium text-white/90 underline-offset-4 transition-colors duration-200 hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               <i class="fa-regular fa-envelope" aria-hidden="true" />
               {email}
@@ -84,66 +78,3 @@ const email = contactos.find((c) => c.medio === 'gmail')?.contacto;
     </div>
   </div>
 </Section>
-
-<style>
-  /* Los chevrons "respiran" en direcciones opuestas: el bloque queda vivo sin distraer del botón */
-  @media (prefers-reduced-motion: no-preference) {
-    .cta-chevron-float {
-      animation: chevron-float 7s ease-in-out infinite alternate;
-    }
-
-    [data-chevron='right'] .cta-chevron-float {
-      animation-delay: -3.5s;
-    }
-  }
-
-  @keyframes chevron-float {
-    from {
-      translate: 0 -0.5rem;
-    }
-    to {
-      translate: 0 0.5rem;
-    }
-  }
-</style>
-
-<script>
-  import { animate, inView } from 'motion';
-
-  const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  document.querySelectorAll<HTMLElement>('[data-cta-block]').forEach((block) => {
-    const left = block.querySelector<HTMLElement>('[data-chevron="left"]');
-    const right = block.querySelector<HTMLElement>('[data-chevron="right"]');
-    if (!left || !right || reduceMotion) return;
-
-    // Entrada: los chevrons llegan desde afuera y se cierran sobre el contenido, "< Únete >"
-    if (block.getBoundingClientRect().top > window.innerHeight * 0.9) {
-      animate(left, { x: -120, opacity: 0 }, { duration: 0 });
-      animate(right, { x: 120, opacity: 0 }, { duration: 0 });
-      const stop = inView(
-        block,
-        () => {
-          animate(left, { x: 0, opacity: 1 }, { duration: 1.1, ease: EASE });
-          animate(right, { x: 0, opacity: 1 }, { duration: 1.1, ease: EASE });
-          stop();
-        },
-        { amount: 0.35 },
-      );
-    }
-
-    // Con el cursor encima, los chevrons se desplazan levemente hacia él: el bloque responde a la presencia
-    block.addEventListener('pointermove', (event) => {
-      if (event.pointerType !== 'mouse') return;
-      const rect = block.getBoundingClientRect();
-      const dx = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-      const dy = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
-      animate(left, { x: dx * 14, y: dy * 8 }, { duration: 0.8, ease: EASE });
-      animate(right, { x: dx * 14, y: dy * 8 }, { duration: 0.8, ease: EASE });
-    });
-    block.addEventListener('pointerleave', () => {
-      animate([left, right], { x: 0, y: 0 }, { duration: 0.9, ease: EASE });
-    });
-  });
-</script>

@@ -27,9 +27,9 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 
 <article
   style={`--commission: ${commissionColor(Commission[0])};`}
-  class="member-card relative flex h-full flex-col items-center rounded-xl border border-gray-200 bg-white p-4 text-center transition-[border-color,box-shadow] duration-200 hover:border-gray-300 hover:shadow-md lg:p-6"
+  class="member-card relative flex h-full flex-col items-center rounded-lg border border-gray-200 bg-white p-4 text-center transition-[border-color,box-shadow] duration-150 hover:border-gray-300 hover:shadow-sm lg:p-5"
 >
-  <div class="relative size-24 shrink-0 sm:size-28 lg:size-32">
+  <div class="relative size-20 shrink-0 sm:size-24 lg:size-28">
     <!-- Iniciales de respaldo si la foto de Cloudinary no carga -->
     <span
       class="absolute inset-0 flex items-center justify-center rounded-full bg-gray-100 text-xl font-semibold text-gray-500"
@@ -48,11 +48,13 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
       onerror="this.remove()"
     />
   </div>
-  <h3 class="mt-4 leading-snug font-semibold text-balance text-gray-900 md:text-lg">{Name}</h3>
+  <h3 class="mt-3 text-sm leading-snug font-medium text-balance text-gray-900 md:text-base">
+    {Name}
+  </h3>
   <ul class="mt-2 flex flex-wrap justify-center gap-1.5" aria-label="Comisiones">
     {
       Commission.map((c) => (
-        <li class="inline-flex items-center gap-1.5 rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-700">
+        <li class="inline-flex items-center gap-1.5 rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-700">
           <span
             class="size-1.5 rounded-full"
             style={`background: ${commissionColor(c)};`}
@@ -65,7 +67,7 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   </ul>
   <button
     type="button"
-    class="member-open mt-auto inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-full px-3 pt-5 pb-1 text-sm font-semibold text-gdg-blue-deep transition-colors duration-200 hover:text-gdg-blue-press focus-visible:outline-2 focus-visible:outline-gdg-blue"
+    class="member-open mt-auto inline-flex cursor-pointer items-center gap-1.5 whitespace-nowrap rounded px-2 pt-4 pb-1 text-sm font-medium text-gdg-blue-deep transition-colors duration-150 hover:text-gdg-blue-press focus-visible:outline-2 focus-visible:outline-gdg-blue"
     aria-expanded="false"
     aria-controls={bioId}
   >
@@ -76,11 +78,11 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   <!-- La bio se superpone dentro de la misma card para no mover la grilla al abrirla -->
   <div
     id={bioId}
-    class="member-bio absolute inset-0 flex flex-col rounded-xl bg-white p-4 text-left lg:p-6"
+    class="member-bio absolute inset-0 flex flex-col rounded-lg bg-white p-4 text-left lg:p-5"
     hidden
   >
     <div class="flex items-start justify-between gap-3">
-      <p class="leading-snug font-semibold text-gray-900">{Name}</p>
+      <p class="text-sm leading-snug font-medium text-gray-900 md:text-base">{Name}</p>
       <button
         type="button"
         class="member-close -mt-1 -mr-1 flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-full text-gray-500 transition-colors duration-200 hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
@@ -101,7 +103,7 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 <style>
   @media (prefers-reduced-motion: no-preference) {
     .member-bio:not([hidden]) {
-      animation: bio-in 0.25s ease-out both;
+      animation: bio-in 0.15s ease-out both;
     }
   }
 
@@ -114,19 +116,16 @@ const bioId = `bio-${Name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
     }
   }
 
-  /* La foto toma el color de la comisión principal: el mismo código de color que las etiquetas */
+  /* Al pasar el cursor, un anillo fino del color de la comisión principal: la señal, sin movimiento */
   .member-photo {
-    transition:
-      box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: box-shadow 0.15s ease-out;
   }
 
   .member-card:hover .member-photo,
   .member-card:focus-within .member-photo {
     box-shadow:
-      0 0 0 3px #fff,
-      0 0 0 5px var(--commission);
-    transform: scale(1.03);
+      0 0 0 2px #fff,
+      0 0 0 3.5px var(--commission);
   }
 
   .member-bio-text {

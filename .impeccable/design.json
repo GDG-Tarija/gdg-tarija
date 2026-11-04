@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-26T21:39:28.181Z",
+  "generatedAt": "2026-10-10T14:17:38.137817+00:00",
   "title": "Design System: GDG Tarija",
   "extensions": {
     "colorMeta": {
@@ -338,11 +338,11 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "h1 del hero y título del cierre; de 2.625rem a 3.875rem."
+        "purpose": "h1 del hero, peso medio; de 2.125rem a 3.25rem."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Títulos de sección; de 1.875rem a 2.5rem."
+        "purpose": "Títulos de sección y del CTA, peso medio; de 1.75rem a 2.25rem."
       },
       "lead": {
         "displayName": "Lead",
@@ -350,7 +350,7 @@
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Nombres de eventos y personas."
+        "purpose": "Nombres de eventos y personas, peso medio."
       },
       "body": {
         "displayName": "Body",
@@ -363,19 +363,14 @@
     },
     "shadows": [
       {
-        "name": "control",
-        "value": "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)",
-        "purpose": "shadow-sm: botones en reposo y cards abiertas."
+        "name": "button",
+        "value": "0 1px 2px 0 rgba(0,0,0,0.05)",
+        "purpose": "shadow-xs: solo el botón primario."
       },
       {
         "name": "hover",
-        "value": "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)",
-        "purpose": "shadow-md: botones al hover."
-      },
-      {
-        "name": "overlay",
-        "value": "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)",
-        "purpose": "shadow-xl: solo el menú móvil desplegado."
+        "value": "0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)",
+        "purpose": "shadow-sm: cards al hover. Techo del sitio principal."
       },
       {
         "name": "event-glow",
@@ -385,19 +380,19 @@
     ],
     "motion": [
       {
-        "name": "ease-out-expo",
-        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Entrada breve de las fotos del hero (0.8s, 12px)."
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Todas las llegadas: reveals, entrada del hero, indicador de pestañas."
       },
       {
         "name": "duration-control",
-        "value": "200ms",
-        "purpose": "Hover y press de botones, links y chips."
+        "value": "150ms",
+        "purpose": "Hover de botones, cards, chips y enlaces: cambio de tono o borde."
       },
       {
-        "name": "duration-media",
-        "value": "500ms",
-        "purpose": "Zoom de 1.03 de las portadas de eventos al hover."
+        "name": "duration-reveal",
+        "value": "350–600ms",
+        "purpose": "Reveals al hacer scroll (12px) y entrada del hero (8px)."
       }
     ],
     "breakpoints": [
@@ -430,7 +425,7 @@
       "refersTo": "button-primary",
       "description": "Acción principal: unirse a la comunidad.",
       "html": "<button class=\"ds-btn-primary\">Únete a la comunidad <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></button>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);transition:background-color .2s,box-shadow .2s,translate .2s,scale .2s;background:#3367d6;color:#fff}.ds-btn-primary:hover{background:#2851b8}.ds-btn-primary:hover{translate:0 -2px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-primary:active{translate:0 0;scale:.97}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;font-family:'Google Sans', system-ui, sans-serif;font-weight:500;font-size:.875rem;height:40px;padding:0 20px;border:none;border-radius:8px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);transition:background-color .2s,box-shadow .2s,translate .2s,scale .2s;background:#3367d6;color:#fff}.ds-btn-primary:hover{background:#2851b8}.ds-btn-primary:hover{box-shadow:0 1px 3px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-primary:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
     },
     {
       "name": "Botón outline",
@@ -438,7 +433,7 @@
       "refersTo": "button-outline",
       "description": "Secundario sobre fondos grises: \"Ver eventos\", \"Ver todos\".",
       "html": "<button class=\"ds-btn-outline\">Ver eventos</button>",
-      "css": ".ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;font-size:1.125rem;padding:12px 28px;border:none;border-radius:9999px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);transition:background-color .2s,box-shadow .2s,translate .2s,scale .2s;background:#fff;color:#1f2937;box-shadow:inset 0 0 0 1px #d1d5db,0 1px 3px rgba(0,0,0,.1)}.ds-btn-outline:hover{background:#f9fafb}.ds-btn-outline:hover{translate:0 -2px;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-outline:active{translate:0 0;scale:.97}.ds-btn-outline:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;font-family:'Google Sans', system-ui, sans-serif;font-weight:500;font-size:.875rem;height:40px;padding:0 20px;border:none;border-radius:8px;cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.1),0 1px 2px -1px rgba(0,0,0,.1);transition:background-color .2s,box-shadow .2s,translate .2s,scale .2s;background:#fff;color:#3367d6;box-shadow:inset 0 0 0 1px #d1d5db,0 1px 3px rgba(0,0,0,.1)}.ds-btn-outline:hover{background:rgba(202,230,255,.4)}.ds-btn-outline:hover{box-shadow:0 1px 3px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}.ds-btn-outline:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px #4285f4}"
     },
     {
       "name": "Link con flecha",
@@ -446,15 +441,15 @@
       "refersTo": "button-primary",
       "description": "Acción secundaria de los encabezados de sección.",
       "html": "<a class=\"ds-arrow-link\" href=\"#\">Ver próximos eventos <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-arrow-link{display:inline-flex;align-items:center;gap:8px;font-family:'Google Sans', system-ui, sans-serif;font-weight:600;color:#3367d6;text-decoration:none;transition:color .2s}.ds-arrow-link svg{transition:transform .2s}.ds-arrow-link:hover{color:#3367d6}.ds-arrow-link:hover svg{transform:translateX(2px)}.ds-arrow-link:focus-visible{outline:2px solid #4285f4;outline-offset:4px;border-radius:2px}"
+      "css": ".ds-arrow-link{display:inline-flex;align-items:center;gap:8px;font-family:'Google Sans', system-ui, sans-serif;font-weight:500;color:#3367d6;text-decoration:none;transition:color .2s}.ds-arrow-link svg{transition:transform .2s}.ds-arrow-link:hover{color:#3367d6}.ds-arrow-link:hover svg{transform:translateX(2px)}.ds-arrow-link:focus-visible{outline:2px solid #4285f4;outline-offset:4px;border-radius:2px}"
     },
     {
       "name": "Barra de navegación",
       "kind": "nav",
       "refersTo": "nav-bar",
-      "description": "Barra flotante con enlaces y botón \"Únete\".",
+      "description": "Barra plana de borde a borde; la sección visible se subraya.",
       "html": "<nav class=\"ds-nav\"><strong class=\"ds-nav-logo\">GDG Tarija</strong><ul><li><a href=\"#\">Nosotros</a></li><li><a href=\"#\">Eventos</a></li><li><a href=\"#\">Equipo</a></li></ul><a class=\"ds-nav-cta\" href=\"#\">Únete</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:32px;font-family:'Google Sans', system-ui, sans-serif;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border:1px solid #e5e7eb;border-radius:12px;padding:8px 32px;min-height:64px;box-shadow:0 1px 2px rgba(0,0,0,.05)}.ds-nav-logo{font-size:1.125rem;color:#1f2937;margin-right:auto}.ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0}.ds-nav ul a{color:#374151;font-weight:500;text-decoration:none;transition:color .2s}.ds-nav ul a:hover{color:#111827}.ds-nav-cta{background:#4285f4;color:#fff;font-weight:600;font-size:.875rem;padding:8px 20px;border-radius:9999px;text-decoration:none}.ds-nav-cta:hover{background:#3367d6}"
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;font-family:'Google Sans', system-ui, sans-serif;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border-bottom:1px solid #e5e7eb;padding:8px 32px;height:64px}.ds-nav-logo{font-size:1.125rem;color:#1f2937;margin-right:auto}.ds-nav ul{display:flex;gap:32px;list-style:none;margin:0;padding:0}.ds-nav ul a{color:#374151;font-weight:500;text-decoration:none;transition:color .2s}.ds-nav ul a:hover{color:#111827}.ds-nav-cta{background:#4285f4;color:#fff;font-weight:500;font-size:.875rem;padding:8px 20px;border-radius:8px;text-decoration:none}.ds-nav-cta:hover{background:#3367d6}"
     },
     {
       "name": "Chips de filtro",
@@ -462,7 +457,7 @@
       "refersTo": "chip-filter",
       "description": "Filtro del equipo por comisión; el seleccionado es tonal.",
       "html": "<div class=\"ds-filters\"><button class=\"ds-filter\" aria-pressed=\"true\">Todos <span>35</span></button><button class=\"ds-filter\" aria-pressed=\"false\"><i style=\"background:#4285f4\"></i>Organizer <span>4</span></button><button class=\"ds-filter\" aria-pressed=\"false\"><i style=\"background:#f9ab00\"></i>Marketing <span>18</span></button><button class=\"ds-filter\" aria-pressed=\"false\"><i style=\"background:#9334e6\"></i>Transmisión <span>3</span></button></div>",
-      "css": ".ds-filters{display:flex;flex-wrap:wrap;gap:8px}.ds-filter{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 12px;border:1px solid #d1d5db;border-radius:8px;background:#fff;color:#374151;font-family:'Google Sans', system-ui, sans-serif;font-size:.875rem;font-weight:500;cursor:pointer;transition:background-color .2s}.ds-filter i{width:8px;height:8px;border-radius:9999px}.ds-filter span{color:#6b7280;font-variant-numeric:tabular-nums}.ds-filter:hover{background:#f9fafb}.ds-filter[aria-pressed=true]{background:#cae6ff;border-color:transparent;color:#111827}.ds-filter:focus-visible{outline:2px solid #4285f4;outline-offset:2px}"
+      "css": ".ds-filters{display:flex;flex-wrap:wrap;gap:8px}.ds-filter{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 12px;border:1px solid #d1d5db;border-radius:6px;background:#fff;color:#374151;font-family:'Google Sans', system-ui, sans-serif;font-size:.875rem;font-weight:500;cursor:pointer;transition:background-color .2s}.ds-filter i{width:8px;height:8px;border-radius:9999px}.ds-filter span{color:#6b7280;font-variant-numeric:tabular-nums}.ds-filter:hover{background:#f9fafb}.ds-filter[aria-pressed=true]{background:#cae6ff;border-color:transparent;color:#111827}.ds-filter:focus-visible{outline:2px solid #4285f4;outline-offset:2px}"
     },
     {
       "name": "Card de miembro",
@@ -470,15 +465,15 @@
       "refersTo": "card",
       "description": "Card vertical con foto grande, etiquetas de comisión y \"Ver perfil\".",
       "html": "<article class=\"ds-member\"><span class=\"ds-avatar\">PA</span><strong>Pedro Anze</strong><span class=\"ds-tag\"><i style=\"background:#4285f4\"></i>Organizer</span><button class=\"ds-member-open\">Ver perfil +</button></article>",
-      "css": ".ds-member{display:flex;flex-direction:column;align-items:center;gap:8px;width:240px;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;font-family:'Google Sans', system-ui, sans-serif;text-align:center;transition:border-color .2s,box-shadow .2s}.ds-member:hover{border-color:#d1d5db;box-shadow:0 4px 6px -1px rgba(0,0,0,.1)}.ds-avatar{display:flex;align-items:center;justify-content:center;width:128px;height:128px;margin-bottom:8px;border-radius:9999px;background:#f3f4f6;color:#6b7280;font-weight:600;font-size:1.25rem}.ds-member strong{color:#111827;font-weight:600;font-size:1.125rem}.ds-tag{display:inline-flex;align-items:center;gap:6px;background:#f3f4f6;color:#374151;font-size:.75rem;font-weight:500;padding:2px 8px;border-radius:6px}.ds-tag i{width:6px;height:6px;border-radius:9999px}.ds-member-open{margin-top:12px;border:none;background:none;color:#4285f4;font-family:inherit;font-weight:600;font-size:.875rem;cursor:pointer}.ds-member-open:hover{color:#3367d6}"
+      "css": ".ds-member{display:flex;flex-direction:column;align-items:center;gap:8px;width:240px;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;font-family:'Google Sans', system-ui, sans-serif;text-align:center;transition:border-color .2s,box-shadow .2s}.ds-member:hover{border-color:#d1d5db;box-shadow:0 1px 3px rgba(0,0,0,.1)}.ds-avatar{display:flex;align-items:center;justify-content:center;width:112px;height:112px;margin-bottom:8px;border-radius:9999px;background:#f3f4f6;color:#6b7280;font-weight:500;font-size:1.25rem}.ds-member strong{color:#111827;font-weight:500;font-size:1.125rem}.ds-tag{display:inline-flex;align-items:center;gap:6px;background:#f3f4f6;color:#374151;font-size:.75rem;font-weight:500;padding:2px 8px;border-radius:6px}.ds-tag i{width:6px;height:6px;border-radius:9999px}.ds-member-open{margin-top:12px;border:none;background:none;color:#4285f4;font-family:inherit;font-weight:500;font-size:.875rem;cursor:pointer}.ds-member-open:hover{color:#3367d6}"
     },
     {
       "name": "Item de evento",
       "kind": "card",
       "refersTo": "card",
-      "description": "Card con portada circular, etiqueta de tipo, nombre y fecha.",
+      "description": "Card de 8px con portada circular, tipo con punto de color, nombre y fecha.",
       "html": "<a class=\"ds-event\" href=\"#\"><span class=\"ds-event-cover\">DevFest</span><span class=\"ds-event-meta\">15 nov 2025 · Taller</span><strong>DevFest Tarija 2025</strong></a>",
-      "css": ".ds-event{display:flex;flex-direction:column;align-items:center;text-align:center;width:240px;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:12px;font-family:'Google Sans', system-ui, sans-serif;text-decoration:none;transition:border-color .2s,box-shadow .2s,translate .2s}.ds-event:hover{border-color:#d1d5db;box-shadow:0 4px 6px -1px rgba(0,0,0,.1);translate:0 -2px}.ds-event-cover{display:flex;align-items:center;justify-content:center;width:160px;height:160px;border-radius:9999px;background:#e5e7eb;color:#6b7280;font-weight:700;font-size:1.5rem;transition:transform .5s}.ds-event:hover .ds-event-cover{transform:scale(1.03)}.ds-event-meta{display:block;margin-top:16px;font-size:.875rem;color:#6b7280}.ds-event strong{display:block;margin-top:4px;color:#111827;font-weight:600;transition:color .2s}.ds-event:hover strong{color:#4285f4}"
+      "css": ".ds-event{display:flex;flex-direction:column;align-items:center;text-align:center;width:240px;padding:24px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;font-family:'Google Sans', system-ui, sans-serif;text-decoration:none;transition:border-color .2s,box-shadow .2s,translate .2s}.ds-event:hover{border-color:#d1d5db;box-shadow:0 1px 3px rgba(0,0,0,.1);}.ds-event-cover{display:flex;align-items:center;justify-content:center;width:128px;height:128px;border-radius:9999px;background:#e5e7eb;color:#6b7280;font-weight:700;font-size:1.5rem;transition:transform .5s}.ds-event:hover .ds-event-cover{transform:scale(1.03)}.ds-event-meta{display:block;margin-top:16px;font-size:.875rem;color:#6b7280}.ds-event strong{display:block;margin-top:4px;color:#111827;font-weight:500;transition:color .2s}.ds-event:hover strong{color:#4285f4}"
     },
     {
       "name": "Bloque CTA de cierre",
@@ -486,7 +481,7 @@
       "refersTo": "cta-block",
       "description": "Cierre azul con botón inverso y caras del equipo.",
       "html": "<section class=\"ds-cta\"><h2>Únete a la comunidad</h2><p>Entérate de los próximos eventos y conecta con otros developers de Tarija.</p><a class=\"ds-cta-btn\" href=\"#\">Únete a la comunidad →</a></section>",
-      "css": ".ds-cta{max-width:640px;padding:48px;border-radius:16px;background:#3367d6;color:#fff;font-family:'Google Sans', system-ui, sans-serif}.ds-cta h2{margin:0;font-size:2.5rem;line-height:1.05;letter-spacing:-.03em}.ds-cta p{margin:16px 0 32px;color:rgba(255,255,255,.9);font-size:1.125rem;line-height:1.625}.ds-cta-btn{display:inline-flex;padding:12px 28px;border-radius:9999px;background:#fff;color:#3367d6;font-weight:600;text-decoration:none;transition:background-color .2s,translate .2s}.ds-cta-btn:hover{background:#cae6ff;translate:0 -2px}.ds-cta-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}"
+      "css": ".ds-cta{max-width:640px;padding:48px;border-radius:16px;background:#3367d6;color:#fff;font-family:'Google Sans', system-ui, sans-serif}.ds-cta h2{margin:0;font-size:2.25rem;font-weight:500;line-height:1.25;letter-spacing:-.01em}.ds-cta p{margin:16px 0 32px;color:rgba(255,255,255,.9);font-size:1.125rem;line-height:1.625}.ds-cta-btn{display:inline-flex;padding:12px 28px;border-radius:8px;background:#fff;color:#3367d6;font-weight:500;text-decoration:none;transition:background-color .2s,translate .2s}.ds-cta-btn:hover{background:#cae6ff;}.ds-cta-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}"
     },
     {
       "name": "CTA Build with AI",
@@ -494,18 +489,18 @@
       "refersTo": "bwai-cta",
       "description": "CTA del tema de evento: 6px de radio y glow azul. Solo en landings de evento.",
       "html": "<div class=\"ds-bwai\"><p class=\"ds-bwai-tag\">// The Future is ours to build</p><a class=\"ds-bwai-cta\" href=\"#\">Regístrate ahora</a></div>",
-      "css": ".ds-bwai{background:#0f1419;padding:32px;border-radius:12px;font-family:'Google Sans', system-ui, sans-serif}.ds-bwai-tag{color:#4285f4;font-weight:500;margin:0 0 16px;font-size:.875rem}.ds-bwai-cta{display:inline-flex;padding:14px 24px;background:#4285f4;color:#fff;font-weight:600;text-decoration:none;border-radius:6px;box-shadow:0 0 20px rgba(66,133,244,.35);transition:transform .2s,box-shadow .2s,background .2s}.ds-bwai-cta:hover{background:#3367d6;transform:translateY(-2px);box-shadow:0 8px 28px rgba(66,133,244,.35)}"
+      "css": ".ds-bwai{background:#0f1419;padding:32px;border-radius:8px;font-family:'Google Sans', system-ui, sans-serif}.ds-bwai-tag{color:#4285f4;font-weight:500;margin:0 0 16px;font-size:.875rem}.ds-bwai-cta{display:inline-flex;padding:14px 24px;background:#4285f4;color:#fff;font-weight:500;text-decoration:none;border-radius:6px;box-shadow:0 0 20px rgba(66,133,244,.35);transition:transform .2s,box-shadow .2s,background .2s}.ds-bwai-cta:hover{background:#3367d6;box-shadow:0 8px 28px rgba(66,133,244,.35)}"
     }
   ],
   "narrative": {
     "northStar": "El Tablón de la Comunidad",
-    "overview": "El sitio es el tablón de una comunidad real de developers: personas con nombre y foto, eventos con fecha, fotos de salas llenas. La metáfora vive en el contenido y en cómo se usa el color, nunca en utilería: no hay chinchetas, fotos inclinadas ni marcos de polaroid. Los cuatro colores de Google funcionan como señales: marcan la acción, la comisión de una persona o la estructura de un bloque. El color nunca decora de forma pareja; señala.\n\nLa referencia visual son las landings de **Google for Developers**: superficies claras y planas, Google Sans, botones en píldora, esquinas contenidas (12px), bordes finos, grillas rectas y fotos sin marco. El tono es adulto y técnico: una comunidad de developers, no un espacio infantil. Los componentes responden con cambios breves de tono o un lift de 2px, y el texto es corto: un título claro, una frase de apoyo y una acción.\n\n**Temas de evento.** Los eventos insignia (hoy Build with AI 2026) pueden llevar un tema propio que hereda la tipografía, los logos y los cuatro colores de Google, pero puede cambiar el fondo (incluido un modo totalmente oscuro), sumar motivos gráficos propios, usar otra geometría de botones y usar degradados y glows. Esas libertades valen solo dentro de la landing del evento; nunca vuelven al sitio principal.",
+    "overview": "El sitio es el tablón de una comunidad real de developers: personas con nombre y foto, eventos con fecha, fotos de salas llenas. La metáfora vive en el contenido y en cómo se usa el color, nunca en utilería: no hay chinchetas, fotos inclinadas ni marcos de polaroid. Los cuatro colores de Google funcionan como señales: marcan la acción, la comisión de una persona o la estructura de un bloque. El color nunca decora de forma pareja; señala.\n\nLa referencia visual son las landings de **Google for Developers**: superficies claras y planas, Google Sans en peso medio, botones compactos de 40px con esquinas de 8px, bordes finos, grillas rectas, fotos sin marco y un header plano de borde a borde. Sobrio como Google, pero no corporativo: la calidez la ponen las personas, las fotos y el código, no la forma de los componentes. El tono es adulto y técnico. Los componentes responden con un cambio de tono, nunca con un salto, y el texto es corto: un título claro, una frase de apoyo y una acción.\n\n**Temas de evento.** Los eventos insignia (hoy Build with AI 2026) pueden llevar un tema propio que hereda la tipografía, los logos y los cuatro colores de Google, pero puede cambiar el fondo (incluido un modo totalmente oscuro), sumar motivos gráficos propios, usar otra geometría de botones y usar degradados y glows. Esas libertades valen solo dentro de la landing del evento; nunca vuelven al sitio principal.",
     "keyCharacteristics": [
-      "Claro por defecto; el cierre es un bloque azul con las caras del equipo, no una banda oscura.",
+      "Claro por defecto; el cierre es un bloque azul, no una banda oscura.",
       "Los colores de Google como señales pequeñas (puntos, acciones), no como fondos.",
-      "Google Sans en todo; jerarquía por peso y tamaño.",
-      "Botones en píldora; cards y fotos con 12px; paneles grandes (hero, Nosotros, CTA) con 16px.",
-      "Grillas rectas y alineadas; nada flota ni se inclina. La vida viene de las fotos reales y de la interacción (pestañas, perfiles), no de la decoración.",
+      "Google Sans en peso medio para títulos (nunca bold); jerarquía por tamaño y espacio.",
+      "Botones de 40px con 8px; cards y fotos con 8px; paneles (foto del hero, Nosotros, CTA) con 12px.",
+      "Movimiento casi imperceptible: fundidos cortos de 8–12px, cambios de tono en hover, nada que salte, flote o siga al cursor salvo la linterna del código del hero.",
       "Texto corto y directo; fotos reales como protagonistas."
     ],
     "rules": [
@@ -546,19 +541,20 @@
       },
       {
         "name": "The Quiet Shadow Rule",
-        "body": "Nada en el sitio principal pasa de `shadow-md` salvo que flote sobre la página. Fotos y cards no llevan sombra decorativa.",
+        "body": "Nada en el sitio principal pasa de `shadow-sm`. Fotos y cards no llevan sombra decorativa, y nada se levanta al hover.",
         "section": "elevation"
       },
       {
-        "name": "The Pill-and-Card Rule",
-        "body": "Si ejecuta una acción, es una píldora. Si agrupa contenido, lleva 12px; si es un panel protagonista, 16px. Nada pasa de 16px salvo la píldora y los círculos.",
+        "name": "The Eight-Pixel Rule",
+        "body": "Botones y cards llevan 8px; los paneles protagonistas, 12px. Nada pasa de 12px salvo los círculos de avatares, portadas y botones de ícono. No hay píldoras en el sitio principal.",
         "section": "shapes"
       }
     ],
     "dos": [
       "Do armar cada sección nueva con `Section.astro` y `SectionHeading.astro`, sobre fondo claro.",
       "Do usar Azul Google Profundo para acciones y texto azul, y Azul Presionado para su hover; texto y metadatos siempre ≥ 4.5:1.",
-      "Do usar píldoras para botones, 12px para cards y fotos, y bordes de 1px.",
+      "Do usar 8px para botones, cards y fotos, 12px para paneles protagonistas y bordes de 1px.",
+      "Do escribir títulos en peso medio (500); la jerarquía la dan el tamaño y el espacio.",
       "Do mostrar fotos reales en grillas rectas, alineadas al contenedor.",
       "Do escribir un título, una frase y una acción; decir \"developers\".",
       "Do tomar colores solo de los tokens de `@theme`, y los colores de comisión solo de `commissions.ts`.",
@@ -567,9 +563,11 @@
     ],
     "donts": [
       "Don't usar utilería \"family friendly\": chinchetas, fotos inclinadas o flotantes, marcos tipo polaroid, leyendas con fechas sobre las fotos.",
-      "Don't pasar de 12px de radio fuera de las píldoras.",
+      "Don't usar píldoras ni pasar de 12px de radio fuera de avatares, portadas y botones de ícono.",
+      "Don't usar bold (700) en títulos, ni botones de más de 48px de alto.",
       "Don't usar degradados en fondos, contenedores o texto en el sitio principal.",
-      "Don't pasar de `shadow-md` en elementos que no flotan sobre la página, ni escalar más de 1.03 al hover.",
+      "Don't pasar de `shadow-sm`, levantar elementos al hover ni escalar más de 1.03.",
+      "Don't animar títulos palabra por palabra, revelar fotos con máscaras ni hacer flotar o seguir al cursor elementos decorativos.",
       "Don't usar carruseles para contenido que cabe a la vista; muestra el texto completo.",
       "Don't usar hex sueltos en clases ni tokens inexistentes como `text-google-blue`.",
       "Don't llevar motivos de un tema de evento (auroras, glows, CTAs de 6px) al sitio principal; la monoespaciada solo como código real.",

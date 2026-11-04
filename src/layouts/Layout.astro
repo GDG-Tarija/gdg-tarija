@@ -6,9 +6,20 @@ interface Props {
   description?: string;
   image?: string;
   canonical?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
-const { title, description, image, canonical } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  canonical,
+  imageAlt = 'GDG Tarija - Google Developer Group',
+  imageWidth = 1200,
+  imageHeight = 1200,
+} = Astro.props;
 
 // Valores por defecto
 const defaultDescription =
@@ -37,9 +48,8 @@ const canonicalURL = canonical || defaultCannonical;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:image" content={metaImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="1200" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content={imageWidth} />
+    <meta property="og:image:height" content={imageHeight} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="GDG Tarija" />
@@ -51,7 +61,8 @@ const canonicalURL = canonical || defaultCannonical;
     <meta name="twitter:image" content={metaImage} />
 
     <!-- WhatsApp specific optimization -->
-    <meta property="og:image:alt" content="GDG Tarija - Google Developer Group" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:image:alt" content={imageAlt} />
 
     <!-- Additional SEO -->
     <meta

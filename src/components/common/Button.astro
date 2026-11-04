@@ -25,24 +25,24 @@ const {
   id,
 } = Astro.props;
 
-// Lift de 2px y sombra sutil al hover: respuesta táctil definida en DESIGN.md (The Quiet Shadow Rule)
+// Como en los botones de Google: la respuesta es un cambio de tono, no un movimiento (DESIGN.md, Buttons)
 const baseClasses =
-  'inline-flex cursor-pointer items-center justify-center whitespace-nowrap font-semibold rounded-full shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97] transition-[background-color,box-shadow,translate,scale] duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gdg-blue';
+  'inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap font-medium rounded-lg transition-colors duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gdg-blue';
 
 const variantClasses = {
-  primary: 'bg-gdg-blue-deep hover:bg-gdg-blue-press text-white',
+  primary: 'bg-gdg-blue-deep hover:bg-gdg-blue-press text-white shadow-xs',
   secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-800',
   // Para fondos grises claros, donde el secundario gris se pierde contra el fondo
-  outline: 'bg-white hover:bg-gray-50 text-gray-800 ring-1 ring-inset ring-gray-300',
+  outline: 'bg-white hover:bg-gdg-ice-blue/40 text-gdg-blue-deep ring-1 ring-inset ring-gray-300',
   // Para bloques de color (el CTA azul): el botón blanco mantiene el contraste que el azul sobre azul perdería
   inverse:
     'bg-white hover:bg-gdg-ice-blue text-gdg-blue-deep focus-visible:ring-white focus-visible:ring-offset-gdg-blue-deep',
 };
 
 const sizeClasses = {
-  sm: 'px-5 py-2 text-sm',
-  md: 'px-7 py-3 text-lg',
-  lg: 'px-8 py-4 text-xl',
+  sm: 'h-9 px-4 text-sm',
+  md: 'h-10 px-5 text-sm',
+  lg: 'h-12 px-6 text-base',
 };
 
 const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
@@ -54,13 +54,13 @@ const hasIcon = Astro.slots.has('icon');
   href ? (
     <a href={href} class={buttonClasses} target={target} rel={rel} id={id}>
       {hasIcon && iconPosition === 'left' && (
-        <span class="mr-3">
+        <span class="flex">
           <slot name="icon" />
         </span>
       )}
       <slot />
       {hasIcon && iconPosition === 'right' && (
-        <span class="ml-3">
+        <span class="flex">
           <slot name="icon" />
         </span>
       )}
@@ -68,13 +68,13 @@ const hasIcon = Astro.slots.has('icon');
   ) : (
     <button type={type} class={buttonClasses} onclick={onclick} id={id}>
       {hasIcon && iconPosition === 'left' && (
-        <span class="mr-3">
+        <span class="flex">
           <slot name="icon" />
         </span>
       )}
       <slot />
       {hasIcon && iconPosition === 'right' && (
-        <span class="ml-3">
+        <span class="flex">
           <slot name="icon" />
         </span>
       )}

@@ -36,18 +36,18 @@ const pillars = infoAbout.map((pillar, index) => ({
     <div class="lg:col-span-5" data-reveal>
       <h2
         id="about-title"
-        class="text-3xl leading-tight font-bold tracking-[-0.02em] text-gray-900 md:text-[2.5rem]"
+        class="text-[1.75rem] leading-tight font-medium tracking-[-0.01em] text-gray-900 md:text-4xl"
       >
         Nosotros
       </h2>
       <div
-        class="mt-8 grid grid-cols-3 gap-2 lg:mt-10 lg:grid-cols-1 relative"
+        class="relative mt-6 grid grid-cols-3 gap-1 lg:mt-8 lg:grid-cols-1"
         role="tablist"
         aria-label="Nosotros"
         aria-orientation="vertical"
       >
         <span
-          class="about-indicator pointer-events-none absolute top-0 left-0 rounded-xl bg-background"
+          class="about-indicator pointer-events-none absolute top-0 left-0 rounded-lg bg-background"
           aria-hidden="true"></span>
         {
           pillars.map((pillar, index) => (
@@ -58,10 +58,10 @@ const pillars = infoAbout.map((pillar, index) => ({
               aria-controls={`${pillar.id}-panel`}
               aria-selected={index === 0 ? 'true' : 'false'}
               tabindex={index === 0 ? '0' : '-1'}
-              class="about-tab group flex cursor-pointer flex-col items-center gap-2 rounded-xl p-3 text-center text-sm font-semibold text-gray-500 transition-colors duration-200 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue relative z-10 aria-selected:text-gray-900 sm:text-base lg:flex-row lg:gap-4 lg:p-4 lg:text-left lg:text-lg"
+              class="about-tab group relative z-10 flex cursor-pointer flex-col items-center gap-2 rounded-lg p-3 text-center text-sm font-medium text-gray-600 transition-colors duration-150 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue aria-selected:text-gray-900 lg:flex-row lg:gap-3 lg:px-3 lg:py-2.5 lg:text-left lg:text-base"
             >
               <span
-                class={`flex size-10 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-500 transition-colors duration-200 group-aria-selected:text-white ${pillar.tileSelected}`}
+                class={`flex size-8 shrink-0 items-center justify-center rounded-md bg-gray-100 text-sm text-gray-500 transition-colors duration-150 group-aria-selected:text-white ${pillar.tileSelected}`}
                 aria-hidden="true"
               >
                 <i class={pillar.icon} />
@@ -80,7 +80,7 @@ const pillars = infoAbout.map((pillar, index) => ({
     </div>
 
     <div
-      class="relative flex flex-col rounded-2xl bg-background p-7 md:p-12 lg:col-span-7"
+      class="relative flex flex-col rounded-xl bg-background p-6 md:p-10 lg:col-span-7"
       data-reveal
     >
       {
@@ -98,15 +98,15 @@ const pillars = infoAbout.map((pillar, index) => ({
               aria-hidden={index === 0 ? 'false' : 'true'}
               inert={index !== 0}
             >
-              <h3 class="text-2xl font-bold tracking-[-0.01em] text-gray-900">{pillar.titulo}</h3>
-              <p class="mt-4 text-lg leading-relaxed text-pretty text-gray-600 md:text-xl md:leading-relaxed">
+              <h3 class="text-xl font-medium text-gray-900">{pillar.titulo}</h3>
+              <p class="mt-3 text-base leading-relaxed text-pretty text-gray-600 md:text-lg md:leading-relaxed">
                 {pillar.descripcion}
               </p>
             </div>
           ))
         }
       </div>
-      <div class="mt-10 flex items-center justify-between border-t border-gray-300/70 pt-6">
+      <div class="mt-8 flex items-center justify-between border-t border-gray-300/70 pt-5">
         <p class="text-sm font-medium text-gray-600 tabular-nums" aria-live="polite">
           <span data-about-current>1</span> de {pillars.length}
         </p>
@@ -114,7 +114,7 @@ const pillars = infoAbout.map((pillar, index) => ({
           <button
             type="button"
             data-about-prev
-            class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors duration-200 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+            class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 ring-1 ring-gray-300 transition-colors duration-150 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
             aria-label="Anterior"
           >
             <i class="fa-solid fa-arrow-left text-sm" aria-hidden="true"></i>
@@ -122,7 +122,7 @@ const pillars = infoAbout.map((pillar, index) => ({
           <button
             type="button"
             data-about-next
-            class="flex size-11 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 shadow-sm ring-1 ring-gray-200 transition-colors duration-200 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
+            class="flex size-10 cursor-pointer items-center justify-center rounded-full bg-white text-gray-700 ring-1 ring-gray-300 transition-colors duration-150 hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-gdg-blue"
             aria-label="Siguiente"
           >
             <i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
@@ -132,20 +132,20 @@ const pillars = infoAbout.map((pillar, index) => ({
     </div>
   </div>
 
-  <div class="mt-16 grid gap-3 sm:grid-cols-12 md:mt-20 md:gap-4" data-reveal-group>
+  <div class="mt-12 grid gap-3 sm:grid-cols-12 md:mt-16 md:gap-4" data-reveal-group>
     <Image
       src={FotoIoExtended}
       alt="Sala llena en Google I/O Extended Tarija"
       widths={[480, 720, 960]}
       sizes="(min-width: 1152px) 620px, (min-width: 640px) 58vw, 100vw"
-      class="aspect-16/10 w-full rounded-xl object-cover sm:col-span-7"
+      class="aspect-16/10 w-full rounded-lg object-cover sm:col-span-7"
     />
     <Image
       src={FotoIwd}
       alt="Equipo de International Women's Day Tarija"
       widths={[480, 720]}
       sizes="(min-width: 1152px) 440px, (min-width: 640px) 42vw, 100vw"
-      class="aspect-16/10 w-full rounded-xl object-cover sm:col-span-5 sm:aspect-auto sm:h-full"
+      class="aspect-16/10 w-full rounded-lg object-cover sm:col-span-5 sm:aspect-auto sm:h-full"
     />
   </div>
   <div class="mt-6 flex justify-end">
@@ -157,9 +157,9 @@ const pillars = infoAbout.map((pillar, index) => ({
   /* El fondo de la pestaña activa viaja de una a otra: se entiende qué cambió y hacia dónde */
   .about-indicator {
     transition:
-      transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-      width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-      height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transform 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .about-indicator.no-transition {
@@ -172,14 +172,14 @@ const pillars = infoAbout.map((pillar, index) => ({
 
   @media (prefers-reduced-motion: no-preference) {
     .about-panel[data-active='true'] {
-      animation: panel-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+      animation: panel-in 0.3s ease-out both;
     }
   }
 
   @keyframes panel-in {
     from {
       opacity: 0;
-      transform: translateY(0.5rem);
+      transform: translateY(0.25rem);
     }
     to {
       opacity: 1;

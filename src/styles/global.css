@@ -89,7 +89,7 @@ body {
 html {
   scroll-behavior: smooth;
   /* La navbar es fija: sin esto, anclas y elementos enfocados con teclado quedan escondidos debajo */
-  scroll-padding-top: 7rem;
+  scroll-padding-top: 5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
