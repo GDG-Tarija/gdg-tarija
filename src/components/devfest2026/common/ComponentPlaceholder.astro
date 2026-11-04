@@ -4,11 +4,10 @@
 interface Props {
   name: string;
   description: string;
-  reference: string;
   class?: string;
 }
 
-const { name, description, reference, class: className = '' } = Astro.props;
+const { name, description, class: className = '' } = Astro.props;
 ---
 
 <div
@@ -16,6 +15,5 @@ const { name, description, reference, class: className = '' } = Astro.props;
 >
   <p class="font-df-code text-df-label text-df-ink-strong">&lt;{name} /&gt;</p>
   <p class="text-df-label text-df-ink-body">{description}</p>
-  <p class="text-df-label text-df-ink-muted">Referencia: devfest-views/{reference}</p>
   <slot />
 </div>

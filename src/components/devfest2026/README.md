@@ -1,6 +1,6 @@
 # Landing DevFest Tarija 2026
 
-Estructura base. Cada sección es un placeholder (`ComponentPlaceholder`) que indica qué lleva y qué vista del mockup seguir. Implementar un issue es reemplazar ese placeholder.
+Estructura base. Cada sección es un placeholder (`ComponentPlaceholder`) que indica qué lleva. Implementar un issue es reemplazar ese placeholder.
 
 Dentro de cada carpeta puedes crear los componentes que la sección necesite. Si varias secciones usan el mismo, muévelo a `common/`.
 
@@ -34,9 +34,9 @@ Los íconos usan Font Awesome, como el resto del sitio: `<i class="fa-solid fa-a
   - Sombra: `shadow-xs` en botones, `shadow-sm` en hover de cards, `shadow-df-sticker` solo en stickers
 - **Tonos:** `SectionShell` recibe `tone` y ajusta tinta y línea. Dentro de una sección usa `text-df-ink-*`, nunca blanco o gris fijo.
 - **Datos:** fecha, precio y enlaces viven en `EVENT`, y los nombres de actividades en `ACTIVITY_NAMES` (`data.ts`).
-- **Responsive:** una sola página. Usa `landing/main.html` como referencia desde `lg` y `landing/mobile.html` por debajo de `sm`.
+- **Responsive:** una sola página que se adapta de móvil a escritorio.
 - **Interactividad:** `<script>` de Astro con TypeScript, como el resto del sitio. El proyecto no tiene framework de UI, así que `client:visible` no aplica. Los minijuegos se cargan con `import()` al abrirlos.
-- **Mockup:** las vistas de `devfest-views/` son estáticas y traen estilos inline. Tradúcelos a variables y utilidades, no los copies.
+- **Mockup:** es estático y trae estilos inline. Tradúcelos a variables y utilidades, no los copies.
 
 ## Estructura
 
