@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Loader from '../components/common/Loader.astro';
 
-const title = 'DevFest Tarija 2026 | 28 de noviembre en la UPDS | GDG Tarija';
+const title = 'DevFest & Hackathon Tarija 2026 | 28 de noviembre en la UPDS | GDG Tarija';
 const description =
-  'DevFest Tarija 2026: el evento tech de GDG Tarija el 28 de noviembre en la UPDS. Charlas, talleres y networking con la comunidad de desarrolladores. Regístrate gratis.';
+  'DevFest y Hackathon Tarija 2026: el evento tech de GDG Tarija el 28 de noviembre en la UPDS. Charlas, talleres, hackathon y networking con la comunidad de desarrolladores. Regístrate gratis.';
 const image =
   'https://res.cloudinary.com/startup-grind/image/upload/c_scale,w_2560/c_crop,h_640,w_2560,y_0.0_mul_h_sub_0.0_mul_640/c_crop,h_640,w_2560/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/event_banners/blob_uL3wAoK';
 const canonical = 'https://gdgtarija.com/devfest';
@@ -14,7 +14,7 @@ const redirectUrl = 'https://eventos.gdgtarija.com/e/devfest';
 const eventSchema = {
   '@context': 'https://schema.org',
   '@type': 'Event',
-  name: 'DevFest Tarija 2026',
+  name: 'DevFest & Hackathon Tarija 2026',
   description,
   startDate: '2026-11-28',
   eventStatus: 'https://schema.org/EventScheduled',
@@ -35,7 +35,7 @@ const eventSchema = {
   description={description}
   image={image}
   canonical={canonical}
-  imageAlt="DevFest Tarija 2026 - GDG Tarija"
+  imageAlt="DevFest & Hackathon Tarija 2026 - GDG Tarija"
   imageWidth={2560}
   imageHeight={640}
 >
@@ -48,7 +48,7 @@ const eventSchema = {
   <main class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
     <Loader
       text="Redirigiendo..."
-      subtext="Te estamos llevando al DevFest Tarija 2026 · 28 de noviembre · UPDS."
+      subtext="Te estamos llevando al DevFest & Hackathon Tarija 2026 · 28 de noviembre · UPDS."
     />
   </main>
 </Layout>
