@@ -16,3 +16,14 @@ export const EVENT = {
   sponsorsUrl: '/sponsors',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=UPDS+Tarija',
 } as const;
+
+export const ACTIVITY_NAMES = {
+  charlas: 'Charlas',
+  codelabs: 'Codelabs',
+  hack: 'Hack Racing',
+  chill: 'Chill Zone',
+  zen: 'Sesión Zen',
+  feria: 'Feria de comunidades & sponsors',
+} as const;
+
+export type ActivityId = keyof typeof ACTIVITY_NAMES;

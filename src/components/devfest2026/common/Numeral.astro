@@ -1,0 +1,18 @@
+---
+// Número protagonista. Los dígitos se ocultan al lector de pantalla, que recibe la frase completa
+interface Props {
+  value: string;
+  label: string;
+  class?: string;
+}
+
+const { value, label, class: className = '' } = Astro.props;
+---
+
+<span class={`inline-block text-df-numeral tabular-nums ${className}`}>
+  <span
+    class="bg-clip-text text-transparent [background-image:var(--df-gradient-numeral)]"
+    aria-hidden="true">{value}</span
+  >
+  <span class="sr-only">{label}</span>
+</span>

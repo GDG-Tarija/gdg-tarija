@@ -1,0 +1,117 @@
+---
+import { ACTIVITY_NAMES, type ActivityId } from 'components/devfest2026/data';
+
+// Sello de cada actividad: mantiene su forma y color en toda la landing
+interface Props {
+  activity: ActivityId;
+  state?: 'locked' | 'earned';
+  size?: number;
+  class?: string;
+}
+
+type Shape =
+  | { kind: 'solid'; d: string; color: string }
+  | { kind: 'line'; d: string; color: string; outer: number; inner: number };
+
+const SHAPES: Record<ActivityId, Shape> = {
+  charlas: {
+    kind: 'solid',
+    d: 'M15 11H49A9 9 0 0 1 58 20V37A9 9 0 0 1 49 46H31L18 56L20 46H15A9 9 0 0 1 6 37V20A9 9 0 0 1 15 11Z',
+    color: 'var(--color-gdg-halftone-blue)',
+  },
+  codelabs: {
+    kind: 'line',
+    d: 'M27 12C19 12 19 16 19 22V27C19 30 16 32 12 32C16 32 19 34 19 37V42C19 48 19 52 27 52M37 12C45 12 45 16 45 22V27C45 30 48 32 52 32C48 32 45 34 45 37V42C45 48 45 52 37 52',
+    color: 'var(--color-gdg-pastel-green)',
+    outer: 12,
+    inner: 7,
+  },
+  hack: {
+    kind: 'line',
+    d: 'M10 32H50M36 17L51 32L36 47',
+    color: 'var(--color-gdg-yellow)',
+    outer: 14,
+    inner: 9,
+  },
+  chill: {
+    kind: 'line',
+    d: 'M10 18L23 32L10 46M54 18L41 32L54 46',
+    color: 'var(--color-gdg-halftone-red)',
+    outer: 13,
+    inner: 8,
+  },
+  zen: {
+    kind: 'solid',
+    d: 'M5.5 32a8.5 8.5 0 1 0 17 0a8.5 8.5 0 1 0-17 0ZM23.5 32a8.5 8.5 0 1 0 17 0a8.5 8.5 0 1 0-17 0ZM41.5 32a8.5 8.5 0 1 0 17 0a8.5 8.5 0 1 0-17 0Z',
+    color: 'var(--color-gdg-pastel-red)',
+  },
+  feria: {
+    kind: 'line',
+    d: 'M32 11V53M11 32H53',
+    color: 'var(--color-gdg-red)',
+    outer: 16,
+    inner: 11,
+  },
+};
+
+const { activity, state = 'earned', size = 64, class: className = '' } = Astro.props;
+
+const shape = SHAPES[activity];
+const earned = state === 'earned';
+const color = earned ? shape.color : 'var(--color-df-surface)';
+const label = `${ACTIVITY_NAMES[activity]}: ${earned ? 'sello ganado' : 'sello por ganar'}`;
+const outline = 'var(--color-df-outline)';
+---
+
+<span
+  role="img"
+  aria-label={label}
+  class={`relative inline-block flex-none leading-none ${className}`}
+  style={{ width: `${size}px`, height: `${size}px` }}
+>
+  <svg
+    viewBox="-2 -2 70 70"
+    width={size}
+    height={size}
+    aria-hidden="true"
+    class="block overflow-visible"
+  >
+    {
+      shape.kind === 'solid' ? (
+        <>
+          {earned && <path d={shape.d} transform="translate(3 3)" fill={outline} />}
+          <path
+            d={shape.d}
+            fill={color}
+            stroke={outline}
+            stroke-width="2.5"
+            stroke-linejoin="round"
+          />
+        </>
+      ) : (
+        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+          {earned && (
+            <path
+              d={shape.d}
+              transform="translate(3 3)"
+              stroke={outline}
+              stroke-width={shape.outer}
+            />
+          )}
+          <path d={shape.d} stroke={outline} stroke-width={shape.outer} />
+          <path d={shape.d} stroke={color} stroke-width={shape.inner} />
+        </g>
+      )
+    }
+  </svg>
+  {
+    !earned && (
+      <span
+        aria-hidden="true"
+        class="absolute -right-0.5 -bottom-0.5 grid size-[22px] place-items-center rounded-full border border-df-outline bg-df-surface text-[11px] text-df-ink-strong"
+      >
+        <i class="fa-solid fa-lock" />
+      </span>
+    )
+  }
+</span>

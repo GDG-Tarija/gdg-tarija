@@ -17,8 +17,10 @@ const toneClasses = {
 };
 ---
 
-<section id={id} aria-label={label} class={`scroll-mt-24 ${toneClasses[tone]}`}>
-  <div class="mx-auto max-w-df px-df-gutter-mobile py-df-section md:px-df-gutter">
+<section id={id} aria-label={label} class={toneClasses[tone]}>
+  <div
+    class="mx-auto max-w-df px-df-gutter-mobile py-df-section md:px-df-gutter md:py-df-section-lg"
+  >
     <slot />
   </div>
 </section>
