@@ -1,0 +1,20 @@
+---
+// Fondo transparente para que sirva en cualquier tono: el borde y la tinta los pone la sección
+interface Props {
+  variant?: 'chip' | 'outline';
+  class?: string;
+}
+
+const { variant = 'chip', class: className = '' } = Astro.props;
+
+const variantClasses = {
+  chip: 'border-df-hairline px-df-sm py-0.5 text-df-ink-body',
+  outline: 'border-df-ink px-df-md py-df-xs text-df-ink',
+};
+---
+
+<span
+  class={`inline-flex items-center gap-df-xs rounded-df-chip border text-df-label whitespace-nowrap ${variantClasses[variant]} ${className}`}
+>
+  <slot />
+</span>

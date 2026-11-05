@@ -1,0 +1,19 @@
+---
+// Temporal: reserva el espacio de logos, fotos y capibara hasta tener los assets finales
+interface Props {
+  label: string;
+  ratio?: string;
+  class?: string;
+}
+
+const { label, ratio = '4 / 3', class: className = '' } = Astro.props;
+---
+
+<div
+  role="img"
+  aria-label={label}
+  style={{ aspectRatio: ratio }}
+  class={`grid w-full place-items-center rounded-df-card border border-dashed border-df-route p-df-sm text-center text-df-label text-df-ink-muted ${className}`}
+>
+  <span>{label}</span>
+</div>

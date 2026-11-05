@@ -1,0 +1,77 @@
+---
+import Layout from 'layouts/Layout.astro';
+import ArrowLink from 'components/common/ArrowLink.astro';
+import Button from 'components/common/Button.astro';
+import Chip from 'components/devfest2026/common/Chip.astro';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
+import Numeral from 'components/devfest2026/common/Numeral.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
+import SectionShell from 'components/devfest2026/common/SectionShell.astro';
+import Sticker from 'components/devfest2026/common/Sticker.astro';
+import { ACTIVITY_NAMES, type ActivityId } from 'components/devfest2026/data';
+
+const activities = Object.keys(ACTIVITY_NAMES) as ActivityId[];
+
+// Sobre azul y verde, el botón primario pierde contraste: ahí va el inverso
+const tones = [
+  { tone: 'surface', variant: 'primary' },
+  { tone: 'ground', variant: 'outline' },
+  { tone: 'blue', variant: 'inverse' },
+  { tone: 'green', variant: 'inverse' },
+  { tone: 'yellow', variant: 'primary' },
+] as const;
+---
+
+<Layout title="DevFest Tarija 2026: componentes base">
+  <!-- Catálogo de revisión: se borra junto con la ruta temporal en el lanzamiento -->
+  <meta slot="head" name="robots" content="noindex" />
+  <div class="bg-df-surface font-df-sans text-df-ink">
+    <main>
+      {
+        tones.map(({ tone, variant }) => (
+          <SectionShell label={`Tono ${tone}`} {tone}>
+            <SectionHeading
+              id={`tono-${tone}`}
+              eyebrow={`Tono ${tone}`}
+              title="Título de sección"
+              lead="Una frase de apoyo bajo el título, con la tinta del tono."
+            >
+              {(tone === 'surface' || tone === 'ground') && (
+                <ArrowLink slot="action" href="#">
+                  Enlace con flecha
+                </ArrowLink>
+              )}
+            </SectionHeading>
+            <div class="flex flex-col gap-df-lg">
+              <div class="flex flex-wrap items-center gap-df-md">
+                <Button {variant}>Botón del tono</Button>
+                <Button {variant} size="lg">
+                  Botón grande
+                </Button>
+                <Chip>Auditorio</Chip>
+                <Chip variant="outline">28 NOV</Chip>
+              </div>
+              <div class="flex flex-wrap gap-df-lg">
+                {activities.map((activity) => (
+                  <Sticker {activity} />
+                ))}
+              </div>
+              <div class="w-48">
+                <ImageSlot label="Foto de ejemplo" />
+              </div>
+            </div>
+          </SectionShell>
+        ))
+      }
+      <SectionShell label="Stickers y número" tone="surface">
+        <div class="flex flex-col gap-df-lg">
+          <Numeral value="28" label="Sábado 28 de noviembre de 2026" />
+          <div class="flex flex-wrap gap-df-lg">
+            {activities.map((activity) => <Sticker {activity} state="locked" />)}
+          </div>
+          <Sticker activity="charlas" size={160} />
+        </div>
+      </SectionShell>
+    </main>
+  </div>
+</Layout>

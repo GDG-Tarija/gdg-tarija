@@ -1,0 +1,38 @@
+---
+import Layout from 'layouts/Layout.astro';
+import Header from 'components/devfest2026/header/Header.astro';
+import Hero from 'components/devfest2026/hero/Hero.astro';
+import About from 'components/devfest2026/about/About.astro';
+import PassportSection from 'components/devfest2026/passport/PassportSection.astro';
+import Agenda from 'components/devfest2026/agenda/Agenda.astro';
+import Speakers from 'components/devfest2026/speakers/Speakers.astro';
+import Fair from 'components/devfest2026/fair/Fair.astro';
+import Ticket from 'components/devfest2026/ticket/Ticket.astro';
+import FAQ from 'components/devfest2026/faq/FAQ.astro';
+import Location from 'components/devfest2026/location/Location.astro';
+import Closing from 'components/devfest2026/closing/Closing.astro';
+import MobileBar from 'components/devfest2026/mobile-bar/MobileBar.astro';
+
+const title = 'DevFest Tarija 2026';
+---
+
+<Layout title={title}>
+  <!-- Ruta de trabajo: /devfest sigue redirigiendo al registro hasta que la landing esté lista -->
+  <meta slot="head" name="robots" content="noindex" />
+  <div class="bg-df-surface font-df-sans text-df-ink">
+    <Header />
+    <main>
+      <Hero />
+      <About />
+      <PassportSection />
+      <Agenda />
+      <Speakers />
+      <Fair />
+      <Ticket />
+      <FAQ />
+      <Location />
+    </main>
+    <Closing />
+    <MobileBar />
+  </div>
+</Layout>
