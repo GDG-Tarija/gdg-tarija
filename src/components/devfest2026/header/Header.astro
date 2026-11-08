@@ -12,7 +12,10 @@ const links = [
 ];
 ---
 
-<header class="df-header sticky top-0 z-40 border-b border-df-hairline bg-df-surface">
+<header
+  id="df-header"
+  class="df-header fixed inset-x-0 top-0 z-40 border-b border-transparent bg-transparent transition-[background-color,border-color] duration-200 data-[scrolled=true]:border-df-hairline data-[scrolled=true]:bg-df-surface/95 data-[scrolled=true]:backdrop-blur-md"
+>
   <div class="mx-auto max-w-df px-df-gutter-mobile md:px-df-gutter">
     <div class="flex h-16 items-center justify-between gap-df-base">
       <a
@@ -74,3 +77,11 @@ const links = [
     </nav>
   </div>
 </header>
+
+<script>
+  const header = document.getElementById('df-header');
+  const updateScrolled = () => header?.setAttribute('data-scrolled', String(window.scrollY > 12));
+
+  updateScrolled();
+  window.addEventListener('scroll', updateScrolled, { passive: true });
+</script>
