@@ -75,7 +75,6 @@
 
   /* CONTENEDOR */
   --container-df: 72rem;
-
   /* RADIOS: nada pasa de 12px salvo avatares y botones de ícono */
   --radius-df-tag: 4px;
   --radius-df-chip: 6px;
@@ -153,4 +152,81 @@
 .df-tone-pastel {
   --color-df-ink-muted: #4b5563;
   --color-df-ground: #ffffff;
+}
+
+/* La reserva coincide con la altura de la barra y el área segura del dispositivo. */
+@media (max-width: 767px) {
+  .df-page {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Las figuras sobresalen del viewport como en la referencia sin tapar el contenido. */
+.df-hero-bubble {
+  right: calc(50% - 50vw - var(--spacing-df-section) - var(--spacing-df-base));
+  top: calc(-1 * var(--spacing-df-gutter));
+}
+
+.df-hero-cross {
+  left: calc(50% - 50vw - var(--spacing-df-section));
+  bottom: calc(-1 * var(--spacing-df-section));
+}
+
+.df-hero-arrow {
+  right: calc(50% - 50vw - var(--spacing-df-gutter) - var(--spacing-df-sm));
+  bottom: calc(-1 * var(--spacing-df-section));
+}
+
+/* En móvil la capibara ocupa el lugar compacto del mockup. */
+.df-hero-capybara {
+  width: min(40vw, 16rem);
+}
+
+@media (min-width: 1024px) {
+  .df-hero-capybara {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .df-hero-bubble {
+    right: calc(50% - 50vw - var(--spacing-df-section));
+  }
+
+  .df-hero-arrow {
+    right: calc(50% - 50vw - var(--spacing-df-gutter));
+  }
+}
+
+.df-hero-motif {
+  width: var(--df-motif-size);
+  height: var(--df-motif-size);
+}
+
+@media (max-width: 767px) {
+  .df-hero-motif {
+    width: var(--df-motif-mobile-size);
+    height: var(--df-motif-mobile-size);
+  }
+
+  /* Sticker conserva su SVG base y se escala dentro del mismo espacio que usará el asset final. */
+  .df-hero-motif-fallback {
+    display: block;
+    transform: scale(var(--df-motif-mobile-scale));
+    transform-origin: top left;
+  }
+}
+
+/* El header móvil tiene dos filas; las anclas necesitan más espacio superior. */
+@media (max-width: 767px) {
+  html:has(.df-page) {
+    scroll-padding-top: 8rem;
+  }
+}
+
+/* En móvil la flecha acompaña a la capibara y queda por encima de la barra fija. */
+@media (max-width: 767px) {
+  .df-hero-arrow {
+    bottom: var(--spacing-df-section);
+  }
 }

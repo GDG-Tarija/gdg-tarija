@@ -1,12 +1,16 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 // Contenedor de todas las secciones: fondo por tono, columna central y gutters iguales
 interface Props {
   id?: string;
   label: string;
   tone?: 'surface' | 'ground' | 'blue' | 'green' | 'yellow';
+  backgroundImage?: ImageMetadata;
 }
 
-const { id, label, tone = 'surface' } = Astro.props;
+const { id, label, tone = 'surface', backgroundImage } = Astro.props;
 
 const toneClasses = {
   surface: 'df-tone-surface',
@@ -15,11 +19,25 @@ const toneClasses = {
   green: 'df-tone-green',
   yellow: 'df-tone-yellow',
 };
+
+const sectionClasses = backgroundImage
+  ? toneClasses[tone] + ' relative isolate overflow-hidden'
+  : toneClasses[tone];
 ---
 
-<section id={id} aria-label={label} class={toneClasses[tone]}>
+<section id={id} aria-label={label} class={sectionClasses}>
+  {
+    backgroundImage && (
+      <Image
+        src={backgroundImage}
+        alt=""
+        loading="eager"
+        class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-15"
+      />
+    )
+  }
   <div
-    class="mx-auto max-w-df px-df-gutter-mobile py-df-section md:px-df-gutter md:py-df-section-lg"
+    class="relative z-10 mx-auto max-w-df px-df-gutter-mobile py-df-section md:px-df-gutter md:py-df-section-lg"
   >
     <slot />
   </div>
