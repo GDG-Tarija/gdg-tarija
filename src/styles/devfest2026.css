@@ -127,6 +127,23 @@
   background-color: var(--color-gdg-blue-deep);
 }
 
+/* Punto medio entre el mockup (sección azul) y DESIGN.md (claro por defecto, sin colores de Google como fondo) */
+.df-tone-ice {
+  /* El gris tenue por defecto da 3.75:1 sobre este azul; este valor da 5.86:1 */
+  --color-df-ink-muted: #4b5563;
+  --color-df-hairline: rgba(51, 103, 214, 0.3);
+  background-color: var(--color-gdg-ice-blue);
+}
+
+/* Hero: la foto se desvanece y el fondo termina en azul hielo, sin corte con la sección siguiente */
+.df-fade-to-ice {
+  background-image: linear-gradient(to bottom, transparent 55%, var(--color-gdg-ice-blue));
+}
+
+.df-fade-to-ice > img {
+  mask-image: linear-gradient(to bottom, black 45%, transparent);
+}
+
 .df-tone-green {
   --color-df-ink-strong: #ffffff;
   --color-df-ink: #ffffff;

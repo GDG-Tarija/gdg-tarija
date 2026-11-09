@@ -6,15 +6,17 @@ import type { ImageMetadata } from 'astro';
 interface Props {
   id?: string;
   label: string;
-  tone?: 'surface' | 'ground' | 'blue' | 'green' | 'yellow';
+  tone?: 'surface' | 'ground' | 'ice' | 'blue' | 'green' | 'yellow';
+  class?: string;
   backgroundImage?: ImageMetadata;
 }
 
-const { id, label, tone = 'surface', backgroundImage } = Astro.props;
+const { id, label, tone = 'surface', backgroundImage, class: className } = Astro.props;
 
 const toneClasses = {
   surface: 'df-tone-surface',
   ground: 'df-tone-ground',
+  ice: 'df-tone-ice',
   blue: 'df-tone-blue',
   green: 'df-tone-green',
   yellow: 'df-tone-yellow',
@@ -25,7 +27,7 @@ const sectionClasses = backgroundImage
   : toneClasses[tone];
 ---
 
-<section id={id} aria-label={label} class={sectionClasses}>
+<section id={id} aria-label={label} class:list={[sectionClasses, className]}>
   {
     backgroundImage && (
       <Image
