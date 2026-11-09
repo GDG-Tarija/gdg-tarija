@@ -4,11 +4,13 @@ import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
 import { DEVFEST_ASSETS } from 'components/devfest2026/assets';
 import { EVENT } from 'components/devfest2026/data';
 
+// Enlaces comentados: se descomentan junto con su sección en devfest-2026.astro
 const links = [
-  { href: '#pasaporte', label: 'Pasaporte' },
-  { href: '#agenda', label: 'Agenda' },
-  { href: '#speakers', label: 'Speakers' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '#devfest', label: 'DevFest' },
+  // { href: '#pasaporte', label: 'Pasaporte' },
+  // { href: '#agenda', label: 'Agenda' },
+  // { href: '#speakers', label: 'Speakers' },
+  // { href: '#faq', label: 'FAQ' },
 ];
 ---
 
@@ -55,7 +57,10 @@ const links = [
       </Button>
     </div>
 
-    <nav aria-label="Secciones de DevFest" class="grid grid-cols-4 gap-df-xs md:hidden">
+    <nav
+      aria-label="Secciones de DevFest"
+      class="grid auto-cols-fr grid-flow-col gap-df-xs md:hidden"
+    >
       {
         links.map(({ href, label }) => (
           <a
