@@ -4,7 +4,7 @@ Estructura base. Cada sección es un placeholder (`ComponentPlaceholder`) que in
 
 Dentro de cada carpeta puedes crear los componentes que la sección necesite. Si varias secciones usan el mismo, muévelo a `common/`.
 
-La ruta de trabajo es `/devfest-2026` y el catálogo de componentes base está en `/devfest-2026/base`. `/devfest` sigue redirigiendo al registro hasta el lanzamiento.
+La landing está en `/devfest` y el catálogo de componentes base en `/devfest/base` (sin indexar).
 
 ## Componentes base
 
@@ -41,8 +41,8 @@ Los íconos usan Font Awesome, como el resto del sitio: `<i class="fa-solid fa-a
 ## Estructura
 
 ```
-src/pages/devfest-2026.astro        orden de las secciones
-src/pages/devfest-2026/base.astro   catálogo de componentes base
+src/pages/devfest.astro             orden de las secciones
+src/pages/devfest/base.astro        catálogo de componentes base
 src/styles/devfest2026.css          variables y tonos
 src/components/devfest2026/
   data.ts                           EVENT y ACTIVITY_NAMES
