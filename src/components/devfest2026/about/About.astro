@@ -1,0 +1,82 @@
+---
+import { Image } from 'astro:assets';
+import SectionShell from 'components/devfest2026/common/SectionShell.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
+import { EVENT } from 'components/devfest2026/data';
+import FotoComunidad from '../../../assets/images/devfest2026/foto-comunidad-tarija.jpg';
+import FotoDevFest2025 from '../../../assets/images/devfest2026/gdg-devfest-2025.webp';
+import FotoBuildWithAi from '../../../assets/images/devfest2026/foto-buildwithai.jpg';
+
+const stats = [
+  { value: String(EVENT.capacity), label: 'cupos' },
+  { value: '1', label: 'día' },
+  { value: EVENT.price, label: 'inscripción' },
+];
+
+const photos = [
+  // La foto grupal es panorámica: a todo el ancho con su proporción; en móvil se recorta a 2:1 para que no quede como una franja
+  {
+    src: FotoComunidad,
+    alt: 'Foto grupal de la comunidad GDG Tarija en uno de sus eventos',
+    wide: true,
+  },
+  {
+    src: FotoDevFest2025,
+    alt: 'Asistentes del DevFest Tarija 2025 junto a las letras de GDG',
+    wide: false,
+  },
+  {
+    src: FotoBuildWithAi,
+    alt: 'Asistentes del Build with AI Tarija junto a las letras de GDG',
+    wide: false,
+  },
+];
+---
+
+<SectionShell id="devfest" label="DevFest Tarija 2026" tone="ice">
+  <div class="flex flex-col gap-df-section">
+    <div class="grid gap-df-lg xl:grid-cols-2 xl:gap-df-section">
+      <div class="flex flex-col">
+        <SectionHeading
+          id="devfest-titulo"
+          eyebrow="Edición 2026"
+          title={EVENT.name}
+          lead="DevFest es el festival que las comunidades GDG organizan cada año en todo el mundo. Este año vuelve a Tarija: un día entero de Google Cloud, IA y Desarrollo en la UPDS."
+        />
+        <div class="flex flex-col gap-df-xs">
+          <p class="m-0 text-df-eyebrow text-df-ink-muted uppercase">Tema global</p>
+          <p class="m-0 text-df-headline text-df-ink-strong">{EVENT.theme}</p>
+        </div>
+      </div>
+
+      <ul class="m-0 grid list-none grid-cols-3 content-start gap-df-sm p-0 sm:gap-df-base">
+        {
+          stats.map((stat) => (
+            <li class="flex flex-col gap-df-xs rounded-df-card border border-df-hairline p-df-md sm:gap-df-sm sm:p-df-lg">
+              <p class="m-0 text-df-headline whitespace-nowrap text-df-ink-strong sm:text-df-stat">
+                {stat.value}
+              </p>
+              <p class="m-0 text-df-label text-df-ink-muted">{stat.label}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <ul class="m-0 grid list-none gap-df-base p-0 sm:grid-cols-2">
+      {
+        photos.map((photo) => (
+          <li class={photo.wide ? 'sm:col-span-2' : ''}>
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              widths={photo.wide ? [960, 1920] : [480, 960]}
+              sizes={photo.wide ? '100vw' : '(min-width: 640px) 50vw, 100vw'}
+              class={`w-full rounded-df-card object-cover ${photo.wide ? 'aspect-2/1 sm:aspect-[2000/516]' : 'aspect-4/3'}`}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</SectionShell>

@@ -1,14 +1,26 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Loader from '../components/common/Loader.astro';
+import Layout from 'layouts/Layout.astro';
+import Header from 'components/devfest2026/header/Header.astro';
+import Hero from 'components/devfest2026/hero/Hero.astro';
+import About from 'components/devfest2026/about/About.astro';
+// Secciones comentadas: se descomentan en el ticket que las implementa
+// import PassportSection from 'components/devfest2026/passport/PassportSection.astro';
+// import Agenda from 'components/devfest2026/agenda/Agenda.astro';
+// import Speakers from 'components/devfest2026/speakers/Speakers.astro';
+// import Fair from 'components/devfest2026/fair/Fair.astro';
+// import Ticket from 'components/devfest2026/ticket/Ticket.astro';
+// import FAQ from 'components/devfest2026/faq/FAQ.astro';
+// import Location from 'components/devfest2026/location/Location.astro';
+// import Closing from 'components/devfest2026/closing/Closing.astro';
+import MobileBar from 'components/devfest2026/mobile-bar/MobileBar.astro';
+import { EVENT } from 'components/devfest2026/data';
 
 const title = 'DevFest & Hackathon Tarija 2026 | 28 de noviembre en la UPDS | GDG Tarija';
 const description =
-  'DevFest y Hackathon Tarija 2026: el evento tech de GDG Tarija el 28 de noviembre en la UPDS. Charlas, talleres, hackathon y networking con la comunidad de desarrolladores. Regístrate gratis.';
+  'DevFest y Hackathon Tarija 2026: el evento tech de GDG Tarija el 28 de noviembre en la UPDS. Charlas, talleres, hackathon y networking con la comunidad de desarrolladores. Inscripción: 20 Bs con almuerzo incluido.';
 const image =
   'https://res.cloudinary.com/startup-grind/image/upload/c_scale,w_2560/c_crop,h_640,w_2560,y_0.0_mul_h_sub_0.0_mul_640/c_crop,h_640,w_2560/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/event_banners/blob_uL3wAoK';
 const canonical = 'https://gdgtarija.com/devfest';
-const redirectUrl = 'https://eventos.gdgtarija.com/e/devfest';
 
 // Datos estructurados para que Google pueda mostrar el evento como resultado enriquecido
 const eventSchema = {
@@ -26,7 +38,7 @@ const eventSchema = {
   },
   image: [image],
   organizer: { '@type': 'Organization', name: 'GDG Tarija', url: 'https://gdgtarija.com' },
-  offers: { '@type': 'Offer', url: redirectUrl, price: '0', priceCurrency: 'BOB' },
+  offers: { '@type': 'Offer', url: EVENT.registerUrl, price: '20', priceCurrency: 'BOB' },
 };
 ---
 
@@ -39,16 +51,21 @@ const eventSchema = {
   imageWidth={2560}
   imageHeight={640}
 >
-  <Fragment slot="head">
-    <!-- Un refresh corto deja que los rastreadores lean los metatags antes de enviar al usuario -->
-    <meta http-equiv="refresh" content={`1;url=${redirectUrl}`} />
-    <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
-  </Fragment>
-
-  <main class="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-4">
-    <Loader
-      text="Redirigiendo..."
-      subtext="Te estamos llevando al DevFest & Hackathon Tarija 2026 · 28 de noviembre · UPDS."
-    />
-  </main>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(eventSchema)} />
+  <div class="df-page bg-df-surface font-df-sans text-df-ink">
+    <Header />
+    <main>
+      <Hero />
+      <About />
+      {/* <PassportSection /> */}
+      {/* <Agenda /> */}
+      {/* <Speakers /> */}
+      {/* <Fair /> */}
+      {/* <Ticket /> */}
+      {/* <FAQ /> */}
+      {/* <Location /> */}
+    </main>
+    {/* <Closing /> */}
+    <MobileBar />
+  </div>
 </Layout>

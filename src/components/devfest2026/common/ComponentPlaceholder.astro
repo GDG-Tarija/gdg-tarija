@@ -1,0 +1,19 @@
+---
+// Temporal: marca dónde va cada componente hasta que se implemente su issue.
+// Se borra cuando ningún componente lo use.
+interface Props {
+  name: string;
+  description: string;
+  class?: string;
+}
+
+const { name, description, class: className = '' } = Astro.props;
+---
+
+<div
+  class={`flex flex-col gap-df-xs rounded-df-card border-[1.5px] border-dashed border-df-route p-df-base ${className}`}
+>
+  <p class="font-df-code text-df-label text-df-ink-strong">&lt;{name} /&gt;</p>
+  <p class="text-df-label text-df-ink-body">{description}</p>
+  <slot />
+</div>

@@ -1,0 +1,29 @@
+---
+import Eyebrow from 'components/devfest2026/common/Eyebrow.astro';
+
+// El SectionHeading del sitio fija texto gris; este toma la tinta del tono de la sección
+interface Props {
+  id: string;
+  title: string;
+  eyebrow?: string;
+  lead?: string;
+}
+
+const { id, title, eyebrow, lead } = Astro.props;
+const hasAction = Astro.slots.has('action');
+---
+
+<div class="mb-8 flex flex-col gap-df-base md:mb-10 md:flex-row md:items-end md:justify-between">
+  <div class="flex max-w-2xl flex-col items-start gap-df-md">
+    {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+    <h2 id={id} class="m-0 text-df-headline text-balance text-df-ink-strong">{title}</h2>
+    {lead && <p class="m-0 text-df-lead text-pretty text-df-ink-body">{lead}</p>}
+  </div>
+  {
+    hasAction && (
+      <div class="shrink-0">
+        <slot name="action" />
+      </div>
+    )
+  }
+</div>

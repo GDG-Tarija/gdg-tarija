@@ -1,0 +1,31 @@
+---
+// Etiqueta sobre un título, con subrayado de los cuatro colores de Google
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<p
+  class={`df-eyebrow m-0 inline-flex flex-col gap-1.5 text-df-eyebrow text-df-ink uppercase ${className}`}
+>
+  <slot />
+</p>
+
+<style>
+  /* Cuatro bloques planos con cortes duros: no es un degradado */
+  .df-eyebrow::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--color-gdg-blue) 0 25%,
+      var(--color-gdg-red) 25% 50%,
+      var(--color-gdg-yellow) 50% 75%,
+      var(--color-gdg-green) 75% 100%
+    );
+  }
+</style>

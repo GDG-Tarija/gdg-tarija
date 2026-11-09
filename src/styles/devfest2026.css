@@ -1,0 +1,249 @@
+/*
+ * DevFest Tarija 2026: variables del tema.
+ * Los colores de marca (gdg-blue, gdg-pastel-*, gdg-halftone-*) ya están en global.css.
+ * Aquí solo va lo propio del evento, con prefijo df- para no tocar el resto del sitio.
+ * Las medidas siguen DESIGN.md; las excepciones del tema de evento están en el README de la landing.
+ * `static` publica todas las variables aunque todavía ningún componente las use.
+ */
+@theme static {
+  /* COLORES */
+  --color-df-surface: #ffffff;
+  --color-df-ground: var(--color-gdg-off-white);
+  --color-df-hairline: #e5e7eb;
+  --color-df-route: #9aa0a6;
+  --color-df-ink-strong: #111827;
+  --color-df-ink: #1f2937;
+  --color-df-ink-body: #4b5563;
+  --color-df-ink-muted: #6b7280;
+  --color-df-outline: var(--color-gdg-black);
+  --color-df-lilac: #c9a0dc;
+  --color-df-pastel-lilac: #ecdff4;
+  --color-df-green-deep: #188038;
+
+  /* TIPOGRAFÍA: títulos en peso medio, la jerarquía la dan el tamaño y el espacio */
+  --font-df-sans: 'Google Sans', system-ui, sans-serif;
+  --font-df-code: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --text-df-numeral: clamp(4rem, 16vw, 9rem);
+  --text-df-numeral--line-height: 0.9;
+  --text-df-numeral--letter-spacing: -0.04em;
+  --text-df-numeral--font-weight: 500;
+
+  --text-df-display: clamp(2.125rem, 4.1vw, 3.25rem);
+  --text-df-display--line-height: 1.1;
+  --text-df-display--letter-spacing: -0.02em;
+  --text-df-display--font-weight: 500;
+
+  --text-df-headline: clamp(1.75rem, 4.7vw, 2.25rem);
+  --text-df-headline--line-height: 1.25;
+  --text-df-headline--letter-spacing: -0.01em;
+  --text-df-headline--font-weight: 500;
+
+  --text-df-stat: 3rem;
+  --text-df-stat--line-height: 1;
+  --text-df-stat--letter-spacing: -0.02em;
+  --text-df-stat--font-weight: 500;
+
+  --text-df-lead: clamp(1rem, 2.35vw, 1.125rem);
+  --text-df-lead--line-height: 1.625;
+
+  --text-df-title: 1rem;
+  --text-df-title--line-height: 1.375;
+  --text-df-title--font-weight: 500;
+
+  --text-df-body: 1rem;
+  --text-df-body--line-height: 1.625;
+
+  --text-df-eyebrow: 0.9375rem;
+  --text-df-eyebrow--line-height: 1.3;
+  --text-df-eyebrow--letter-spacing: 0.04em;
+
+  --text-df-label: 0.875rem;
+  --text-df-label--line-height: 1.43;
+  --text-df-label--font-weight: 500;
+
+  /* ESPACIADO */
+  --spacing-df-xs: 4px;
+  --spacing-df-sm: 8px;
+  --spacing-df-md: 12px;
+  --spacing-df-base: 16px;
+  --spacing-df-lg: 24px;
+  --spacing-df-gutter-mobile: 16px;
+  --spacing-df-gutter: 32px;
+  --spacing-df-section: 64px;
+  --spacing-df-section-lg: 96px;
+
+  /* CONTENEDOR */
+  --container-df: 72rem;
+  /* RADIOS: nada pasa de 12px salvo avatares y botones de ícono */
+  --radius-df-tag: 4px;
+  --radius-df-chip: 6px;
+  --radius-df-control: 8px;
+  --radius-df-card: 8px;
+  --radius-df-panel: 12px;
+
+  /* SOMBRAS: para botones y cards se usan shadow-xs y shadow-sm. Esta es solo del motivo sticker */
+  --shadow-df-sticker: 3px 3px 0 var(--color-gdg-black);
+
+  /* MOVIMIENTO */
+  --ease-df-out: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* TRAZOS (sin utilidad de Tailwind: se usan con var()) */
+  --df-stroke-route: 2px;
+  --df-stroke-sticker: 2.5px;
+
+  /* El único degradado del tema: los números grandes */
+  --df-gradient-numeral: linear-gradient(
+    90deg,
+    var(--color-gdg-blue),
+    var(--color-gdg-red),
+    var(--color-gdg-yellow),
+    var(--color-gdg-green)
+  );
+}
+
+/*
+ * Tonos de sección: redefinen las variables de tinta y línea, así los componentes
+ * internos se leen bien sobre cualquier fondo sin saber en qué sección están.
+ */
+.df-tone-surface {
+  background-color: var(--color-df-surface);
+}
+
+/* Sobre gdg-off-white, el gris tenue da 4.24:1 y los metadatos deben llegar a 4.5:1 */
+.df-tone-ground {
+  --color-df-ink-muted: #4b5563;
+  background-color: var(--color-df-ground);
+}
+
+.df-tone-blue {
+  --color-df-ink-strong: #ffffff;
+  --color-df-ink: #ffffff;
+  --color-df-ink-body: #f1f5ff;
+  /* El #e6edfd del mockup da 4.42:1 sobre este azul; este valor sí llega a 4.5:1 */
+  --color-df-ink-muted: #f1f5ff;
+  --color-df-hairline: rgba(255, 255, 255, 0.45);
+  --color-df-route: rgba(255, 255, 255, 0.6);
+  background-color: var(--color-gdg-blue-deep);
+}
+
+/* Punto medio entre el mockup (sección azul) y DESIGN.md (claro por defecto, sin colores de Google como fondo) */
+.df-tone-ice {
+  /* El gris tenue por defecto da 3.75:1 sobre este azul; este valor da 5.86:1 */
+  --color-df-ink-muted: #4b5563;
+  --color-df-hairline: rgba(51, 103, 214, 0.3);
+  background-color: var(--color-gdg-ice-blue);
+}
+
+/* Hero: la foto se desvanece y el fondo termina en azul hielo, sin corte con la sección siguiente */
+.df-fade-to-ice {
+  background-image: linear-gradient(to bottom, transparent 55%, var(--color-gdg-ice-blue));
+}
+
+.df-fade-to-ice > img {
+  mask-image: linear-gradient(to bottom, black 45%, transparent);
+}
+
+.df-tone-green {
+  --color-df-ink-strong: #ffffff;
+  --color-df-ink: #ffffff;
+  --color-df-ink-body: #f1f8f3;
+  /* El #e8f5eb daba 4.47:1 sobre este verde; este valor sí llega a 4.5:1 */
+  --color-df-ink-muted: #f1f8f3;
+  --color-df-hairline: rgba(255, 255, 255, 0.3);
+  --color-df-route: rgba(255, 255, 255, 0.55);
+  --color-df-ground: rgba(255, 255, 255, 0.1);
+  background-color: var(--color-df-green-deep);
+}
+
+.df-tone-yellow {
+  --color-df-ink-body: #1f2937;
+  --color-df-ink-muted: #374151;
+  --color-df-hairline: rgba(17, 24, 39, 0.18);
+  --color-df-route: rgba(17, 24, 39, 0.45);
+  --color-df-ground: #ffffff;
+  background-color: var(--color-gdg-halftone-yellow);
+}
+
+/* Paradas: sobre pastel, el gris tenue del mockup no llega a 4.5:1 en textos de 14px */
+.df-tone-pastel {
+  --color-df-ink-muted: #4b5563;
+  --color-df-ground: #ffffff;
+}
+
+/* La reserva coincide con la altura de la barra y el área segura del dispositivo. */
+@media (max-width: 767px) {
+  .df-page {
+    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Las figuras sobresalen del viewport como en la referencia sin tapar el contenido. */
+.df-hero-bubble {
+  right: calc(50% - 50vw - var(--spacing-df-section) - var(--spacing-df-base));
+  top: calc(-1 * var(--spacing-df-gutter));
+}
+
+.df-hero-cross {
+  left: calc(50% - 50vw - var(--spacing-df-section));
+  bottom: calc(-1 * var(--spacing-df-section));
+}
+
+.df-hero-arrow {
+  right: calc(50% - 50vw - var(--spacing-df-gutter) - var(--spacing-df-sm));
+  bottom: calc(-1 * var(--spacing-df-section));
+}
+
+/* En móvil la capibara ocupa el lugar compacto del mockup. */
+.df-hero-capybara {
+  width: min(40vw, 16rem);
+}
+
+@media (min-width: 1024px) {
+  .df-hero-capybara {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .df-hero-bubble {
+    right: calc(50% - 50vw - var(--spacing-df-section));
+  }
+
+  .df-hero-arrow {
+    right: calc(50% - 50vw - var(--spacing-df-gutter));
+  }
+}
+
+.df-hero-motif {
+  width: var(--df-motif-size);
+  height: var(--df-motif-size);
+}
+
+@media (max-width: 767px) {
+  .df-hero-motif {
+    width: var(--df-motif-mobile-size);
+    height: var(--df-motif-mobile-size);
+  }
+
+  /* Sticker conserva su SVG base y se escala dentro del mismo espacio que usará el asset final. */
+  .df-hero-motif-fallback {
+    display: block;
+    transform: scale(var(--df-motif-mobile-scale));
+    transform-origin: top left;
+  }
+}
+
+/* El header móvil tiene dos filas; las anclas necesitan más espacio superior. */
+@media (max-width: 767px) {
+  html:has(.df-page) {
+    scroll-padding-top: 8rem;
+  }
+}
+
+/* En móvil la flecha acompaña a la capibara y queda por encima de la barra fija. */
+@media (max-width: 767px) {
+  .df-hero-arrow {
+    bottom: var(--spacing-df-section);
+  }
+}
