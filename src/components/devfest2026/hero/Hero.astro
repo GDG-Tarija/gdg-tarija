@@ -64,7 +64,7 @@ const countdown = [
           <span class="text-df-lead font-medium sm:text-df-headline"
             ><span class="uppercase">{dateTitle} · {EVENT.venueShort}</span>, Tarija</span
           >
-          <span class="text-df-label font-normal text-df-ink-body">
+          <span class="text-df-lead font-normal text-df-ink-strong">
             {dayLabel} · {EVENT.schedule} · {EVENT.name}
           </span>
         </span>
@@ -81,7 +81,10 @@ const countdown = [
             countdown.map(({ unit, label, mobileLabel }) => (
               <div class="min-w-0" data-countdown-unit={unit} data-countdown-label={label}>
                 <Numeral value="--" label={label + ': --'} />
-                <span aria-hidden="true" class="mt-df-xs block text-df-label text-df-ink-muted">
+                <span
+                  aria-hidden="true"
+                  class="mt-df-xs block text-df-body text-df-ink-strong sm:text-df-lead"
+                >
                   <span class="sm:hidden">{mobileLabel}</span>
                   <span class="hidden sm:inline">{label}</span>
                 </span>
@@ -105,7 +108,7 @@ const countdown = [
           Inscribite por {EVENT.price}
           <i slot="icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </Button>
-        <span class="text-df-label text-df-ink-body">Presencial · {EVENT.capacity} cupos</span>
+        <span class="text-df-lead text-df-ink-strong">Presencial · {EVENT.capacity} cupos</span>
       </div>
     </div>
 
