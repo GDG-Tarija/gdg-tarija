@@ -8,13 +8,13 @@ import FotoDevFest2025 from '../../../assets/images/devfest2026/gdg-devfest-2025
 import FotoBuildWithAi from '../../../assets/images/devfest2026/foto-buildwithai.jpg';
 
 const stats = [
-  { value: String(EVENT.capacity), label: 'cupos presenciales' },
-  { value: '1', label: `día, de ${EVENT.schedule.replace(' – ', ' a ')}` },
-  { value: EVENT.price, label: 'con almuerzo incluido' },
+  { value: String(EVENT.capacity), label: 'cupos' },
+  { value: '1', label: 'día' },
+  { value: EVENT.price, label: 'inscripción' },
 ];
 
 const photos = [
-  // La foto grupal es panorámica: va a todo el ancho con su proporción para no recortar a nadie
+  // La foto grupal es panorámica: a todo el ancho con su proporción; en móvil se recorta a 2:1 para que no quede como una franja
   {
     src: FotoComunidad,
     alt: 'Foto grupal de la comunidad GDG Tarija en uno de sus eventos',
@@ -35,9 +35,6 @@ const photos = [
 
 <SectionShell id="devfest" label="DevFest Tarija 2026" tone="ice">
   <div class="flex flex-col gap-df-section">
-    {
-      /* Las dos columnas esperan a xl: antes, las cards de datos quedarían tan angostas que "presenciales" se partiría */
-    }
     <div class="grid gap-df-lg xl:grid-cols-2 xl:gap-df-section">
       <div class="flex flex-col">
         <SectionHeading
@@ -52,11 +49,13 @@ const photos = [
         </div>
       </div>
 
-      <ul class="m-0 grid list-none content-start gap-df-base p-0 sm:grid-cols-3">
+      <ul class="m-0 grid list-none grid-cols-3 content-start gap-df-sm p-0 sm:gap-df-base">
         {
           stats.map((stat) => (
-            <li class="flex flex-col gap-df-sm rounded-df-card border border-df-hairline p-df-lg">
-              <p class="m-0 text-df-stat whitespace-nowrap text-df-ink-strong">{stat.value}</p>
+            <li class="flex flex-col gap-df-xs rounded-df-card border border-df-hairline p-df-md sm:gap-df-sm sm:p-df-lg">
+              <p class="m-0 text-df-headline whitespace-nowrap text-df-ink-strong sm:text-df-stat">
+                {stat.value}
+              </p>
               <p class="m-0 text-df-label text-df-ink-muted">{stat.label}</p>
             </li>
           ))
@@ -73,7 +72,7 @@ const photos = [
               alt={photo.alt}
               widths={photo.wide ? [960, 1920] : [480, 960]}
               sizes={photo.wide ? '100vw' : '(min-width: 640px) 50vw, 100vw'}
-              class={`w-full rounded-df-card object-cover ${photo.wide ? 'aspect-[2000/516]' : 'aspect-4/3'}`}
+              class={`w-full rounded-df-card object-cover ${photo.wide ? 'aspect-2/1 sm:aspect-[2000/516]' : 'aspect-4/3'}`}
             />
           </li>
         ))
