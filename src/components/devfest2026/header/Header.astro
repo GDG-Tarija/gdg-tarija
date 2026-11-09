@@ -4,11 +4,13 @@ import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
 import { DEVFEST_ASSETS } from 'components/devfest2026/assets';
 import { EVENT } from 'components/devfest2026/data';
 
+// Enlaces comentados: se descomentan junto con su sección en devfest-2026.astro
 const links = [
-  { href: '#pasaporte', label: 'Pasaporte' },
-  { href: '#agenda', label: 'Agenda' },
-  { href: '#speakers', label: 'Speakers' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '#devfest', label: 'DevFest' },
+  // { href: '#pasaporte', label: 'Pasaporte' },
+  // { href: '#agenda', label: 'Agenda' },
+  // { href: '#speakers', label: 'Speakers' },
+  // { href: '#faq', label: 'FAQ' },
 ];
 ---
 
@@ -41,7 +43,7 @@ const links = [
           links.map(({ href, label }) => (
             <a
               href={href}
-              class="text-df-label text-df-ink-body transition-colors hover:text-gdg-blue-deep focus-visible:rounded-df-tag focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
+              class="text-df-body text-df-ink-body transition-colors hover:text-gdg-blue-deep focus-visible:rounded-df-tag focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
             >
               {label}
             </a>
@@ -55,12 +57,15 @@ const links = [
       </Button>
     </div>
 
-    <nav aria-label="Secciones de DevFest" class="grid grid-cols-4 gap-df-xs md:hidden">
+    <nav
+      aria-label="Secciones de DevFest"
+      class="grid auto-cols-fr grid-flow-col gap-df-xs md:hidden"
+    >
       {
         links.map(({ href, label }) => (
           <a
             href={href}
-            class="flex min-h-11 items-center justify-center whitespace-nowrap text-df-label text-df-ink transition-colors hover:text-gdg-blue-deep focus-visible:rounded-df-tag focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
+            class="flex min-h-11 items-center justify-center whitespace-nowrap text-df-body text-df-ink transition-colors hover:text-gdg-blue-deep focus-visible:rounded-df-tag focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
           >
             {label}
           </a>
