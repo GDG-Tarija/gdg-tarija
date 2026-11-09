@@ -1,11 +1,186 @@
 ---
+import Button from 'components/common/Button.astro';
+import { DEVFEST_ASSETS } from 'components/devfest2026/assets';
+import Eyebrow from 'components/devfest2026/common/Eyebrow.astro';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
+import Numeral from 'components/devfest2026/common/Numeral.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import { EVENT } from 'components/devfest2026/data';
+import HeroMotif from './HeroMotif.astro';
+
+const eventDate = new Date(EVENT.startsAt);
+const eventDay = new Intl.DateTimeFormat('es-BO', {
+  day: 'numeric',
+  timeZone: 'America/La_Paz',
+}).format(eventDate);
+const monthYearParts = new Intl.DateTimeFormat('es-BO', {
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'America/La_Paz',
+}).formatToParts(eventDate);
+const month = monthYearParts.find((part) => part.type === 'month')?.value ?? '';
+const year = monthYearParts.find((part) => part.type === 'year')?.value ?? '';
+const dateTitle = month.charAt(0).toUpperCase() + month.slice(1) + ' ' + year;
+const weekday = new Intl.DateTimeFormat('es-BO', {
+  weekday: 'long',
+  timeZone: 'America/La_Paz',
+}).format(eventDate);
+const dayLabel = weekday.charAt(0).toUpperCase() + weekday.slice(1);
+
+const countdown = [
+  { unit: 'days', label: 'Días', mobileLabel: 'Días' },
+  { unit: 'hours', label: 'Horas', mobileLabel: 'Horas' },
+  { unit: 'minutes', label: 'Minutos', mobileLabel: 'Min' },
+  { unit: 'seconds', label: 'Segundos', mobileLabel: 'Seg' },
+] as const;
 ---
 
-<SectionShell label="Save the date" tone="ground">
-  <ComponentPlaceholder
-    name="Hero"
-    description="Lockup, 28 con degradado, datos, cuenta regresiva, botón de inscripción, capibara y foto velada."
-  />
+<SectionShell
+  id="inicio"
+  label="Save the Date"
+  tone="ground"
+  backgroundImage={DEVFEST_ASSETS.bridge}
+>
+  <div
+    class="relative grid items-center gap-df-lg pt-[6.75rem] md:pt-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-df-section"
+  >
+    <div class="relative z-10">
+      <div class="mb-df-base w-44 sm:w-52">
+        <ImageSlot
+          label="Logo DevFest Tarija"
+          ratio="3 / 1"
+          src={DEVFEST_ASSETS.logo}
+          loading="eager"
+          fit="contain"
+        />
+      </div>
+
+      <Eyebrow>Save the Date</Eyebrow>
+      <h1
+        class="mt-df-base flex flex-col items-start gap-df-sm text-df-ink-strong sm:grid sm:grid-cols-[auto_minmax(0,1fr)] sm:items-center sm:gap-df-base"
+      >
+        <Numeral value={eventDay} label={eventDay} />
+        <span class="flex min-w-0 flex-col gap-df-xs">
+          <span class="text-df-lead font-medium sm:text-df-headline"
+            ><span class="uppercase">{dateTitle} · {EVENT.venueShort}</span>, Tarija</span
+          >
+          <span class="text-df-label font-normal text-df-ink-body">
+            {dayLabel} · {EVENT.schedule} · {EVENT.name}
+          </span>
+        </span>
+      </h1>
+
+      <div class="mt-df-lg" data-countdown data-starts-at={EVENT.startsAt}>
+        <div
+          class="grid w-fit grid-cols-[repeat(2,minmax(0,5.5rem))] gap-x-df-base gap-y-df-lg sm:w-full sm:max-w-2xl sm:grid-cols-3"
+          data-countdown-clock
+          role="timer"
+          aria-label="Cuenta regresiva para DevFest Tarija 2026"
+        >
+          {
+            countdown.map(({ unit, label, mobileLabel }) => (
+              <div class="min-w-0" data-countdown-unit={unit} data-countdown-label={label}>
+                <Numeral value="--" label={label + ': --'} />
+                <span aria-hidden="true" class="mt-df-xs block text-df-label text-df-ink-muted">
+                  <span class="sm:hidden">{mobileLabel}</span>
+                  <span class="hidden sm:inline">{label}</span>
+                </span>
+              </div>
+            ))
+          }
+        </div>
+        <p
+          class="hidden min-h-20 text-df-headline font-medium text-df-ink-strong"
+          data-countdown-message
+          role="status"
+        >
+          ¡Llegó el día de DevFest Tarija 2026!
+        </p>
+      </div>
+
+      <div
+        class="mt-df-lg flex flex-col items-start gap-df-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-df-base"
+      >
+        <Button href={EVENT.registerUrl} iconPosition="right">
+          Inscribite por {EVENT.price}
+          <i slot="icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </Button>
+        <span class="text-df-label text-df-ink-body">Presencial · {EVENT.capacity} cupos</span>
+      </div>
+    </div>
+
+    <div class="df-hero-capybara relative z-10 ml-df-lg max-w-96 lg:mx-auto lg:pt-df-section">
+      <ImageSlot
+        label="Capibara saludando"
+        ratio="625 / 861"
+        src={DEVFEST_ASSETS.capybara}
+        loading="eager"
+        fit="contain"
+        class="rounded-df-panel"
+      />
+    </div>
+
+    <HeroMotif
+      activity="charlas"
+      src={DEVFEST_ASSETS.bubble}
+      size={160}
+      mobileSize={120}
+      showOnMobile
+      class="df-hero-bubble"
+    />
+    <HeroMotif activity="feria" src={DEVFEST_ASSETS.cross} size={160} class="df-hero-cross" />
+    <HeroMotif
+      activity="hack"
+      src={DEVFEST_ASSETS.arrow}
+      size={140}
+      mobileSize={110}
+      showOnMobile
+      class="df-hero-arrow"
+    />
+  </div>
 </SectionShell>
+
+<script>
+  const countdownRoot = document.querySelector<HTMLElement>('[data-countdown]');
+
+  if (countdownRoot) {
+    const target = new Date(countdownRoot.dataset.startsAt ?? '').getTime();
+    const clock = countdownRoot.querySelector<HTMLElement>('[data-countdown-clock]');
+    const message = countdownRoot.querySelector<HTMLElement>('[data-countdown-message]');
+    const fields = countdownRoot.querySelectorAll<HTMLElement>('[data-countdown-unit]');
+
+    const update = () => {
+      const remaining = Math.max(0, target - Date.now());
+      if (remaining === 0) {
+        clock?.classList.add('hidden');
+        message?.classList.remove('hidden');
+        return true;
+      }
+
+      const seconds = Math.floor(remaining / 1000);
+      const values: Record<string, number> = {
+        days: Math.floor(seconds / 86400),
+        hours: Math.floor((seconds % 86400) / 3600),
+        minutes: Math.floor((seconds % 3600) / 60),
+        seconds: seconds % 60,
+      };
+
+      for (const field of fields) {
+        const unit = field.dataset.countdownUnit ?? '';
+        const label = field.dataset.countdownLabel ?? '';
+        const value = String(values[unit] ?? 0).padStart(2, '0');
+        const visible = field.querySelector<HTMLElement>('[aria-hidden="true"]');
+        const accessible = field.querySelector<HTMLElement>('.sr-only');
+        if (visible) visible.textContent = value;
+        if (accessible) accessible.textContent = label + ': ' + value;
+      }
+      return false;
+    };
+
+    if (Number.isFinite(target) && !update()) {
+      const interval = window.setInterval(() => {
+        if (update()) window.clearInterval(interval);
+      }, 1000);
+    }
+  }
+</script>

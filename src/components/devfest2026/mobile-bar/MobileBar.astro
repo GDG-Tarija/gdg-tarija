@@ -1,8 +1,14 @@
 ---
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import Button from 'components/common/Button.astro';
+import { EVENT } from 'components/devfest2026/data';
 ---
 
-<ComponentPlaceholder
-  name="MobileBar"
-  description="Barra fija solo en móvil: fecha, chip del pasaporte y botón Inscribite. Clase .df-mobilebar."
-/>
+<aside
+  class="df-mobilebar fixed inset-x-0 bottom-0 z-30 border-t border-df-hairline bg-df-surface px-df-gutter-mobile pb-[env(safe-area-inset-bottom)] md:hidden"
+  aria-label="Inscripción al evento"
+>
+  <div class="mx-auto flex h-16 max-w-df items-center justify-between gap-df-base">
+    <span class="text-df-label font-medium text-df-ink">{EVENT.dateShort}</span>
+    <Button href={EVENT.registerUrl} size="sm">Inscribite</Button>
+  </div>
+</aside>

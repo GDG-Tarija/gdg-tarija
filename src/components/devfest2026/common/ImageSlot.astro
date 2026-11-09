@@ -1,19 +1,43 @@
 ---
-// Temporal: reserva el espacio de logos, fotos y capibara hasta tener los assets finales
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 interface Props {
   label: string;
   ratio?: string;
+  src?: ImageMetadata;
+  fit?: 'contain' | 'cover';
+  loading?: 'eager' | 'lazy';
   class?: string;
 }
 
-const { label, ratio = '4 / 3', class: className = '' } = Astro.props;
+const {
+  label,
+  ratio = '4 / 3',
+  src,
+  fit = 'cover',
+  loading = 'lazy',
+  class: className = '',
+} = Astro.props;
+const imageFit = fit === 'contain' ? 'object-contain' : 'object-cover';
 ---
 
 <div
-  role="img"
-  aria-label={label}
+  role={src ? undefined : 'img'}
+  aria-label={src ? undefined : label}
   style={{ aspectRatio: ratio }}
-  class={`grid w-full place-items-center rounded-df-card border border-dashed border-df-route p-df-sm text-center text-df-label text-df-ink-muted ${className}`}
+  class={`relative grid w-full place-items-center overflow-hidden rounded-df-card ${src ? '' : 'border border-dashed border-df-route p-df-sm text-center text-df-label text-df-ink-muted'} ${className}`}
 >
-  <span>{label}</span>
+  {
+    src ? (
+      <Image
+        src={src}
+        alt={label}
+        loading={loading}
+        class={`absolute inset-0 h-full w-full ${imageFit}`}
+      />
+    ) : (
+      <span>{label}</span>
+    )
+  }
 </div>

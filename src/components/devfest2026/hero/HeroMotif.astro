@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Sticker from 'components/devfest2026/common/Sticker.astro';
+import type { ActivityId } from 'components/devfest2026/data';
+
+interface Props {
+  activity: ActivityId;
+  src?: ImageMetadata;
+  size?: number;
+  mobileSize?: number;
+  showOnMobile?: boolean;
+  class?: string;
+}
+
+const {
+  activity,
+  src,
+  size = 72,
+  mobileSize = size,
+  showOnMobile = false,
+  class: className = '',
+} = Astro.props;
+---
+
+<span
+  aria-hidden="true"
+  style={{
+    '--df-motif-size': size + 'px',
+    '--df-motif-mobile-size': mobileSize + 'px',
+    '--df-motif-mobile-scale': String(mobileSize / size),
+  }}
+  class={`df-hero-motif pointer-events-none absolute ${showOnMobile ? 'block' : 'hidden md:block'} ${className}`}
+>
+  {
+    src ? (
+      <Image src={src} alt="" class="block h-full w-full object-contain" />
+    ) : (
+      <span class="df-hero-motif-fallback">
+        <Sticker activity={activity} size={size} />
+      </span>
+    )
+  }
+</span>
