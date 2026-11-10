@@ -106,7 +106,12 @@ const countdown = [
         class="mt-df-lg flex flex-col items-start gap-df-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-df-base"
       >
         <Button href={EVENT.registerUrl} iconPosition="right">
-          Inscribite por {EVENT.price}
+          Inscribite por
+          <s><span class="sr-only">antes </span>{EVENT.regularPrice}</s>
+          {
+            /* 700 está reservado en DESIGN.md; se usa solo aquí para destacar el precio con descuento */
+          }
+          <strong class="font-bold">{EVENT.price}</strong>
           <i slot="icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </Button>
         <span class="text-df-lead text-df-ink-strong">Presencial · {EVENT.capacity} cupos</span>

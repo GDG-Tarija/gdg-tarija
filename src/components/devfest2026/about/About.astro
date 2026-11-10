@@ -7,10 +7,10 @@ import FotoComunidad from '../../../assets/images/devfest2026/foto-comunidad-tar
 import FotoDevFest2025 from '../../../assets/images/devfest2026/gdg-devfest-2025.webp';
 import FotoBuildWithAi from '../../../assets/images/devfest2026/foto-buildwithai.jpg';
 
-const stats = [
+const stats: { value: string; label: string; regular?: string }[] = [
   { value: String(EVENT.capacity), label: 'cupos' },
   { value: '1', label: 'día' },
-  { value: EVENT.price, label: 'inscripción' },
+  { value: EVENT.price, label: 'inscripción', regular: EVENT.regularPrice },
 ];
 
 const photos = [
@@ -57,6 +57,12 @@ const photos = [
                 {stat.value}
               </p>
               <p class="m-0 text-df-label text-df-ink-muted">{stat.label}</p>
+              {stat.regular && (
+                <s class="text-df-label text-df-ink-muted">
+                  <span class="sr-only">antes </span>
+                  {stat.regular}
+                </s>
+              )}
             </li>
           ))
         }

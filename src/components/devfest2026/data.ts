@@ -10,7 +10,9 @@ export const EVENT = {
   venue: 'Universidad Privada Domingo Savio (UPDS), Tarija',
   venueShort: 'UPDS',
   capacity: 150,
-  price: '20 Bs',
+  // shortcut: descuento para los primeros 50 cupos, que se controlan en otra app; al agotarse, volver a 20 Bs y quitar regularPrice con otro PR
+  price: '15 Bs',
+  regularPrice: '20 Bs',
   registerUrl: 'https://eventos.gdgtarija.com/e/devfest',
   speakersUrl: '/speakers',
   sponsorsUrl: '/sponsors',
