@@ -1,11 +1,61 @@
 ---
+import Button from 'components/common/Button.astro';
+import { DEVFEST_ASSETS } from 'components/devfest2026/assets';
+import Chip from 'components/devfest2026/common/Chip.astro';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import { EVENT } from 'components/devfest2026/data';
+import socialNetworks from 'components/bwai2026/footer/social-networks-bwai2026.json';
 ---
 
 <SectionShell label="Cierre" tone="surface">
-  <ComponentPlaceholder
-    name="Closing"
-    description="Nos vemos el 28, botón de inscripción, co-branding GDG y Women Techmakers, y redes."
-  />
+  {/* DESIGN.md: el cierre es un bloque azul de 12px dentro de una sección blanca */}
+  <div
+    class="df-tone-blue flex flex-col items-center gap-df-lg rounded-df-panel px-df-lg py-df-section text-center md:px-12"
+  >
+    <div class="w-32 sm:w-40">
+      <ImageSlot
+        label="Capibara saludando"
+        ratio="625 / 861"
+        src={DEVFEST_ASSETS.capybara}
+        fit="contain"
+      />
+    </div>
+    <h2 class="m-0 text-df-headline text-balance text-df-ink-strong">
+      Nos vemos el 28 de noviembre
+    </h2>
+    <div class="flex flex-col gap-df-xs text-df-lead text-df-ink-body">
+      <p class="m-0">{EVENT.date} · {EVENT.schedule} · {EVENT.venue}</p>
+      <p class="m-0">
+        {EVENT.capacity} cupos · {EVENT.price}
+        <s class="text-df-ink-muted"><span class="sr-only">antes </span>{EVENT.regularPrice}</s>
+      </p>
+    </div>
+    <Button href={EVENT.registerUrl} variant="inverse" iconPosition="right">
+      Inscribite
+      <i slot="icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    </Button>
+  </div>
+
+  <div class="mt-df-lg flex flex-col items-center gap-df-base">
+    <Chip variant="outline">Google Developer Group Tarija</Chip>
+    <ul class="m-0 flex list-none flex-wrap justify-center gap-df-sm p-0">
+      {
+        socialNetworks.map(({ name, url, icon }) => (
+          <li>
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex h-10 items-center gap-df-sm rounded-df-control border border-df-hairline px-df-base text-df-label text-df-ink transition-colors hover:bg-gdg-ice-blue/40 hover:text-gdg-blue-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
+            >
+              <i class={`fa-brands fa-${icon}`} aria-hidden="true" />
+              {name}
+              <span class="sr-only">(se abre en una pestaña nueva)</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </SectionShell>
