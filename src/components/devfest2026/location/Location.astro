@@ -1,11 +1,72 @@
 ---
+import Button from 'components/common/Button.astro';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
+import { EVENT } from 'components/devfest2026/data';
+import FotoUpds from '../../../assets/images/devfest2026/upds.webp';
+
+// Solo datos del lugar: la fecha y el horario ya están en el Hero y en el Cierre
+const details = [
+  {
+    icon: 'fa-solid fa-location-dot',
+    label: 'Dirección',
+    value: 'Barrio Germán Busch, esquina Fabián Ruiz, Tarija',
+  },
+  {
+    icon: 'fa-solid fa-id-badge',
+    label: 'Llegada',
+    value: 'Registro a las 08:30',
+  },
+];
 ---
 
-<SectionShell label="Ubicación" tone="ground">
-  <ComponentPlaceholder
-    name="Location"
-    description="Datos de la UPDS, botón Abrir en Maps y mapa estático."
-  />
+<SectionShell id="ubicacion" label="Ubicación" tone="ground">
+  {/* La foto toma más ancho que el texto: es lo que ayuda a reconocer el lugar al llegar */}
+  <div class="grid items-center gap-df-lg lg:grid-cols-[5fr_7fr] lg:gap-df-section">
+    <div class="flex flex-col">
+      <SectionHeading
+        id="ubicacion-titulo"
+        eyebrow="Ubicación"
+        title="Universidad Privada Domingo Savio"
+        lead={`${EVENT.venueShort}, Tarija. Todas las actividades son en el mismo campus.`}
+      />
+
+      <dl class="m-0 mb-df-lg flex flex-col">
+        {
+          details.map((detail) => (
+            <div class="flex items-start gap-df-md border-t border-df-hairline py-df-base last:border-b">
+              <i
+                class={`${detail.icon} mt-1 w-5 text-center text-gdg-blue-deep`}
+                aria-hidden="true"
+              />
+              <div class="flex flex-col gap-df-xs">
+                <dt class="text-df-label text-df-ink-muted">{detail.label}</dt>
+                <dd class="m-0 text-df-body text-df-ink-strong">{detail.value}</dd>
+              </div>
+            </div>
+          ))
+        }
+      </dl>
+
+      <div>
+        <Button href={EVENT.mapsUrl} target="_blank" rel="noopener noreferrer">
+          <i slot="icon" class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          Abrir en Maps
+          <span class="sr-only">(se abre en una pestaña nueva)</span>
+        </Button>
+      </div>
+    </div>
+
+    {/* Captura de Street View: Google exige mantener la atribución visible */}
+    <figure class="m-0 flex flex-col gap-df-xs">
+      <ImageSlot
+        label={`Entrada de la ${EVENT.venue}`}
+        ratio="4 / 3"
+        src={FotoUpds}
+        class="rounded-df-panel"
+      />
+      <figcaption class="text-df-label text-df-ink-muted">Imagen: © Google Street View</figcaption>
+    </figure>
+  </div>
 </SectionShell>

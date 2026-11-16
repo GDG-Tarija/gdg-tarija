@@ -1,8 +1,55 @@
 ---
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
+import { EVENT } from 'components/devfest2026/data';
+
+// Sin condiciones del sorteo: todavía no están definidas
+const questions = [
+  {
+    question: '¿Qué incluye la inscripción?',
+    answer: `Entrada, credencial, refrigerio, almuerzo y acceso a todas las actividades, Hack Racing incluido. Todo por ${EVENT.price} con el descuento vigente (antes ${EVENT.regularPrice}).`,
+  },
+  {
+    question: '¿Tengo que llevar laptop?',
+    answer:
+      'No hace falta: los laboratorios tienen computadoras. Si prefieres, también puedes traer la tuya.',
+  },
+  {
+    question: '¿El Hack Racing tiene costo extra?',
+    answer: 'No, está incluido en la inscripción.',
+  },
+  {
+    question: '¿Hay cupos limitados?',
+    answer: `Sí, hay ${EVENT.capacity} cupos presenciales.`,
+  },
+  {
+    question: '¿Dónde es?',
+    answer: `En la ${EVENT.venue}.`,
+  },
+];
 ---
 
 <SectionShell id="faq" label="Preguntas frecuentes" tone="surface">
-  <ComponentPlaceholder name="FAQ" description="Acordeón con details y summary, sin JavaScript." />
+  <div
+    class="grid gap-df-lg lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:items-start lg:gap-df-section"
+  >
+    <SectionHeading id="faq-titulo" eyebrow="FAQ" title="Preguntas frecuentes" />
+
+    <div class="border-t border-df-hairline">
+      {
+        questions.map(({ question, answer }) => (
+          <details class="group border-b border-df-hairline">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-df-base rounded-df-tag py-df-base text-df-title text-df-ink-strong transition-colors hover:text-gdg-blue-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep [&::-webkit-details-marker]:hidden">
+              {question}
+              <i
+                class="fa-solid fa-chevron-down text-sm text-df-ink-muted transition-transform duration-150 group-open:rotate-180 motion-reduce:transition-none"
+                aria-hidden="true"
+              />
+            </summary>
+            <p class="m-0 pb-df-base text-df-body text-pretty text-df-ink-body">{answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
 </SectionShell>

@@ -1,11 +1,51 @@
 ---
+import Button from 'components/common/Button.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
+import { EVENT } from 'components/devfest2026/data';
+
+const included = [
+  'Entrada al evento',
+  'Credencial',
+  'Refrigerio',
+  'Almuerzo',
+  'Todas las actividades, Hack Racing incluido',
+];
 ---
 
-<SectionShell label="Qué incluye tu entrada" tone="yellow">
-  <ComponentPlaceholder
-    name="Ticket"
-    description="Precio, lista de lo incluido y botón de inscripción."
-  />
+<SectionShell id="inscripcion" label="Qué incluye tu entrada" tone="yellow">
+  <div class="grid items-center gap-df-lg lg:grid-cols-2 lg:gap-df-section">
+    <div>
+      <SectionHeading
+        id="inscripcion-titulo"
+        eyebrow="Inscripción"
+        title="Qué incluye tu entrada"
+      />
+      <p class="m-0 flex flex-wrap items-baseline gap-df-md">
+        <span class="text-df-stat text-df-ink-strong">{EVENT.price}</span>
+        <s class="text-df-lead text-df-ink-muted"
+          ><span class="sr-only">antes </span>{EVENT.regularPrice}</s
+        >
+      </p>
+      <div class="mt-df-lg">
+        <Button href={EVENT.registerUrl} iconPosition="right">
+          Inscribite por {EVENT.price}
+          <i slot="icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </Button>
+      </div>
+    </div>
+
+    <ul
+      class="m-0 list-none rounded-df-panel border border-df-hairline bg-df-ground px-df-lg py-df-sm"
+    >
+      {
+        included.map((item) => (
+          <li class="flex items-center gap-df-md border-b border-df-hairline py-df-md text-df-body text-df-ink last:border-b-0">
+            <i class="fa-solid fa-check text-df-green-deep" aria-hidden="true" />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </SectionShell>
