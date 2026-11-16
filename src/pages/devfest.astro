@@ -3,15 +3,16 @@ import Layout from 'layouts/Layout.astro';
 import Header from 'components/devfest2026/header/Header.astro';
 import Hero from 'components/devfest2026/hero/Hero.astro';
 import About from 'components/devfest2026/about/About.astro';
+import RoadTo from 'components/devfest2026/road/RoadTo.astro';
 // Secciones comentadas: se descomentan en el ticket que las implementa
-// import PassportSection from 'components/devfest2026/passport/PassportSection.astro';
+import PassportSection from 'components/devfest2026/passport/PassportSection.astro';
 // import Agenda from 'components/devfest2026/agenda/Agenda.astro';
 // import Speakers from 'components/devfest2026/speakers/Speakers.astro';
 // import Fair from 'components/devfest2026/fair/Fair.astro';
-// import Ticket from 'components/devfest2026/ticket/Ticket.astro';
-// import FAQ from 'components/devfest2026/faq/FAQ.astro';
-// import Location from 'components/devfest2026/location/Location.astro';
-// import Closing from 'components/devfest2026/closing/Closing.astro';
+import Ticket from 'components/devfest2026/ticket/Ticket.astro';
+import FAQ from 'components/devfest2026/faq/FAQ.astro';
+import Location from 'components/devfest2026/location/Location.astro';
+import Closing from 'components/devfest2026/closing/Closing.astro';
 import MobileBar from 'components/devfest2026/mobile-bar/MobileBar.astro';
 import { EVENT } from 'components/devfest2026/data';
 
@@ -57,15 +58,23 @@ const eventSchema = {
     <main>
       <Hero />
       <About />
-      {/* <PassportSection /> */}
+      <RoadTo />
+      <PassportSection />
       {/* <Agenda /> */}
       {/* <Speakers /> */}
       {/* <Fair /> */}
-      {/* <Ticket /> */}
-      {/* <FAQ /> */}
-      {/* <Location /> */}
+      <Ticket />
+      <Location />
+      <FAQ />
     </main>
-    {/* <Closing /> */}
+    <Closing />
     <MobileBar />
   </div>
 </Layout>
+
+<script>
+  // Misma entrada en cascada del home; no anima con prefers-reduced-motion
+  import { initReveals } from '../scripts/reveal';
+
+  initReveals();
+</script>
