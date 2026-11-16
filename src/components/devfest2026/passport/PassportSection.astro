@@ -1,11 +1,175 @@
 ---
+import { DEVFEST_ASSETS } from 'components/devfest2026/assets';
+import Eyebrow from 'components/devfest2026/common/Eyebrow.astro';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import Sticker from 'components/devfest2026/common/Sticker.astro';
+import { ACTIVITY_NAMES, type ActivityId } from 'components/devfest2026/data';
+
+// Horarios del cronograma semioficial; refrigerio, almuerzo, foto grupal y espacio de sponsors no van como actividades
+const activities: {
+  id: ActivityId;
+  bg: string;
+  place?: string;
+  time: string;
+  description: string;
+}[] = [
+  {
+    id: 'charlas',
+    bg: 'bg-gdg-pastel-blue',
+    place: 'Auditorio',
+    time: '09:20 – 10:40',
+    description: 'Keynote y dos charlas sobre Google Cloud, IA y Desarrollo.',
+  },
+  {
+    id: 'codelabs',
+    bg: 'bg-gdg-pastel-green',
+    place: 'Laboratorios 1 y 2',
+    time: '11:10 – 12:45 y 13:45 – 15:15',
+    description:
+      'Talleres prácticos, paso a paso. Los laboratorios tienen PCs y se puede traer la propia.',
+  },
+  {
+    id: 'hack',
+    bg: 'bg-gdg-pastel-yellow',
+    time: '11:10 – 15:30',
+    description:
+      'Un reto en equipos contra el reloj, con vibecoding; al cierre, demos y premiación en el auditorio. Trae tu laptop: los laboratorios se usan para los Codelabs.',
+  },
+  {
+    id: 'zen',
+    bg: 'bg-gdg-pastel-red',
+    time: '11:10 – 15:30',
+    description:
+      'Arte terapia y expresión creativa para tomar una pausa: elige una consigna, crea a tu ritmo y comparte solo si quieres. No necesitas experiencia artística.',
+  },
+];
 ---
 
-<SectionShell id="pasaporte" label="Pasaporte DevFest" tone="ground">
-  <ComponentPlaceholder
-    name="PassportSection"
-    description="Pasaporte con 6 sellos y paradas por actividad. Cada parada abre su minijuego, y al completar se genera una tarjeta para compartir."
-  />
+<SectionShell id="actividades" label="Actividades" tone="ground">
+  <div class="grid gap-df-lg lg:grid-cols-2 lg:gap-df-section">
+    <div class="flex flex-col">
+      <SectionHeading
+        id="actividades-titulo"
+        eyebrow="Actividades"
+        title="Tu recorrido por el DevFest"
+        lead="Cuatro actividades en una sola jornada, del auditorio a la Zona Zen."
+      />
+      {/* La capibara acompaña un dato útil para que no quede sola en la columna */}
+      <div class="flex items-end gap-df-base">
+        <div class="w-28 shrink-0 sm:w-32">
+          <ImageSlot
+            label="Capibara del DevFest saludando"
+            ratio="625 / 861"
+            src={DEVFEST_ASSETS.capybara}
+            fit="contain"
+          />
+        </div>
+        <p
+          class="m-0 mb-df-lg max-w-xs rounded-df-card border border-df-hairline bg-df-surface p-df-base text-df-body text-df-ink-body"
+        >
+          Después de las charlas, elige tu camino: Codelabs, Hack Racing y Zona Zen corren en
+          paralelo.
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col rounded-df-panel border border-df-hairline bg-df-surface p-df-base sm:p-df-lg"
+    >
+      <div class="mb-df-base flex items-center justify-between gap-df-base">
+        <div class="w-28">
+          <ImageSlot
+            label="Logo DevFest Tarija"
+            ratio="633 / 168"
+            src={DEVFEST_ASSETS.logo}
+            fit="contain"
+          />
+        </div>
+        <Eyebrow>Tu jornada</Eyebrow>
+      </div>
+      {
+        /* Grilla 2×2 que llena el alto de la columna; cada casilla lleva a su card del recorrido en vez de repetir sus datos */
+      }
+      <ul
+        class="m-0 grid flex-1 list-none grid-cols-2 gap-df-sm p-0 sm:gap-df-base"
+        data-reveal-group
+      >
+        {
+          activities.map(({ id }) => (
+            <li class="flex">
+              <a
+                href={`#actividad-${id}`}
+                class="flex flex-1 flex-col items-center justify-center gap-df-sm rounded-df-card border border-df-hairline p-df-base text-center no-underline transition-colors hover:bg-gdg-ice-blue/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
+              >
+                {/* El nombre visible ya nombra el sello; el estado se define en el hito 2 */}
+                <span aria-hidden="true">
+                  <Sticker activity={id} state="locked" size={56} />
+                </span>
+                <span class="text-df-body text-balance text-df-ink-strong">
+                  {ACTIVITY_NAMES[id]}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="relative mt-df-section">
+    {/* Línea del recorrido: decorativa, a la izquierda en móvil y al centro desde lg */}
+    <span
+      aria-hidden="true"
+      class="absolute inset-y-0 left-[11px] w-(--df-stroke-route) bg-df-route lg:left-1/2 lg:-translate-x-1/2"
+    ></span>
+    <ol
+      class="relative m-0 grid list-none gap-df-lg p-0 lg:grid-cols-2 lg:gap-x-df-section lg:gap-y-df-base"
+      data-reveal-group
+    >
+      {
+        activities.map((activity, i) => (
+          // Cada card ocupa dos filas y arranca una fila después de la anterior: así se escalonan
+          <li
+            id={`actividad-${activity.id}`}
+            class="relative pl-10 lg:pl-0 lg:odd:col-start-1 lg:even:col-start-2 lg:[grid-row:var(--df-row)/span_2]"
+            style={{ '--df-row': i + 1 }}
+          >
+            <span
+              aria-hidden="true"
+              class={`absolute top-7 left-1.5 size-3 rounded-full border border-df-route bg-df-surface ${i % 2 === 0 ? 'lg:right-[calc(-1*(var(--spacing-df-section)/2+6px))] lg:left-auto' : 'lg:left-[calc(-1*(var(--spacing-df-section)/2+6px))]'}`}
+            />
+            <article
+              class={`df-tone-pastel flex h-full flex-col gap-df-md rounded-df-card border border-df-hairline p-df-base sm:p-df-lg ${activity.bg}`}
+            >
+              <div class="flex items-start gap-df-md">
+                <span aria-hidden="true">
+                  <Sticker activity={activity.id} state="locked" size={44} />
+                </span>
+                <div class="flex flex-col gap-df-xs">
+                  <h3 class="m-0 text-df-title text-df-ink-strong">
+                    {ACTIVITY_NAMES[activity.id]}
+                  </h3>
+                  <p class="m-0 flex flex-wrap gap-x-df-md gap-y-df-xs text-df-label text-df-ink-muted">
+                    {activity.place && (
+                      <span class="inline-flex items-center gap-df-xs">
+                        <i class="fa-solid fa-location-dot" aria-hidden="true" />
+                        {activity.place}
+                      </span>
+                    )}
+                    <span class="inline-flex items-center gap-df-xs">
+                      <i class="fa-regular fa-clock" aria-hidden="true" />
+                      {activity.time}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <p class="m-0 text-df-body text-pretty text-df-ink-body">{activity.description}</p>
+            </article>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
 </SectionShell>

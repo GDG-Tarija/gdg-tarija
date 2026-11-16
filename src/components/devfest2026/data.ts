@@ -23,8 +23,7 @@ export const ACTIVITY_NAMES = {
   charlas: 'Charlas',
   codelabs: 'Codelabs',
   hack: 'Hack Racing',
-  chill: 'Chill Zone',
-  zen: 'Sesión Zen',
+  zen: 'Zona Zen',
   feria: 'Feria de comunidades & sponsors',
 } as const;
 

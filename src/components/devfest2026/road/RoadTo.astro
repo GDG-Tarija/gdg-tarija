@@ -1,0 +1,193 @@
+---
+import type { ImageMetadata } from 'astro';
+import Button from 'components/common/Button.astro';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
+import Numeral from 'components/devfest2026/common/Numeral.astro';
+import { DEVFEST_ASSETS } from 'components/devfest2026/assets';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
+import SectionShell from 'components/devfest2026/common/SectionShell.astro';
+import FlyerCharla1 from '../../../assets/images/devfest2026/rt-charla-1.jpg';
+import FlyerCharla2 from '../../../assets/images/devfest2026/rt-charla-2.jpg';
+
+const REGISTER_URL = 'https://eventos.gdgtarija.com/e/road-to-devfest-tarija-2026';
+const YOUTUBE_CHANNEL = 'https://www.youtube.com/channel/UCrXfaMnZX5hDpH85iBrmo1w';
+// shortcut: se asume que cada charla dura 90 minutos para pasar de "en vivo" a "finalizada"; ajustar si cambia
+const DURATION_MS = 90 * 60 * 1000;
+
+type Session = {
+  startsAt: string;
+  dateLabel: string;
+  title: string;
+  description: string;
+  speaker: { name: string; role: string };
+  // Flyer publicado en redes; ya incluye título, fecha y speaker
+  flyer?: ImageMetadata;
+};
+
+// Completar la charla del 17 es reemplazar su entrada
+const sessions: Session[] = [
+  {
+    startsAt: '2026-11-16T18:00:00-04:00',
+    dateLabel: 'Lunes 16 de noviembre',
+    title: 'De Hechiceros a Devs: Programando "Magia" en Tiempo Real con MediaPipe',
+    description:
+      'Del concepto a la ejecución: detección de gestos, rostros y objetos directamente en el navegador, sin infraestructura costosa.',
+    speaker: {
+      name: 'Maureen "Mau" Barahona',
+      role: 'GDE Cloud en Infraestructuras Modernas',
+    },
+    flyer: FlyerCharla1,
+  },
+  {
+    startsAt: '2026-11-17T18:00:00-04:00',
+    dateLabel: 'Martes 17 de noviembre',
+    title: 'Nueva charla: se anuncia muy pronto',
+    description:
+      'Estamos cerrando los últimos detalles de esta sesión. Regístrate y entérate primero.',
+    speaker: { name: 'Speaker invitado', role: 'Se anuncia muy pronto' },
+  },
+  {
+    startsAt: '2026-11-18T18:00:00-04:00',
+    dateLabel: 'Miércoles 18 de noviembre',
+    title: 'Ingeniería en la era de la IA: qué cambia y qué no',
+    description:
+      'Qué prácticas evolucionan con las nuevas herramientas de IA y cuáles siguen siendo los pilares de la ingeniería moderna.',
+    speaker: {
+      name: 'Carlos Zambrano',
+      role: 'AWS Hero y Director de Cloud y DevOps en Globant',
+    },
+    flyer: FlyerCharla2,
+  },
+];
+
+// Estado según la hora del build; el script lo actualiza en el navegador
+const stateAt = (startsAt: string, now: number) => {
+  const start = new Date(startsAt).getTime();
+  if (now < start) return 'upcoming';
+  return now < start + DURATION_MS ? 'live' : 'past';
+};
+
+const CTA = {
+  upcoming: { label: 'Regístrate', href: REGISTER_URL },
+  live: { label: 'Ver en vivo', href: `${YOUTUBE_CHANNEL}/live` },
+  past: { label: 'Ver en YouTube', href: `${YOUTUBE_CHANNEL}/videos` },
+} as const;
+
+const BADGE = { upcoming: 'Próxima', live: 'En vivo', past: 'Finalizada' } as const;
+
+const buildTime = Date.now();
+
+const dayOf = (startsAt: string) =>
+  new Intl.DateTimeFormat('es-BO', { day: 'numeric', timeZone: 'America/La_Paz' }).format(
+    new Date(startsAt),
+  );
+---
+
+<SectionShell id="road-to" label="Road to DevFest" tone="surface">
+  <SectionHeading
+    id="road-to-titulo"
+    eyebrow="Road to DevFest"
+    title="Charlas virtuales antes del gran día"
+    lead="Tres sesiones online del 16 al 18 de noviembre, a las 18:00 (GMT-4), en vivo por el YouTube de GDG Tarija."
+  />
+
+  <ul class="m-0 grid list-none gap-df-base p-0 md:grid-cols-3">
+    {
+      sessions.map((session) => {
+        const state = stateAt(session.startsAt, buildTime);
+        return (
+          <li
+            class="flex flex-col overflow-hidden rounded-df-card border border-df-hairline bg-df-surface"
+            data-road-session
+            data-starts-at={session.startsAt}
+            data-state={state}
+          >
+            {session.flyer ? (
+              <ImageSlot
+                label={`Flyer de la charla "${session.title}" con ${session.speaker.name}`}
+                ratio="1 / 1"
+                src={session.flyer}
+                class="rounded-none!"
+              />
+            ) : (
+              // Mientras no hay flyer, una portada con la fecha que se ve intencional y no como reserva
+              <div
+                class="flex aspect-square flex-col items-center justify-center gap-df-sm bg-gdg-ice-blue p-df-lg"
+                aria-hidden="true"
+              >
+                <div class="w-40">
+                  <ImageSlot
+                    label="Logo DevFest Tarija"
+                    ratio="633 / 168"
+                    src={DEVFEST_ASSETS.logo}
+                    fit="contain"
+                  />
+                </div>
+                <Numeral value={dayOf(session.startsAt)} label="" />
+                <span class="text-df-eyebrow text-df-ink uppercase">Se anuncia muy pronto</span>
+              </div>
+            )}
+            <div class="flex flex-1 flex-col gap-df-md p-df-base sm:p-df-lg">
+              <div class="flex flex-wrap items-center justify-between gap-df-sm text-df-label">
+                <time datetime={session.startsAt} class="text-df-ink-muted">
+                  {session.dateLabel} · 18:00
+                </time>
+                {/* El punto rojo solo aparece en vivo: el color señala, no decora */}
+                <span
+                  class="inline-flex items-center gap-df-xs rounded-df-tag border border-df-hairline px-df-sm py-0.5 text-df-ink"
+                  data-road-badge
+                >
+                  <span
+                    class={`size-2 rounded-full bg-gdg-red ${state === 'live' ? '' : 'hidden'}`}
+                    aria-hidden="true"
+                    data-road-dot
+                  />
+                  <span data-road-badge-label>{BADGE[state]}</span>
+                </span>
+              </div>
+              <h3 class="m-0 text-df-title text-balance text-df-ink-strong">{session.title}</h3>
+              <p class="m-0 text-df-body text-pretty text-df-ink-body">{session.description}</p>
+              <div class="mt-auto flex flex-col gap-df-xs border-t border-df-hairline pt-df-md">
+                <p class="m-0 text-df-body text-df-ink-strong">{session.speaker.name}</p>
+                <p class="m-0 text-df-label text-df-ink-muted">{session.speaker.role}</p>
+              </div>
+              <div data-road-cta>
+                <Button
+                  href={CTA[state].href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full"
+                >
+                  <span data-road-cta-label>{CTA[state].label}</span>
+                  <span class="sr-only">(se abre en una pestaña nueva)</span>
+                </Button>
+              </div>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ul>
+</SectionShell>
+
+<script
+  is:inline
+  define:vars={{
+    durationMs: DURATION_MS,
+    cta: CTA,
+    badge: BADGE,
+  }}
+>
+  // El sitio es estático: sin este script el estado quedaría congelado en la fecha del último deploy
+  const now = Date.now();
+  document.querySelectorAll('[data-road-session]').forEach((card) => {
+    const start = new Date(card.dataset.startsAt).getTime();
+    const state = now < start ? 'upcoming' : now < start + durationMs ? 'live' : 'past';
+    card.dataset.state = state;
+    card.querySelector('[data-road-badge-label]').textContent = badge[state];
+    card.querySelector('[data-road-dot]').classList.toggle('hidden', state !== 'live');
+    const link = card.querySelector('[data-road-cta] a');
+    link.href = cta[state].href;
+    card.querySelector('[data-road-cta-label]').textContent = cta[state].label;
+  });
+</script>
