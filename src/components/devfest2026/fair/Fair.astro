@@ -1,8 +1,63 @@
 ---
+import type { ImageMetadata } from 'astro';
+import Button from 'components/common/Button.astro';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import Sticker from 'components/devfest2026/common/Sticker.astro';
+import { EVENT } from 'components/devfest2026/data';
+
+type Sponsor =
+  | { status: 'pending' }
+  | { status: 'confirmed'; name: string; logo: ImageMetadata; href: string };
+
+// Los espacios pendientes mantienen el cupo visible sin publicar marcas antes de su confirmación.
+const sponsors: Sponsor[] = Array.from({ length: 8 }, () => ({ status: 'pending' }));
 ---
 
 <SectionShell label="Feria de comunidades y sponsors" tone="surface">
-  <ComponentPlaceholder name="Fair" description="Espacios Tu marca aquí y botón Sé sponsor." />
+  <div class="grid gap-df-lg md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+    <div class="flex max-w-2xl flex-col items-start gap-df-base md:flex-row md:items-center">
+      <span aria-hidden="true"><Sticker activity="feria" size={40} /></span>
+      <div>
+        <h2 class="mb-df-sm text-df-headline text-df-ink-strong">
+          Feria de comunidades &amp; sponsors
+        </h2>
+        <p class="m-0 text-df-body text-df-ink-body">
+          Durante toda la jornada. Sumá tu marca al {EVENT.name}.
+        </p>
+      </div>
+    </div>
+
+    <div class="order-3 justify-self-start md:order-2 md:justify-self-end">
+      <Button href={EVENT.sponsorsUrl} variant="outline" size="sm">Sé sponsor</Button>
+    </div>
+
+    <ul
+      class="order-2 grid min-w-0 grid-cols-2 gap-df-md p-0 list-none md:order-3 md:col-span-2 md:grid-cols-4"
+    >
+      {
+        sponsors.map((sponsor) => (
+          <li class="min-w-0">
+            {sponsor.status === 'confirmed' ? (
+              <a
+                href={sponsor.href}
+                aria-label={`Visitar ${sponsor.name}`}
+                class="block rounded-df-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
+              >
+                <ImageSlot
+                  src={sponsor.logo}
+                  label={sponsor.name}
+                  ratio="3 / 2"
+                  fit="contain"
+                  class="border border-df-hairline bg-df-ground p-df-base"
+                />
+              </a>
+            ) : (
+              <ImageSlot label="Tu marca aquí" ratio="3 / 2" class="bg-df-ground" />
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </SectionShell>

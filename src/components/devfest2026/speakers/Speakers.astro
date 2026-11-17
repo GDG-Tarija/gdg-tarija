@@ -1,11 +1,64 @@
 ---
+import type { ImageMetadata } from 'astro';
+import Button from 'components/common/Button.astro';
+import Eyebrow from 'components/devfest2026/common/Eyebrow.astro';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import { EVENT } from 'components/devfest2026/data';
+
+type Speaker =
+  | { status: 'pending' }
+  | { status: 'confirmed'; name: string; photo: ImageMetadata; talk: string };
+
+// Cada espacio pendiente se reemplaza por una entrada confirmada cuando Diseño y organización la aprueben.
+const speakers: Speaker[] = Array.from({ length: 4 }, () => ({ status: 'pending' }));
 ---
 
 <SectionShell id="speakers" label="Speakers" tone="ground">
-  <ComponentPlaceholder
-    name="Speakers"
-    description="Grilla de speakers o cards Próximamente y botón Postulá como speaker."
-  />
+  <div class="grid gap-df-lg md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+    <div class="max-w-2xl">
+      <Eyebrow>Call 4 Speakers</Eyebrow>
+      <h2 class="mt-df-base mb-df-md text-df-headline text-df-ink-strong">Speakers</h2>
+      <p class="m-0 text-df-body text-df-ink-body">
+        Estamos armando el line-up. ¿Tenés algo para compartir sobre Cloud, IA o Gemini? Postulá.
+      </p>
+    </div>
+
+    <div class="order-3 justify-self-start md:order-2 md:justify-self-end">
+      <Button href={EVENT.speakersUrl} variant="outline" size="sm">Postulá como speaker</Button>
+    </div>
+
+    <ul
+      class="order-2 grid min-w-0 grid-cols-2 gap-df-md p-0 list-none md:order-3 md:col-span-2 md:grid-cols-4"
+    >
+      {
+        speakers.map((speaker) => (
+          <li class="min-w-0 rounded-df-card border border-df-hairline bg-df-surface p-df-base text-center">
+            <article class="flex h-full min-h-40 flex-col items-center justify-center gap-df-sm">
+              <div class="size-16 sm:size-20">
+                {speaker.status === 'confirmed' ? (
+                  <ImageSlot
+                    src={speaker.photo}
+                    label={speaker.name}
+                    ratio="1"
+                    class="rounded-full"
+                  />
+                ) : (
+                  <div class="grid size-full place-items-center rounded-full border border-dashed border-df-route text-df-ink-body">
+                    <i class="fa-regular fa-comment-dots" aria-hidden="true" />
+                  </div>
+                )}
+              </div>
+              <h3 class="m-0 text-df-title text-df-ink-strong">
+                {speaker.status === 'confirmed' ? speaker.name : 'Próximamente'}
+              </h3>
+              <p class="m-0 text-df-label text-df-ink-body">
+                {speaker.status === 'confirmed' ? speaker.talk : 'Speaker por confirmar'}
+              </p>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </SectionShell>
