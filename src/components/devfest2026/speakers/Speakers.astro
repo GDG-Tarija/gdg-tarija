@@ -1,64 +1,194 @@
 ---
 import type { ImageMetadata } from 'astro';
-import Button from 'components/common/Button.astro';
-import Eyebrow from 'components/devfest2026/common/Eyebrow.astro';
-import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
+import { Image } from 'astro:assets';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import { EVENT } from 'components/devfest2026/data';
+import Sticker from 'components/devfest2026/common/Sticker.astro';
+import TalkArt, { type TalkArtId } from './TalkArt.astro';
+import { ACTIVITY_NAMES } from 'components/devfest2026/data';
+import FotoBernardo from '../../../assets/images/devfest2026/bernardo-rueda.webp';
+import FotoJose from '../../../assets/images/devfest2026/jose-medinaceli.webp';
+import FotoRonald from '../../../assets/images/devfest2026/ronald-chipana.webp';
+import FotoKevin from '../../../assets/images/devfest2026/kevin-guzman.webp';
+import FotoNicolas from '../../../assets/images/devfest2026/nicolas-molina.webp';
+import FotoReynaldo from '../../../assets/images/devfest2026/reynaldo-lopez.webp';
 
-type Speaker =
-  | { status: 'pending' }
-  | { status: 'confirmed'; name: string; photo: ImageMetadata; talk: string };
+type Speaker = {
+  name: string;
+  talk: string;
+  time: string;
+  photo: ImageMetadata;
+  art: TalkArtId;
+};
 
-// Cada espacio pendiente se reemplaza por una entrada confirmada cuando Diseño y organización la aprueben.
-const speakers: Speaker[] = Array.from({ length: 4 }, () => ({ status: 'pending' }));
+// El keynote no se anuncia en la landing; horarios del cronograma semioficial
+const groups: {
+  id: 'charlas' | 'codelabs';
+  place: string;
+  bg: string;
+  speakers: Speaker[];
+}[] = [
+  {
+    id: 'charlas',
+    place: 'En el auditorio, para todos',
+    bg: 'bg-gdg-pastel-blue',
+    speakers: [
+      {
+        name: 'Bernardo Rueda',
+        talk: 'Maneras de conseguir clientes siendo freelancer',
+        time: '09:35 – 10:05',
+        photo: FotoBernardo,
+        art: 'freelance',
+      },
+      {
+        name: 'José Matías Medinaceli',
+        talk: 'Agentes de IA bajo control: Harness Engineering para proyectos de software de larga duración',
+        time: '10:10 – 10:40',
+        photo: FotoJose,
+        art: 'agents',
+      },
+    ],
+  },
+  {
+    id: 'codelabs',
+    place: 'Talleres prácticos en los Laboratorios 1 y 2',
+    bg: 'bg-gdg-pastel-green',
+    speakers: [
+      {
+        name: 'Ronald Chipana',
+        talk: 'Desarrollo Web de Cero a Producción: Firebase + Antigravity',
+        time: '11:10 – 12:40',
+        photo: FotoRonald,
+        art: 'web',
+      },
+      {
+        name: 'Kevin Guzman',
+        talk: 'Más allá del chat: Jev, la IA que no conversa, solo decide',
+        time: '11:10 – 12:40',
+        photo: FotoKevin,
+        art: 'decide',
+      },
+      {
+        name: 'Nicolas Molina',
+        talk: 'Despliega tu agente usando Agent Runtime de Google Cloud',
+        time: '13:45 – 15:15',
+        photo: FotoNicolas,
+        art: 'deploy',
+      },
+      {
+        name: 'Reynaldo López',
+        // TODO: título cortado en el cronograma, confirmar antes de publicar
+        talk: 'De On-Premises a la Nube: Construyendo una Infraestructura Híbrida Segura',
+        time: '13:45 – 15:15',
+        photo: FotoReynaldo,
+        art: 'hybrid',
+      },
+    ],
+  },
+];
+
+// Las dos caras comparten celda y la card tiene proporción fija: todas miden lo mismo de ambos lados
+const face =
+  'absolute inset-0 flex flex-col overflow-hidden rounded-df-card border border-df-hairline backface-hidden';
 ---
 
 <SectionShell id="speakers" label="Speakers" tone="ground">
-  <div class="grid gap-df-lg md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-    <div class="max-w-2xl">
-      <Eyebrow>Call 4 Speakers</Eyebrow>
-      <h2 class="mt-df-base mb-df-md text-df-headline text-df-ink-strong">Speakers</h2>
-      <p class="m-0 text-df-body text-df-ink-body">
-        Estamos armando el line-up. ¿Tenés algo para compartir sobre Cloud, IA o Gemini? Postulá.
-      </p>
-    </div>
+  <SectionHeading
+    id="speakers-titulo"
+    eyebrow="Speakers"
+    title="Quiénes comparten en el DevFest"
+    lead="Toca a cada speaker para ver de qué trata su charla o codelab."
+  />
 
-    <div class="order-3 justify-self-start md:order-2 md:justify-self-end">
-      <Button href={EVENT.speakersUrl} variant="outline" size="sm">Postulá como speaker</Button>
-    </div>
-
-    <ul
-      class="order-2 grid min-w-0 grid-cols-2 gap-df-md p-0 list-none md:order-3 md:col-span-2 md:grid-cols-4"
-    >
-      {
-        speakers.map((speaker) => (
-          <li class="min-w-0 rounded-df-card border border-df-hairline bg-df-surface p-df-base text-center">
-            <article class="flex h-full min-h-40 flex-col items-center justify-center gap-df-sm">
-              <div class="size-16 sm:size-20">
-                {speaker.status === 'confirmed' ? (
-                  <ImageSlot
-                    src={speaker.photo}
-                    label={speaker.name}
-                    ratio="1"
-                    class="rounded-full"
-                  />
-                ) : (
-                  <div class="grid size-full place-items-center rounded-full border border-dashed border-df-route text-df-ink-body">
-                    <i class="fa-regular fa-comment-dots" aria-hidden="true" />
-                  </div>
-                )}
-              </div>
-              <h3 class="m-0 text-df-title text-df-ink-strong">
-                {speaker.status === 'confirmed' ? speaker.name : 'Próximamente'}
+  {
+    /* Una fila por actividad en 4 columnas: todas las cards miden lo mismo y las dos charlas van centradas */
+  }
+  <div class="flex flex-col gap-df-section">
+    {
+      groups.map((group) => (
+        <section
+          aria-labelledby={`speakers-${group.id}`}
+          class="grid grid-cols-2 gap-x-df-sm gap-y-df-base sm:gap-x-df-base md:grid-cols-4"
+        >
+          <div class="col-span-full flex items-center gap-df-md">
+            <span aria-hidden="true">
+              <Sticker activity={group.id} size={40} />
+            </span>
+            <div class="flex flex-col">
+              <h3 id={`speakers-${group.id}`} class="m-0 text-df-title text-df-ink-strong">
+                {ACTIVITY_NAMES[group.id]}
               </h3>
-              <p class="m-0 text-df-label text-df-ink-body">
-                {speaker.status === 'confirmed' ? speaker.talk : 'Speaker por confirmar'}
-              </p>
-            </article>
-          </li>
-        ))
-      }
-    </ul>
+              <p class="m-0 text-df-label text-df-ink-muted">{group.place}</p>
+            </div>
+          </div>
+          <ul
+            class="col-span-full m-0 grid list-none grid-cols-subgrid gap-y-df-base p-0"
+            data-reveal-group
+          >
+            {group.speakers.map((speaker) => (
+              <li
+                class={`perspective-distant ${group.id === 'charlas' ? 'md:first:col-start-2' : ''}`}
+              >
+                {/* Botón y no enlace: no navega, solo da vuelta la card; aria-pressed anuncia qué cara se ve */}
+                <button
+                  type="button"
+                  aria-pressed="false"
+                  data-flip-card
+                  class={`group relative block aspect-[3/5] w-full sm:aspect-[3/4] cursor-pointer text-left transition-transform duration-500 transform-3d aria-pressed:rotate-y-180 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gdg-blue-deep motion-reduce:transition-none`}
+                >
+                  <span class={`${face} ${group.bg}`}>
+                    {/* alt vacío: el nombre ya está escrito sobre la foto */}
+                    <Image
+                      src={speaker.photo}
+                      alt=""
+                      widths={[320, 640]}
+                      sizes="(min-width: 1024px) 16vw, 50vw"
+                      class="absolute inset-0 size-full object-cover object-top"
+                    />
+                    <span class="relative mt-auto flex h-16 items-center justify-between gap-df-xs border-t border-df-hairline bg-df-surface px-df-md">
+                      <span class="text-df-label leading-snug text-balance text-df-ink-strong sm:text-df-body sm:leading-snug">
+                        {speaker.name}
+                      </span>
+                      <i
+                        class="fa-solid fa-rotate shrink-0 text-df-ink-muted transition-colors group-hover:text-gdg-blue-deep"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </span>
+                  <span
+                    class={`${face} df-tone-pastel rotate-y-180 gap-df-sm p-df-md sm:p-df-base ${group.bg}`}
+                  >
+                    {/* La ilustración toma el alto que sobra; en cards angostas se achica antes que el texto */}
+                    <span class="flex min-h-0 flex-1 items-center justify-center">
+                      <TalkArt art={speaker.art} class="h-full max-h-36 w-auto max-w-full" />
+                    </span>
+                    <span class="flex flex-col gap-df-sm">
+                      <span class="text-df-label text-pretty text-df-ink-strong sm:text-df-title">
+                        {speaker.talk}
+                      </span>
+                      <span class="flex flex-col gap-df-xs border-t border-df-hairline pt-df-sm text-df-label">
+                        <span class="text-df-ink-strong">{speaker.name}</span>
+                        <span class="inline-flex items-center gap-df-xs text-df-ink-body">
+                          <i class="fa-regular fa-clock" aria-hidden="true" />
+                          {speaker.time}
+                        </span>
+                      </span>
+                    </span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
   </div>
 </SectionShell>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-flip-card]').forEach((card) => {
+    card.addEventListener('click', () => {
+      card.setAttribute('aria-pressed', String(card.getAttribute('aria-pressed') !== 'true'));
+    });
+  });
+</script>
