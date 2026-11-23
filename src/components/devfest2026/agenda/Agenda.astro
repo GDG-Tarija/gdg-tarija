@@ -1,6 +1,6 @@
 ---
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import Eyebrow from 'components/devfest2026/common/Eyebrow.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
 import Sticker from 'components/devfest2026/common/Sticker.astro';
 import { EVENT, type ActivityId } from 'components/devfest2026/data';
 
@@ -21,7 +21,8 @@ type ParallelBlock = {
 };
 
 const schedule: (ScheduleRow | ParallelBlock)[] = [
-  { kind: 'row', start: '08:30', end: '09:00', activity: 'Registro y check-in', room: 'Auditorio' },
+  // El lugar del registro todavía no está definido
+  { kind: 'row', start: '08:30', end: '09:00', activity: 'Registro y check-in' },
   {
     kind: 'row',
     start: '09:00',
@@ -42,7 +43,7 @@ const schedule: (ScheduleRow | ParallelBlock)[] = [
     start: '11:10',
     end: '12:45',
     activities: [
-      { name: 'Codelabs 1A y 2A', detail: 'Laboratorios 1 y 2', sticker: 'codelabs' },
+      { name: 'Codelabs', detail: 'Laboratorios 1 y 2', sticker: 'codelabs' },
       { name: 'Hack Racing', detail: 'Reto, equipos y vibecoding', sticker: 'hack' },
       { name: 'Zona Zen', detail: 'Arte terapia y expresión creativa', sticker: 'zen' },
     ],
@@ -83,13 +84,12 @@ const eventDay = EVENT.startsAt.slice(0, 10);
     class="grid gap-df-lg md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-df-lg lg:gap-df-section"
   >
     <div class="max-w-sm">
-      <Eyebrow>Agenda</Eyebrow>
-      <h2 class="mt-df-base mb-df-md text-df-headline text-df-ink-strong">{title}</h2>
-      <p class="m-0 text-df-body text-df-ink-body">
-        De {EVENT.schedule} en la {EVENT.venueShort}. Primero las charlas, una tras otra. Después,
-        las actividades corren en paralelo en dos bloques, antes y después del almuerzo: elegí tu
-        recorrido.
-      </p>
+      <SectionHeading
+        id="agenda-titulo"
+        eyebrow="Agenda"
+        title={title}
+        lead={`De ${EVENT.schedule} en la ${EVENT.venueShort}. Primero las charlas, una tras otra. Después, las actividades corren en paralelo en dos bloques, antes y después del almuerzo: elige tu recorrido.`}
+      />
     </div>
 
     <ol class="m-0 min-w-0 list-none p-0" aria-label={`Cronograma del ${title.toLowerCase()}`}>
@@ -134,7 +134,7 @@ const eventDay = EVENT.startsAt.slice(0, 10);
                       <div class="min-w-0 text-df-label text-df-ink-strong">
                         <span class="block">{activity.name}</span>
                         {activity.detail && (
-                          <span class="block text-df-ink-strong">{activity.detail}</span>
+                          <span class="block text-df-ink-muted">{activity.detail}</span>
                         )}
                       </div>
                     </li>
