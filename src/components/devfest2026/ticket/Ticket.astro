@@ -13,13 +13,24 @@ const included = [
 ];
 ---
 
-<SectionShell id="inscripcion" label="Qué incluye tu entrada" tone="yellow">
-  <div class="grid items-center gap-df-lg lg:grid-cols-2 lg:gap-df-section">
+{
+  /* Sigue el celeste de la sección anterior y el amarillo va en un panel: sin corte brusco entre los dos */
+}
+<SectionShell
+  id="inscripcion"
+  label="Qué incluye tu entrada"
+  tone="ice"
+  class="[&>div]:pt-0 md:[&>div]:pt-0"
+>
+  <div
+    class="df-tone-pastel grid items-center bg-gdg-pastel-yellow gap-df-lg rounded-df-panel p-df-lg sm:p-df-section lg:grid-cols-2 lg:gap-df-section"
+  >
     <div>
       <SectionHeading
         id="inscripcion-titulo"
         eyebrow="Inscripción"
         title="Qué incluye tu entrada"
+        lead={`Un solo pago te da acceso a toda la jornada del sábado 28 en la ${EVENT.venueShort}. Hay ${EVENT.capacity} cupos.`}
       />
       <p class="m-0 flex flex-wrap items-baseline gap-df-md">
         <span class="text-df-stat text-df-ink-strong">{EVENT.price}</span>
@@ -29,7 +40,7 @@ const included = [
       </p>
       <div class="mt-df-lg">
         <Button href={EVENT.registerUrl} iconPosition="right">
-          Inscribite por {EVENT.price}
+          Inscríbete por {EVENT.price}
           <i slot="icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </Button>
       </div>

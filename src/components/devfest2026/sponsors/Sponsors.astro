@@ -11,7 +11,8 @@ import LogoNible from '../../../assets/images/devfest2026/sponsors/nible.png';
 
 const sponsors = [
   { name: 'Entel', logo: LogoEntel },
-  { name: 'Apapacho Coworking', logo: LogoApapacho },
+  // Letra fina y con subtítulo: necesita más alto para pesar igual que los demás
+  { name: 'Apapacho Coworking', logo: LogoApapacho, size: 'h-14' },
   { name: 'Delve', logo: LogoDelve },
   { name: 'Tinkazo', logo: LogoTinkazo },
   { name: 'Nible', logo: LogoNible },
@@ -49,7 +50,7 @@ const sponsors = [
             <Image
               src={sponsor.logo}
               alt={sponsor.name}
-              class="h-10 w-auto max-w-full object-contain"
+              class={`${sponsor.size ?? 'h-10'} w-auto max-w-full object-contain`}
             />
           </li>
         ))

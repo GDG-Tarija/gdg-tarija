@@ -29,16 +29,22 @@ const questions = [
 ];
 ---
 
-<SectionShell id="faq" label="Preguntas frecuentes" tone="surface">
+<SectionShell id="faq" label="Preguntas frecuentes" tone="ice">
   <div
     class="grid gap-df-lg lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:items-start lg:gap-df-section"
   >
-    <SectionHeading id="faq-titulo" eyebrow="FAQ" title="Preguntas frecuentes" />
+    <SectionHeading
+      id="faq-titulo"
+      eyebrow="FAQ"
+      title="Preguntas frecuentes"
+      lead="Lo que necesitas saber antes del sábado. ¿Otra duda? Escríbenos por nuestras redes."
+    />
 
-    <div class="border-t border-df-hairline">
+    {/* Tarjetas blancas sobre hielo: cada pregunta se separa sin líneas sueltas */}
+    <div class="flex flex-col gap-df-sm">
       {
         questions.map(({ question, answer }) => (
-          <details class="group border-b border-df-hairline">
+          <details class="group rounded-df-card border border-df-hairline bg-df-surface px-df-base transition-colors open:border-gdg-blue-deep">
             <summary class="flex cursor-pointer list-none items-center justify-between gap-df-base rounded-df-tag py-df-base text-df-title text-df-ink-strong transition-colors hover:text-gdg-blue-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep [&::-webkit-details-marker]:hidden">
               {question}
               <i
