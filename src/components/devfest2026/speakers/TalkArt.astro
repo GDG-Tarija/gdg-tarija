@@ -1,0 +1,133 @@
+---
+// Ilustración del reverso, una por charla: mismo trazo grueso y sombra desplazada que los sellos
+export type TalkArtId = 'freelance' | 'agents' | 'web' | 'decide' | 'deploy' | 'hybrid';
+
+interface Props {
+  art: TalkArtId;
+  class?: string;
+}
+
+const { art, class: className = '' } = Astro.props;
+const ink = 'var(--color-df-outline)';
+const surface = 'var(--color-df-surface)';
+const cloud = 'M34 52h48a12 12 0 0 0 0-24a18 18 0 0 0-34-4a16 16 0 0 0-14 28z';
+---
+
+<svg
+  viewBox="0 0 120 90"
+  aria-hidden="true"
+  class={className}
+  fill="none"
+  stroke={ink}
+  stroke-width="2.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  {
+    art === 'freelance' && (
+      <>
+        {/* Laptop con un cliente en pantalla y una moneda: conseguir clientes */}
+        <rect x="27" y="17" width="56" height="38" rx="4" fill={ink} stroke="none" />
+        <rect x="24" y="14" width="56" height="38" rx="4" fill="var(--color-gdg-halftone-blue)" />
+        <path d="M16 56h72l-4 8H20z" fill={surface} />
+        <circle cx="52" cy="27" r="5" fill={surface} />
+        <path d="M43 44a9 9 0 0 1 18 0" />
+        <circle cx="95" cy="33" r="13" fill={ink} stroke="none" />
+        <circle cx="92" cy="30" r="13" fill="var(--color-gdg-yellow)" />
+        <path d="M96 25h-6a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-6M92 22v3M92 37v3" stroke-width="2" />
+      </>
+    )
+  }
+  {
+    art === 'agents' && (
+      <>
+        {/* Robot y escudo con check: agentes de IA bajo control */}
+        <rect x="35" y="27" width="44" height="36" rx="8" fill={ink} stroke="none" />
+        <rect x="27" y="36" width="5" height="10" rx="2" fill={surface} />
+        <rect x="32" y="24" width="44" height="36" rx="8" fill="var(--color-gdg-halftone-blue)" />
+        <path d="M54 24v-8" />
+        <circle cx="54" cy="13" r="3" fill="var(--color-gdg-red)" />
+        <circle cx="45" cy="40" r="4" fill={ink} stroke="none" />
+        <circle cx="63" cy="40" r="4" fill={ink} stroke="none" />
+        <path d="M46 51h16" />
+        <path d="M101 47l12 5v9c0 8-6 13-12 15c-6-2-12-7-12-15v-9z" fill={ink} stroke="none" />
+        <path d="M98 44l12 5v9c0 8-6 13-12 15c-6-2-12-7-12-15v-9z" fill="var(--color-gdg-yellow)" />
+        <path d="M93 59l4 4l7-8" stroke-width="3" />
+      </>
+    )
+  }
+  {
+    art === 'web' && (
+      <>
+        {/* Cohete que despega desde una ventana del navegador: de cero a producción */}
+        <rect x="17" y="49" width="50" height="32" rx="5" fill={ink} stroke="none" />
+        <rect x="14" y="46" width="50" height="32" rx="5" fill={surface} />
+        <path d="M14 54h50" />
+        <circle cx="20" cy="50" r="1.5" fill="var(--color-gdg-red)" stroke="none" />
+        <circle cx="25" cy="50" r="1.5" fill="var(--color-gdg-yellow)" stroke="none" />
+        <circle cx="30" cy="50" r="1.5" fill="var(--color-gdg-green)" stroke="none" />
+        <path d="M24 64h20M24 70h12" />
+        <path d="M60 52q14-2 18-14" stroke-dasharray="3 5" />
+        <path d="M80 54q4 12 4 16q0-4 4-16z" fill="var(--color-gdg-yellow)" />
+        <path d="M76 40l-7 11h8zM92 40l7 11h-8z" fill="var(--color-gdg-red)" />
+        <path d="M87 15c8 6 10 18 8 34h-16c-2-16 0-28 8-34z" fill={ink} stroke="none" />
+        <path d="M84 12c8 6 10 18 8 34h-16c-2-16 0-28 8-34z" fill={surface} />
+        <circle cx="84" cy="28" r="4" fill="var(--color-gdg-halftone-blue)" />
+      </>
+    )
+  }
+  {
+    art === 'decide' && (
+      <>
+        {/* Un chat tachado que lleva a una decisión: la IA que no conversa, solo decide */}
+        <path
+          d="M17 21h36a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6H33l-8 8v-8h-8a6 6 0 0 1-6-6V27a6 6 0 0 1 6-6z"
+          fill={ink}
+          stroke="none"
+        />
+        <path
+          d="M14 18h36a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6H30l-8 8v-8h-8a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z"
+          fill={surface}
+        />
+        <circle cx="22" cy="33" r="2.5" fill={ink} stroke="none" />
+        <circle cx="31" cy="33" r="2.5" fill={ink} stroke="none" />
+        <circle cx="40" cy="33" r="2.5" fill={ink} stroke="none" />
+        <path d="M12 52L52 14" stroke-width="7" />
+        <path d="M12 52L52 14" stroke="var(--color-gdg-red)" stroke-width="3.5" />
+        <path d="M62 38h12m-5-5l5 5l-5 5" stroke-width="3" />
+        <path d="M99 23l18 18l-18 18l-18-18z" fill={ink} stroke="none" />
+        <path d="M96 20l18 18l-18 18l-18-18z" fill="var(--color-gdg-halftone-green)" />
+        <path d="M89 38l5 5l9-10" stroke-width="3" />
+      </>
+    )
+  }
+  {
+    art === 'deploy' && (
+      <>
+        {/* Un paquete que sube a la nube: desplegar el agente en Google Cloud */}
+        <path d={cloud} transform="translate(3 3)" fill={ink} stroke="none" />
+        <path d={cloud} fill="var(--color-gdg-halftone-blue)" />
+        <rect x="49" y="65" width="24" height="18" rx="3" fill={ink} stroke="none" />
+        <rect x="46" y="62" width="24" height="18" rx="3" fill="var(--color-gdg-yellow)" />
+        <path d="M46 69h24M58 62v7" stroke-width="2" />
+        <path d="M58 56V34m-7 7l7-7l7 7" stroke-width="3" />
+      </>
+    )
+  }
+  {
+    art === 'hybrid' && (
+      <>
+        {/* Servidor propio conectado a la nube: infraestructura híbrida */}
+        <rect x="17" y="27" width="30" height="50" rx="4" fill={ink} stroke="none" />
+        <rect x="14" y="24" width="30" height="50" rx="4" fill={surface} />
+        <path d="M14 41h30M14 58h30M28 32h10M28 49h10M28 66h10" />
+        <circle cx="21" cy="32" r="2" fill="var(--color-gdg-green)" stroke="none" />
+        <circle cx="21" cy="49" r="2" fill="var(--color-gdg-green)" stroke="none" />
+        <circle cx="21" cy="66" r="2" fill="var(--color-gdg-green)" stroke="none" />
+        <path d="M44 50q22 10 34 -11" stroke-dasharray="3 5" />
+        <path d={cloud} transform="translate(25 -10)" fill={ink} stroke="none" />
+        <path d={cloud} transform="translate(22 -13)" fill="var(--color-gdg-halftone-blue)" />
+      </>
+    )
+  }
+</svg>

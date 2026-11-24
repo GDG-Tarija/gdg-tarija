@@ -9,8 +9,8 @@ const links = [
   { href: '#devfest', label: 'DevFest' },
   { href: '#road-to', label: 'Road to' },
   { href: '#actividades', label: 'Actividades' },
-  // { href: '#agenda', label: 'Agenda' },
-  // { href: '#speakers', label: 'Speakers' },
+  { href: '#agenda', label: 'Agenda' },
+  { href: '#speakers', label: 'Speakers' },
   { href: '#faq', label: 'FAQ' },
 ];
 ---
@@ -53,20 +53,21 @@ const links = [
       </nav>
 
       <Button href={EVENT.registerUrl} size="sm" iconPosition="right">
-        Inscribite
+        Inscríbete
         <i slot="icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </Button>
     </div>
 
+    {/* Seis enlaces no entran en un móvil: la fila se desliza en vez de encimarse */}
     <nav
       aria-label="Secciones de DevFest"
-      class="grid auto-cols-fr grid-flow-col gap-df-xs md:hidden"
+      class="-mx-df-gutter-mobile flex gap-df-lg overflow-x-auto px-df-gutter-mobile [scrollbar-width:none] md:hidden"
     >
       {
         links.map(({ href, label }) => (
           <a
             href={href}
-            class="flex min-h-11 items-center justify-center whitespace-nowrap text-df-body text-df-ink transition-colors hover:text-gdg-blue-deep focus-visible:rounded-df-tag focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
+            class="flex min-h-11 shrink-0 items-center whitespace-nowrap text-df-body text-df-ink transition-colors hover:text-gdg-blue-deep focus-visible:rounded-df-tag focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gdg-blue-deep"
           >
             {label}
           </a>

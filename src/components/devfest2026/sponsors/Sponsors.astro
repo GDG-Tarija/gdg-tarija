@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
+import SectionShell from 'components/devfest2026/common/SectionShell.astro';
+import LogoUpds from '../../../assets/images/devfest2026/sponsors/upds.png';
+import LogoEntel from '../../../assets/images/devfest2026/sponsors/entel.png';
+import LogoApapacho from '../../../assets/images/devfest2026/sponsors/apapacho.png';
+import LogoDelve from '../../../assets/images/devfest2026/sponsors/delve.png';
+import LogoTinkazo from '../../../assets/images/devfest2026/sponsors/tinkazo.png';
+import LogoNible from '../../../assets/images/devfest2026/sponsors/nible.png';
+
+const sponsors = [
+  { name: 'Entel', logo: LogoEntel },
+  // Letra fina y con subtítulo: necesita más alto para pesar igual que los demás
+  { name: 'Apapacho Coworking', logo: LogoApapacho, size: 'h-14' },
+  { name: 'Delve', logo: LogoDelve },
+  { name: 'Tinkazo', logo: LogoTinkazo },
+  { name: 'Nible', logo: LogoNible },
+];
+---
+
+<SectionShell id="sponsors" label="Sponsors" tone="surface">
+  <SectionHeading
+    id="sponsors-titulo"
+    eyebrow="Sponsors"
+    title="Quiénes hacen posible el DevFest"
+  />
+
+  <div class="flex flex-col gap-df-lg">
+    {/* La UPDS es aliado estratégico, no sponsor: va aparte y con más peso */}
+    <div
+      class="flex flex-col items-start gap-df-base rounded-df-panel border border-df-hairline bg-gdg-pastel-blue p-df-lg sm:flex-row sm:items-center sm:justify-between"
+    >
+      <div class="flex flex-col gap-df-xs">
+        <span class="text-df-label text-df-ink-muted">Aliado estratégico</span>
+        <p class="m-0 text-df-body text-pretty text-df-ink-body">
+          La Universidad Privada Domingo Savio abre sus puertas como sede del DevFest Tarija 2026.
+        </p>
+      </div>
+      <Image src={LogoUpds} alt="UPDS" class="h-12 w-auto shrink-0" />
+    </div>
+
+    <ul
+      class="m-0 grid list-none grid-cols-2 gap-df-sm p-0 sm:gap-df-base md:grid-cols-5"
+      data-reveal-group
+    >
+      {
+        sponsors.map((sponsor) => (
+          <li class="grid h-24 place-items-center last:odd:col-span-full md:last:odd:col-span-1 rounded-df-card border border-df-hairline bg-df-surface px-df-md">
+            <Image
+              src={sponsor.logo}
+              alt={sponsor.name}
+              class={`${sponsor.size ?? 'h-10'} w-auto max-w-full object-contain`}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</SectionShell>
