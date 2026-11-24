@@ -1,11 +1,150 @@
 ---
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
+import Sticker from 'components/devfest2026/common/Sticker.astro';
+import { EVENT, type ActivityId } from 'components/devfest2026/data';
+
+type ScheduleRow = {
+  kind: 'row';
+  start: string;
+  end: string;
+  activity: string;
+  room?: string;
+  sticker?: ActivityId;
+};
+
+type ParallelBlock = {
+  kind: 'parallel';
+  start: string;
+  end: string;
+  activities: { name: string; detail?: string; sticker: ActivityId }[];
+};
+
+const schedule: (ScheduleRow | ParallelBlock)[] = [
+  // El lugar del registro todavía no está definido
+  { kind: 'row', start: '08:30', end: '09:00', activity: 'Registro y check-in' },
+  {
+    kind: 'row',
+    start: '09:00',
+    end: '09:20',
+    activity: 'Bienvenida, código de conducta y palabras de la UPDS',
+    room: 'Auditorio',
+  },
+  {
+    kind: 'row',
+    start: '09:20',
+    end: '10:40',
+    activity: 'Charlas: keynote y dos charlas',
+    room: 'Auditorio',
+    sticker: 'charlas',
+  },
+  {
+    kind: 'parallel',
+    start: '11:10',
+    end: '12:45',
+    activities: [
+      { name: 'Codelabs', detail: 'Laboratorios 1 y 2', sticker: 'codelabs' },
+      { name: 'Hack Racing', detail: 'Reto, equipos y vibecoding', sticker: 'hack' },
+      { name: 'Zona Zen', detail: 'Arte terapia y expresión creativa', sticker: 'zen' },
+    ],
+  },
+  { kind: 'row', start: '12:45', end: '13:45', activity: 'Almuerzo' },
+  {
+    kind: 'parallel',
+    start: '13:45',
+    end: '15:15',
+    activities: [
+      { name: 'Codelabs', detail: 'Laboratorios 1 y 2', sticker: 'codelabs' },
+      { name: 'Hack Racing', detail: 'Vibecoding', sticker: 'hack' },
+      { name: 'Zona Zen', sticker: 'zen' },
+    ],
+  },
+  {
+    kind: 'row',
+    start: '15:15',
+    end: '15:30',
+    activity: 'Entrega de proyectos del Hack Racing',
+    sticker: 'hack',
+  },
+  {
+    kind: 'row',
+    start: '15:30',
+    end: '16:00',
+    activity: 'Demos del Hack Racing, premiación y cierre',
+    room: 'Auditorio',
+  },
+];
+
+const title = EVENT.date.replace(/ de \d{4}$/, '');
+const eventDay = EVENT.startsAt.slice(0, 10);
 ---
 
 <SectionShell id="agenda" label="Agenda" tone="green">
-  <ComponentPlaceholder
-    name="Agenda"
-    description="Cronología del sábado, con filas por actividad y bloques en paralelo."
-  />
+  <div
+    class="grid gap-df-lg md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:gap-df-lg lg:gap-df-section"
+  >
+    <div class="max-w-sm">
+      <SectionHeading
+        id="agenda-titulo"
+        eyebrow="Agenda"
+        title={title}
+        lead={`De ${EVENT.schedule} en la ${EVENT.venueShort}. Primero las charlas, una tras otra. Después, las actividades corren en paralelo en dos bloques, antes y después del almuerzo: elige tu recorrido.`}
+      />
+    </div>
+
+    <ol class="m-0 min-w-0 list-none p-0" aria-label={`Cronograma del ${title.toLowerCase()}`}>
+      {
+        schedule.map((item) => (
+          <li class="min-w-0">
+            {item.kind === 'row' ? (
+              <div class="grid min-h-14 grid-cols-[3.5rem_minmax(0,1fr)] items-start gap-x-df-sm border-b border-df-hairline py-df-md sm:grid-cols-[4rem_minmax(0,1fr)_auto] sm:items-center sm:gap-x-df-base">
+                <time
+                  class="pt-0.5 text-df-label text-df-ink-body tabular-nums sm:pt-0"
+                  datetime={`${eventDay}T${item.start}:00-04:00`}
+                  aria-label={`${item.start} a ${item.end}`}
+                >
+                  {item.start}
+                </time>
+                <div class="flex min-w-0 flex-wrap items-start gap-x-df-sm gap-y-df-xs text-df-body text-df-ink sm:items-center">
+                  {item.sticker && (
+                    <span aria-hidden="true">
+                      <Sticker activity={item.sticker} size={20} />
+                    </span>
+                  )}
+                  <span class="min-w-0">{item.activity}</span>
+                </div>
+                {item.room && (
+                  <span class="col-start-2 mt-df-xs w-fit rounded-df-tag border border-df-hairline px-df-xs text-df-label text-df-ink-body sm:col-start-auto sm:mt-0">
+                    {item.room}
+                  </span>
+                )}
+              </div>
+            ) : (
+              <div class="my-df-sm rounded-df-card border border-df-hairline bg-df-ink-strong/5 p-df-base">
+                <p class="m-0 text-df-label text-df-ink-strong">
+                  <span class="font-medium text-df-ink">En paralelo</span> · {item.start} –{' '}
+                  {item.end}
+                </p>
+                <ul class="mt-df-md grid min-w-0 grid-cols-2 gap-x-df-base gap-y-df-md p-0 list-none">
+                  {item.activities.map((activity) => (
+                    <li class="flex min-w-0 items-start gap-df-sm">
+                      <span aria-hidden="true">
+                        <Sticker activity={activity.sticker} size={22} />
+                      </span>
+                      <div class="min-w-0 text-df-label text-df-ink-strong">
+                        <span class="block">{activity.name}</span>
+                        {activity.detail && (
+                          <span class="block text-df-ink-muted">{activity.detail}</span>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </li>
+        ))
+      }
+    </ol>
+  </div>
 </SectionShell>
