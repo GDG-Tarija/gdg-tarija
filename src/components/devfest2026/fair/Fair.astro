@@ -1,8 +1,60 @@
 ---
+import { DEVFEST_ASSETS } from 'components/devfest2026/assets';
+import ImageSlot from 'components/devfest2026/common/ImageSlot.astro';
+import SectionHeading from 'components/devfest2026/common/SectionHeading.astro';
 import SectionShell from 'components/devfest2026/common/SectionShell.astro';
-import ComponentPlaceholder from 'components/devfest2026/common/ComponentPlaceholder.astro';
+import Sticker from 'components/devfest2026/common/Sticker.astro';
+import { ACTIVITY_NAMES, type ActivityId } from 'components/devfest2026/data';
+
+// La feria va al centro del recorrido: todas las actividades pasan por ella. Sin nombres hasta que se confirmen
+const stops: ActivityId[] = ['charlas', 'codelabs', 'feria', 'hack', 'zen'];
 ---
 
-<SectionShell label="Feria de comunidades y sponsors" tone="surface">
-  <ComponentPlaceholder name="Fair" description="Espacios Tu marca aquí y botón Sé sponsor." />
+<SectionShell id="feria" label={ACTIVITY_NAMES.feria} tone="ice">
+  <SectionHeading
+    id="feria-titulo"
+    eyebrow="Feria"
+    title={ACTIVITY_NAMES.feria}
+    lead="Abierta durante toda la jornada: entre una actividad y otra, recorre los stands de comunidades y empresas de la región."
+  />
+
+  <div class="relative">
+    {/* Línea del recorrido: vertical en móvil, horizontal desde md */}
+    <span
+      aria-hidden="true"
+      class="absolute inset-y-6 left-[47px] w-(--df-stroke-route) bg-df-route md:inset-x-8 md:top-[44px] md:bottom-auto md:left-8 md:h-(--df-stroke-route) md:w-auto"
+    ></span>
+    <ol
+      class="relative m-0 flex list-none flex-col gap-df-lg p-0 md:flex-row md:items-start md:justify-between"
+      data-reveal-group
+    >
+      {
+        stops.map((id) => {
+          const isFair = id === 'feria';
+          return (
+            <li class="flex items-center gap-df-base md:flex-col md:gap-df-sm md:text-center">
+              {/* El fondo tapa la línea; en móvil todas las cajas miden w-24 para que la línea pase por el centro */}
+              <span
+                aria-hidden="true"
+                class={`grid shrink-0 place-items-center rounded-df-card bg-gdg-ice-blue ${isFair ? 'size-24 md:-mt-6' : 'h-14 w-24 md:mt-4 md:w-14'}`}
+              >
+                <Sticker activity={id} size={isFair ? 88 : 48} />
+              </span>
+              <span class="flex flex-col">
+                <span
+                  class={`text-df-ink-strong ${isFair ? 'text-df-title md:max-w-40' : 'text-df-body'}`}
+                >
+                  {isFair ? 'Feria' : ACTIVITY_NAMES[id]}
+                </span>
+                {isFair && <span class="text-df-label text-df-ink-muted">Toda la jornada</span>}
+              </span>
+            </li>
+          );
+        })
+      }
+      <li aria-hidden="true" class="hidden w-24 shrink-0 md:block lg:w-28">
+        <ImageSlot label="" ratio="625 / 861" src={DEVFEST_ASSETS.capybara} fit="contain" />
+      </li>
+    </ol>
+  </div>
 </SectionShell>
