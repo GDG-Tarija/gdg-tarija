@@ -72,22 +72,31 @@ const countdown = [
       </h1>
 
       <div class="mt-df-lg" data-countdown data-starts-at={EVENT.startsAt}>
+        {/* Cuatro fichas en una fila: el reloj se lee de un vistazo y no compite con la fecha */}
         <div
-          class="grid w-fit grid-cols-[repeat(2,minmax(0,5.5rem))] gap-x-df-base gap-y-df-lg sm:w-full sm:max-w-2xl sm:grid-cols-3"
+          class="grid max-w-lg grid-cols-4 gap-df-sm sm:gap-df-base"
           data-countdown-clock
           role="timer"
           aria-label="Cuenta regresiva para DevFest Tarija 2026"
         >
           {
             countdown.map(({ unit, label, mobileLabel }) => (
-              <div class="min-w-0" data-countdown-unit={unit} data-countdown-label={label}>
-                <Numeral value="--" label={label + ': --'} />
-                <span
-                  aria-hidden="true"
-                  class="mt-df-xs block text-df-body text-df-ink-strong sm:text-df-lead"
-                >
-                  <span class="sm:hidden">{mobileLabel}</span>
-                  <span class="hidden sm:inline">{label}</span>
+              <div
+                class="flex min-w-0 flex-col items-center gap-df-xs rounded-df-card border border-df-hairline bg-df-surface/85 px-df-xs py-df-md backdrop-blur-sm"
+                data-countdown-unit={unit}
+                data-countdown-label={label}
+              >
+                <span class="text-df-headline tabular-nums sm:text-df-display">
+                  <span
+                    class="bg-clip-text text-transparent [background-image:var(--df-gradient-numeral)]"
+                    aria-hidden="true"
+                  >
+                    --
+                  </span>
+                  <span class="sr-only">{label}: --</span>
+                </span>
+                <span aria-hidden="true" class="text-df-label text-df-ink-muted uppercase">
+                  {mobileLabel}
                 </span>
               </div>
             ))
@@ -106,7 +115,7 @@ const countdown = [
         class="mt-df-lg flex flex-col items-start gap-df-sm sm:flex-row sm:flex-wrap sm:items-center sm:gap-df-base"
       >
         <Button href={EVENT.registerUrl} iconPosition="right">
-          Inscribite por
+          Inscríbete por
           <s><span class="sr-only">antes </span>{EVENT.regularPrice}</s>
           {
             /* 700 está reservado en DESIGN.md; se usa solo aquí para destacar el precio con descuento */
